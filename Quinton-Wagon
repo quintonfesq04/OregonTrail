@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+
+class Wagon extends Inventory {
+    private int weightCapacity;
+    private int currentWeight;
+    private ArrayList<Item> items;
+
+    public Wagon(int weightCapacity) {
+        super();
+        this.weightCapacity = weightCapacity;
+        this.currentWeight = 0;
+        this.items = new ArrayList<>();
+    }
+
+    // Method to add an item to the wagon
+    public void addItem(Item item) {
+        if (currentWeight + item.getWeight() <= weightCapacity) {
+            items.add(item);
+            currentWeight += item.getWeight();
+            System.out.println(item.getName() + " added to the wagon.");
+        } else {
+            System.out.println("Cannot add " + item.getName() + ". Exceeds weight capacity.");
+        }
+    }
+
+    // Method to remove an item from the wagon
+    public void removeItem(Item item) {
+        if (items.remove(item)) {
+            currentWeight -= item.getWeight();
+        } else {
+            System.out.println(item.getName() + " is not in the wagon.");
+        }
+    }
+
+    // Method to get the total weight of the wagon
+    public int getTotalWeight() {
+        return currentWeight;
+    }
+
+    // Method to get the remaining weight capacity of the wagon
+    public int getRemainingCapacity() {
+        return weightCapacity - currentWeight;
+    }
+
+    // Method to display the items in the wagon
+    public void displayItems() {
+        System.out.println("Items in the wagon:");
+        for (Item item : items) {
+            System.out.println(item.getName() + " - Weight: " + item.getWeight());
+        }
+    }
+}
