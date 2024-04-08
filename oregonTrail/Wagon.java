@@ -1,4 +1,4 @@
-package oregonTrail;
+
 
 /**
  * a class that keeps track of damage done to wagon as well as the wagons weight
