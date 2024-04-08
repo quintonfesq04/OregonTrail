@@ -17,6 +17,7 @@ public class Inventory {
             items.put(item, currentCount + count);
         }
         else {
+            int newCount = Math.max(0, count);
             items.put(item, newCount);
         }
     }
