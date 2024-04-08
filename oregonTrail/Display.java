@@ -1,35 +1,22 @@
 
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.BoxLayout;
-import javax.swing.Icon;
 import javax.swing.JPanel;
-import javax.swing.SpringLayout;
-
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
 import java.awt.GridLayout;
 import java.awt.Image;
-
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.Component;
 import javax.swing.JSlider;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.border.LineBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.EmptyBorder;
+import javax.swing.border.*;
 import javax.swing.SwingConstants;
-import java.awt.Dimension;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 
