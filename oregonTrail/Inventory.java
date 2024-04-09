@@ -1,6 +1,14 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Calculates and tracks the items in the inventory, as well as items added or removed from inventory. Allows user to search
+ * for the count of a specific item count.
+ * 
+ * @author Quinton Fesq
+ * @version 1.0  4/3/2024
+ */
+
 public class Inventory {
     private Map<String, Integer> items;
 
