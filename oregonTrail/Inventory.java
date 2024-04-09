@@ -57,7 +57,7 @@ public class Inventory {
         // Create an instance of the Inventory class
         Inventory inventory = new Inventory();
 
-        // Test for the methdos
+        // Test for the methods
         inventory.addItem("Food", 10);
         inventory.addItem("Water", 20);
 
