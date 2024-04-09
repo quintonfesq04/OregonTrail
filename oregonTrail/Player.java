@@ -1,3 +1,9 @@
+/**
+ * File: Player.java
+ * Author: Madison Scott
+ * Date: 4/8/24
+ * Description: controls the players health and sickness count
+ */
 public class Player {
     private int health;
     private int food;

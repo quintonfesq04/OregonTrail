@@ -21,6 +21,12 @@ import javax.swing.event.ChangeEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+/**
+ * @file Display.java
+ * @author Ethan Burch
+ * @version 1.0.2 4/6/24
+ */
 public class Display {
 
 	private JFrame frame;
@@ -41,8 +47,6 @@ public class Display {
 	private Inventory inventory = new Inventory();
 
 	private Conditions conditions;
-	
-	private Travel travel = new Travel(15, 0, 100);
 
 	private Image backgroundImage;
 	/**
@@ -188,6 +192,7 @@ public class Display {
 		JSlider slider = new JSlider();
 		slider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
+				// tell user their speed
 				sliderLbl.setText( "Speed: " + slider.getValue() );
 			}
 		});
@@ -267,45 +272,53 @@ public class Display {
 		
 		conditions = new Conditions(inventory);
 
+		JOptionPane.showMessageDialog(null, "You are starting the trail in Fort Bridger and are traveling 90 miles away to Soda Springs.");
+
 		JButton travelBtn = new JButton("Travel");
 		travelBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
 		travelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				if(locations.getDistance() != 0){
-					daysPassed++;
-					milesTraveled += slider.getValue();
-				}
-				traveledLbl.setText("Miles Traveled: "+ milesTraveled);
-				daysLbl.setText("Days Passed: " + daysPassed);
-				if (fillingButton.isSelected()) 
-					user.setConsumption(fillingButton.getText());
-				else if(meagerButton.isSelected())
-					user.setConsumption(meagerButton.getText());
-				else 
-					user.setConsumption(bareBonesButton.getText());
+				if(milesTraveled != 0){ //if there is still trail to travel on
+					if(locations.getDistance() != 0){
+						daysPassed++;
+						milesTraveled += slider.getValue();
+					}
+					// reset all vairables
+					traveledLbl.setText("Miles Traveled: "+ milesTraveled);
+					daysLbl.setText("Days Passed: " + daysPassed);
+					if (fillingButton.isSelected()) 
+						user.setConsumption(fillingButton.getText());
+					else if(meagerButton.isSelected())
+						user.setConsumption(meagerButton.getText());
+					else 
+						user.setConsumption(bareBonesButton.getText());
+					
+					// determine random events
+					conditions.setInventory(inventory);
+					conditions.handleInventory();
+					conditions.getInventory();
+					
+					String str = conditions.getConditionMessage(); 
+					if(str.compareTo("") != 0) // make sure there is a string to display
 
-				conditions.setInventory(inventory);
-				conditions.handleInventory();
-				conditions.getInventory();
-				String str = conditions.getConditionMessage(); // add label to put this later.
-				if(str.compareTo("") != 0)
-					JOptionPane.showMessageDialog(null, str);
-				inventory.removeItem("food", user.getConsumption());
-				foodLabel.setText("Lbs of Food: " + inventory.getItemCount("food"));
-				inventory.removeItem("water", 10);
-				waterLabel.setText("Lbs of Water: " + inventory.getItemCount("water"));
-				user.setFood(inventory.getItemCount("food"));
-				wheelLabel.setText("Wagon Wheels: " + inventory.getItemCount("wheel"));
-				tongueLabel.setText("Wagon Tongues:" + inventory.getItemCount("tongue"));
-				axleLabel.setText("Wagon Axles: " + inventory.getItemCount("axle"));
+						JOptionPane.showMessageDialog(null, str);
+					inventory.removeItem("food", user.getConsumption());
+					foodLabel.setText("Lbs of Food: " + inventory.getItemCount("food"));
+					inventory.removeItem("water", 10);
+					waterLabel.setText("Lbs of Water: " + inventory.getItemCount("water"));
+					user.setFood(inventory.getItemCount("food"));
+					wheelLabel.setText("Wagon Wheels: " + inventory.getItemCount("wheel"));
+					tongueLabel.setText("Wagon Tongues:" + inventory.getItemCount("tongue"));
+					axleLabel.setText("Wagon Axles: " + inventory.getItemCount("axle"));
 				
-				distanceLbl.setText("Distance: " + locations.calculateDistance(slider.getValue()));
+					distanceLbl.setText("Distance: " + locations.calculateDistance(slider.getValue()));
+					if(milesTraveled == 90){
+						JOptionPane.showMessageDialog(null, "You have made it to Soda Springs");
+					}
+				}
 			}
 		});
 		travelBtn.setBackground(Color.LIGHT_GRAY);
 		travelPanel.add(travelBtn); 
-		
-	
 	}
 }
