@@ -34,9 +34,11 @@ public class Display {
 	private int milesTraveled = 0;
 	private int daysPassed = 0;
 	
-	private Player user = new Player(health, food, 0);
+	private Player user = new Player(health, food, 0, 0);
 
+	private Inventory inventory = new Inventory();
 
+	private Travel travel = new Travel(15, 0, 100);
 
 	private Image backgroundImage;
 	/**
@@ -125,25 +127,35 @@ public class Display {
 		foodLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inventoryShowPanel.add(foodLabel);
 		
+		inventory.addItem("food", food);
+
 		JLabel waterLabel = new JLabel("Lbs of Water: " + water);
 		waterLabel.setBackground(Color.LIGHT_GRAY);
 		waterLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inventoryShowPanel.add(waterLabel);
+
+		inventory.addItem("water", water);
 
 		JLabel wheelLabel = new JLabel("Wagon Wheels: " + wagonWheel);
 		wheelLabel.setBackground(Color.LIGHT_GRAY);
 		wheelLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inventoryShowPanel.add(wheelLabel);
 
+		inventory.addItem("wheel", wagonWheel);
+
 		JLabel tongueLabel = new JLabel("Wagon Tongues: " + wagonTongue);
 		tongueLabel.setBackground(Color.LIGHT_GRAY);
 		tongueLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inventoryShowPanel.add(tongueLabel);
 
+		inventory.addItem("tongue", wagonTongue);
+
 		JLabel axleLabel = new JLabel("Wagon Axles: " + wagonAxle);
 		axleLabel.setBackground(Color.LIGHT_GRAY);
 		axleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inventoryShowPanel.add(axleLabel);
+
+		inventory.addItem("axle", wagonAxle);
 
 		JPanel panel_5 = new JPanel();
 		panel_5.setOpaque(false);
@@ -252,7 +264,18 @@ public class Display {
 				milesTraveled += slider.getValue();
 				traveledLbl.setText("Miles Traveled: "+ milesTraveled);
 				daysLbl.setText("Days Passed: " + daysPassed);
-				
+				if (fillingButton.isSelected()) 
+					user.setConsumption(fillingButton.getText());
+				else if(meagerButton.isSelected())
+					user.setConsumption(meagerButton.getText());
+				else 
+					user.setConsumption(bareBonesButton.getText());
+
+				inventory.removeItem("food", user.getConsumption());
+				foodLabel.setText("Lbs of Food: " + inventory.getItemCount("food"));
+				water -= 10;
+				waterLabel.setText("Lbs of Water: " + water);
+				user.setFood(inventory.getItemCount("food"));
 				
 			}
 		});
