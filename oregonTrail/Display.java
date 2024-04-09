@@ -33,13 +33,14 @@ public class Display {
 	private int spaceBetween = 5;
 	private int food = 200;
 	private int water = 100;
-	private int wagonTongue = 2;
-	private int wagonWheel = 2;
-	private int wagonAxle = 2;
+	private int wagonTongue = 1;
+	private int wagonWheel = 1;
+	private int wagonAxle = 1;
 	private int health = 100;
 	private int milesTraveled = 0;
 	private int daysPassed = 0;
-	
+	private boolean brokenWagon = false;
+
 	private Locations locations = new Locations(90);
 
 	private Player user = new Player(health, food, 0, 0);
@@ -278,7 +279,7 @@ public class Display {
 		travelBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
 		travelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(milesTraveled != 0){ //if there is still trail to travel on
+				if(milesTraveled != 90 && !brokenWagon){ //if there is still trail to travel on
 					if(locations.getDistance() != 0){
 						daysPassed++;
 						milesTraveled += slider.getValue();
@@ -300,8 +301,9 @@ public class Display {
 					
 					String str = conditions.getConditionMessage(); 
 					if(str.compareTo("") != 0) // make sure there is a string to display
-
 						JOptionPane.showMessageDialog(null, str);
+					else if(str.compareTo("Random Event: Your wagon broke down." + " You were unable to fix it!") == 0)
+						brokenWagon = true;
 					inventory.removeItem("food", user.getConsumption());
 					foodLabel.setText("Lbs of Food: " + inventory.getItemCount("food"));
 					inventory.removeItem("water", 10);
