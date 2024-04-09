@@ -27,17 +27,21 @@ public class Display {
 	private int spaceBetween = 5;
 	private int food = 200;
 	private int water = 100;
-	private int wagonTongue = 1;
-	private int wagonWheel = 1;
-	private int wagonAxle = 1;
+	private int wagonTongue = 2;
+	private int wagonWheel = 2;
+	private int wagonAxle = 2;
 	private int health = 100;
 	private int milesTraveled = 0;
 	private int daysPassed = 0;
 	
+	private Locations locations = new Locations(90);
+
 	private Player user = new Player(health, food, 0, 0);
 
 	private Inventory inventory = new Inventory();
 
+	private Conditions conditions;
+	
 	private Travel travel = new Travel(15, 0, 100);
 
 	private Image backgroundImage;
@@ -201,6 +205,11 @@ public class Display {
 		traveledLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_4.add(traveledLbl);
 
+		JLabel distanceLbl = new JLabel("Distance: " + locations.getDistance());
+		distanceLbl.setForeground(Color.LIGHT_GRAY);
+		distanceLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_4.add(distanceLbl);
+
 		JLabel daysLbl = new JLabel("Days Passed: " + daysPassed);
 		daysLbl.setForeground(Color.LIGHT_GRAY);
 		daysLbl.setHorizontalAlignment(SwingConstants.CENTER);
@@ -256,12 +265,17 @@ public class Display {
 		travelPanel.setLayout(new BoxLayout(travelPanel, BoxLayout.X_AXIS));
 		travelPanel.setOpaque(false);
 		
+		conditions = new Conditions(inventory);
+
 		JButton travelBtn = new JButton("Travel");
 		travelBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
 		travelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				daysPassed++;
-				milesTraveled += slider.getValue();
+				
+				if(locations.getDistance() != 0){
+					daysPassed++;
+					milesTraveled += slider.getValue();
+				}
 				traveledLbl.setText("Miles Traveled: "+ milesTraveled);
 				daysLbl.setText("Days Passed: " + daysPassed);
 				if (fillingButton.isSelected()) 
@@ -271,12 +285,22 @@ public class Display {
 				else 
 					user.setConsumption(bareBonesButton.getText());
 
+				conditions.setInventory(inventory);
+				conditions.handleInventory();
+				conditions.getInventory();
+				String str = conditions.getConditionMessage(); // add label to put this later.
+				if(str.compareTo("") != 0)
+					JOptionPane.showMessageDialog(null, str);
 				inventory.removeItem("food", user.getConsumption());
 				foodLabel.setText("Lbs of Food: " + inventory.getItemCount("food"));
-				water -= 10;
-				waterLabel.setText("Lbs of Water: " + water);
+				inventory.removeItem("water", 10);
+				waterLabel.setText("Lbs of Water: " + inventory.getItemCount("water"));
 				user.setFood(inventory.getItemCount("food"));
+				wheelLabel.setText("Wagon Wheels: " + inventory.getItemCount("wheel"));
+				tongueLabel.setText("Wagon Tongues:" + inventory.getItemCount("tongue"));
+				axleLabel.setText("Wagon Axles: " + inventory.getItemCount("axle"));
 				
+				distanceLbl.setText("Distance: " + locations.calculateDistance(slider.getValue()));
 			}
 		});
 		travelBtn.setBackground(Color.LIGHT_GRAY);
