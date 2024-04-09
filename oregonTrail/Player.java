@@ -15,6 +15,8 @@ public class Player {
     	this.sicknessCount = sicknessCount;
     }
 
+    
+    
     // Getter and setter methods for health
     public int getHealth() {
         return health;

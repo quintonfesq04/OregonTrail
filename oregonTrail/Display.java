@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.io.File;
@@ -24,7 +25,19 @@ public class Display {
 
 	private JFrame frame;
 	private int spaceBetween = 5;
+	private int food = 200;
+	private int water = 100;
+	private int wagonTongue = 1;
+	private int wagonWheel = 1;
+	private int wagonAxle = 1;
+	private int health = 100;
+	private int milesTraveled = 0;
+	private int daysPassed = 0;
 	
+	private Player user = new Player(health, food, 0);
+
+
+
 	private Image backgroundImage;
 	/**
 	 * Launch the application.
@@ -96,16 +109,42 @@ public class Display {
 		inventoryPanel.add(inventoryShowPanel);
 		inventoryShowPanel.setLayout(new BoxLayout(inventoryShowPanel, BoxLayout.Y_AXIS));
 		
-		JLabel foodLabel = new JLabel("Lbs of Food: ");
+		JLabel healthLabel = new JLabel("Player Health: " + health);
+		healthLabel.setBackground(Color.LIGHT_GRAY);
+		healthLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		inventoryShowPanel.add(healthLabel);
+		
+
+		JLabel inventoryLabel = new JLabel("Inventory");
+		inventoryLabel.setBackground(Color.LIGHT_GRAY);
+		inventoryLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		inventoryShowPanel.add(inventoryLabel);
+
+		JLabel foodLabel = new JLabel("Lbs of Food: " + food);
 		foodLabel.setBackground(Color.LIGHT_GRAY);
 		foodLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inventoryShowPanel.add(foodLabel);
 		
-		JLabel waterLabel = new JLabel("Lbs of Water: ");
+		JLabel waterLabel = new JLabel("Lbs of Water: " + water);
 		waterLabel.setBackground(Color.LIGHT_GRAY);
 		waterLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		inventoryShowPanel.add(waterLabel);
-		
+
+		JLabel wheelLabel = new JLabel("Wagon Wheels: " + wagonWheel);
+		wheelLabel.setBackground(Color.LIGHT_GRAY);
+		wheelLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		inventoryShowPanel.add(wheelLabel);
+
+		JLabel tongueLabel = new JLabel("Wagon Tongues: " + wagonTongue);
+		tongueLabel.setBackground(Color.LIGHT_GRAY);
+		tongueLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		inventoryShowPanel.add(tongueLabel);
+
+		JLabel axleLabel = new JLabel("Wagon Axles: " + wagonAxle);
+		axleLabel.setBackground(Color.LIGHT_GRAY);
+		axleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		inventoryShowPanel.add(axleLabel);
+
 		JPanel panel_5 = new JPanel();
 		panel_5.setOpaque(false);
 		inventoryPanel.add(panel_5);
@@ -145,6 +184,16 @@ public class Display {
 		slider.setMaximum(20);
 		slider.setBackground(Color.DARK_GRAY);
 		
+		JLabel traveledLbl = new JLabel("Miles Traveled: " + milesTraveled );
+		traveledLbl.setForeground(Color.LIGHT_GRAY);
+		traveledLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_4.add(traveledLbl);
+
+		JLabel daysLbl = new JLabel("Days Passed: " + daysPassed);
+		daysLbl.setForeground(Color.LIGHT_GRAY);
+		daysLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_4.add(daysLbl);
+
 		JPanel panel_7 = new JPanel();
 		panel_7.setOpaque(false);
 		travelSpeedPanel.add(panel_7);
@@ -164,22 +213,27 @@ public class Display {
 		foodConsumptionPanel.add(panel);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Meager");
-		rdbtnNewRadioButton.setBackground(Color.LIGHT_GRAY);
-		panel.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		JRadioButton meagerButton = new JRadioButton("Meager");
+		meagerButton.setBackground(Color.LIGHT_GRAY);
+		panel.add(meagerButton);
+		meagerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("theOtherOne");
-		rdbtnNewRadioButton_2.setBackground(Color.LIGHT_GRAY);
-		rdbtnNewRadioButton_2.setAlignmentX(0.5f);
-		panel.add(rdbtnNewRadioButton_2);
+		JRadioButton bareBonesButton = new JRadioButton("Bare-Bones");
+		bareBonesButton.setBackground(Color.LIGHT_GRAY);
+		bareBonesButton.setAlignmentX(0.5f);
+		panel.add(bareBonesButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Filling");
-		rdbtnNewRadioButton_1.setBackground(Color.LIGHT_GRAY);
-		rdbtnNewRadioButton_1.setForeground(Color.BLACK);
-		panel.add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.setAlignmentX(Component.CENTER_ALIGNMENT);
-		
+		JRadioButton fillingButton = new JRadioButton("Filling");
+		fillingButton.setBackground(Color.LIGHT_GRAY);
+		fillingButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+		panel.add(fillingButton);
+
+		ButtonGroup btnGroup = new ButtonGroup();
+		btnGroup.add(fillingButton);
+		btnGroup.add(meagerButton);
+		btnGroup.add(bareBonesButton);
+		fillingButton.setSelected(true);
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setOpaque(false);
 		foodConsumptionPanel.add(panel_1);
@@ -191,8 +245,14 @@ public class Display {
 		travelPanel.setOpaque(false);
 		
 		JButton travelBtn = new JButton("Travel");
+		travelBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
 		travelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				daysPassed++;
+				milesTraveled += slider.getValue();
+				traveledLbl.setText("Miles Traveled: "+ milesTraveled);
+				daysLbl.setText("Days Passed: " + daysPassed);
+				
 				
 			}
 		});
