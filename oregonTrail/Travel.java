@@ -1,4 +1,4 @@
-package oregonTrail;
+
 
 public class Travel {
     private int speed;
