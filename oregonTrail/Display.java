@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.Component;
@@ -190,10 +192,14 @@ public class Display {
 		travelPanel.setLayout(new BoxLayout(travelPanel, BoxLayout.X_AXIS));
 		travelPanel.setOpaque(false);
 		
-		JButton btnNewButton = new JButton("Travel");
-		btnNewButton.setBackground(Color.LIGHT_GRAY);
-		travelPanel.add(btnNewButton); 
-		
+		JButton travelBtn = new JButton("Travel");
+		travelBtn.setBackground(Color.LIGHT_GRAY);
+		travelPanel.add(travelBtn); 
+		travelBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 	
 	}
 }
