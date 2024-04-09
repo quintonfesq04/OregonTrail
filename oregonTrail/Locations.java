@@ -1,3 +1,7 @@
+/**
+ * @file Locations.java
+ * @author 
+ */
 public class Locations {
     private int distance;
 
