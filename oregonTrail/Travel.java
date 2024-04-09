@@ -1,4 +1,10 @@
 
+/**
+ * Calculates and tracks the speed and miles traveled
+ * 
+ * @author Ethan Burch
+ * @version 1.0  4/3/2024
+ */
 
 public class Travel {
     private int speed;
