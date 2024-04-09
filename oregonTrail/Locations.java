@@ -3,7 +3,6 @@
  * @author Lane Kanagy
  * @version 1.0.0 4/8/24
  */
-
 public class Locations {
     private int distance;
 
