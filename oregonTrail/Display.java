@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
  * @file Display.java
  * @author Ethan Burch
  * @version 1.0.2 4/6/24
+ * Controls the display of the Wagon
  */
 public class Display {
 

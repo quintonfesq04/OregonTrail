@@ -1,7 +1,7 @@
 
 /**
  * Calculates and tracks the speed and miles traveled
- * 
+ * @File Travel.java
  * @author Ethan Burch
  * @version 1.0  4/3/2024
  */
