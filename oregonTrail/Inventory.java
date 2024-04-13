@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 /**
  * Calculates and tracks the items in the inventory, as well as items added or removed from inventory. Allows user to search
@@ -60,6 +61,51 @@ public class Inventory {
         items.clear();
     }
 
+    // Method to edit the amount of weight carried of a certain item
+    public void editItemWeight(String item, int newWeight) {
+        Integer currentWeight = items.get(item);
+        if (currentWeight != null) {
+            items.put(item, newWeight);
+        } else {
+            JOptionPane.showMessageDialog(null, "Item not found in inventory.");
+        }
+    }
+
+    // Method to add items called from the store class
+    public void addItemsFromStore(String item, int count) {
+        addItem(item, count);
+        JOptionPane.showMessageDialog(null, count + " " + item + " added to inventory from the store.");
+    }
+
+    // Method to add/remove items called from the trading class
+    public void tradeItems(String item, int count) {
+        if (count >= 0) {
+            addItem(item, count);
+            JOptionPane.showMessageDialog(null, count + " " + item + " added to inventory through trading.");
+        } else {
+            count *= -1; // Convert negative count to positive for removal
+            removeItem(item, count);
+            JOptionPane.showMessageDialog(null, count + " " + item + " removed from inventory through trading.");
+        }
+    }
+
+    // Method to add items called from the hunting class
+    public void addItemsFromHunting(String item, int count) {
+        addItem(item, count);
+        JOptionPane.showMessageDialog(null, count + " " + item + " added to inventory from hunting.");
+    }
+
+    // Method to remove bullets
+    public void removeBullets(int count) {
+        removeItem("bullets", count);
+        JOptionPane.showMessageDialog(null, count + " bullets removed from inventory.");
+    }
+
+    // Method to create a unified way of grabbing the necessary items from the HashMap
+    public String[] getItemsArray() {
+        return items.keySet().toArray(new String[0]);
+    }
+
     // Main method for the Inventory class
     public static void main(String[] args) {
         // Create an instance of the Inventory class
@@ -69,12 +115,12 @@ public class Inventory {
         inventory.addItem("Food", 10);
         inventory.addItem("Water", 20);
 
-        System.out.println("Item count of Food: " + inventory.getItemCount("Food"));
-        System.out.println("Item count of Water: " + inventory.getItemCount("Water"));
+        JOptionPane.showMessageDialog(null, "Item count of Food: " + inventory.getItemCount("Food"));
+        JOptionPane.showMessageDialog(null, "Item count of Water: " + inventory.getItemCount("Water"));
 
         inventory.removeItem("Food", 5);
-        System.out.println("Item count of Food after removal: " + inventory.getItemCount("Food"));
+        JOptionPane.showMessageDialog(null, "Item count of Food after removal: " + inventory.getItemCount("Food"));
 
-        System.out.println("Inventory summary: " + inventory.getInventorySummary());
+        JOptionPane.showMessageDialog(null, "Inventory summary: " + inventory.getInventorySummary());
     }
 }
