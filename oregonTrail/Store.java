@@ -1,3 +1,4 @@
+import java.lang.reflect.AccessFlag.Location;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -7,14 +8,17 @@ import javax.swing.JOptionPane;
 public class Store {
     private double[] prices;
     private Inventory inventory;
-    private Random random;
+    private Location location;
+    private HashMap<String, Double> itemPrices;
 
-    public Store() {
-       this.prices = new double[6];
-       initializePrices();
+    public Store(Location location, Inventory inventory) {
+        this.location = location;
+        this.inventory = inventory;
+        this.itemPrices = new HashMap<>();
+        initializeItemPrices();
     }
 
-    private void initializePrices() {
+    private void initializeItemPrices() {
         double basePrice = 0.20;
 
         for (int i = 0; i < prices.length; i++) {
@@ -34,7 +38,7 @@ public class Store {
     }  
     
     public static void main(String[] args) {
-        Store store = new Store();
+        Store store = new Store(location, inventory);
     
         // Example item and location index
         String item = "food";
