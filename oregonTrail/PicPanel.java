@@ -46,4 +46,24 @@ public class PicPanel extends JPanel {
         backgroundImage = backgroundImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
     }
 
+    public void setImage(Image backgroundImage){
+        this.backgroundImage = backgroundImage;
+    }
+
+    public void setImage(String fileName){
+        try {                
+            backgroundImage = ImageIO.read(new File("image name and path"));
+         } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Image not found! Path Attempted: " + fileName);
+         }
+    }
+
+    public void setImage(File fileName){
+        try{
+            backgroundImage = ImageIO.read(fileName);
+        } catch(IOException e){
+            JOptionPane.showMessageDialog(null, "Image not found! path Attempted: " + fileName.getPath());
+        }
+    }
+
 }
