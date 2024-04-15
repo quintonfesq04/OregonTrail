@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 /**
  * @file Display.java
  * @author Ethan Burch
- * @version 1.0.2 4/6/24
+ * @version 1.2.0 4/14/24
  * Controls the display of the Wagon
  */
 public class Display {

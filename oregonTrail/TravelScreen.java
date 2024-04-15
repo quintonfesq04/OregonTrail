@@ -17,7 +17,13 @@ import javax.swing.event.ChangeEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TravelScreen {
+/**
+ * @File TravelScreen.java
+ * @Author Ethan Burch
+ * @Version 1.0.0 4/14/24
+ * Creates a JPanel for the traveling portion of the game
+ */
+public class TravelScreen extends AbstractScreen{
     JPanel panel;
     PicPanel viewPanel;
 
@@ -41,7 +47,13 @@ public class TravelScreen {
 	private Conditions conditions;
 
 
-    
+    /**
+	 * constructor for TravelScreen object
+	 * @param inventory 	- the main inventory 
+	 * @param locations 	- the location of the wagon
+	 * @param user			- the user
+	 * @param conditions	- the trail conditions
+	 */
     TravelScreen(Inventory inventory, Locations locations, Player user, Conditions conditions){
         this.inventory = inventory;
         this.locations = locations;
@@ -51,15 +63,25 @@ public class TravelScreen {
         //init();
     }
 
+	/**
+	 * getPanel	- returns the JPanel for traveling
+	 * @return	- Traveling JPanel
+	 */
     public JPanel getPanel(){
         return panel;
     }
 
-
+	/**
+	 * resizes all background images on the panel
+	 */
     public void resizeBackgroundImages(){
         viewPanel.resizeImage();
     }
-    private void initialize() {
+
+	/**
+	 * initializes the JPanel
+	 */
+    protected void initialize() {
 		panel = new JPanel();
 		
 		panel.setBounds(100, 100, 500, 500);
