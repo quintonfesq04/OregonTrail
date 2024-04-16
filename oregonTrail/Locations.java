@@ -14,13 +14,26 @@ public class Locations {
     private static int tot_Distance = 2051; 
     public int player_Distance = 0;
 
-    public final String Independace = "Independace";
-    public final String Courthouse = "Courthouse";
-    public final String Chimney = "Chimney Rock";
-    public final String Laramie = "Fort Laramie";
-    public final String iRock = "Independace Rock";
-    
-    public final String LOCATIONS[] = {"Independace","Courthouse","Chimney Rock","Fort Laramie", "Independace Rock"};
+    public static final String INDEPENDENCE = "Independence";
+    public static final String COURTHOUSE = "Courthouse";
+    public static final String CHIMNEY = "Chimney Rock";
+    public static final String LARAMIE = "Fort Laramie";
+    public static final String I_ROCK = "Independence Rock";
+    public static final String F_BRIDGER = "Fort Bridger";
+    public static final String S_SPRINGS = "Soda Springs";
+    public static final String F_HALL = "Fort Hall";
+    public static final String F_BOISE = "Fort Boise";
+    public static final String F_BOISE_NORTH = "Fort Boise North";
+    public static final String F_BOISE_SOUTH = "Fort Boise South";
+    public static final String DALLES = "The Dalles";
+    public static final String O_CITY_NORTH = "Oregon City North";
+    public static final String O_CITY_SOUTH = "Oregon City South";
+
+
+
+    public static final String LOCATIONS[] = {"Independence","Courthouse","Chimney Rock","Fort Laramie", "Independence Rock", 
+                                                "Fort Bridger", "Soda Springs", "Fort Hall", "Fort Boise", "Fort Boise North",
+                                                 "Fort Boise South", "The Dalles", "Oregon City North", "Oregon City South"};
 
     private String nextLandmark;
 
@@ -42,6 +55,7 @@ public class Locations {
      * @return String for next landmark
      */
     public String getNextLandmark(){
+        nextLandmark = Courthouse;
         return nextLandmark;
     }
 

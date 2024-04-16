@@ -62,6 +62,6 @@ public class Display {
 		travelScreen.resizeBackgroundImages();
 
 		Map map = new Map();
-		map.display();
+		map.display(locations);
 	}
 }

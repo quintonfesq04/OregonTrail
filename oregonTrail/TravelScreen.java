@@ -278,6 +278,7 @@ public class TravelScreen extends AbstractScreen{
 					if(locations.getDistance() != 0){
 						daysPassed++;
 						milesTraveled += slider.getValue();
+						
 					}
 					// reset all vairables
 					traveledLbl.setText("Miles Traveled: "+ milesTraveled);
@@ -307,8 +308,8 @@ public class TravelScreen extends AbstractScreen{
 					wheelLabel.setText("Wagon Wheels: " + inventory.getItemCount("wheel"));
 					tongueLabel.setText("Wagon Tongues:" + inventory.getItemCount("tongue"));
 					axleLabel.setText("Wagon Axles: " + inventory.getItemCount("axle"));
-				
-					distanceLbl.setText("Distance: " + locations.calculateDistance(slider.getValue()));
+					locations.addDistance(slider.getValue());
+					distanceLbl.setText("Distance: " + locations.getDistance());
 					if(milesTraveled == 90){
 						JOptionPane.showMessageDialog(null, "You have made it to Soda Springs");
 					}
