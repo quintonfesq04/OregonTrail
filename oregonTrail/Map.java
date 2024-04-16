@@ -7,7 +7,7 @@ public class Map{
     //private Locations location;
     private JFrame frame;
     private PicPanel viewPanel;
-    private File image = new File("Images\\Oregon Trail Map.jpg");
+    private File image;
     Locations location;
 
     public static void main(String[] args) {
@@ -23,13 +23,14 @@ public class Map{
 		});
 	}
 
-    
-
-    public void update(Locations location){
+    private File updateLocation(){
         
+        //////
     }
 
-    public void display(){
+    public void display(Locations location){
+        image = updateLocation();
+
         frame = new JFrame();
         frame.setBounds(200,200,500,500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
