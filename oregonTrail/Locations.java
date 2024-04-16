@@ -20,10 +20,29 @@ public class Locations {
     public final String Laramie = "Fort Laramie";
     public final String iRock = "Independace Rock";
     
+    public final String LOCATIONS[] = {"Independace","Courthouse","Chimney Rock","Fort Laramie", "Independace Rock"};
+
+    private String nextLandmark;
 
     public int setPlayerPostion(int travel){
         player_Distance = player_Distance + travel;
         return player_Distance;
+    }
+
+    /**
+     * moves along the trail
+     * @param distance the number to move along by
+     */
+    public void addDistance(int distance){
+        this.distance += distance;
+    }
+
+    /**
+     * obtain next landmark
+     * @return String for next landmark
+     */
+    public String getNextLandmark(){
+        return nextLandmark;
     }
 
     /*public String getPlayerPostion(){
