@@ -1,60 +1,54 @@
-import java.lang.reflect.AccessFlag.Location;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
-
-import javax.swing.JOptionPane;
 
 public class Store {
-    private double[] prices;
-    private Inventory inventory;
-    private Location location;
-    private Item item;
-    private HashMap<String, Double> itemPrices;
+    // Define the base prices of items
+    private Map<String, Double> basePrices;
 
-    public Store(Location location, Inventory inventory) {
-        this.item = item;
-        this.location = location;
-        this.inventory = inventory;
-        this.itemPrices = new HashMap<>();
-        initializeItemPrices();
+    public Store() {
+        // Initialize base prices
+        basePrices = new HashMap<>();
+        basePrices.put("Food", 20.0); // Example base price for food
+        // Add more base prices for other items if needed
     }
 
-    private void initializeItemPrices() {
-        double basePrice = 0.20;
+    // Method to calculate the price of an item based on the landmark
+    public double calculateItemPrice(String itemName, int landmarkIndex) {
+        // Get the base price of the item
+        double basePrice = basePrices.getOrDefault(itemName, 0.0);
 
-        for (int i = 0; i < prices.length; i++) {
-            double percentageIncreases = i * 0.25;
-            prices[i] = basePrice * (1 + percentageIncreases);
+        // Calculate the multiplier based on the landmark index
+        double multiplier = 1.0 + (landmarkIndex * 0.25); // Increase by 25% for each landmark
+
+        // Calculate the final price
+        double finalPrice = basePrice * multiplier;
+
+        return finalPrice;
+    }
+
+    // Method to display available items for trade
+    public void displayTradeItems() {
+        // Iterate through the base prices map and print out each item
+        System.out.println("Items available for trade:");
+        for (String item : basePrices.keySet()) {
+            System.out.println("- " + item);
         }
     }
 
-    public double getPriceAtLocation(String item, int locationIndex) {
-        if(locationIndex >= 0 && locationIndex < prices.length) {
-            return prices[locationIndex];
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Invalid Location Index!");
-            return -1;
-        }
-    }  
-    
-    public static void main(String[] args) {
-        Store store = new Store(location, inventory);
-    
-        // Example item and location index
-        String item = "food";
-        int locationIndex = 0; // Ensure this is within the valid range
-    
-        // Get the price of the item at the specified location index
-        double price = store.getPriceAtLocation(item, locationIndex);
-    
-        // Check if the price is valid (-1 indicates invalid price)
-        if (price != -1) {
-            JOptionPane.showMessageDialog(null, "Price of " + item + " at location " + locationIndex + ": $" + price);
-        } else {
-            JOptionPane.showMessageDialog(null, "Invalid item or location index.");
-        }
-    }    
+    // Method to perform trading between items
+    public void tradeItems(String itemToSell, double amountToSell, String itemToBuy, int landmarkIndex) {
+        // Calculate the price of the item to sell
+        double sellPrice = calculateItemPrice(itemToSell, landmarkIndex);
 
+        // Calculate the price of the item to buy
+        double buyPrice = calculateItemPrice(itemToBuy, landmarkIndex);
+
+        // Calculate the quantity of the item to buy
+        double amountToBuy = (amountToSell * sellPrice) / buyPrice;
+
+        // Display the trade details
+        System.out.println("Trade details:");
+        System.out.println("Selling " + amountToSell + " units of " + itemToSell + " at $" + sellPrice + " each.");
+        System.out.println("Buying " + amountToBuy + " units of " + itemToBuy + " at $" + buyPrice + " each.");
+    }
 }
