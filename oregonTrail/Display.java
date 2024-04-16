@@ -57,15 +57,16 @@ public class Display {
 		
 		frame.setBounds(100, 100, 500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		if(!riverPresent)
+		if(!riverPresent){
 			frame.add(travelScreen.getPanel());
-		else if (riverPresent)
-			frame.add(new RiverScreen().getPanel());
-		frame.setVisible(true);
-		travelScreen.resizeBackgroundImages();
-
-		
-		Map map = new Map();
-		map.display(locations);
+			frame.setVisible(true);
+			travelScreen.resizeBackgroundImages();
+		}
+		else if (riverPresent){
+			RiverScreen riverScreen = new RiverScreen();
+			frame.add(riverScreen.getPanel());
+			frame.setVisible(true);
+			riverScreen.resizeBackgroundImages();
+		}		
 	}
 }
