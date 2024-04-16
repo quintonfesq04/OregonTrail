@@ -35,7 +35,7 @@ public class Locations {
                                                 "Fort Bridger", "Soda Springs", "Fort Hall", "Fort Boise", "Fort Boise North",
                                                  "Fort Boise South", "The Dalles", "Oregon City North", "Oregon City South"};
       
-    public static final int LOCATIONDISTANCE[] = {0, 566, 587, 663, 846, 1085, 1225, 1289, 1569, 1569, 1915, 2051, 2051};
+    public static final int LOCATION_DISTANCE[] = {0, 566, 587, 663, 846, 1085, 1225, 1289, 1569, 1569, 1915, 2051, 2051};
      
     private String nextLandmark;
 
@@ -48,8 +48,8 @@ public class Locations {
         int test1 = 0, test2 = 0;
 
         for(int i = 0; i<13; i++){
-            test1=LOCATIONDISTANCE[i];
-            test2=LOCATIONDISTANCE[i+1];
+            test1=LOCATION_DISTANCE[i];
+            test2=LOCATION_DISTANCE[i+1];
             if((test1<currentLoc)&&(currentLoc<test2)){
                 return LOCATIONS[i+1];
             }
@@ -69,14 +69,14 @@ public class Locations {
 
         for(int i =0; i<13; i++){
             if(currentLoc.compareTo(LOCATIONS[i])==0){
-                currentLocInt = LOCATIONDISTANCE[i];
+                currentLocInt = LOCATION_DISTANCE[i];
                 break;
             }
         }
 
         for(int i =0; i<13; i++){
             if(nextLoc.compareTo(LOCATIONS[i])==0){
-                nextLocInt = LOCATIONDISTANCE[i];
+                nextLocInt = LOCATION_DISTANCE[i];
                 break;
             }
         }
@@ -93,7 +93,7 @@ public class Locations {
 
         for(int i =0; i<13; i++){
             if(nextLoc.compareTo(LOCATIONS[i])==0){
-                nextLocInt = LOCATIONDISTANCE[i];
+                nextLocInt = LOCATION_DISTANCE[i];
                 break;
             }
         }
