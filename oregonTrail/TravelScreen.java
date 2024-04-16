@@ -88,7 +88,7 @@ public class TravelScreen extends AbstractScreen{
 		panel.setLayout(new GridLayout(2, 1, 0, 0));
 
 		
-		File image = new File("Images\\Covered Wagon.jpg");
+		File image = new File("Images\\River.jpg");
 
 		viewPanel = new PicPanel(image);
 		viewPanel.setBackground(Color.BLUE);

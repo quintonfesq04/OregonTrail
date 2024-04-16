@@ -55,7 +55,7 @@ public class Locations {
      * @return String for next landmark
      */
     public String getNextLandmark(){
-        nextLandmark = Courthouse;
+        nextLandmark = O_CITY_NORTH;
         return nextLandmark;
     }
 

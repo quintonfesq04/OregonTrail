@@ -10,19 +10,6 @@ public class Map{
     private File image;
     Locations location;
 
-    public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Map window = new Map();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
     private File updateLocation(){
         String loc = location.getNextLandmark();
 
@@ -40,8 +27,8 @@ public class Map{
         image = updateLocation();
         
         frame = new JFrame();
-        frame.setBounds(200,200,500,500);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setBounds(400,200,700,500);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setAlwaysOnTop(true);
 
         

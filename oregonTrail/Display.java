@@ -14,7 +14,7 @@ public class Display {
 	private int food = 200;
 	private int health = 100;
 
-	
+	private boolean riverPresent = true;
 
 	private Locations locations = new Locations(90);
 
@@ -57,10 +57,14 @@ public class Display {
 		
 		frame.setBounds(100, 100, 500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(travelScreen.getPanel());
+		if(!riverPresent)
+			frame.add(travelScreen.getPanel());
+		else if (riverPresent)
+			frame.add(new RiverScreen().getPanel());
 		frame.setVisible(true);
 		travelScreen.resizeBackgroundImages();
 
+		
 		Map map = new Map();
 		map.display(locations);
 	}
