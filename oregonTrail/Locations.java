@@ -11,7 +11,6 @@
 
 public class Locations {
     private int distance;
-    private static int tot_Distance = 2051; 
     public int player_Distance = 0;
 
     public static final String INDEPENDENCE = "Independence";
