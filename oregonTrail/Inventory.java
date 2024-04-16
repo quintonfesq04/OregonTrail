@@ -97,7 +97,7 @@ public class Inventory {
 
     // Method to remove bullets
     public void removeBullets(int count) {
-        removeItem("bullets", count);
+        removeItem(Item.BULLETS, count);
         JOptionPane.showMessageDialog(null, count + " bullets removed from inventory.");
     }
 
