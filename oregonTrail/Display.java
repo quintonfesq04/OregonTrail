@@ -1,6 +1,6 @@
 import java.awt.EventQueue;
 import javax.swing.JFrame;
-
+import javax.swing.JPanel;
 
 /**
  * @file Display.java
@@ -14,7 +14,7 @@ public class Display {
 	private int food = 200;
 	private int health = 100;
 
-	private boolean riverPresent = true;
+	private boolean riverPresent = false;
 
 	private Locations locations = new Locations(90);
 
@@ -26,6 +26,7 @@ public class Display {
 
 	TravelScreen travelScreen = new TravelScreen(inventory, locations, user, conditions);
 
+	static boolean changed = false;
 	/**
 	 * Launch the application.
 	 */
@@ -35,11 +36,20 @@ public class Display {
 				try {
 					Display window = new Display();
 					window.frame.setVisible(true);
+
+					 while(true){
+						if(changed == true){
+							
+						}
+					 }
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+		// Runnable r = new Controller(window);
+		// Thread t = new Thread(r);
+		// t.start();
 	}
 
 	/**
@@ -54,19 +64,41 @@ public class Display {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		
 		frame.setBounds(100, 100, 500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		if(!riverPresent){
-			frame.add(travelScreen.getPanel());
-			frame.setVisible(true);
+		JPanel panel = new JPanel();
+		frame.add(panel);
+		
+		
+
+		while(true){
+		if(!riverPresent && changed ){
+			panel.add(travelScreen.getPanel());
+			panel.setVisible(true);
 			travelScreen.resizeBackgroundImages();
 		}
 		else if (riverPresent){
 			RiverScreen riverScreen = new RiverScreen();
-			frame.add(riverScreen.getPanel());
-			frame.setVisible(true);
+			panel.remove(travelScreen.getPanel());
+			panel.add(riverScreen.getPanel());
+			panel.setVisible(true);
 			riverScreen.resizeBackgroundImages();
 		}		
+		changed = false;
+	}
+	}
+
+	public void updateDisplay(boolean riverPresent){
+		boolean changed= false;
+		if(this.riverPresent != riverPresent){
+			changed = true;
+			this.riverPresent = riverPresent;
+		}
+
+		if(changed)
+			initialize();
+	}
+	public void setRiverPresent(boolean riverPresent){
+		this.riverPresent = riverPresent;
 	}
 }
