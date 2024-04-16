@@ -1,13 +1,12 @@
 import javax.swing.JFrame;
-
-
 import java.awt.EventQueue;
 import java.io.File;
 
 
 public class Map{
-    Locations location;
-    JFrame frame;
+    private Locations location;
+    private JFrame frame;
+    private PicPanel viewPanel;
 
     public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -34,9 +33,9 @@ public class Map{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setAlwaysOnTop(true);
 
-        
-        PicPanel panel = new PicPanel("Images" + "\\" + "OregonTrailMapModified.jpg");
-        frame.add(panel);
-        panel.resizeImage();
+        File image = new File("Images\\Oregon.jpg");
+        viewPanel = new PicPanel(image);
+        frame.add(viewPanel);
+        viewPanel.resizeImage();
     }
 }

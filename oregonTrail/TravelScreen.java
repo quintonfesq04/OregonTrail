@@ -3,7 +3,6 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import java.awt.Color;
-import java.io.File;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.Component;
@@ -15,6 +14,7 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 
 /**
@@ -87,8 +87,8 @@ public class TravelScreen extends AbstractScreen{
 		panel.setBounds(100, 100, 500, 500);
 		panel.setLayout(new GridLayout(2, 1, 0, 0));
 
-		File image = new File("Images\\Covered Wagon.jpg");
 		
+		File image = new File("Images\\Covered Wagon.jpg");
 
 		viewPanel = new PicPanel(image);
 		viewPanel.setBackground(Color.BLUE);

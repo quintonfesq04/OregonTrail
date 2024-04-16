@@ -14,6 +14,7 @@ public class Display {
 	private int food = 200;
 	private int health = 100;
 
+	
 
 	private Locations locations = new Locations(90);
 
@@ -60,5 +61,6 @@ public class Display {
 		frame.setVisible(true);
 		travelScreen.resizeBackgroundImages();
 
+	
 	}
 }
