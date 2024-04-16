@@ -34,12 +34,57 @@ public class Locations {
     public static final String LOCATIONS[] = {"Independence","Courthouse","Chimney Rock","Fort Laramie", "Independence Rock", 
                                                 "Fort Bridger", "Soda Springs", "Fort Hall", "Fort Boise", "Fort Boise North",
                                                  "Fort Boise South", "The Dalles", "Oregon City North", "Oregon City South"};
-
+      
+    public static final int LOCATIONDISTANCE[] = {0, 566, 587, 663, 846, 1085, 1225, 1289, 1569, 1569, 1915, 2051, 2051};
+     
     private String nextLandmark;
 
     public int setPlayerPostion(int travel){
         player_Distance = player_Distance + travel;
         return player_Distance;
+    }
+
+
+
+    /*
+     * uses current loaction as a String to check distance from next location
+     */
+    public int distanceFrom(String currentLoc, String nextLoc){
+        int currentLocInt = 0;
+        int nextLocInt = 0;
+
+        for(int i =0; i<13; i++){
+            if(currentLoc.compareTo(LOCATIONS[i])==0){
+                currentLocInt = LOCATIONDISTANCE[i];
+                break;
+            }
+        }
+
+        for(int i =0; i<13; i++){
+            if(nextLoc.compareTo(LOCATIONS[i])==0){
+                nextLocInt = LOCATIONDISTANCE[i];
+                break;
+            }
+        }
+
+        return currentLocInt - nextLocInt;
+    }
+
+
+    /*
+     * uses current loaction as an int to check distance from next location
+     */
+    public int distanceFrom(int currentLoc, String nextLoc){
+        int nextLocInt = 0;
+
+        for(int i =0; i<13; i++){
+            if(nextLoc.compareTo(LOCATIONS[i])==0){
+                nextLocInt = LOCATIONDISTANCE[i];
+                break;
+            }
+        }
+
+        return currentLoc - nextLocInt;
     }
 
     /**
@@ -59,22 +104,6 @@ public class Locations {
         return nextLandmark;
     }
 
-    /*public String getPlayerPostion(){
-        if(player_Distance == 0){
-            return "At Independace";
-        }
-        else if(player_Distance<566){
-            return Integer.toString(566-player_Distance)+" From Courthouse Rock";
-        }
-        else if(player_Distance == 566){
-            return "At Courthouse Rock";
-        }
-        else if(player_Distance<(566+21)){
-            return Integer.toString(566+21-player_Distance)+" From Courthouse Rock";
-        }
-        else 
-            return "huh";
-    }*/
 
     /** 
     *Uses a varible from the main code to manually assign the distance varible a value
