@@ -117,23 +117,6 @@ public class Locations {
         return nextLandmark;
     }
 
-    /*public String getPlayerPostion(){
-        if(player_Distance == 0){
-            return "At Independace";
-        }
-        else if(player_Distance<566){
-            return Integer.toString(566-player_Distance)+" From Courthouse Rock";
-        }
-        else if(player_Distance == 566){
-            return "At Courthouse Rock";
-        }
-        else if(player_Distance<(566+21)){
-            return Integer.toString(566+21-player_Distance)+" From Courthouse Rock";
-        }
-        else 
-            return "huh";
-    }*/
-
     /** 
     *Uses a varible from the main code to manually assign the distance varible a value
     *@param int distance is the value of the range the player is from the final destination

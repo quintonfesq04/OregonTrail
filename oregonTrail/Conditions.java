@@ -37,7 +37,7 @@ public class Conditions {
                 case 1:
                     // Thieves event
                     eventInfo = "Random Event: Thieves attacked your wagon!";
-                    String[] itemNames = {"food", "water"};
+                    String[] itemNames = {Item.FOOD, Item.WATER};
                     String item = itemNames[random.nextInt(itemNames.length)];
                     int stolenAmount = random.nextInt(inventory.getItemCount(item) + 1);
                     inventory.removeItem(item, stolenAmount);
@@ -47,7 +47,7 @@ public class Conditions {
                 case 2:
                     // Wagon breakdown event
                     eventInfo = "Random Event: Your wagon broke down.";
-                    String[] wagonParts = {"wheel", "tongue", "axle"};
+                    String[] wagonParts = {Item.WAGON_WHEEL, Item.WAGON_TONGUE, Item.WAGON_AXLE};
                     String part = wagonParts[random.nextInt(wagonParts.length)];
                     if (inventory.getItemCount(part) > 0) {
                         inventory.removeItem(part, 1);
@@ -60,7 +60,7 @@ public class Conditions {
     
         // Ensure water consumption occurs during travel
         int waterConsumption = 10; // Adjust as needed
-        inventory.removeItem("water", waterConsumption);
+        inventory.removeItem(Item.WATER, waterConsumption);
     
         return inventory;
     }
