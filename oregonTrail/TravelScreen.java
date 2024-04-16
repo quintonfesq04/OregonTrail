@@ -30,10 +30,20 @@ import javax.swing.event.ChangeListener;
 public class TravelScreen extends JPanel {
     JPanel panel;
     PicPanel viewPanel;
+    private Conditions conditions;
 
-	public TravelScreen() {
+    public TravelScreen() {
         initialize();
-		this.conditions = new Conditions(inventory);
+        this.conditions = new Conditions(inventory); // Initialize Conditions object
+    }
+
+    // Existing constructor
+    public TravelScreen(Inventory inventory, Locations locations, Player user) {
+        this.inventory = inventory;
+        this.locations = locations;
+        this.user = user;
+        initialize();
+        this.conditions = new Conditions(inventory); // Initialize Conditions object
     }
 
     private int spaceBetween = 5;
@@ -52,8 +62,6 @@ public class TravelScreen extends JPanel {
     private Player user = new Player(health, food, 0, 0);
 
     private Inventory inventory = new Inventory();
-
-    private Conditions conditions;
 
     /**
      * constructor for TravelScreen object
@@ -235,37 +243,37 @@ public class TravelScreen extends JPanel {
     	JButton travelBtn = new JButton("Travel");
 		travelBtn.setBackground(Color.LIGHT_GRAY); // Set background color
 		travelBtn.addActionListener(new ActionListener() {
-    @Override
-	public void actionPerformed(ActionEvent e) {
-        if (conditions != null) { // Ensure conditions object is initialized
-            conditions.setInventory(inventory);
-            conditions.handleInventory();
-            conditions.getInventory();
-
-            String str = conditions.getConditionMessage();
-            if (str != null && !str.isEmpty()) {
-                JOptionPane.showMessageDialog(null, str);
-            } else if (str != null && str.equals("Random Event: Your wagon broke down. You were unable to fix it!")) {
-                brokenWagon = true;
-            }
-
-            inventory.removeItem("food", user.getConsumption());
-            foodLabel.setText("Lbs of Food: " + inventory.getItemCount("food"));
-            inventory.removeItem("water", 10);
-            waterLabel.setText("Lbs of Water: " + inventory.getItemCount("water"));
-            user.setFood(inventory.getItemCount("food"));
-            wheelLabel.setText("Wagon Wheels: " + inventory.getItemCount("wheel"));
-            tongueLabel.setText("Wagon Tongues:" + inventory.getItemCount("tongue"));
-            axleLabel.setText("Wagon Axles: " + inventory.getItemCount("axle"));
-            locations.addDistance(slider.getValue());
-            distanceLbl.setText("Distance: " + locations.getDistance());
-            if (milesTraveled == 90) {
-                JOptionPane.showMessageDialog(null, "You have made it to Soda Springs");
-            }
-        } else {
-            System.out.println("Conditions object is null!");
-        }
-    }
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (conditions != null) {
+					// Update conditions
+					conditions.setInventory(inventory);
+					conditions.handleInventory();
+					
+					// Get updated inventory
+					Inventory updatedInventory = conditions.getInventory();
+			
+					// Deduct food and water based on consumption rate
+					int foodConsumed = user.getConsumption();
+					int waterConsumed = 10; // Adjust as needed
+			
+					updatedInventory.removeItem("food", foodConsumed);
+					updatedInventory.removeItem("water", waterConsumed);
+			
+					// Update UI labels
+					foodLabel.setText("Lbs of Food: " + updatedInventory.getItemCount("food"));
+					waterLabel.setText("Lbs of Water: " + updatedInventory.getItemCount("water"));
+			
+					// Update class variables
+					food = updatedInventory.getItemCount("food");
+					water = updatedInventory.getItemCount("water");
+			
+					// Update other UI elements and game state as needed
+				} else {
+					System.out.println("Conditions object is null!");
+				}
+			}
+			
 });
 
 		optionPanel.add(travelBtn);
