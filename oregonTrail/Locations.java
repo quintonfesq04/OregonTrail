@@ -13,20 +13,20 @@ public class Locations {
     private int distance;
     public int player_Distance = 0;
 
-    public static final String INDEPENDENCE = "Independence";
-    public static final String COURTHOUSE = "Courthouse";
-    public static final String CHIMNEY = "Chimney Rock";
-    public static final String LARAMIE = "Fort Laramie";
-    public static final String I_ROCK = "Independence Rock";
-    public static final String F_BRIDGER = "Fort Bridger";
-    public static final String S_SPRINGS = "Soda Springs";
-    public static final String F_HALL = "Fort Hall";
-    public static final String F_BOISE = "Fort Boise";
-    public static final String F_BOISE_NORTH = "Fort Boise North";
-    public static final String F_BOISE_SOUTH = "Fort Boise South";
-    public static final String DALLES = "The Dalles";
-    public static final String O_CITY_NORTH = "Oregon City North";
-    public static final String O_CITY_SOUTH = "Oregon City South";
+    public static final String INDEPENDENCE     =   "Independence";
+    public static final String COURTHOUSE       =   "Courthouse";
+    public static final String CHIMNEY          =   "Chimney Rock";
+    public static final String LARAMIE          =   "Fort Laramie";
+    public static final String I_ROCK           =   "Independence Rock";
+    public static final String F_BRIDGER        =   "Fort Bridger";
+    public static final String S_SPRINGS        =   "Soda Springs";
+    public static final String F_HALL           =   "Fort Hall";
+    public static final String F_BOISE          =   "Fort Boise";
+    public static final String F_BOISE_NORTH    =   "Fort Boise North";
+    public static final String F_BOISE_SOUTH    =   "Fort Boise South";
+    public static final String DALLES           =   "The Dalles";
+    public static final String O_CITY_NORTH     =   "Oregon City North";
+    public static final String O_CITY_SOUTH     =   "Oregon City South";
 
 
 
