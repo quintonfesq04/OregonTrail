@@ -37,7 +37,7 @@ public class Conditions {
                 case 1:
                     // Thieves event
                     eventInfo = "Random Event: Thieves attacked your wagon!";
-                    String[] itemNames = {"food", "water"};
+                    String[] itemNames = {Item.FOOD, Item.WATER};
                     String item = itemNames[random.nextInt(itemNames.length)];
                     int stolenAmount = random.nextInt(inventory.getItemCount(item) + 1);
                     inventory.removeItem(item, stolenAmount);
