@@ -9,9 +9,11 @@ public class Store {
     private double[] prices;
     private Inventory inventory;
     private Location location;
+    private Item item;
     private HashMap<String, Double> itemPrices;
 
     public Store(Location location, Inventory inventory) {
+        this.item = item;
         this.location = location;
         this.inventory = inventory;
         this.itemPrices = new HashMap<>();
