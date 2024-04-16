@@ -93,7 +93,7 @@ public class TravelScreen extends JPanel {
         panel = new JPanel();
 
         panel.setBounds(100, 100, 500, 500);
-        panel.setLayout(new GridLayout(2, 1, 0, 0));
+        panel.setLayout(new GridLayout(0, 1, 0, 0));
 
         File image = new File("Images/Covered Wagon.jpg");
 
@@ -106,19 +106,18 @@ public class TravelScreen extends JPanel {
         optionPanel.setBackground(Color.DARK_GRAY);
         panel.add(optionPanel);
         optionPanel.setLayout(new GridLayout(0, 4, 0, 0));
-		panel.add(optionPanel); // Add this line
+		//panel.add(optionPanel); // Add this line
 
-
-		JPanel topPanel = new JPanel();
-        topPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        topPanel.setLayout(new GridLayout(3, 1));
-        JLabel titleLabel = new JLabel("Welcome to the Oregon Trail!");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
-        JLabel infoLabel1 = new JLabel("Press the button below to start the game.");
-        JLabel infoLabel2 = new JLabel("You'll encounter rivers, trade at stores, and travel the trail.");
-        topPanel.add(titleLabel);
-        topPanel.add(infoLabel1);
-        topPanel.add(infoLabel2);
+		// JPanel topPanel = new JPanel();
+        // topPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        // topPanel.setLayout(new GridLayout(3, 1));
+        // JLabel titleLabel = new JLabel("Welcome to the Oregon Trail!");
+        // titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        // JLabel infoLabel1 = new JLabel("Press the button below to start the game.");
+        // JLabel infoLabel2 = new JLabel("You'll encounter rivers, trade at stores, and travel the trail.");
+        // topPanel.add(titleLabel);
+        // topPanel.add(infoLabel1);
+        // topPanel.add(infoLabel2);
 
         JPanel inventoryPanel = new JPanel();
         inventoryPanel.setOpaque(false);
@@ -216,28 +215,30 @@ public class TravelScreen extends JPanel {
         panel_2.setOpaque(false);
         foodConsumptionPanel.add(panel_2);
 
-        JPanel panel = new JPanel();
-        panel.setOpaque(false);
-        foodConsumptionPanel.add(panel);
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        JPanel foodPanel = new JPanel();
+        foodPanel.setOpaque(false);
+        foodConsumptionPanel.add(foodPanel);
+        foodPanel.setLayout(new BoxLayout(foodPanel, BoxLayout.Y_AXIS));
 
         JRadioButton meagerButton = new JRadioButton("Meager");
         meagerButton.setBackground(Color.LIGHT_GRAY);
-        panel.add(meagerButton);
         meagerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        foodPanel.add(meagerButton);
 
         JRadioButton bareBonesButton = new JRadioButton("Bare-Bones");
         bareBonesButton.setBackground(Color.LIGHT_GRAY);
         bareBonesButton.setAlignmentX(0.5f);
-        panel.add(bareBonesButton);
+        foodPanel.add(bareBonesButton);
 
         JRadioButton fillingButton = new JRadioButton("Filling");
         fillingButton.setBackground(Color.LIGHT_GRAY);
         fillingButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(fillingButton);
+        foodPanel.add(fillingButton);
 
 		JPanel buttonPanel = new JPanel();
     	buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        //buttonPanel.setBackground(Color.LIGHT_GRAY);
+        buttonPanel.setOpaque(false);
     	optionPanel.add(buttonPanel);
 
     	JButton travelBtn = new JButton("Travel");
@@ -276,17 +277,17 @@ public class TravelScreen extends JPanel {
 			
 });
 
-		optionPanel.add(travelBtn);
+		buttonPanel.add(travelBtn);
 		
 
-    	panel.add(topPanel, BorderLayout.CENTER);
-    	panel.add(buttonPanel, BorderLayout.SOUTH);
+    	// panel.add(topPanel, BorderLayout.CENTER);
+    	// panel.add(buttonPanel, BorderLayout.SOUTH);
 		
         
 
-        optionPanel.add(Box.createVerticalGlue());
+        // optionPanel.add(Box.createVerticalGlue());
 		
-		add(panel);
+		// add(panel);
     }
 	public JPanel getPanel() {
 			return panel;
