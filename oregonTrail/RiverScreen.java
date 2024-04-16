@@ -1,37 +1,41 @@
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 public class RiverScreen extends AbstractScreen {
 
-    JPanel panel = new JPanel();
-    PicPanel viewPanel;
+    private JPanel panel = new JPanel();
+    private PicPanel viewPanel;
 
-    RiverScreen(){
+    public RiverScreen(){
         initialize();
     }
 
     protected void initialize(){
         panel.setLayout(new GridLayout(2,1,0,0));
 
-        File image = new File("Images\\River.jpg");
+        // Load river image
+        File image = new File("Images/River.jpg");
         viewPanel = new PicPanel(image);
         panel.add(viewPanel);
 
+        // Create button panel
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.DARK_GRAY);
         panel.add(buttonPanel);
 
+        // Create cross river button
         JButton crossBtn = new JButton("Cross river");
         crossBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
+                // Create a river object
                 River river = new River("Kansas", 10, 10, 50);
+                // Attempt to cross the river
                 if(river.crossRiver()){
                     JOptionPane.showMessageDialog(null, "Successfully crossed the " + river.getName() + " river");
                 }
@@ -41,14 +45,13 @@ public class RiverScreen extends AbstractScreen {
             }
         });
         buttonPanel.add(crossBtn);
-
-
     }
 
     public JPanel getPanel(){
         return panel;
     }
 
+    // Resize background image
     public void resizeBackgroundImages(){
         viewPanel.resizeImage();
     }

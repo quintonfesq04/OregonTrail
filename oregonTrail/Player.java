@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /**
  * File: Player.java
  * Author: Madison Scott
@@ -141,10 +143,10 @@ public class Player {
     public static void main(String[] args) {
         Player player = new Player();
 
-        System.out.println("Player's initial health: " + player.getHealth());
-        System.out.println("Player's initial food: " + player.getFood());
+        JOptionPane.showMessageDialog(null,"Player's initial health: " + player.getHealth());
+        JOptionPane.showMessageDialog(null,"Player's initial food: " + player.getFood());
 
         player.deteriorateHealth(10); // Simulating health deterioration
-        System.out.println("Player's current health: " + player.getHealth());
+        JOptionPane.showMessageDialog(null,"Player's current health: " + player.getHealth());
     }
 }

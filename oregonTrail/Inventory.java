@@ -1,7 +1,10 @@
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
 public class Inventory {
+    private static final int INVENTORY_CAP = 1000; // Maximum inventory capacity
     private Map<String, Integer> items;
 
     public Inventory() {
@@ -10,7 +13,17 @@ public class Inventory {
 
     // Method to add an item to the inventory
     public void addItem(String itemName, int quantity) {
-        items.put(itemName, items.getOrDefault(itemName, 0) + quantity);
+        if (items.containsKey(itemName)) {
+            int currentQuantity = items.get(itemName);
+            int newQuantity = currentQuantity + quantity;
+            if (newQuantity <= INVENTORY_CAP) {
+                items.put(itemName, newQuantity);
+            } else {
+                JOptionPane.showMessageDialog(null, "Inventory capacity reached for " + itemName + ".");
+            }
+        } else {
+            items.put(itemName, Math.min(quantity, INVENTORY_CAP));
+        }
     }
 
     // Method to remove an item from the inventory
@@ -19,8 +32,7 @@ public class Inventory {
         if (currentQuantity >= quantity) {
             items.put(itemName, currentQuantity - quantity);
         } else {
-            // Handle insufficient quantity error
-            System.out.println("Insufficient quantity of " + itemName + " in inventory.");
+            JOptionPane.showMessageDialog(null,"Insufficient quantity of " + itemName + " in inventory.");
         }
     }
 

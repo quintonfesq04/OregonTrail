@@ -1,72 +1,40 @@
-import java.awt.EventQueue;
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
-
-/**
- * @file Display.java
- * @author Ethan Burch
- * @version 1.2.0 4/14/24
- * Controls the display of the Wagon
- */
 public class Display {
+    private JFrame frame;
+    private JPanel panel;
+    private TravelScreen travelScreen;
 
-	private JFrame frame;
-	private int food = 200;
-	private int health = 100;
+    public Display() {
+        initialize();
+    }
 
-	private boolean riverPresent = true;
+    protected void initialize() {
+        frame = new JFrame("Oregon Trail");
+        frame.setSize(800, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setLayout(new CardLayout());
 
-	private Locations locations = new Locations(90);
+        panel = new JPanel();
+        panel.setBackground(Color.BLACK);
+        panel.setLayout(new GridLayout(1, 1));
 
-	private Player user = new Player(health, food, 0, 0);
+        frame.getContentPane().add(panel, "MainPanel");
+        frame.setVisible(true);
 
-	private Inventory inventory = new Inventory();
+        // Start the game with the travel screen
+        travelScreen = new TravelScreen();
+        panel.add(travelScreen.getPanel());
+        panel.revalidate();
+        panel.repaint();
+    }
 
-	private Conditions conditions;
-
-	TravelScreen travelScreen = new TravelScreen(inventory, locations, user, conditions);
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Display window = new Display();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
-	public Display() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		
-		frame.setBounds(100, 100, 500, 500);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		if(!riverPresent){
-			frame.add(travelScreen.getPanel());
-			frame.setVisible(true);
-			travelScreen.resizeBackgroundImages();
-		}
-		else if (riverPresent){
-			RiverScreen riverScreen = new RiverScreen();
-			frame.add(riverScreen.getPanel());
-			frame.setVisible(true);
-			riverScreen.resizeBackgroundImages();
-		}		
-	}
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new Display();
+            }
+        });
+    }
 }

@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class Trading {
     private Store store;
 
@@ -22,8 +24,14 @@ public class Trading {
         double amountToBuy = (amountToSell * sellPrice) / buyPrice;
 
         // Display the trade details
-        System.out.println("Trade details:");
-        System.out.println("Selling " + amountToSell + " units of " + itemToSell + " at $" + sellPrice + " each.");
-        System.out.println("Buying " + amountToBuy + " units of " + itemToBuy + " at $" + buyPrice + " each.");
+        JOptionPane.showMessageDialog(null,"Trade details:");
+        JOptionPane.showMessageDialog(null,"Selling " + amountToSell + " units of " + itemToSell + " at $" + sellPrice + " each.");
+        JOptionPane.showMessageDialog(null,"Buying " + amountToBuy + " units of " + itemToBuy + " at $" + buyPrice + " each.");
+
+        // Call the inventory class to add the bought item
+        Inventory inventory = new Inventory();
+        inventory.addItem(itemToBuy, (int) amountToBuy);
+        // Call the inventory class to remove the sold item
+        inventory.removeItem(itemToSell, (int) amountToSell);
     }
 }
