@@ -106,18 +106,6 @@ public class TravelScreen extends JPanel {
         optionPanel.setBackground(Color.DARK_GRAY);
         panel.add(optionPanel);
         optionPanel.setLayout(new GridLayout(0, 4, 0, 0));
-		//panel.add(optionPanel); // Add this line
-
-		// JPanel topPanel = new JPanel();
-        // topPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        // topPanel.setLayout(new GridLayout(3, 1));
-        // JLabel titleLabel = new JLabel("Welcome to the Oregon Trail!");
-        // titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
-        // JLabel infoLabel1 = new JLabel("Press the button below to start the game.");
-        // JLabel infoLabel2 = new JLabel("You'll encounter rivers, trade at stores, and travel the trail.");
-        // topPanel.add(titleLabel);
-        // topPanel.add(infoLabel1);
-        // topPanel.add(infoLabel2);
 
         JPanel inventoryPanel = new JPanel();
         inventoryPanel.setOpaque(false);
@@ -252,22 +240,22 @@ public class TravelScreen extends JPanel {
 					conditions.handleInventory();
 					
 					// Get updated inventory
-					Inventory updatedInventory = conditions.getInventory();
+					inventory = conditions.getInventory();
 			
 					// Deduct food and water based on consumption rate
 					int foodConsumed = user.getConsumption();
-					int waterConsumed = 10; // Adjust as needed
-			
-					updatedInventory.removeItem("food", foodConsumed);
-					updatedInventory.removeItem("water", waterConsumed);
+
+					//int waterConsumed = 10; // Adjust as needed
+					inventory.removeItem("food", foodConsumed);
+					//updatedInventory.removeItem("water", waterConsumed);
 			
 					// Update UI labels
-					foodLabel.setText("Lbs of Food: " + updatedInventory.getItemCount("food"));
-					waterLabel.setText("Lbs of Water: " + updatedInventory.getItemCount("water"));
+					foodLabel.setText("Lbs of Food: " + inventory.getItemCount("food"));
+					waterLabel.setText("Lbs of Water: " + inventory.getItemCount("water"));
 			
 					// Update class variables
-					food = updatedInventory.getItemCount("food");
-					water = updatedInventory.getItemCount("water");
+					food = inventory.getItemCount("food");
+					water = inventory.getItemCount("water");
 			
 					// Update other UI elements and game state as needed
 				} else {
@@ -278,16 +266,6 @@ public class TravelScreen extends JPanel {
 });
 
 		buttonPanel.add(travelBtn);
-		
-
-    	// panel.add(topPanel, BorderLayout.CENTER);
-    	// panel.add(buttonPanel, BorderLayout.SOUTH);
-		
-        
-
-        // optionPanel.add(Box.createVerticalGlue());
-		
-		// add(panel);
     }
 	public JPanel getPanel() {
 			return panel;
