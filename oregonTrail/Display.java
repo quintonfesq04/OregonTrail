@@ -61,6 +61,7 @@ public class Display {
 		frame.setVisible(true);
 		travelScreen.resizeBackgroundImages();
 
-	
+		Map map = new Map();
+		map.display();
 	}
 }
