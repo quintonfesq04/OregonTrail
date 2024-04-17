@@ -46,23 +46,28 @@ public class StoreScreen extends JFrame {
         // Set the content pane of StoreScreen to the panel
         setContentPane(panel);
         
-        JSpinner spinner = new JSpinner();
+        SpinnerNumberModel model1 = new SpinnerNumberModel(0,0,2000,20);
+        JSpinner spinner = new JSpinner(model1);
         spinner.setBounds(99, 73, 34, 26);
         panel.add(spinner);
         
-        JSpinner spinner_1 = new JSpinner();
+        SpinnerNumberModel model2 = new SpinnerNumberModel(0,0,2000,20);
+        JSpinner spinner_1 = new JSpinner(model2);
         spinner_1.setBounds(99, 111, 34, 26);
         panel.add(spinner_1);
         
-        JSpinner spinner_2 = new JSpinner();
+        SpinnerNumberModel model3 = new SpinnerNumberModel(0,0,4,1);
+        JSpinner spinner_2 = new JSpinner(model3);
         spinner_2.setBounds(99, 149, 34, 26);
         panel.add(spinner_2);
         
-        JSpinner spinner_3 = new JSpinner();
+        SpinnerNumberModel model4 = new SpinnerNumberModel(0,0,50,2);
+        JSpinner spinner_3 = new JSpinner(model4);
         spinner_3.setBounds(99, 187, 34, 26);
         panel.add(spinner_3);
         
-        JSpinner spinner_4 = new JSpinner();
+        SpinnerNumberModel model5 = new SpinnerNumberModel(0,0,1000,10);
+        JSpinner spinner_4 = new JSpinner(model5);
         spinner_4.setBounds(99, 227, 34, 26);
         panel.add(spinner_4);
         
@@ -100,10 +105,6 @@ public class StoreScreen extends JFrame {
         lblNewLabel_8.setBounds(249, 78, 61, 16);
         panel.add(lblNewLabel_8);
 
-        // Set frame properties
-       // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setSize(480, 150);
-        //setVisible(true);
     }
 
     public JPanel getPanel() {
