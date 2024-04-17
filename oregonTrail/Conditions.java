@@ -59,8 +59,7 @@ public class Conditions {
         }
     
         // Ensure water consumption occurs during travel
-        int waterConsumption = 10; // Adjust as needed
-        inventory.removeItem(Item.WATER, waterConsumption);
+       
     
         return inventory;
     }

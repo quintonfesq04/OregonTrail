@@ -250,6 +250,9 @@ public class TravelScreen extends JPanel {
 					// Deduct food and water based on consumption rate
 					int foodConsumed = user.getConsumption();
 
+                    int waterConsumption = 10; // Adjust as needed
+                    inventory.removeItem(Item.WATER, waterConsumption);
+
 					//int waterConsumed = 10; //Adjust as needed
 					inventory.removeItem(Item.FOOD, foodConsumed);
 					//updatedInventory.removeItem("water", waterConsumed);
