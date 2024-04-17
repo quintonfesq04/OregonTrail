@@ -15,7 +15,7 @@ public class Hunting {
     public int performHunting() {
         int yield = generateRandomNumber() * 10;
         JOptionPane.showMessageDialog(null, "You went hunting and caught " + yield + " pounds of food.");
-        inventory.addItem("food", yield); // Add the obtained food to the inventory
+        inventory.addItem(Item.FOOD, yield); // Add the obtained food to the inventory
         return yield;
     }
 
