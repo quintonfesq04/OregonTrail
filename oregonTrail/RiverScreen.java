@@ -7,12 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-public class RiverScreen extends AbstractScreen {
+public class RiverScreen extends JPanel {
 
     private JPanel panel = new JPanel();
+    private Display display; // Add reference to Display
     private PicPanel viewPanel;
 
-    public RiverScreen(){
+    public RiverScreen(Display display){
+        this.display = display;
         initialize();
     }
 
