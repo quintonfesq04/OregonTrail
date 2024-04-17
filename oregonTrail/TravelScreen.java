@@ -30,6 +30,9 @@ public class TravelScreen extends JPanel {
     private JLabel moneyLabel;
     private JLabel foodLabel;
     private JLabel waterLabel;
+    private JLabel oxenLabel;
+    private JLabel clothesLabel;
+    private JLabel bulletsLabel;
 
     private Trading trading = new Trading(new Store()); 
     private Display display;
@@ -130,13 +133,11 @@ public class TravelScreen extends JPanel {
         inventoryLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(inventoryLabel);
         
-        inventory.addItem(Item.FOOD, food);
-        foodLabel = new JLabel("Lbs of Food: " + food);
+        foodLabel = new JLabel("Lbs of Food: " + inventory.getFood());
         foodLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(foodLabel);
 
-        inventory.addItem(Item.WATER, water);
-        waterLabel = new JLabel("Lbs of Water: " + water);
+        waterLabel = new JLabel("Lbs of Water: " + inventory.getWater());
         waterLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(waterLabel);
 
@@ -154,6 +155,22 @@ public class TravelScreen extends JPanel {
         JLabel axleLabel = new JLabel("Wagon Axles: " + wagonAxle);
         axleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(axleLabel);
+
+        oxenLabel = new JLabel("Oxen: " + inventory.getOxen());
+        oxenLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        inventoryShowPanel.add(oxenLabel);
+
+        clothesLabel = new JLabel("Clothes: " + inventory.getClothing());
+        clothesLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        inventoryShowPanel.add(clothesLabel);
+
+        bulletsLabel = new JLabel("Bullets: " + inventory.getBullets());
+        bulletsLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        inventoryShowPanel.add(bulletsLabel);
+
+        waterLabel = new JLabel("Water: " + inventory.getWater());
+        waterLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        inventoryShowPanel.add(waterLabel);
 
 		inventory.addItem(Item.MONEY, inventory.getMoney());
         moneyLabel = new JLabel("Money: " + inventory.getMoney());
@@ -323,7 +340,11 @@ public class TravelScreen extends JPanel {
     public void setInventory(Inventory inventory){
         this.inventory = inventory;
         moneyLabel.setText("Money: " + inventory.getMoney());
-        foodLabel.setText()
+        foodLabel.setText("Food: " + inventory.getFood());
+        oxenLabel.setText("Oxen: " + inventory.getOxen());
+        clothesLabel.setText("Clothes: " + inventory.getClothing());
+        bulletsLabel.setText("Bullets: " + inventory.getBullets());
+        waterLabel.setText("Water: " + inventory.getWater());
     }
 	public JPanel getPanel() {
 			return panel;
