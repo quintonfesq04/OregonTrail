@@ -9,6 +9,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
@@ -49,8 +50,8 @@ public class TravelScreen extends JPanel {
     private Inventory inventory = new Inventory();
 
     private int spaceBetween = 5;
-    private int food = 200;
-    private int water = 100;
+    private int food = 1500;
+    private int water = 1500;
     private int wagonTongue = 1;
     private int wagonWheel = 1;
     private int wagonAxle = 1;
@@ -258,9 +259,13 @@ public class TravelScreen extends JPanel {
                     else
                         user.setConsumption("Bare-Bones");
 					// Update conditions
+                    
 					conditions.setInventory(inventory);
 					conditions.handleInventory();
-					
+                    if(conditions.getConditionMessage().compareTo("") != 0)
+                    JOptionPane.showMessageDialog(null, conditions.getConditionMessage());
+                    
+                    
 					// Get updated inventory
 					inventory = conditions.getInventory();
 			
@@ -282,9 +287,6 @@ public class TravelScreen extends JPanel {
 					food = inventory.getItemCount("food");
 					water = inventory.getItemCount("water");
 
-					// Update class variable and UI label for money
-					inventory.setMoney(inventory.getItemCount(Item.MONEY));
-					moneyLabel.setText("Money: " + inventory.getMoney());
 
 			
 					// Update other UI elements and game state as needed

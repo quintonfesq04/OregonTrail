@@ -17,7 +17,7 @@ public class Conditions {
         this.inventory = inventory;
     }
 
-    public static boolean isEventOccurred() {
+    private boolean isEventOccurred() {
         int eventChance = random.nextInt(10);
         return eventChance == 0;
     }
@@ -57,10 +57,7 @@ public class Conditions {
                     break;
             }
         }
-    
         // Ensure water consumption occurs during travel
-       
-    
         return inventory;
     }
     
