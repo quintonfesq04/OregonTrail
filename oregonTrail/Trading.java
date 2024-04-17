@@ -25,7 +25,7 @@ public class Trading {
     } 
 
     // Method to perform trading between items
-    public void tradeItems(String itemToSell, double amountToSell, String itemToBuy, int landmarkIndex) {
+    public Inventory tradeItems(String itemToSell, double amountToSell, String itemToBuy, int landmarkIndex) {
         // Calculate the price of the item to sell
         double sellPrice = store.calculateItemPrice(itemToSell, landmarkIndex);
 
@@ -48,5 +48,6 @@ public class Trading {
         inventory.addItem(itemToBuy, (int) amountToBuy);
         // Call the inventory class to remove the sold item
         inventory.removeItem(itemToSell, (int) amountToSell);
+        return inventory;
     }
 }
