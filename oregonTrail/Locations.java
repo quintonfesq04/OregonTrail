@@ -33,7 +33,11 @@ public class Locations {
     public static final int GREEN_DISTANCE = 989;
     public static final int SNAKE_DISTANCE = 1372;
 
-    
+    private boolean pastKansas = false;
+    private boolean pastBigBlue = false;
+    private boolean pastGreen = false;
+    private boolean pastSnake = false;
+
     public static final String LOCATIONS[] = {"Independence","Courthouse","Chimney Rock","Fort Laramie", "Independence Rock", 
                                                 "Fort Bridger", "Soda Springs", "Fort Hall", "Fort Boise", "Fort Boise North",
                                                  "Fort Boise South", "The Dalles", "Oregon City North", "Oregon City South"};
@@ -48,7 +52,23 @@ public class Locations {
     }
 
     public boolean hitRiver(){
-        
+     // Check if the player has reached any of the rivers
+    if (distance >= KANSAS_DISTANCE && !pastKansas) {
+        JOptionPane.showMessageDialog(null, "You have reached Kansas River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
+        return true;
+    } else if (distance >= BIG_BLUE_DISTANCE && !pastBigBlue) {
+        JOptionPane.showMessageDialog(null, "You have reached Big Blue River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
+        return true;
+    } else if (distance >= GREEN_DISTANCE && !pastGreen) {
+        JOptionPane.showMessageDialog(null, "You have reached Green River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
+        return true;
+    } else if (distance >= SNAKE_DISTANCE && !pastSnake) {
+        JOptionPane.showMessageDialog(null, "You have reached Snake River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
+        return true;
+    }
+
+    return false;
+}
     }
 
     public String whatNextLoc(int currentLoc){
