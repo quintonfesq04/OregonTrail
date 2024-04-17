@@ -47,6 +47,10 @@ public class Locations {
      
     private String nextLandmark;
 
+    public Locations(int distance){
+        this.distance = distance;
+    }
+
     public int setPlayerPostion(int travel){
         distance = distance + travel;
         return distance;

@@ -12,8 +12,10 @@ public class RiverScreen extends JPanel {
     private JPanel panel = new JPanel();
     private Display display; // Add reference to Display
     private PicPanel viewPanel;
+    private Locations locations;
 
-    public RiverScreen(Display display){
+    public RiverScreen(Display display, Locations location){
+        this.locations = location;
         this.display = display;
         initialize();
     }
