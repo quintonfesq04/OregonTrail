@@ -2,8 +2,8 @@ import javax.swing.JOptionPane;
 
 /**
  * @File: Player.java
- * @Author: Madison Scott
- * @Date: 4/8/24
+ * @author: Madison Scott
+ * @version: 2.0.0 4/16/24
  * @Description: controls the players health and sickness count
  */
 public class Player {

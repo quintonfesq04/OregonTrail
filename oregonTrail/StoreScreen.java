@@ -1,8 +1,8 @@
 
 /**
  * @File StoreScreen.java
- * @Author Madison Scott
- * @Version 1.0.0 4/17/24
+ * @author Madison Scott
+ * @version 1.0.0 4/17/24
  * Represents the screen for purchasing items for the trip from a store.
  * This panel allows the user to buy food, water, oxen, clothing, and bullets.
  */

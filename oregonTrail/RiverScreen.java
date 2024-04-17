@@ -10,8 +10,8 @@ import java.io.File;
 
 /**
  * @File RiverScreen.java
- * @Author Madison Scott
- * @Version 1.0.0 4/17/24
+ * @author Madison Scott
+ * @version 1.0.0 4/17/24
  * Creates a JPanel for river portion of the game
  * Represents the screen for crossing a river.
  * This panel displays the river image and provides controls for crossing the river.

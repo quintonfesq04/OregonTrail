@@ -1,9 +1,10 @@
 /**
- * A class that keeps track of damage done to the wagon as well as the wagon's weight.
- * It connects to other classes by providing functionality to track wagon status.
+ 
  * @File Wagon.java
  * @author Ethan Burch
  * @version 1.0 4/3/2024
+ * A class that keeps track of damage done to the wagon as well as the wagon's weight.
+ * It connects to other classes by providing functionality to track wagon status.
  */
 public class Wagon {
 

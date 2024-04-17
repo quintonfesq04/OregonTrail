@@ -3,8 +3,8 @@
 /**
  /**
  * @File River.java
- * @Author Madison Scott
- * @Version 1.0.0 4/14/24
+ * @author Madison Scott
+ * @version 1.0.0 4/14/24
  * This program represents a river using attributes 
  * like its name, height, flow rate, and width. The crossRiver() method 
  * simulates crossing attempts with random success chances based on the river's features.

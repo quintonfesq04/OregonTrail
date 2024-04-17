@@ -2,8 +2,8 @@ import javax.swing.JOptionPane;
 
 /**
  * @file Locations.java
- * @Name Lane Kanagy
- * @04/08/2024
+ * @author Lane Kanagy
+ * @version 1.0.0 4/16/2024
  *This class calculates distance from the final destination, sets the players current 
  *location, and outputs the distance left to travel. It is used as the go-to class for
  *and calculations in relation to location.
