@@ -10,6 +10,7 @@ import java.io.File;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -233,12 +234,25 @@ public class TravelScreen extends JPanel {
         buttonPanel.setOpaque(false);
     	optionPanel.add(buttonPanel);
 
+        ButtonGroup btnGroup = new ButtonGroup();
+        btnGroup.add(meagerButton);
+        btnGroup.add(fillingButton);
+        btnGroup.add(bareBonesButton);
+        meagerButton.setSelected(true);
+
+
     	JButton travelBtn = new JButton("Travel");
 		travelBtn.setBackground(Color.LIGHT_GRAY); // Set background color
 		travelBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (conditions != null) {
+                    if(meagerButton.isSelected())
+                        user.setConsumption("Meager");
+                    else if(fillingButton.isSelected())
+                        user.setConsumption("Filling");
+                    else
+                        user.setConsumption("Bare-Bones");
 					// Update conditions
 					conditions.setInventory(inventory);
 					conditions.handleInventory();
@@ -249,9 +263,9 @@ public class TravelScreen extends JPanel {
 					// Deduct food and water based on consumption rate
 					int foodConsumed = user.getConsumption();
 
-					//int waterConsumed = 10; //Adjust as needed
+					int waterConsumed = 10; //Adjust as needed
 					inventory.removeItem(Item.FOOD, foodConsumed);
-					//updatedInventory.removeItem("water", waterConsumed);
+					inventory.removeItem(Item.WATER, waterConsumed);
 			
 					// Update UI labels
 					foodLabel.setText("Lbs of Food: " + inventory.getItemCount(Item.FOOD));
