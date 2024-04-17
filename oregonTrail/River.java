@@ -1,10 +1,10 @@
  import java.util.Random;
 
 /**
- * File: River.java
- * Author: Madison Scott
- * Date: 4/8/24
- * Description: This program represents a river using attributes 
+ * @File: River.java
+ * @Author: Madison Scott
+ * @Date: 4/8/24
+ * @Description: This program represents a river using attributes 
  * like its name, height, flow rate, and width. The crossRiver() method 
  * simulates crossing attempts with random success chances based on the river's features.
  */
