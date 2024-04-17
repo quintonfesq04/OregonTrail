@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
  * @File Store.java
  * @author Quinton Fesq
  * @version 1.0.0 4/17/24
+ * Creates a store that can be used for purchasing items
  */
 public class Store {
     // Define the base prices of items

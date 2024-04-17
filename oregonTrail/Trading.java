@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
  * @File Trading.java
  * @version 1.0.0 4/17/24
  * @author Quinton Fesq
+ * allowes for trade of items for other items.
  */
 public class Trading {
     private Store store;
