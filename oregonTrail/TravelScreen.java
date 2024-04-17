@@ -276,6 +276,11 @@ public class TravelScreen extends JPanel {
 					// Update class variables
 					food = inventory.getItemCount("food");
 					water = inventory.getItemCount("water");
+
+					// Update class variable and UI label for money
+					money = inventory.getItemCount(Item.MONEY);
+					moneyLabel.setText("Money: " + money);
+
 			
 					// Update other UI elements and game state as needed
 				} else {
