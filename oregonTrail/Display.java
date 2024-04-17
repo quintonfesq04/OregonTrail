@@ -1,4 +1,3 @@
-// Display.java
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,36 +13,30 @@ public class Display {
 
     protected void initialize() {
         frame = new JFrame("Oregon Trail");
-        frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // Use a JPanel with CardLayout for managing multiple screens
-        panel = new JPanel(new CardLayout());
-        frame.getContentPane().add(panel);
+        frame.setLayout(new CardLayout());
 
         store = new StoreScreen(this);
         travelScreen = new TravelScreen();
 
-        // Add StoreScreen and TravelScreen panels to the CardLayout
-        panel.add(store.getPanel(), "StoreScreen");
-        panel.add(travelScreen.getPanel(), "TravelScreen");
+        frame.add(store.getPanel(), "StoreScreen");
+        frame.add(travelScreen.getPanel(), "TravelScreen");
 
-        // Show the initial screen (StoreScreen)
-        showStoreScreen();
+        showStoreScreen(); // Show the initial screen
 
+        frame.pack(); // Adjust frame size based on the content
+        frame.setLocationRelativeTo(null); // Center the frame
         frame.setVisible(true);
     }
 
-    // Method to switch to the StoreScreen
     public void showStoreScreen() {
-        CardLayout cardLayout = (CardLayout) panel.getLayout();
-        cardLayout.show(panel, "StoreScreen");
+        CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
+        cardLayout.show(frame.getContentPane(), "StoreScreen");
     }
 
-    // Method to switch to the TravelScreen
     public void showTravelScreen() {
-        CardLayout cardLayout = (CardLayout) panel.getLayout();
-        cardLayout.show(panel, "TravelScreen");
+        CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
+        cardLayout.show(frame.getContentPane(), "TravelScreen");
     }
 
     public static void main(String[] args) {

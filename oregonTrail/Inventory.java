@@ -4,8 +4,9 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class Inventory {
-    private static final int INVENTORY_CAP = 1000; // Maximum inventory capacity
-    private Map<String, Integer> items;
+    public int MONEY = 2000;
+    private static final int INVENTORY_CAP = 2000; // Maximum inventory capacity
+    private static Map<String, Integer> items;
 
     public Inventory() {
         this.items = new HashMap<>();
@@ -27,7 +28,7 @@ public class Inventory {
     }
 
     // Method to remove an item from the inventory
-    public void removeItem(String itemName, int quantity) {
+    public static void removeItem(String itemName, int quantity) {
         int currentQuantity = items.getOrDefault(itemName, 0);
         if (currentQuantity >= quantity) {
             items.put(itemName, currentQuantity - quantity);
