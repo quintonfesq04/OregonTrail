@@ -26,7 +26,7 @@ public class Display {
         
         storeScreen = new StoreScreen(this, inventory);
         travelScreen = new TravelScreen(this, inventory, location, user);
-		tradeScreen = new TradeScreen(this, inventory);
+		tradeScreen = new TradeScreen(this, inventory, location);
 		riverScreen = new RiverScreen(this, location);
 
         frame.add(storeScreen.getPanel(), "StoreScreen");

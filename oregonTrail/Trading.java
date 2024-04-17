@@ -33,13 +33,13 @@ public class Trading {
         double buyPrice = store.calculateItemPrice(itemToBuy, landmarkIndex);
 
         // Calculate the quantity of the item to buy
-        double amountToBuy = (amountToSell * sellPrice) / buyPrice;
+        int amountToBuy = (int) ((amountToSell * sellPrice) / buyPrice);
 
         // Display the trade details
-        JOptionPane.showMessageDialog(null,"<html> Trade details:");
-        JOptionPane.showMessageDialog(null,"Selling " + amountToSell + " units of " + itemToSell + " at $" + sellPrice + " each.");
-        JOptionPane.showMessageDialog(null,"Buying " + amountToBuy + " units of " + itemToBuy + " at $" + buyPrice + " each.");
-
+        JOptionPane.showMessageDialog(null," Trade details:\n Selling " + amountToSell + 
+                                                            " units of " + itemToSell + " at $" + sellPrice + " each.\n Buying "
+                                                                + amountToBuy + " units of " + itemToBuy + " at $" + buyPrice + " each.");
+    
         // Call the inventory class to add the bought item
         Inventory inventory = new Inventory();
         inventory.addItem(itemToBuy, (int) amountToBuy);

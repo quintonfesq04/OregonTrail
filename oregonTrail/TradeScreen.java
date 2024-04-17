@@ -11,9 +11,12 @@ public class TradeScreen extends JPanel{
     private Trading trading = new Trading(new Store());
     private Display display;
     private Inventory inventory;
+    private Locations location;
 
-    public TradeScreen(Display display, Inventory inventory){
+    public TradeScreen(Display display, Inventory inventory, Locations location){
         this.display = display;
+        this.inventory = inventory;
+        this.location = location;
         initialize();
     }
     
@@ -23,7 +26,7 @@ public class TradeScreen extends JPanel{
         //panel.setBounds(100, 100, 500, 500);
         panel.setLayout(new GridLayout(3, 1));
 
-        JLabel tradeLabel = new JLabel("Trade 100 Food for 2 Oxen");
+        JLabel tradeLabel = new JLabel("Trade 100 Food for 100 Water");
         panel.add(tradeLabel);
 
         JButton acceptButton = new JButton("Accept");
@@ -33,7 +36,7 @@ public class TradeScreen extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Perform the trade
-                trading.tradeItems("Food", 100, "Oxen", 0);
+                trading.tradeItems(Item.FOOD, 100, Item.WATER, location.getDistance());
                 JOptionPane.showMessageDialog(null, "Trade accepted!");
                 display.showTravelScreen(inventory);
             }
