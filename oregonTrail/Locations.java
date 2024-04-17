@@ -10,8 +10,7 @@
 
 
 public class Locations {
-    private int distance;
-    public int player_Distance = 0;
+    private int distance = 0;
 
     public static final String INDEPENDENCE     =   "Independence";
     public static final String COURTHOUSE       =   "Courthouse";
@@ -47,8 +46,8 @@ public class Locations {
     private String nextLandmark;
 
     public int setPlayerPostion(int travel){
-        player_Distance = player_Distance + travel;
-        return player_Distance;
+        distance = distance + travel;
+        return distance;
     }
 
     public boolean hitRiver(){
