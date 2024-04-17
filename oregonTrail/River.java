@@ -52,7 +52,8 @@
          int crossingChance = random.nextInt(10); // Generating a random number between 0 to 9
  
          // Calculate success threshold based on height, flow, and width
-         int successThreshold = (int) ((100 - height) * (100 - flow) * (100 - width) * 0.25);
+         //int successThreshold = (int) ((100 - height) * (100 - flow) * (100 - width) * 0.25);
+         int successThreshold =(int) 0.9;
  
          // Check if the crossing is successful based on random chance and success threshold
          if (crossingChance < successThreshold) {

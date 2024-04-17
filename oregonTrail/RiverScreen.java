@@ -81,6 +81,8 @@ public class RiverScreen extends JPanel {
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "You did not cross the " + river.getName() + " river");
+                    JOptionPane.showMessageDialog(null, "You Died!");
+                    System.exit(0);
                 }
             }
         });

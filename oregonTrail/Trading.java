@@ -27,7 +27,7 @@ public class Trading {
      */
     public boolean tradeTime(){
         Random rand = new Random();
-        int randNum = rand.nextInt(8);
+        int randNum = rand.nextInt(50);
         if(randNum==0){
             return true;
         }

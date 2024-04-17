@@ -24,7 +24,15 @@ public class Map{
 
         for (int i = 0; i < Locations.LOCATIONS.length;i++){
             if(loc.compareTo(Locations.LOCATIONS[i]) == 0){
-                File file = new File("Images\\Oregon Trail Map " + i + ".jpg");
+                
+                /* make sure to comment the other file out if you are on a different device. If you use mac comment out windows
+                   if you use windows commetn out mac */
+
+                //use if on mac
+                File file = new File("Images/Oregon Trail Map " + i + ".jpg");
+
+                //use if on windows
+                //File file = new File("Images\\Oregon Trail Map " + i + ".jpg");
                 return file;
             }
         }
