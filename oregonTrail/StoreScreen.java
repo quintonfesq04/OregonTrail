@@ -1,3 +1,13 @@
+/**
+ * @File StoreScreen.java
+ * @Author Madison Scott
+ * @Version 1.0.0 4/14/24
+ * Represents the screen for purchasing items for the trip from a store.
+ * This frame allows the user to buy food, water, oxen, clothing, and bullets.
+ * @param display The reference to the main display.
+ * @param inventory The inventory object containing information about the player's possessions.
+ * @return StoreScreen JFrame containing options to buy items for the trip.
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,12 +18,20 @@ public class StoreScreen extends JFrame {
     private Display display; // Add reference to Display
     private Inventory inventory; // Add reference to Inventory
 
+    /**
+     * Constructs a StoreScreen object.
+     * @param display The reference to the main display.
+     * @param inventory The inventory object containing information about the player's possessions.
+     */
     public StoreScreen(Display display, Inventory inventory) {
         this.display = display;
         this.inventory = inventory;
         initialize();
     }
-
+    
+    /**
+     * Initializes the StoreScreen frame and its components.
+     */
     private void initialize() {
         // Initialize the panel and set layout
         panel = new JPanel();
@@ -93,12 +111,15 @@ public class StoreScreen extends JFrame {
             btnNewButton_1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                inventory.setMoney(inventory.getMoney() - 1000); // Subtract money from the inventory
+                // Subtract money from the inventory
+                inventory.setMoney(inventory.getMoney() - 1000); 
+                // Update inventory with purchased items
                 inventory.setFood((int) foodSpinner.getValue());
                 inventory.setOxen((int) oxenSpinner.getValue());
                 inventory.setWater((int) waterSpinner.getValue());
                 inventory.setClothing((int) clothesSpinner.getValue());
                 inventory.setBullets((int) bulletsSpinner.getValue());
+                // Show the travel screen with updated inventory
                 display.showTravelScreen(inventory);
             }
         });
@@ -108,6 +129,10 @@ public class StoreScreen extends JFrame {
         panel.add(btnNewButton_1);
     }
 
+    /**
+     * Returns the panel of the StoreScreen frame.
+     * @return JPanel containing options to buy items for the trip.
+     */
     public JPanel getPanel() {
         return panel;
     }
