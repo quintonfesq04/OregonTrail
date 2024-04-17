@@ -6,6 +6,7 @@ public class Display {
     private JPanel panel;
     private StoreScreen store;
     private TravelScreen travelScreen;
+	private Inventory inventory = new Inventory();
 
     public Display() {
         initialize();
@@ -16,7 +17,9 @@ public class Display {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new CardLayout());
 
-        store = new StoreScreen(this, null);
+		
+
+        store = new StoreScreen(this, inventory);
         travelScreen = new TravelScreen();
 
         frame.add(store.getPanel(), "StoreScreen");
@@ -34,7 +37,8 @@ public class Display {
         cardLayout.show(frame.getContentPane(), "StoreScreen");
     }
 
-    public void showTravelScreen() {
+    public void showTravelScreen(Inventory inventory) {
+		travelScreen.setInventory(inventory);
         CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
         cardLayout.show(frame.getContentPane(), "TravelScreen");
     }

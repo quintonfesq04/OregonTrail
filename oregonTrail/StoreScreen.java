@@ -40,8 +40,8 @@ public class StoreScreen extends JFrame {
         btnNewButton_1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Inventory.MONEY -= 1000; // Subtract money from the inventory
-                display.showTravelScreen();
+                inventory.setMoney(inventory.getMoney() - 1000); // Subtract money from the inventory
+                display.showTravelScreen(inventory);
             }
         });
         btnNewButton_1.setBackground(new Color(251, 252, 255));

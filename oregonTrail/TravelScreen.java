@@ -26,6 +26,8 @@ import javax.swing.event.ChangeListener;
 public class TravelScreen extends JPanel {
     JPanel panel;
     PicPanel viewPanel;
+    JLabel moneyLabel;
+
     private Conditions conditions;
 
     public TravelScreen() {
@@ -41,9 +43,9 @@ public class TravelScreen extends JPanel {
         initialize();
         this.conditions = new Conditions(inventory); // Initialize Conditions object
     }
+    private Inventory inventory = new Inventory();
 
     private int spaceBetween = 5;
-	private int money = Inventory.MONEY;
     private int food = 200;
     private int water = 100;
     private int wagonTongue = 1;
@@ -56,7 +58,7 @@ public class TravelScreen extends JPanel {
 
     private Player user = new Player(health, food, 0, 0);
 
-    private Inventory inventory = new Inventory();
+ 
 
     /**
      * constructor for TravelScreen object
@@ -146,8 +148,8 @@ public class TravelScreen extends JPanel {
         axleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(axleLabel);
 
-		inventory.addItem(Item.MONEY, money);
-        JLabel moneyLabel = new JLabel("Money: " + money);
+		inventory.addItem(Item.MONEY, inventory.getMoney());
+        moneyLabel = new JLabel("Money: " + inventory.getMoney());
         axleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(moneyLabel);
 
@@ -278,8 +280,8 @@ public class TravelScreen extends JPanel {
 					water = inventory.getItemCount("water");
 
 					// Update class variable and UI label for money
-					money = inventory.getItemCount(Item.MONEY);
-					moneyLabel.setText("Money: " + money);
+					inventory.setMoney(inventory.getItemCount(Item.MONEY));
+					moneyLabel.setText("Money: " + inventory.getMoney());
 
 			
 					// Update other UI elements and game state as needed
@@ -291,6 +293,11 @@ public class TravelScreen extends JPanel {
 });
 
 		buttonPanel.add(travelBtn);
+    }
+
+    public void setInventory(Inventory inventory){
+        this.inventory = inventory;
+        moneyLabel.setText("Money: " + inventory.getMoney());
     }
 	public JPanel getPanel() {
 			return panel;
