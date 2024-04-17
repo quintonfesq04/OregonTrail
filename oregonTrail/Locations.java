@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /**
  * @file Locations.java
  * @Team Chimney Rock
@@ -68,7 +70,7 @@ public class Locations {
 
     return false;
 }
-    }
+    
 
     public String whatNextLoc(int currentLoc){
         int test1 = 0, test2 = 0;
