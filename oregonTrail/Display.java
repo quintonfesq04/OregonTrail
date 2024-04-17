@@ -6,11 +6,8 @@ public class Display {
     private JPanel panel;
     private StoreScreen storeScreen;
     private TravelScreen travelScreen;
-<<<<<<< Updated upstream
-	private Inventory inventory = new Inventory();
-=======
 	private TradeScreen tradeScreen;
->>>>>>> Stashed changes
+	private Inventory inventory = new Inventory();
 
     public Display() {
         initialize();
@@ -21,19 +18,15 @@ public class Display {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new CardLayout());
 
-<<<<<<< Updated upstream
 		
 
-        store = new StoreScreen(this, inventory);
-=======
         storeScreen = new StoreScreen(this, null);
->>>>>>> Stashed changes
         travelScreen = new TravelScreen();
 		tradeScreen = new TradeScreen(null);
 
         frame.add(storeScreen.getPanel(), "StoreScreen");
         frame.add(travelScreen.getPanel(), "TravelScreen");
-		frame.add(tradeScreen.getPanel(), "TradeScreen");
+		frame.add(tradeScreen.getPanel(), "TradeScreen");	
 
         showStoreScreen(); // Show the initial screen
 
@@ -52,6 +45,11 @@ public class Display {
         CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
         cardLayout.show(frame.getContentPane(), "TravelScreen");
     }
+
+	public void showTradeScreen() {
+		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
+		cardLayout.show(frame.getContentPane(), "TradeScreen");
+	}
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Display::new);
