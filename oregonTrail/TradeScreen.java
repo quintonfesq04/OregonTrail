@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class TradeScreen extends AbstractScreen{
+public class TradeScreen extends JPanel{
     private JPanel panel;
     private Trading trading = new Trading(new Store());
     private Display display;
@@ -17,8 +17,8 @@ public class TradeScreen extends AbstractScreen{
         this.display = display;
         initialize();
     }
-    @Override
-    protected void initialize() {
+    
+    private void initialize() {
         // TODO Auto-generated method stub
         panel = new JPanel();
         //panel.setBounds(100, 100, 500, 500);
@@ -55,12 +55,4 @@ public class TradeScreen extends AbstractScreen{
     public JPanel getPanel(){
         return panel;
     }
-
-	@Override
-	public void resizeBackgroundImages() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'resizeBackgroundImages'");
-	}
-    
-
 }
