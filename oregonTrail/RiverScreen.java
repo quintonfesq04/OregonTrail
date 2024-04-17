@@ -52,10 +52,4 @@ public class RiverScreen extends JPanel {
     public JPanel getPanel(){
         return panel;
     }
-
-    // Resize background image
-    public void resizeBackgroundImages(){
-        viewPanel.resizeImage();
-    }
-
 }

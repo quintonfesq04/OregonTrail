@@ -1,3 +1,5 @@
+import java.util.Random;
+
 import javax.swing.JOptionPane;
 
 public class Trading {
@@ -11,6 +13,16 @@ public class Trading {
     public void displayTradeItems() {
         store.displayTradeItems();
     }
+
+    public boolean tradeTime(){
+        Random rand = new Random();
+        int randNum = rand.nextInt(8);
+        if(randNum==5){
+            return true;
+        }
+        else 
+            return false;
+    } 
 
     // Method to perform trading between items
     public void tradeItems(String itemToSell, double amountToSell, String itemToBuy, int landmarkIndex) {
