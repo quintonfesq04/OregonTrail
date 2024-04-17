@@ -1,5 +1,11 @@
 import javax.swing.JOptionPane;
 
+/**
+ * @File Hunting.java
+ * @author Quinton Fesq
+ * @version 1.0.0 4/16/24
+ * Allows for hunting minigame
+ */
 public class Hunting {
 
     private Inventory inventory;

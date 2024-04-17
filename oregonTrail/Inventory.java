@@ -3,6 +3,12 @@ import java.util.Map;
 
 import javax.swing.JOptionPane;
 
+/**
+ * @File Inventory.java
+ * @author Quinton Fesq
+ * @version 1.5.2 4/17/24
+ * Creates the inventory for the journey along the oregon trail
+ */
 public class Inventory {
     private int money = 2000;
     private int food = 1500;
@@ -14,6 +20,7 @@ public class Inventory {
     private static final int INVENTORY_CAP = 2000; // Maximum inventory capacity
     private static Map<String, Integer> items;
 
+    // constructor for Inventory
     public Inventory() {
         Inventory.items = new HashMap<>();
     }
@@ -58,50 +65,98 @@ public class Inventory {
         return new HashMap<>(items);
     }
 
+    /**
+     * gives the players money
+     * @return the money
+     */
     public int getMoney(){
         return money;
     }
 
+    /**
+     * sets the players money
+     * @param money the desired amount of money
+     */
     public void setMoney(int money){
         this.money = money;
     }
 
+    /**
+     * gives the players food
+     * @return the food
+     */
     public int getFood(){
         return food;
     }
 
+     /**
+     * sets the players food
+     * @param money the desired amount of food
+     */
     public void setFood(int food){
         this.food = food;
     }
 
+    /**
+     * gives the players oxen
+     * @return the oxen
+     */
     public int getOxen() {
         return oxen;
     }
 
+     /**
+     * sets the players oxen
+     * @param money the desired amount of oxen
+     */
     public void setOxen(int oxen){
         this.oxen = oxen;
     }
 
+    /**
+     * gives the players clothing
+     * @return the clothing
+     */
     public int getClothing(){
         return clothing;
     }
 
+     /**
+     * sets the players clothing
+     * @param money the desired amount of clothing
+     */
     public void setClothing(int clothing){
         this.clothing = clothing;
     }
 
+    /**
+     * gives the players bullets
+     * @return the bullets
+     */
     public int getBullets(){
         return bullets;
     }
 
+     /**
+     * sets the players bullets
+     * @param money the desired amount of bullets
+     */
     public void setBullets(int bullets){
         this.bullets = bullets;
     }
 
+    /**
+     * gives the players water
+     * @return the water
+     */
     public int getWater(){
         return water;
     }
 
+     /**
+     * sets the players water
+     * @param money the desired amount of water
+     */
     public void setWater(int water){
         this.water = water;
     }
