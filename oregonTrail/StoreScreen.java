@@ -1,12 +1,10 @@
+
 /**
  * @File StoreScreen.java
  * @Author Madison Scott
- * @Version 1.0.0 4/14/24
+ * @Version 1.0.0 4/17/24
  * Represents the screen for purchasing items for the trip from a store.
- * This frame allows the user to buy food, water, oxen, clothing, and bullets.
- * @param display The reference to the main display.
- * @param inventory The inventory object containing information about the player's possessions.
- * @return StoreScreen JFrame containing options to buy items for the trip.
+ * This panel allows the user to buy food, water, oxen, clothing, and bullets.
  */
 import javax.swing.*;
 import java.awt.*;

@@ -1,3 +1,9 @@
+/**
+ * @File Travel.java
+ * @author Ethan Burch
+ * @version 1.0.0 4/12/24
+ * controls the traveling amount for the wagon
+ */
 public class Travel {
     private int speed;
     private int milesTraveled;

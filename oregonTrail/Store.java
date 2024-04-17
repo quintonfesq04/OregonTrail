@@ -3,10 +3,16 @@ import java.util.Map;
 
 import javax.swing.JOptionPane;
 
+/**
+ * @File Store.java
+ * @author Quinton Fesq
+ * @version 1.0.0 4/17/24
+ */
 public class Store {
     // Define the base prices of items
     private Map<String, Double> basePrices;
 
+    // constructor for Store
     public Store() {
         // Initialize base prices
         basePrices = new HashMap<>();

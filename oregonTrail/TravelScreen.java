@@ -21,7 +21,7 @@ import javax.swing.event.ChangeListener;
 /**
  * @File TravelScreen.java
  * @Author Ethan Burch
- * @Version 1.0.0 4/14/24
+ * @Version 1.0.4 4/17/24
  * Creates a JPanel for the traveling portion of the game
  */
 public class TravelScreen extends JPanel {
@@ -37,22 +37,6 @@ public class TravelScreen extends JPanel {
     private Trading trading = new Trading(new Store()); 
     private Display display;
     private Conditions conditions;
-
-    public TravelScreen(Display display) {
-        this.display = display;
-        initialize();
-        this.conditions = new Conditions(inventory); // Initialize Conditions object
-    }
-
-    // Existing constructor
-    public TravelScreen(Display display, Inventory inventory, Locations locations, Player user) {
-        this.display = display;
-        this.inventory = inventory;
-        this.locations = locations;
-        this.user = user;
-        initialize();
-        this.conditions = new Conditions(inventory); // Initialize Conditions object
-    }
     private Inventory inventory = new Inventory();
 
     private int spaceBetween = 5;
@@ -70,6 +54,22 @@ public class TravelScreen extends JPanel {
 
  
 
+    public TravelScreen(Display display) {
+        this.display = display;
+        initialize();
+        this.conditions = new Conditions(inventory); // Initialize Conditions object
+    }
+
+    // Existing constructor
+    public TravelScreen(Display display, Inventory inventory, Locations locations, Player user) {
+        this.display = display;
+        this.inventory = inventory;
+        this.locations = locations;
+        this.user = user;
+        initialize();
+        this.conditions = new Conditions(inventory); // Initialize Conditions object
+    }
+    
     /**
      * constructor for TravelScreen object
      * 
@@ -327,6 +327,10 @@ public class TravelScreen extends JPanel {
         buttonPanel.add(mapBtn);
     }
 
+    /**
+     * sets the inventory  and updates JLabels
+     * @param inventory the desired inventory
+     */
     public void setInventory(Inventory inventory){
         this.inventory = inventory;
         moneyLabel.setText("Money: " + inventory.getMoney());
@@ -336,6 +340,10 @@ public class TravelScreen extends JPanel {
         bulletsLabel.setText("Bullets: " + inventory.getBullets());
         waterLabel.setText("Water: " + inventory.getWater());
     }
+     /**
+     * get the panel 
+     * @return the panel
+     */
 	public JPanel getPanel() {
 			return panel;
 		}

@@ -71,7 +71,7 @@ public class TradeScreen extends JPanel{
 
     /**
      * get the panel 
-     * @return
+     * @return the panel
      */
     public JPanel getPanel(){
         return panel;
