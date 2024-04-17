@@ -56,7 +56,8 @@ public class Display {
         cardLayout.show(frame.getContentPane(), "TravelScreen");
     }
 
-	public void showTradeScreen() {
+	public void showTradeScreen(Inventory inventory) {
+        tradeScreen.setInventory(inventory);
 		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
 		cardLayout.show(frame.getContentPane(), "TradeScreen");
 	}

@@ -305,7 +305,7 @@ public class TravelScreen extends JPanel {
                         display.showRiverScreen();
                     }
                     else if(trading.tradeTime()){
-                        display.showTradeScreen();
+                        display.showTradeScreen(inventory);
                     }
 					// Update other UI elements and game state as needed
 				} else {

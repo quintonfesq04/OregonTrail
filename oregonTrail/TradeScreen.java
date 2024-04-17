@@ -36,7 +36,7 @@ public class TradeScreen extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Perform the trade
-                inventory = trading.tradeItems(Inventory.removeItem(food)), 100, Item.WATER, location.getDistance());
+                inventory = trading.tradeItems(Item.FOOD, 100, Item.WATER, location.getDistance(), inventory);
                 JOptionPane.showMessageDialog(null, "Trade accepted!");
                 display.showTravelScreen(inventory);
             }
@@ -56,5 +56,9 @@ public class TradeScreen extends JPanel{
 
     public JPanel getPanel(){
         return panel;
+    }
+
+    public void setInventory(Inventory inventory){
+        this.inventory = inventory;
     }
 }

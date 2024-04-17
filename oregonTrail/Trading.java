@@ -25,7 +25,7 @@ public class Trading {
     } 
 
     // Method to perform trading between items
-    public Inventory tradeItems(String itemToSell, double amountToSell, String itemToBuy, int landmarkIndex) {
+    public Inventory tradeItems(String itemToSell, double amountToSell, String itemToBuy, int landmarkIndex, Inventory inventory) {
         // Calculate the price of the item to sell
         double sellPrice = store.calculateItemPrice(itemToSell, landmarkIndex);
 
@@ -44,10 +44,10 @@ public class Trading {
                                                                 + amountToBuy + " units of " + itemToBuy + " at $" + buyString + " each.");
     
         // Call the inventory class to add the bought item
-        Inventory inventory = new Inventory();
-        inventory.addItem(itemToBuy, (int) amountToBuy);
+        
+        inventory.setFood((int) (inventory.getFood() - amountToSell));
         // Call the inventory class to remove the sold item
-        inventory.removeItem(itemToSell, (int) amountToSell);
+        inventory.setWater((int) (inventory.getWater() + amountToBuy));
         return inventory;
     }
 }
