@@ -29,7 +29,7 @@ public class Display {
 
         frame.add(storeScreen.getPanel(), "StoreScreen");
         frame.add(travelScreen.getPanel(), "TravelScreen");
-		frame.add(tradeScreen.getPanel(), "TradeScreen");
+		frame.add(tradeScreen.getPanel(), "TradeScreen");	
 
         showStoreScreen(); // Show the initial screen
 
@@ -48,6 +48,11 @@ public class Display {
         CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
         cardLayout.show(frame.getContentPane(), "TravelScreen");
     }
+
+	public void showTradeScreen() {
+		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
+		cardLayout.show(frame.getContentPane(), "TradeScreen");
+	}
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Display::new);
