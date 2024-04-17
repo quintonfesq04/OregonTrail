@@ -54,13 +54,14 @@ public class Store {
         String buyString = Double.toString(buyPrice);
         String sellString = Double.toString(sellPrice);
 
-        
 
+        buyString = String.format("%.2", buyString);
+        sellString = String.format("%.2", sellString);
         
         // Display the trade details
         JOptionPane.showMessageDialog(null,"Trade details:\n Selling " + amountToSell + " units of " + itemToSell + " at $" 
                                         + sellString + " each.\nBuying " + amountToBuy +
-                                        " units of " + itemToBuy + " at $" + buyPrice + " each.");
+                                        " units of " + itemToBuy + " at $" + buyString + " each.");
         
         // Call the inventory class to add the bought item
         Inventory inventory = new Inventory();
