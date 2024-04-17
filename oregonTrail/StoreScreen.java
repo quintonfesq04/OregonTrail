@@ -41,6 +41,7 @@ public class StoreScreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 inventory.setMoney(inventory.getMoney() - 1000); // Subtract money from the inventory
+                inventory.additem(Item.FOOD, inventory.getFood + 1500);
                 display.showTravelScreen(inventory);
             }
         });
