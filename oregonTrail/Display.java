@@ -6,11 +6,10 @@ public class Display {
     private JPanel panel;
     private StoreScreen storeScreen;
     private TravelScreen travelScreen;
-<<<<<<< Updated upstream
 	private Inventory inventory = new Inventory();
-=======
-	private TradeScreen tradeScreen;
->>>>>>> Stashed changes
+    private TradeScreen tradeScreen;
+    private Player user = new Player();
+    private Locations location = new Locations(0);
 
     public Display() {
         initialize();
@@ -21,15 +20,12 @@ public class Display {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new CardLayout());
 
-<<<<<<< Updated upstream
 		
 
-        store = new StoreScreen(this, inventory);
-=======
-        storeScreen = new StoreScreen(this, null);
->>>>>>> Stashed changes
-        travelScreen = new TravelScreen();
-		tradeScreen = new TradeScreen(null);
+        
+        storeScreen = new StoreScreen(this, inventory);
+        travelScreen = new TravelScreen(this, inventory, location, user);
+		tradeScreen = new TradeScreen(this, inventory);
 
         frame.add(storeScreen.getPanel(), "StoreScreen");
         frame.add(travelScreen.getPanel(), "TravelScreen");

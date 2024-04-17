@@ -24,19 +24,22 @@ import javax.swing.event.ChangeListener;
  * Creates a JPanel for the traveling portion of the game
  */
 public class TravelScreen extends JPanel {
-    JPanel panel;
-    PicPanel viewPanel;
-    JLabel moneyLabel;
+    private JPanel panel;
+    private PicPanel viewPanel;
+    private JLabel moneyLabel;
 
+    private Display display;
     private Conditions conditions;
 
-    public TravelScreen() {
+    public TravelScreen(Display display) {
+        this.display = display;
         initialize();
         this.conditions = new Conditions(inventory); // Initialize Conditions object
     }
 
     // Existing constructor
-    public TravelScreen(Inventory inventory, Locations locations, Player user) {
+    public TravelScreen(Display display, Inventory inventory, Locations locations, Player user) {
+        this.display = display;
         this.inventory = inventory;
         this.locations = locations;
         this.user = user;
@@ -46,14 +49,8 @@ public class TravelScreen extends JPanel {
     private Inventory inventory = new Inventory();
 
     private int spaceBetween = 5;
-<<<<<<< Updated upstream
     private int food = 200;
     private int water = 100;
-=======
-	private int money = Inventory.MONEY;
-    private int food = 1500;
-    private int water = 1500;
->>>>>>> Stashed changes
     private int wagonTongue = 1;
     private int wagonWheel = 1;
     private int wagonAxle = 1;
