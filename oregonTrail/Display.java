@@ -3,7 +3,6 @@ import java.awt.*;
 
 public class Display {
     private JFrame frame;
-    private JPanel panel;
     private StoreScreen storeScreen;
     private TravelScreen travelScreen;
 	private RiverScreen riverScreen;

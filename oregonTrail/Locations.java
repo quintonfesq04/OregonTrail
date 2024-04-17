@@ -39,6 +39,8 @@ public class Locations {
     private boolean pastGreen = false;
     private boolean pastSnake = false;
 
+    private String riverName;
+
     public static final String LOCATIONS[] = {"Independence","Courthouse","Chimney Rock","Fort Laramie", "Independence Rock", 
                                                 "Fort Bridger", "Soda Springs", "Fort Hall", "Fort Boise", "Fort Boise North",
                                                  "Fort Boise South", "The Dalles", "Oregon City North", "Oregon City South"};
@@ -59,18 +61,22 @@ public class Locations {
     public boolean hitRiver(){
      // Check if the player has reached any of the rivers
     if (distance >= KANSAS_DISTANCE && !pastKansas) {
+        riverName = "Kansas River";
         pastKansas = true;
         JOptionPane.showMessageDialog(null, "You have reached Kansas River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
         return true;
     } else if (distance >= BIG_BLUE_DISTANCE && !pastBigBlue) {
+        riverName = "Big Blue River";
         pastBigBlue = true;
         JOptionPane.showMessageDialog(null, "You have reached Big Blue River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
         return true;
     } else if (distance >= GREEN_DISTANCE && !pastGreen) {
+        riverName = "Green River";
         pastGreen = true;
         JOptionPane.showMessageDialog(null, "You have reached Green River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
         return true;
     } else if (distance >= SNAKE_DISTANCE && !pastSnake) {
+        riverName = "Snake River";
         pastSnake = true;
         JOptionPane.showMessageDialog(null, "You have reached Snake River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
         return true;
@@ -78,6 +84,9 @@ public class Locations {
 
     return false;
 }
+    public String getRiverName(){
+        return riverName;
+    }
     
 
     public String nextLocation(int currentLoc){
@@ -125,7 +134,7 @@ public class Locations {
      * @return String for next landmark
      */
     public String getNextLandmark(){
-        String nextLandmark = nextLocation(distance);
+        nextLandmark = nextLocation(distance);
         return nextLandmark;
     }
 

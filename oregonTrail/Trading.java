@@ -35,10 +35,13 @@ public class Trading {
         // Calculate the quantity of the item to buy
         int amountToBuy = (int) ((amountToSell * sellPrice) / buyPrice);
 
+        String sellString = String.format("%.2f", sellPrice);
+        String buyString = String.format("%.2f", buyPrice);
+
         // Display the trade details
         JOptionPane.showMessageDialog(null," Trade details:\n Selling " + amountToSell + 
-                                                            " units of " + itemToSell + " at $" + sellPrice + " each.\n Buying "
-                                                                + amountToBuy + " units of " + itemToBuy + " at $" + buyPrice + " each.");
+                                                            " units of " + itemToSell + " at $" + sellString + " each.\nBuying "
+                                                                + amountToBuy + " units of " + itemToBuy + " at $" + buyString + " each.");
     
         // Call the inventory class to add the bought item
         Inventory inventory = new Inventory();

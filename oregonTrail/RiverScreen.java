@@ -38,7 +38,8 @@ public class RiverScreen extends JPanel {
         crossBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 // Create a river object
-                River river = new River("Kansas", 10, 10, 50);
+                
+                River river = new River(locations.getRiverName(), 10, 10, 50);
                 // Attempt to cross the river
                 if(river.crossRiver()){
                     JOptionPane.showMessageDialog(null, "Successfully crossed the " + river.getName() + " river");
