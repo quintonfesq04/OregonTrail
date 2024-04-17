@@ -278,7 +278,6 @@ public class TravelScreen extends JPanel {
 					foodConsumed = 10; //Adjust as needed
 					inventory.removeItem(Item.FOOD, foodConsumed);
 
-			
 					// Update UI labels
 					foodLabel.setText("Lbs of Food: " + inventory.getItemCount(Item.FOOD));
 					waterLabel.setText("Lbs of Water: " + inventory.getItemCount(Item.WATER));
@@ -287,8 +286,9 @@ public class TravelScreen extends JPanel {
 					food = inventory.getItemCount("food");
 					water = inventory.getItemCount("water");
 
-
-			
+                    if(locations.hitRiver()){
+                        
+                    }
 					// Update other UI elements and game state as needed
 				} else {
 					System.out.println("Conditions object is null!");

@@ -32,6 +32,7 @@ public class Display {
         frame.add(storeScreen.getPanel(), "StoreScreen");
         frame.add(travelScreen.getPanel(), "TravelScreen");
 		frame.add(tradeScreen.getPanel(), "TradeScreen");	
+        frame.add(riverScreen.getPanel(), "RiverScreen");
 
         showStoreScreen(); // Show the initial screen
 
@@ -55,10 +56,16 @@ public class Display {
         CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
         cardLayout.show(frame.getContentPane(), "TravelScreen");
     }
+
 	public void showTradeScreen() {
 		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
 		cardLayout.show(frame.getContentPane(), "TradeScreen");
 	}
+
+    public void showRiverScreen(){
+        CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
+		cardLayout.show(frame.getContentPane(), "RiverScreen");
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Display::new);
