@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,8 +12,8 @@ public class Store {
     public Store() {
         // Initialize base prices
         basePrices = new HashMap<>();
-        basePrices.put(Item.FOOD, 20.0); // Example base price for food
-        basePrices.put(Item.WATER, 20.0);
+        basePrices.put(Item.FOOD, .20); // Example base price for food
+        basePrices.put(Item.WATER, .20);
         // Add more base prices for other items if needed
     }
 
@@ -49,11 +51,17 @@ public class Store {
         // Calculate the quantity of the item to buy
         double amountToBuy = (amountToSell * sellPrice) / buyPrice;
 
-        // Display the trade details
-        JOptionPane.showMessageDialog(null,"Trade details:");
-        JOptionPane.showMessageDialog(null,"Selling " + amountToSell + " units of " + itemToSell + " at $" + sellPrice + " each.");
-        JOptionPane.showMessageDialog(null,"Buying " + amountToBuy + " units of " + itemToBuy + " at $" + buyPrice + " each.");
+        String buyString = Double.toString(buyPrice);
+        String sellString = Double.toString(sellPrice);
 
+        
+
+        
+        // Display the trade details
+        JOptionPane.showMessageDialog(null,"Trade details:\n Selling " + amountToSell + " units of " + itemToSell + " at $" 
+                                        + sellString + " each.\nBuying " + amountToBuy +
+                                        " units of " + itemToBuy + " at $" + buyPrice + " each.");
+        
         // Call the inventory class to add the bought item
         Inventory inventory = new Inventory();
         inventory.addItem(itemToBuy, (int) amountToBuy);
