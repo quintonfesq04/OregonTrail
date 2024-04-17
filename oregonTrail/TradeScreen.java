@@ -6,6 +6,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ * @File TradeScreen.java
+ * @author Quinton Fesq
+ * @version 1.0.1 4/17/24
+ * Creates a TradeScreen panel to display
+ */
 public class TradeScreen extends JPanel{
     private JPanel panel;
     private Trading trading = new Trading(new Store());
@@ -13,6 +19,12 @@ public class TradeScreen extends JPanel{
     private Inventory inventory;
     private Locations location;
 
+    /**
+     * Constructor for TradeScreen 
+     * @param display the display to push updates to 
+     * @param inventory the inventory to make changes to
+     * @param location the location of the player along the oregon trail
+     */
     public TradeScreen(Display display, Inventory inventory, Locations location){
         this.display = display;
         this.inventory = inventory;
@@ -20,6 +32,9 @@ public class TradeScreen extends JPanel{
         initialize();
     }
     
+    /**
+     * initialize the JPanel
+     */
     private void initialize() {
         // TODO Auto-generated method stub
         panel = new JPanel();
@@ -54,10 +69,18 @@ public class TradeScreen extends JPanel{
         panel.add(rejectButton);
     }
 
+    /**
+     * get the panel 
+     * @return
+     */
     public JPanel getPanel(){
         return panel;
     }
 
+    /**
+     * sets the inventory 
+     * @param inventory the desired inventory
+     */
     public void setInventory(Inventory inventory){
         this.inventory = inventory;
     }

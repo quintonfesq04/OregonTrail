@@ -1,6 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @File Display.java
+ * @author Ethan Burch & Quinton Fesq
+ * @version 2.0.4 4/17/24
+ * Main gateway into Oregon Trail game. Controls which screen is being shown to the player.
+ */
 public class Display {
     private JFrame frame;
     private StoreScreen storeScreen;
@@ -11,10 +17,12 @@ public class Display {
     private Player user = new Player();
     private Locations location = new Locations(0);
 
+    // constuctor for Display object
     public Display() {
         initialize();
     }
 
+    // initializes the display
     protected void initialize() {
         frame = new JFrame("Oregon Trail");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,28 +48,45 @@ public class Display {
         frame.setVisible(true);
     }
 
+    /**
+     * Forces the display to switch to the Store Screen
+     */
     public void showStoreScreen() {
         CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
         cardLayout.show(frame.getContentPane(), "StoreScreen");
     }
 
+    /**
+     * Forces the display to switch to the Travel Screen
+     * @param inventory the inventory that Travel Screen should use
+     */
     public void showTravelScreen(Inventory inventory) {
 		travelScreen.setInventory(inventory);
         CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
         cardLayout.show(frame.getContentPane(), "TravelScreen");
     }
 
+    /**
+     * Forces the display to switch to the Travel Screen
+     */
     public void showTravelScreen(){
         CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
         cardLayout.show(frame.getContentPane(), "TravelScreen");
     }
 
+    /**
+     * Forces the display to switch to the Trade Screen
+     * @param inventory the inventory that Trade Screen should edit
+     */
 	public void showTradeScreen(Inventory inventory) {
         tradeScreen.setInventory(inventory);
 		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
 		cardLayout.show(frame.getContentPane(), "TradeScreen");
 	}
 
+    /**
+     * Forces the display to switch to the River Screen
+     */
     public void showRiverScreen(){
         CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
 		cardLayout.show(frame.getContentPane(), "RiverScreen");

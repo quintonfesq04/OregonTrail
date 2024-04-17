@@ -5,10 +5,19 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+/**
+ * @File PicPanel.java
+ * @Author Ethan Burch
+ * @Version 1.0.0 4/14/24
+ * Creates a JPanel whose background can be set to an image
+ */
 public class PicPanel extends JPanel {
     private Image backgroundImage;
 
-    // Constructor to set the background image
+    /**
+     * Constructor for PicPanel object
+     * @param imageFile the image for the background
+     */
     public PicPanel(File imageFile) {
         try {
             backgroundImage = ImageIO.read(imageFile);
@@ -17,6 +26,7 @@ public class PicPanel extends JPanel {
         }
     }
 
+    // paintComponent override to create background
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -25,6 +35,9 @@ public class PicPanel extends JPanel {
         }
     }
 
+    /**
+     * resizes the background image
+     */
     public void resizeImage() {
         if (backgroundImage != null) { // Check if backgroundImage is not null
             int w = getWidth();
