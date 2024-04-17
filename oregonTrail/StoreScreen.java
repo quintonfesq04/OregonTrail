@@ -48,27 +48,27 @@ public class StoreScreen extends JFrame {
         
         SpinnerNumberModel model1 = new SpinnerNumberModel(0,0,2000,20);
         JSpinner spinner = new JSpinner(model1);
-        spinner.setBounds(99, 73, 34, 26);
+        spinner.setBounds(99, 73, 50, 26);
         panel.add(spinner);
         
         SpinnerNumberModel model2 = new SpinnerNumberModel(0,0,2000,20);
         JSpinner spinner_1 = new JSpinner(model2);
-        spinner_1.setBounds(99, 111, 34, 26);
+        spinner_1.setBounds(99, 111, 50, 26);
         panel.add(spinner_1);
         
         SpinnerNumberModel model3 = new SpinnerNumberModel(0,0,4,1);
         JSpinner spinner_2 = new JSpinner(model3);
-        spinner_2.setBounds(99, 149, 34, 26);
+        spinner_2.setBounds(99, 149, 50, 26);
         panel.add(spinner_2);
         
         SpinnerNumberModel model4 = new SpinnerNumberModel(0,0,50,2);
         JSpinner spinner_3 = new JSpinner(model4);
-        spinner_3.setBounds(99, 187, 34, 26);
+        spinner_3.setBounds(99, 187, 50, 26);
         panel.add(spinner_3);
         
         SpinnerNumberModel model5 = new SpinnerNumberModel(0,0,1000,10);
         JSpinner spinner_4 = new JSpinner(model5);
-        spinner_4.setBounds(99, 227, 34, 26);
+        spinner_4.setBounds(99, 227, 50, 26);
         panel.add(spinner_4);
         
         JLabel lblNewLabel_1 = new JLabel("Food:");
