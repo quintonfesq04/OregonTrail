@@ -5,6 +5,12 @@ import javax.swing.JOptionPane;
 
 public class Inventory {
     private int money = 2000;
+    private int food = 1500;
+    private int water = 1500;
+    private int oxen = 4;
+    private int bullets = 100;
+    private int clothing = 30;
+    private int misSupplies = 50;
     private static final int INVENTORY_CAP = 2000; // Maximum inventory capacity
     private static Map<String, Integer> items;
 
