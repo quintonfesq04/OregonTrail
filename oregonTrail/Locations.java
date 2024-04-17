@@ -28,7 +28,10 @@ public class Locations {
     public static final String O_CITY_NORTH     =   "Oregon City North";
     public static final String O_CITY_SOUTH     =   "Oregon City South";
 
-
+    public static final int KANSAS_DISTANCE = 102;
+    public static final int BIG_BLUE_DISTANCE = 185;
+    public static final int GREEN_DISTANCE = 989;
+    public static final int SNAKE_DISTANCE = 1372;
 
     public static final String LOCATIONS[] = {"Independence","Courthouse","Chimney Rock","Fort Laramie", "Independence Rock", 
                                                 "Fort Bridger", "Soda Springs", "Fort Hall", "Fort Boise", "Fort Boise North",
@@ -41,6 +44,10 @@ public class Locations {
     public int setPlayerPostion(int travel){
         player_Distance = player_Distance + travel;
         return player_Distance;
+    }
+
+    public boolean hitRiver(){
+        
     }
 
     public String whatNextLoc(int currentLoc){
