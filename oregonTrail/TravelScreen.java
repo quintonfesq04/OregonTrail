@@ -137,10 +137,6 @@ public class TravelScreen extends JPanel {
         foodLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(foodLabel);
 
-        waterLabel = new JLabel("Lbs of Water: " + inventory.getWater());
-        waterLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        inventoryShowPanel.add(waterLabel);
-
         inventory.addItem(Item.WAGON_WHEEL, wagonWheel);
         JLabel wheelLabel = new JLabel("Wagon Wheels: " + wagonWheel);
         wheelLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -297,24 +293,18 @@ public class TravelScreen extends JPanel {
 					int foodConsumed = user.getConsumption();
 
                     int waterConsumption = 10; // Adjust as needed
-                    inventory.removeItem(Item.WATER, waterConsumption);
+                    inventory.setWater(inventory.getWater() - waterConsumption);
 
-					inventory.removeItem(Item.FOOD, foodConsumed);
+					inventory.setFood(inventory.getFood() - foodConsumed);
 
 					// Update UI labels
-					foodLabel.setText("Lbs of Food: " + inventory.getItemCount(Item.FOOD));
-					waterLabel.setText("Lbs of Water: " + inventory.getItemCount(Item.WATER));
-			
-					// Update class variables
-					food = inventory.getItemCount("food");
-					water = inventory.getItemCount("water");
-
+					foodLabel.setText("Lbs of Food: " + inventory.getFood());
+					waterLabel.setText("Lbs of Water: " + inventory.getWater());
                     
                     if(locations.hitRiver()){
                         display.showRiverScreen();
                     }
-
-                    if(trading.tradeTime()){
+                    else if(trading.tradeTime()){
                         display.showTradeScreen();
                     }
 					// Update other UI elements and game state as needed

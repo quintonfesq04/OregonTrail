@@ -26,50 +26,35 @@ public class StoreScreen extends JFrame {
         lblNewLabel.setBounds(26, 17, 265, 16);
         panel.add(lblNewLabel);
 
-        JButton btnNewButton_1 = new JButton("Buy");
-        btnNewButton_1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                inventory.setMoney(inventory.getMoney() - 1000); // Subtract money from the inventory
-                inventory.setFood(inventory.getFood());
-                inventory.setOxen(inventory.getOxen());
-                inventory.setClothing(inventory.getClothing());
-                inventory.setBullets(inventory.getBullets());
-                display.showTravelScreen(inventory);
-            }
-        });
-        btnNewButton_1.setBackground(new Color(251, 252, 255));
-        btnNewButton_1.setForeground(new Color(0, 0, 0));
-        btnNewButton_1.setBounds(155, 111, 117, 55);
-        panel.add(btnNewButton_1);
+       
 
         // Set the content pane of StoreScreen to the panel
         setContentPane(panel);
         
         SpinnerNumberModel model1 = new SpinnerNumberModel(0,0,2000,20);
-        JSpinner spinner = new JSpinner(model1);
-        spinner.setBounds(99, 73, 50, 26);
-        panel.add(spinner);
+        JSpinner foodSpinner = new JSpinner(model1);
+        foodSpinner.setBounds(99, 73, 50, 26);
+        panel.add(foodSpinner);
         
         SpinnerNumberModel model2 = new SpinnerNumberModel(0,0,2000,20);
-        JSpinner spinner_1 = new JSpinner(model2);
-        spinner_1.setBounds(99, 111, 50, 26);
-        panel.add(spinner_1);
+        JSpinner waterSpinner = new JSpinner(model2);
+        waterSpinner.setBounds(99, 111, 50, 26);
+        panel.add(waterSpinner);
         
         SpinnerNumberModel model3 = new SpinnerNumberModel(0,0,4,1);
-        JSpinner spinner_2 = new JSpinner(model3);
-        spinner_2.setBounds(99, 149, 50, 26);
-        panel.add(spinner_2);
+        JSpinner oxenSpinner = new JSpinner(model3);
+        oxenSpinner.setBounds(99, 149, 50, 26);
+        panel.add(oxenSpinner);
         
         SpinnerNumberModel model4 = new SpinnerNumberModel(0,0,50,2);
-        JSpinner spinner_3 = new JSpinner(model4);
-        spinner_3.setBounds(99, 187, 50, 26);
-        panel.add(spinner_3);
+        JSpinner clothesSpinner = new JSpinner(model4);
+        clothesSpinner.setBounds(99, 187, 50, 26);
+        panel.add(clothesSpinner);
         
         SpinnerNumberModel model5 = new SpinnerNumberModel(0,0,1000,10);
-        JSpinner spinner_4 = new JSpinner(model5);
-        spinner_4.setBounds(99, 227, 50, 26);
-        panel.add(spinner_4);
+        JSpinner bulletsSpinner = new JSpinner(model5);
+        bulletsSpinner.setBounds(99, 227, 50, 26);
+        panel.add(bulletsSpinner);
         
         JLabel lblNewLabel_1 = new JLabel("Food:");
         lblNewLabel_1.setBounds(26, 78, 61, 16);
@@ -104,7 +89,23 @@ public class StoreScreen extends JFrame {
         JLabel lblNewLabel_8 = new JLabel("0");
         lblNewLabel_8.setBounds(249, 78, 61, 16);
         panel.add(lblNewLabel_8);
-
+        JButton btnNewButton_1 = new JButton("Buy");
+            btnNewButton_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                inventory.setMoney(inventory.getMoney() - 1000); // Subtract money from the inventory
+                inventory.setFood((int) foodSpinner.getValue());
+                inventory.setOxen((int) oxenSpinner.getValue());
+                inventory.setWater((int) waterSpinner.getValue());
+                inventory.setClothing((int) clothesSpinner.getValue());
+                inventory.setBullets((int) bulletsSpinner.getValue());
+                display.showTravelScreen(inventory);
+            }
+        });
+        btnNewButton_1.setBackground(new Color(251, 252, 255));
+        btnNewButton_1.setForeground(new Color(0, 0, 0));
+        btnNewButton_1.setBounds(155, 111, 117, 55);
+        panel.add(btnNewButton_1);
     }
 
     public JPanel getPanel() {
