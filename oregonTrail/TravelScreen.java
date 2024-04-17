@@ -43,6 +43,7 @@ public class TravelScreen extends JPanel {
     }
 
     private int spaceBetween = 5;
+	private int money = Inventory.MONEY;
     private int food = 200;
     private int water = 100;
     private int wagonTongue = 1;
@@ -144,6 +145,11 @@ public class TravelScreen extends JPanel {
         JLabel axleLabel = new JLabel("Wagon Axles: " + wagonAxle);
         axleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(axleLabel);
+
+		inventory.addItem(Item.MONEY, money);
+        JLabel moneyLabel = new JLabel("Money: " + money);
+        axleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        inventoryShowPanel.add(moneyLabel);
 
         JPanel travelSpeedPanel = new JPanel();
         travelSpeedPanel.setBorder(new EmptyBorder(0, spaceBetween, 0, spaceBetween));

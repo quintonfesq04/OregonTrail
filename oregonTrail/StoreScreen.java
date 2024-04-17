@@ -6,9 +6,11 @@ import java.awt.event.ActionListener;
 public class StoreScreen extends JFrame {
     private JPanel panel;
     private Display display; // Add reference to Display
+    private Inventory inventory; // Add reference to Inventory
 
-    public StoreScreen(Display display) {
+    public StoreScreen(Display display, Inventory inventory) {
         this.display = display;
+        this.inventory = inventory;
         initialize();
     }
 
@@ -38,8 +40,8 @@ public class StoreScreen extends JFrame {
         btnNewButton_1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Inventory.MONEY -= 1000; // Subtract money from the inventory
                 display.showTravelScreen();
-                Inventory.removeItem("money", 1000);
             }
         });
         btnNewButton_1.setBackground(new Color(251, 252, 255));

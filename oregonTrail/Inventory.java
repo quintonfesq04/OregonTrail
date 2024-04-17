@@ -4,12 +4,12 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class Inventory {
-    public int MONEY = 2000;
+    public static int MONEY = 2000;
     private static final int INVENTORY_CAP = 2000; // Maximum inventory capacity
     private static Map<String, Integer> items;
 
     public Inventory() {
-        this.items = new HashMap<>();
+        Inventory.items = new HashMap<>();
     }
 
     // Method to add an item to the inventory

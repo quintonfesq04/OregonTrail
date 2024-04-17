@@ -16,7 +16,7 @@ public class Display {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new CardLayout());
 
-        store = new StoreScreen(this);
+        store = new StoreScreen(this, null);
         travelScreen = new TravelScreen();
 
         frame.add(store.getPanel(), "StoreScreen");
