@@ -230,7 +230,6 @@ public class TravelScreen extends JPanel {
 
 		JPanel buttonPanel = new JPanel();
     	buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        //buttonPanel.setBackground(Color.LIGHT_GRAY);
         buttonPanel.setOpaque(false);
     	optionPanel.add(buttonPanel);
 
