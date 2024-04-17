@@ -6,6 +6,7 @@ public class Display {
     private JPanel panel;
     private StoreScreen storeScreen;
     private TravelScreen travelScreen;
+	private RiverScreen riverScreen;
 	private Inventory inventory = new Inventory();
     private TradeScreen tradeScreen;
     private Player user = new Player();
@@ -26,6 +27,7 @@ public class Display {
         storeScreen = new StoreScreen(this, inventory);
         travelScreen = new TravelScreen(this, inventory, location, user);
 		tradeScreen = new TradeScreen(this, inventory);
+		riverScreen = new RiverScreen(this, location);
 
         frame.add(storeScreen.getPanel(), "StoreScreen");
         frame.add(travelScreen.getPanel(), "TravelScreen");

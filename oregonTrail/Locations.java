@@ -151,7 +151,7 @@ public class Locations {
     *@param int distance is the value of the range the player is from the final destination
     *@return null
     */
-    public Locations(int distance){
+    public Locations(int distance, int location){
         this.distance = distance;
     }
 
