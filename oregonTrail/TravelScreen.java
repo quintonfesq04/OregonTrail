@@ -125,23 +125,28 @@ public class TravelScreen extends JPanel {
         JLabel inventoryLabel = new JLabel("Inventory");
         inventoryLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(inventoryLabel);
-
+        
+        inventory.addItem(Item.FOOD, food);
         JLabel foodLabel = new JLabel("Lbs of Food: " + food);
         foodLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(foodLabel);
 
+        inventory.addItem(Item.WATER, water);
         JLabel waterLabel = new JLabel("Lbs of Water: " + water);
         waterLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(waterLabel);
 
+        inventory.addItem(Item.WAGON_WHEEL, wagonWheel);
         JLabel wheelLabel = new JLabel("Wagon Wheels: " + wagonWheel);
         wheelLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(wheelLabel);
 
+        inventory.addItem(Item.WAGON_TONGUE, wagonTongue);
         JLabel tongueLabel = new JLabel("Wagon Tongues: " + wagonTongue);
         tongueLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(tongueLabel);
 
+        inventory.addItem(Item.WAGON_AXLE, wagonAxle);
         JLabel axleLabel = new JLabel("Wagon Axles: " + wagonAxle);
         axleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(axleLabel);
@@ -245,13 +250,13 @@ public class TravelScreen extends JPanel {
 					// Deduct food and water based on consumption rate
 					int foodConsumed = user.getConsumption();
 
-					//int waterConsumed = 10; // Adjust as needed
-					inventory.removeItem("food", foodConsumed);
+					//int waterConsumed = 10; //Adjust as needed
+					inventory.removeItem(Item.FOOD, foodConsumed);
 					//updatedInventory.removeItem("water", waterConsumed);
 			
 					// Update UI labels
-					foodLabel.setText("Lbs of Food: " + inventory.getItemCount("food"));
-					waterLabel.setText("Lbs of Water: " + inventory.getItemCount("water"));
+					foodLabel.setText("Lbs of Food: " + inventory.getItemCount(Item.FOOD));
+					waterLabel.setText("Lbs of Water: " + inventory.getItemCount(Item.WATER));
 			
 					// Update class variables
 					food = inventory.getItemCount("food");
