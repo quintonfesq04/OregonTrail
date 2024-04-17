@@ -14,6 +14,9 @@ public class Store {
         basePrices = new HashMap<>();
         basePrices.put(Item.FOOD, .20); // Example base price for food
         basePrices.put(Item.WATER, .20);
+        basePrices.put(Item.OXEN, 25.00);
+        basePrices.put(Item.CLOTHES, 10.00);
+        basePrices.put(Item.BULLETS, .02);
         // Add more base prices for other items if needed
     }
 
