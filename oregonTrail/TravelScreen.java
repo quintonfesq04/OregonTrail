@@ -269,7 +269,7 @@ public class TravelScreen extends JPanel {
                     locations.addDistance(slider.getValue());
 
                     traveledLbl.setText("Distance Travelled: " + locations.getDistance());
-                    distanceLbl.setText( "Distance to next Landmark: "+ locations.distanceFrom(locations.getDistance(), locations.whatNextLoc(locations.getDistance())));
+                    distanceLbl.setText( "Distance to next Landmark: "+ locations.distanceTo(locations.getDistance(), locations.nextLocation(locations.getDistance())));
 
 					// Get updated inventory
 					inventory = conditions.getInventory();

@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 
 /**
  * @file Locations.java
- * @Team Chimney Rock
+ * @Name Lane Kanagy
  * @04/08/2024
  *This class calculates distance from the final destination, sets the players current 
  *location, and outputs the distance left to travel. It is used as the go-to class for
@@ -80,7 +80,7 @@ public class Locations {
 }
     
 
-    public String whatNextLoc(int currentLoc){
+    public String nextLocation(int currentLoc){
         int test1 = 0, test2 = 0;
 
         for(int i = 0; i<13; i++){
@@ -97,33 +97,9 @@ public class Locations {
     }
 
     /*
-     * uses current loaction as a String to check distance from next location
-     */
-    public int distanceFrom(String currentLoc, String nextLoc){
-        int currentLocInt = 0;
-        int nextLocInt = 0;
-
-        for(int i =0; i<13; i++){
-            if(currentLoc.compareTo(LOCATIONS[i])==0){
-                currentLocInt = LOCATION_DISTANCE[i];
-                break;
-            }
-        }
-
-        for(int i =0; i<13; i++){
-            if(nextLoc.compareTo(LOCATIONS[i])==0){
-                nextLocInt = LOCATION_DISTANCE[i];
-                break;
-            }
-        }
-
-        return currentLocInt - nextLocInt;
-    }
-
-    /*
      * uses current loaction as an int to check distance from next location
      */
-    public int distanceFrom(int currentLoc, String nextLoc){
+    public int distanceTo(int currentLoc, String nextLoc){
         int nextLocInt = 0;
 
         for(int i =0; i<13; i++){
@@ -180,17 +156,4 @@ public class Locations {
         this.distance = distance;
     }
 }
-    /**
-    *Used to update the distance the player is from the target location
-    *@param int travel speed is the amount of distance that can be traveled in one "turn"
-    *@return int distance is the updated value that the player is from the final destination
-    */
-    /*public int calculateDistance(int travelSpeed){
-        distance -= travelSpeed;
-        if (distance < 0)
-            distance = 0;
-        return distance;
-    }
 
-}
-*/
