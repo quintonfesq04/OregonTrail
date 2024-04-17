@@ -1,19 +1,15 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.BorderFactory;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
@@ -56,8 +52,6 @@ public class TravelScreen extends JPanel {
     private int health = 100;
     private int milesTraveled = 0;
     private int daysPassed = 0;
-    private boolean brokenWagon = false;
-
     private Locations locations = new Locations(90);
 
     private Player user = new Player(health, food, 0, 0);
