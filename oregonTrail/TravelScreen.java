@@ -46,8 +46,14 @@ public class TravelScreen extends JPanel {
     private Inventory inventory = new Inventory();
 
     private int spaceBetween = 5;
+<<<<<<< Updated upstream
     private int food = 200;
     private int water = 100;
+=======
+	private int money = Inventory.MONEY;
+    private int food = 1500;
+    private int water = 1500;
+>>>>>>> Stashed changes
     private int wagonTongue = 1;
     private int wagonWheel = 1;
     private int wagonAxle = 1;
@@ -267,9 +273,9 @@ public class TravelScreen extends JPanel {
                     int waterConsumption = 10; // Adjust as needed
                     inventory.removeItem(Item.WATER, waterConsumption);
 
-					int waterConsumed = 10; //Adjust as needed
+					foodConsumed = 10; //Adjust as needed
 					inventory.removeItem(Item.FOOD, foodConsumed);
-					inventory.removeItem(Item.WATER, waterConsumed);
+
 			
 					// Update UI labels
 					foodLabel.setText("Lbs of Food: " + inventory.getItemCount(Item.FOOD));

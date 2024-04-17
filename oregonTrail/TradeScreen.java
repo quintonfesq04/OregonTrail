@@ -10,8 +10,10 @@ import javax.swing.JPanel;
 public class TradeScreen extends AbstractScreen{
     private JPanel panel;
     private Trading trading = new Trading(new Store());
+    private Display display;
 
-    public TradeScreen(){
+    public TradeScreen(Display display){
+        this.display = display;
         initialize();
     }
     @Override
@@ -33,6 +35,7 @@ public class TradeScreen extends AbstractScreen{
                 // Perform the trade
                 trading.tradeItems("Food", 100, "Oxen", 0);
                 JOptionPane.showMessageDialog(null, "Trade accepted!");
+                display.showTravelScreen();
             }
         });
 
@@ -40,6 +43,7 @@ public class TradeScreen extends AbstractScreen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, "Trade rejected!");
+                display.showTravelScreen();
             }
         });
 
