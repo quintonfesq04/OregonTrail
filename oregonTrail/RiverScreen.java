@@ -8,6 +8,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+/**
+ * @File RiverScreen.java
+ * @Author Madison Scott
+ * @Version 1.0.0 4/14/24
+ * Creates a JPanel for river portion of the game
+ * Represents the screen for crossing a river.
+ * This panel displays the river image and provides controls for crossing the river.
+ * @param display The reference to the main display.
+ * @param locations The locations object containing information about the river.
+ * @return RiverScreen JPanel containing river image and controls for crossing the river.
+ */
 public class RiverScreen extends JPanel {
 
     private JPanel panel = new JPanel();
@@ -18,11 +29,21 @@ public class RiverScreen extends JPanel {
     private int flow = 10;
     private int width = 50;
 
+    /**
+     * Constructs a RiverScreen object.
+     * @param display The reference to the main display.
+     * @param location The Locations object containing information about the river.
+     */
+
     public RiverScreen(Display display, Locations location){
         this.locations = location;
         this.display = display;
         initialize();
     }
+    
+    /**
+     * Initializes the RiverScreen panel.
+     */
 
     protected void initialize(){
         panel.setLayout(new GridLayout(2,1,0,0));
@@ -69,6 +90,10 @@ public class RiverScreen extends JPanel {
         buttonPanel.add(crossBtn);
     }
 
+     /**
+     * Returns the RiverScreen panel.
+     * @return JPanel containing river image and controls for crossing the river.
+     */
     public JPanel getPanel(){
         return panel;
     }
