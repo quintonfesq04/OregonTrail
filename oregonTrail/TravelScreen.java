@@ -295,9 +295,7 @@ public class TravelScreen extends JPanel {
 					System.out.println("Conditions object is null!");
 				}
 			}
-			
-});
-
+        });
 		buttonPanel.add(travelBtn);
     }
 

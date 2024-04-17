@@ -53,11 +53,6 @@ public class Display {
         cardLayout.show(frame.getContentPane(), "TravelScreen");
     }
 
-	public void showTradeScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "TradeScreen");
-	}
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Display::new);
     }
