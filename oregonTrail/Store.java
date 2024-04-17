@@ -54,7 +54,6 @@ public class Store {
         String buyString = Double.toString(buyPrice);
         String sellString = Double.toString(sellPrice);
 
-
         buyString = String.format("%.2", buyString);
         sellString = String.format("%.2", sellString);
         

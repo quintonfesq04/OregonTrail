@@ -125,7 +125,7 @@ public class Locations {
      * @return String for next landmark
      */
     public String getNextLandmark(){
-        nextLandmark = O_CITY_NORTH;
+        String nextLandmark = nextLocation(distance);
         return nextLandmark;
     }
 

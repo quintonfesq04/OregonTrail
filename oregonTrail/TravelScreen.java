@@ -305,6 +305,17 @@ public class TravelScreen extends JPanel {
 			}
         });
 		buttonPanel.add(travelBtn);
+
+        JButton mapBtn = new JButton("Show Map");
+        mapBtn.setBackground(Color.LIGHT_GRAY);
+        mapBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                Map map = new Map();
+                map.display(locations);
+            }
+        });
+        buttonPanel.add(mapBtn);
     }
 
     public void setInventory(Inventory inventory){
