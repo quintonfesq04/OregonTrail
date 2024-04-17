@@ -43,6 +43,11 @@ public class Display {
         cardLayout.show(frame.getContentPane(), "TravelScreen");
     }
 
+	public void showRiverScreen(){
+		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
+		cardLayout.show(frame.getContentPane(), "RiverScreen");
+	}
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Display::new);
     }
