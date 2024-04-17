@@ -14,10 +14,14 @@ public class Trading {
         store.displayTradeItems();
     }
 
+    /**
+     * determines if it is time for a player to trade
+     * @return true if time for a trade, false otherwise
+     */
     public boolean tradeTime(){
         Random rand = new Random();
         int randNum = rand.nextInt(8);
-        if(randNum==100){
+        if(randNum==0){
             return true;
         }
         else 
