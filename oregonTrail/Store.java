@@ -10,7 +10,8 @@ public class Store {
     public Store() {
         // Initialize base prices
         basePrices = new HashMap<>();
-        basePrices.put("Food", 20.0); // Example base price for food
+        basePrices.put(Item.FOOD, 20.0); // Example base price for food
+        basePrices.put(Item.WATER, 20.0);
         // Add more base prices for other items if needed
     }
 
