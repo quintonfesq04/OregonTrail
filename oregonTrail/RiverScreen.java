@@ -1,4 +1,5 @@
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -13,6 +14,9 @@ public class RiverScreen extends JPanel {
     private Display display; // Add reference to Display
     private PicPanel viewPanel;
     private Locations locations;
+    private int height = 10;
+    private int flow = 10;
+    private int width = 50;
 
     public RiverScreen(Display display, Locations location){
         this.locations = location;
@@ -32,6 +36,18 @@ public class RiverScreen extends JPanel {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.DARK_GRAY);
         panel.add(buttonPanel);
+        
+        JLabel heightLbl = new JLabel("Height: " + height);
+        heightLbl.setForeground(Color.LIGHT_GRAY);
+        buttonPanel.add(heightLbl);
+
+        JLabel flowLbl = new JLabel("Flow: " + flow);
+        flowLbl.setForeground(Color.LIGHT_GRAY);
+        buttonPanel.add(flowLbl);
+
+        JLabel widthLbl = new JLabel("Width: " + width);
+        widthLbl.setForeground(Color.LIGHT_GRAY);
+        buttonPanel.add(widthLbl);
 
         // Create cross river button
         JButton crossBtn = new JButton("Cross river");
@@ -39,7 +55,7 @@ public class RiverScreen extends JPanel {
             public void actionPerformed(ActionEvent e){
                 // Create a river object
                 
-                River river = new River(locations.getRiverName(), 10, 10, 50);
+                River river = new River(locations.getRiverName(), height, flow, width);
                 // Attempt to cross the river
                 if(river.crossRiver()){
                     JOptionPane.showMessageDialog(null, "Successfully crossed the " + river.getName() + " river");
