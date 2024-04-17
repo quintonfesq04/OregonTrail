@@ -29,6 +29,7 @@ public class TravelScreen extends JPanel {
     private PicPanel viewPanel;
     private JLabel moneyLabel;
 
+    private Trading trading = new Trading(new Store()); 
     private Display display;
     private Conditions conditions;
 
@@ -289,8 +290,13 @@ public class TravelScreen extends JPanel {
 					food = inventory.getItemCount("food");
 					water = inventory.getItemCount("water");
 
+                    
                     if(locations.hitRiver()){
                         display.showRiverScreen();
+                    }
+
+                    if(trading.tradeTime()){
+                        display.showTradeScreen();
                     }
 					// Update other UI elements and game state as needed
 				} else {

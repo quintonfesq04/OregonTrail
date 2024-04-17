@@ -36,7 +36,7 @@ public class Trading {
         double amountToBuy = (amountToSell * sellPrice) / buyPrice;
 
         // Display the trade details
-        JOptionPane.showMessageDialog(null,"Trade details:");
+        JOptionPane.showMessageDialog(null,"<html> Trade details:");
         JOptionPane.showMessageDialog(null,"Selling " + amountToSell + " units of " + itemToSell + " at $" + sellPrice + " each.");
         JOptionPane.showMessageDialog(null,"Buying " + amountToBuy + " units of " + itemToBuy + " at $" + buyPrice + " each.");
 

@@ -56,10 +56,8 @@
  
          // Check if the crossing is successful based on random chance and success threshold
          if (crossingChance < successThreshold) {
-             JOptionPane.showMessageDialog(null, "Successfully crossed the river " + name);
              return true;
          } else {
-             JOptionPane.showMessageDialog(null, "Failed to cross the river " + name);
              return false;
          }
      }

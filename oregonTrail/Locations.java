@@ -59,15 +59,19 @@ public class Locations {
     public boolean hitRiver(){
      // Check if the player has reached any of the rivers
     if (distance >= KANSAS_DISTANCE && !pastKansas) {
+        pastKansas = true;
         JOptionPane.showMessageDialog(null, "You have reached Kansas River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
         return true;
     } else if (distance >= BIG_BLUE_DISTANCE && !pastBigBlue) {
+        pastBigBlue = true;
         JOptionPane.showMessageDialog(null, "You have reached Big Blue River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
         return true;
     } else if (distance >= GREEN_DISTANCE && !pastGreen) {
+        pastGreen = true;
         JOptionPane.showMessageDialog(null, "You have reached Green River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
         return true;
     } else if (distance >= SNAKE_DISTANCE && !pastSnake) {
+        pastSnake = true;
         JOptionPane.showMessageDialog(null, "You have reached Snake River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
         return true;
     }
