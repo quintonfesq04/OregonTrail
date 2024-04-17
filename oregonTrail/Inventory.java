@@ -66,5 +66,44 @@ public class Inventory {
         this.money = money;
     }
 
+    public int getFood(){
+        return food;
+    }
 
+    public void setFood(int food){
+        this.food = food;
+    }
+
+    public int getOxen() {
+        return oxen;
+    }
+
+    public void setOxen(int oxen){
+        this.oxen = oxen;
+    }
+
+    public int getClothing(){
+        return clothing;
+    }
+
+    public void setClothing(int clothing){
+        this.clothing = clothing;
+    }
+
+    public int getBullets(){
+        return bullets;
+    }
+
+    public void setBullets(int bullets){
+        this.bullets = bullets;
+    }
+
+    public int getWater(){
+        return water;
+    }
+
+    public void setWater(int water){
+        this.water = water;
+    }
+    
 }

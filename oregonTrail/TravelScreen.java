@@ -28,6 +28,8 @@ public class TravelScreen extends JPanel {
     private JPanel panel;
     private PicPanel viewPanel;
     private JLabel moneyLabel;
+    private JLabel foodLabel;
+    private JLabel waterLabel;
 
     private Trading trading = new Trading(new Store()); 
     private Display display;
@@ -129,12 +131,12 @@ public class TravelScreen extends JPanel {
         inventoryShowPanel.add(inventoryLabel);
         
         inventory.addItem(Item.FOOD, food);
-        JLabel foodLabel = new JLabel("Lbs of Food: " + food);
+        foodLabel = new JLabel("Lbs of Food: " + food);
         foodLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(foodLabel);
 
         inventory.addItem(Item.WATER, water);
-        JLabel waterLabel = new JLabel("Lbs of Water: " + water);
+        waterLabel = new JLabel("Lbs of Water: " + water);
         waterLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         inventoryShowPanel.add(waterLabel);
 
@@ -321,6 +323,7 @@ public class TravelScreen extends JPanel {
     public void setInventory(Inventory inventory){
         this.inventory = inventory;
         moneyLabel.setText("Money: " + inventory.getMoney());
+        foodLabel.setText()
     }
 	public JPanel getPanel() {
 			return panel;
