@@ -1,27 +1,50 @@
 import java.util.Random;
 
+/**
+ * @File Conditions.java
+ * @author Madison Scott
+ * @version 1.0.4 4/17/24
+ * Changes for different conditions along the trail
+ */
 public class Conditions {
     private static Random random = new Random();
     private Inventory inventory;
     private String eventInfo;
 
+    //constuctor for conditions object
     public Conditions(Inventory inventory) {
         this.inventory = inventory;
     }
 
+    /**
+     * gives the inventory
+     * @return the edited inventory
+     */
     public Inventory getInventory() {
         return inventory;
     }
 
+    /**
+     * sets the inventory for Conditions
+     * @param inventory the desired inventory
+     */
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
 
+    /**
+     * determines if an event has occurred
+     * @return true if an event has occured, false otherwise
+     */
     private boolean isEventOccurred() {
         int eventChance = random.nextInt(10);
         return eventChance == 0;
     }
 
+    /**
+     * makes changes to an inventory based off an event that has occurred
+     * @return An updated inventory
+     */
     public Inventory handleInventory() {
         eventInfo = "";
         if (isEventOccurred()) {
@@ -62,7 +85,10 @@ public class Conditions {
     }
     
     
-
+    /**
+     * gives a string containg the information on what happened during handleInventory
+     * @return the string containing the message
+     */
     public String getConditionMessage() {
         return eventInfo;
     }

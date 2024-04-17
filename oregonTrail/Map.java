@@ -1,7 +1,12 @@
 import javax.swing.JFrame;
 import java.io.File;
 
-
+/**
+ * @File Map.java
+ * @author Ethan Burch
+ * @version 1.0.0 4/15/24
+ * creates a stand alone JFrame that displays the map
+ */
 public class Map{
     //private Locations location;
     private JFrame frame;
@@ -9,6 +14,11 @@ public class Map{
     private File image;
     Locations location;
 
+
+    /**
+     * updates the location of the player along the trail
+     * @return
+     */
     private File updateLocation(){
         String loc = location.getNextLandmark();
 
@@ -21,6 +31,10 @@ public class Map{
         return null;
     }
 
+    /**
+     * displays a JFrame with a picture representing where a player is along the trail
+     * @param location the location of the player along the trail
+     */
     public void display(Locations location){
         this.location = location;
         image = updateLocation();

@@ -1,4 +1,11 @@
+/**
+ * @File Item.java
+ * @author Ethan Burch
+ * @version 1.0.1 4/17/24
+ * Storing class for different item types
+ */
 public interface Item {
+    // constant Names for different item types
     public final String MONEY           = "money";
     public final String FOOD            = "food";
     public final String OXEN            = "oxen";

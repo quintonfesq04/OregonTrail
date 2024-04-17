@@ -8,9 +8,6 @@ import javax.swing.JOptionPane;
  *location, and outputs the distance left to travel. It is used as the go-to class for
  *and calculations in relation to location.
  */
-
-
-
 public class Locations {
     private int distance = 0;
 
@@ -49,18 +46,28 @@ public class Locations {
      
     private String nextLandmark;
 
+    // Constructor for Locations object
     public Locations(int distance){
         this.distance = distance;
     }
 
+    /**
+     * moves the player along the trail
+     * @param travel the distance to be added
+     * @return the new distance
+     */
     public int setPlayerPostion(int travel){
         distance = distance + travel;
         return distance;
     }
 
+    /**
+     * determines if the player has reached a river
+     * @return true if the player has made it to a river, false otherwise
+     */
     public boolean hitRiver(){
      // Check if the player has reached any of the rivers
-    if (distance >= KANSAS_DISTANCE && !pastKansas) {
+    if (distance >= KANSAS_DISTANCE && !pastKansas) { // if we are at or slightly past kansas river but have not seen it before
         riverName = "Kansas River";
         pastKansas = true;
         JOptionPane.showMessageDialog(null, "You have reached Kansas River!", "River Crossing", JOptionPane.INFORMATION_MESSAGE);
@@ -84,11 +91,19 @@ public class Locations {
 
     return false;
 }
+    /**
+     * Returns the name of the river that the player has reached
+     * @return the name of the river
+     */
     public String getRiverName(){
         return riverName;
     }
     
-
+    /**
+     * Returns the name of the next landmark to be reached
+     * @param currentLoc the location of the player
+     * @return the name of the next landmark
+     */
     public String nextLocation(int currentLoc){
         int test1 = 0, test2 = 0;
 
