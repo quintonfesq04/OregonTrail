@@ -1,9 +1,11 @@
+// Display.java
 import javax.swing.*;
 import java.awt.*;
 
 public class Display {
     private JFrame frame;
     private JPanel panel;
+    private StoreScreen store;
     private TravelScreen travelScreen;
 
     public Display() {
@@ -14,27 +16,37 @@ public class Display {
         frame = new JFrame("Oregon Trail");
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(new CardLayout());
 
-        panel = new JPanel();
-        panel.setBackground(Color.BLACK);
-        panel.setLayout(new GridLayout(1, 1));
+        // Use a JPanel with CardLayout for managing multiple screens
+        panel = new JPanel(new CardLayout());
+        frame.getContentPane().add(panel);
 
-        frame.getContentPane().add(panel, "MainPanel");
-        frame.setVisible(true);
-
-        // Start the game with the travel screen
+        store = new StoreScreen(this);
         travelScreen = new TravelScreen();
-        panel.add(travelScreen.getPanel());
-        panel.revalidate();
-        panel.repaint();
+
+        // Add StoreScreen and TravelScreen panels to the CardLayout
+        panel.add(store.getPanel(), "StoreScreen");
+        panel.add(travelScreen.getPanel(), "TravelScreen");
+
+        // Show the initial screen (StoreScreen)
+        showStoreScreen();
+
+        frame.setVisible(true);
+    }
+
+    // Method to switch to the StoreScreen
+    public void showStoreScreen() {
+        CardLayout cardLayout = (CardLayout) panel.getLayout();
+        cardLayout.show(panel, "StoreScreen");
+    }
+
+    // Method to switch to the TravelScreen
+    public void showTravelScreen() {
+        CardLayout cardLayout = (CardLayout) panel.getLayout();
+        cardLayout.show(panel, "TravelScreen");
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new Display();
-            }
-        });
+        SwingUtilities.invokeLater(Display::new);
     }
 }
