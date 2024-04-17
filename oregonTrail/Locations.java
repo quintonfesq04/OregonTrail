@@ -116,7 +116,6 @@ public class Locations {
         return currentLocInt - nextLocInt;
     }
 
-
     /*
      * uses current loaction as an int to check distance from next location
      */
@@ -124,13 +123,13 @@ public class Locations {
         int nextLocInt = 0;
 
         for(int i =0; i<13; i++){
-            if(nextLoc.compareTo(LOCATIONS[i])==0){
+            if(nextLoc.compareTo(LOCATIONS[i]) == 0){
                 nextLocInt = LOCATION_DISTANCE[i];
                 break;
             }
         }
 
-        return currentLoc - nextLocInt;
+        return nextLocInt - currentLoc;
     }
 
     /**

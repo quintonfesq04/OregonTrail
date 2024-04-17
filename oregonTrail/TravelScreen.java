@@ -58,7 +58,7 @@ public class TravelScreen extends JPanel {
     private int health = 100;
     private int milesTraveled = 0;
     private int daysPassed = 0;
-    private Locations locations = new Locations(90);
+    private Locations locations;
 
     private Player user = new Player(health, food, 0, 0);
 
@@ -263,9 +263,13 @@ public class TravelScreen extends JPanel {
 					conditions.setInventory(inventory);
 					conditions.handleInventory();
                     if(conditions.getConditionMessage().compareTo("") != 0)
-                    JOptionPane.showMessageDialog(null, conditions.getConditionMessage());
+                        JOptionPane.showMessageDialog(null, conditions.getConditionMessage());
                     
-                    
+                    locations.addDistance(slider.getValue());
+
+                    traveledLbl.setText("Distance Travelled: " + locations.getDistance());
+                    distanceLbl.setText( "Distance to next Landmark: "+ locations.distanceFrom(locations.getDistance(), locations.whatNextLoc(locations.getDistance())));
+
 					// Get updated inventory
 					inventory = conditions.getInventory();
 			
@@ -275,7 +279,6 @@ public class TravelScreen extends JPanel {
                     int waterConsumption = 10; // Adjust as needed
                     inventory.removeItem(Item.WATER, waterConsumption);
 
-					foodConsumed = 10; //Adjust as needed
 					inventory.removeItem(Item.FOOD, foodConsumed);
 
 					// Update UI labels
@@ -287,7 +290,7 @@ public class TravelScreen extends JPanel {
 					water = inventory.getItemCount("water");
 
                     if(locations.hitRiver()){
-                        
+                        display.showRiverScreen();
                     }
 					// Update other UI elements and game state as needed
 				} else {

@@ -42,6 +42,7 @@ public class RiverScreen extends JPanel {
                 // Attempt to cross the river
                 if(river.crossRiver()){
                     JOptionPane.showMessageDialog(null, "Successfully crossed the " + river.getName() + " river");
+                    display.showTravelScreen();;
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "You did not cross the " + river.getName() + " river");
