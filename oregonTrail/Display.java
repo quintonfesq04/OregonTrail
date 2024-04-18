@@ -4,7 +4,7 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
- * Display.java generates the JFrame for the Oregon Trail video game
+ * Display.java - Generates the JFrame for the Oregon Trail video game
  * @author Ethan Burch
  * @version 1.0 4/18/2024
  */
