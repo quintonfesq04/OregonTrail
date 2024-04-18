@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 public class Display {
 
 	private JFrame frame;
+    Locations locations = new Locations();
 
 	/**
 	 * Launch the application.
@@ -43,8 +44,9 @@ public class Display {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
-		
-		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, "name_710703828062700");
+
+        TravelScreen travelScreen = new TravelScreen(locations);
+		frame.getContentPane().add(travelScreen.getPanel(), "travelScreen");
+
 	}
 }
