@@ -48,6 +48,22 @@ public class PicPanel extends JPanel {
     }
 
     /**
+     * sizes the image to provided dimensions
+     * @param newW  the new Width for the image
+     * @param newH  the new Height fot the image
+     */
+    public void resizeImage(int newW, int newH){
+        if(backgroundImage != null){
+            if(newW > 0 && newH > 0)
+                backgroundImage = resize(backgroundImage,newH, newH);
+            else
+                JOptionPane.showMessageDialog(null,"Image cannot have dimensions that are less than or equal to 0");
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Image Resize Error: backgroundImage = null");
+    }
+
+    /**
      * resizes the background image
      * @param backgroundImage   The image to be resized
      * @param newW              The new width for the resized image
