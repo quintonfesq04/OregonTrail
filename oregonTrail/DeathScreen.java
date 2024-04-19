@@ -24,10 +24,11 @@ public class DeathScreen extends AbstractScreen{
         panel.setBackground(new Color(78, 78, 78));
         panel.setLayout(null);
 
-        File image = new File("Images/death screen.jpg");
+        File image = new File("Images/Oregon Trail Map 1.jpg");
+        System.out.println("Error Opening Image");
+
 
         viewPanel = new PicPanel(image);
-        viewPanel.setBackground(Color.BLUE);
         panel.add(viewPanel);
         viewPanel.repaint();
     }
