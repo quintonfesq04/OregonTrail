@@ -79,4 +79,13 @@ public class PicPanel extends JPanel {
         g2d.dispose();
         return resizedImg;
     }
+
+    public void setImage(File file){
+        try {
+            backgroundImage = ImageIO.read(file);
+            repaint();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
