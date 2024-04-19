@@ -41,7 +41,7 @@ public class Display extends JFrame {
         travelScreen = new TravelScreen(locations);
         getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 
-        startScreen = new StartScreen();
+        startScreen = new StartScreen(null);
         getContentPane().add(startScreen.getPanel(), "StartScreen");
 
         storeScreen = new StoreScreen();
@@ -74,7 +74,7 @@ public class Display extends JFrame {
         deathScreen = new DeathScreen(null);
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showDeathScreen();
+        showStartScreen();
     }
 
 	public void showTravelScreen() {
