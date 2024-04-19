@@ -83,7 +83,11 @@ public class DisplayQuinton extends JFrame{
 		wagonGame = new WagonGame();
 		frame.add(wagonGame.getPanel(), "WagonGame");
 
+<<<<<<< Updated upstream
 		deathScreen = new DeathScreen(null);
+=======
+		deathScreen = new DeathScreen(new Display());
+>>>>>>> Stashed changes
 		frame.add(deathScreen.getPanel(), "DeathScreen");
 		
 		showDeathScreen();
