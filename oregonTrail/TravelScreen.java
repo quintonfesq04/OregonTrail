@@ -19,6 +19,7 @@ public class TravelScreen extends AbstractScreen {
     }
 
     protected void initialize(){
+        viewPanel.setFocusable(true);
         viewPanel.requestFocus();
         //viewPanel.addKeyListener(new MapChecker(location));
         viewPanel.addKeyListener( new KeyAdapter(){
