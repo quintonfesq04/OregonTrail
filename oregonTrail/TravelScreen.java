@@ -25,6 +25,7 @@ public class TravelScreen extends AbstractScreen {
         initialize();
     }
 
+    @Override
     protected void initialize(){
         viewPanel.setFocusable(true);
         viewPanel.requestFocusInWindow();
@@ -37,14 +38,14 @@ public class TravelScreen extends AbstractScreen {
         viewPanel.addKeyListener(new MapChecker(location));
     }
 
+    @Override
     public PicPanel getPanel(){
         return viewPanel;
     }
     
+    @Override
     public void resizeImages(){
         viewPanel.resizeImage();
         //cloud.resizeImage();
     }
-
-    
 }

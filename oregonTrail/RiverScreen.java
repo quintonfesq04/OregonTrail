@@ -1,7 +1,8 @@
+import java.io.File;
 import javax.swing.JPanel;
 
 public class RiverScreen extends AbstractScreen {
-    private JPanel panel = new JPanel();
+    private PicPanel viewPanel = new PicPanel(new File("Images\\River.jpg"));
 
     @Override
     protected void initialize() {
@@ -17,7 +18,7 @@ public class RiverScreen extends AbstractScreen {
 
     @Override
     public JPanel getPanel() {
-        return panel;
+        return viewPanel;
     }
     
 }
