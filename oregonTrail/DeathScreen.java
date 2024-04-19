@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class DeathScreen extends AbstractScreen{
-    File image = new File("Images\\death screen.jpeg");
+    File image = new File("Images/death screen.jpg");
     private PicPanel viewPanel = new PicPanel(image);
     private Display display;
 
@@ -22,10 +22,6 @@ public class DeathScreen extends AbstractScreen{
     protected void initialize() {
         viewPanel.setBackground(new Color(78, 78, 78));
         viewPanel.setLayout(null);
-
-        File image = new File("Images\\death screen.jpeg");
-        viewPanel = new PicPanel(image);
-        viewPanel.repaint();
     }
 
     @Override
