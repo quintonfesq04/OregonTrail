@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import javax.swing.JPanel;
 
 public class DeathScreen extends AbstractScreen{
@@ -16,6 +17,13 @@ public class DeathScreen extends AbstractScreen{
 
     @Override
     public JPanel getPanel() {
+=======
+import java.awt.Component;
+
+public class DeathScreen {
+
+    public Component getPanel() {
+>>>>>>> Stashed changes
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getPanel'");
     }
