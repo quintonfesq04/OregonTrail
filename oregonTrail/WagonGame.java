@@ -1,10 +1,12 @@
 import java.awt.Component;
 
+import javax.swing.JPanel;
+
 public class WagonGame {
+    private JPanel panel = new JPanel();
 
     public Component getPanel() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPanel'");
+        return panel;
     }
     
 }

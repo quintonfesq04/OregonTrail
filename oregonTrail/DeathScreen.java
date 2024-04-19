@@ -1,6 +1,7 @@
 import javax.swing.JPanel;
 
 public class DeathScreen extends AbstractScreen{
+    private JPanel panel = new JPanel();
 
     @Override
     protected void initialize() {
@@ -16,8 +17,7 @@ public class DeathScreen extends AbstractScreen{
 
     @Override
     public JPanel getPanel() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPanel'");
+        return panel;
     }
     
 }

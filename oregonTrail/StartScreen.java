@@ -1,6 +1,7 @@
 import javax.swing.JPanel;
 
 public class StartScreen extends AbstractScreen{
+    private JPanel panel = new JPanel();
 
     @Override
     protected void initialize() {
@@ -16,8 +17,7 @@ public class StartScreen extends AbstractScreen{
 
     @Override
     public JPanel getPanel() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPanel'");
+        return panel;
     }
     
 }

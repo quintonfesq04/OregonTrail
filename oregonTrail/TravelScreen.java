@@ -2,6 +2,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
 import java.io.File;
 
+import javax.swing.JPanel;
+
 
 /**
  * TravelScreen.java -- the screen seen when traveling
@@ -9,6 +11,7 @@ import java.io.File;
  * @version 1.0.0 4/18/24
  */
 public class TravelScreen extends AbstractScreen {
+    private JPanel panel = new JPanel();
 
     protected PicPanel viewPanel = new PicPanel(new File("Images\\Covered Wagon.jpg"));
     
@@ -42,4 +45,6 @@ public class TravelScreen extends AbstractScreen {
     public void resizeImages(){
         viewPanel.resizeImage();
     }
+
+    
 }
