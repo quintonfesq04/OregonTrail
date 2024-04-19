@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class DisplayQuinton extends JFrame{
+	private TravelScreen travelScreen;
+
     Locations locations = new Locations();
 
 	/**
@@ -31,6 +33,10 @@ public class DisplayQuinton extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		frame.setLayout(new CardLayout());
+
+		travelScreen = new TravelScreen(locations) // needs the constructors (i think)
+		frame.add(travelScreen.getPanel(), "TravelScreeen");
 		
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,6 +47,11 @@ public class DisplayQuinton extends JFrame{
 		this.getContentPane().add(travelScreen.getPanel(), "travelScreen");
 		System.out.println(this.getFocusOwner());
 		
+	}
+
+	public void showTravelScreen() {
+		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
+		cardLayout.show(frame.getContentPane(), "TravelScreen");
 	}
 }
 
