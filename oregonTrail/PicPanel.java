@@ -7,8 +7,9 @@ import javax.imageio.ImageIO;
 
 /**
  * PicPanel.java - Creates a JPanel whose background can be set to an image
- * @Author Ethan Burch
- * @Version 1.0.0 4/14/24
+ * @author Ethan Burch
+ * @author Quintin Fesq
+ * @version 1.0.0 4/14/24
  */
 public class PicPanel extends JPanel {
     private Image backgroundImage;

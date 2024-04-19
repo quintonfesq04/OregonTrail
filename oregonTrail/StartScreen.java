@@ -34,7 +34,7 @@ public class StartScreen extends AbstractScreen{
             public void keyPressed(KeyEvent e){
                 viewPanel.requestFocusInWindow();
                 int vk = e.getKeyCode();
-                if(vk == KeyEvent.VK_M){
+                if(vk == KeyEvent.VK_SPACE){
                     Map map = new Map();
                     map.display();
                 }
