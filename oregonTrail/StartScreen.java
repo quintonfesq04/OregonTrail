@@ -11,9 +11,8 @@ import java.io.File;
 
 
 public class StartScreen extends AbstractScreen{
-    File image = new File("Images/start screen0.jpg");
-    File image1 = new File("Images/Intro prompt0.jpg");
-    private PicPanel viewPanel = new PicPanel(image);
+    protected PicPanel viewPanel = new PicPanel(new File("Images/start screen0.jpg"));
+    protected PicPanel viewPanel1 = new PicPanel(new File("Images/Intro prompt0.jpg"));
     private Display display;
     private Timer timer;
     private int alpha;
@@ -27,21 +26,19 @@ public class StartScreen extends AbstractScreen{
 
     @Override
     protected void initialize() {
-        viewPanel.setBackground(new Color(78, 78, 78));
-        viewPanel.setLayout(null);
-       
-        viewPanel.addKeyListener(this);
         viewPanel.setFocusable(true);
-
-        timer = new Timer(50, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                alpha -= 5;
-                if (alpha <= 0) {
-                    timer.stop();
-                    switchToNextImage();
+        viewPanel.requestFocusInWindow();
+        //viewPanel.addKeyListener(new MapChecker(location));
+        viewPanel.addKeyListener( new KeyAdapter(){
+            public void keyPressed(KeyEvent e){
+                viewPanel.requestFocusInWindow();
+                int vk = e.getKeyCode();
+                if(vk == KeyEvent.VK_M){
+                    Map map = new Map();
+                    map.display();
                 }
-                viewPanel.repaint();
+                else 
+                    System.out.println(vk);
             }
         });
 
