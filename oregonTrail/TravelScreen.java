@@ -20,6 +20,9 @@ public class TravelScreen extends AbstractScreen {
 
     private Locations location;
 
+    private int LocX = 50;
+    private int LocY = 50; 
+
     public TravelScreen(Locations location){
         this.location = location;
         initialize();
@@ -34,18 +37,34 @@ public class TravelScreen extends AbstractScreen {
         cloud.setSize(cloud.getPreferredSize());
         cloud.setOpaque(false);
         viewPanel.add(cloud);
-        cloud.setLocation(50,50);
+        cloud.setLocation(LocX,LocY);
         viewPanel.addKeyListener(new MapChecker(location));
+        viewPanel.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyPressed(KeyEvent e){
+                int vk = e.getKeyCode();
+                if(vk == KeyEvent.VK_SPACE)
+                    UpdateImages(50);
+            }
+        });
     }
 
     @Override
     public PicPanel getPanel(){
         return viewPanel;
     }
-    
+
     @Override
     public void resizeImages(){
         viewPanel.resizeImage();
         //cloud.resizeImage();
+    }
+
+    public void UpdateImages(int speed){
+        if(LocX < viewPanel.getWidth())
+            LocX += speed;
+        else
+        
+        cloud.setLocation(LocX, LocY);
     }
 }

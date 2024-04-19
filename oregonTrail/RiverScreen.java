@@ -4,16 +4,21 @@ import javax.swing.JPanel;
 public class RiverScreen extends AbstractScreen {
     private PicPanel viewPanel = new PicPanel(new File("Images\\River.jpg"));
 
+    private Locations location;
+
+    public RiverScreen(Locations location){
+        this.location = location;
+        initialize();
+    }
+
     @Override
     protected void initialize() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
+        
     }
 
     @Override
     public void resizeImages() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resizeImages'");
+        viewPanel.resizeImage();
     }
 
     @Override
