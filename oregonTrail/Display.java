@@ -45,10 +45,11 @@ public class Display extends JFrame{
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setLayout(new CardLayout(0, 0));
-		this.requestFocusInWindow();
+		this.getContentPane().requestFocus();
         TravelScreen travelScreen = new TravelScreen(locations);
 		
 		this.getContentPane().add(travelScreen.getPanel(), "travelScreen");
+		this.getContentPane().addKeyListener(new MapChecker(locations));
 		System.out.println(this.getFocusOwner());
 		
 	}

@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
  */
 public class MapChecker extends KeyAdapter {
     Locations location;
-    this.map = new Map();
+    Map map = new Map();
 
     public MapChecker(Locations location) {
         this.location = location;
@@ -18,7 +18,7 @@ public class MapChecker extends KeyAdapter {
     public void keyPressed(KeyEvent e){
         int vk = e.getKeyCode();
         if(vk == KeyEvent.VK_M){
-            map.display();
+            this.map.display();
         }
         else 
             System.out.println((char)vk);
