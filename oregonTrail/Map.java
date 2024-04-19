@@ -50,8 +50,6 @@ public class Map{
         frame = new JFrame();
         frame.setBounds(400,200,700,500);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setAlwaysOnTop(true);
-
         
         viewPanel = new PicPanel(image);
 		
@@ -59,4 +57,20 @@ public class Map{
         frame.setVisible(true);
         viewPanel.resizeImage();
     }
+
+    public void display(){
+        //this.location = location;
+        image = new File("Images\\Oregon Trail Map.jpg");
+        
+        frame = new JFrame();
+        frame.setBounds(400,200,700,500);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        viewPanel = new PicPanel(image);
+		
+        frame.add(viewPanel);
+        frame.setVisible(true);
+        viewPanel.resizeImage();
+    }
+    
 }

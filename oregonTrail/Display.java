@@ -1,4 +1,7 @@
 import java.awt.EventQueue;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 import javax.swing.JFrame;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -8,9 +11,7 @@ import javax.swing.JPanel;
  * @author Ethan Burch
  * @version 1.0 4/18/2024
  */
-public class Display {
-
-	private JFrame frame;
+public class Display extends JFrame{
     Locations locations = new Locations();
 
 	/**
@@ -21,7 +22,7 @@ public class Display {
 			public void run() {
 				try {
 					Display window = new Display();
-					window.frame.setVisible(true);
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,13 +41,15 @@ public class Display {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new CardLayout(0, 0));
-
+		
+		this.setBounds(100, 100, 450, 300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.getContentPane().setLayout(new CardLayout(0, 0));
+		this.requestFocusInWindow();
         TravelScreen travelScreen = new TravelScreen(locations);
-		frame.getContentPane().add(travelScreen.getPanel(), "travelScreen");
-
+		
+		this.getContentPane().add(travelScreen.getPanel(), "travelScreen");
+		System.out.println(this.getFocusOwner());
+		
 	}
 }
