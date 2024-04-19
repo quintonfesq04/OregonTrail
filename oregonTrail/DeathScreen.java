@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 public class DeathScreen extends AbstractScreen{
     private JPanel panel = new JPanel();
     private JFrame frame = new JFrame();
+    private PicPanel viewPanel;
 
     @Override
     protected void initialize() {
