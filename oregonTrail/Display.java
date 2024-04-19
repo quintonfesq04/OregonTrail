@@ -38,18 +38,17 @@ public class Display extends JFrame{
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize the contents e of the frame.
 	 */
 	private void initialize() {
 		
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setLayout(new CardLayout(0, 0));
-		this.getContentPane().requestFocus();
+		this.requestFocusInWindow();
         TravelScreen travelScreen = new TravelScreen(locations);
 		
 		this.getContentPane().add(travelScreen.getPanel(), "travelScreen");
-		this.getContentPane().addKeyListener(new MapChecker(locations));
 		System.out.println(this.getFocusOwner());
 		
 	}
