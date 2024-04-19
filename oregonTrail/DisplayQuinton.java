@@ -40,11 +40,12 @@ public class DisplayQuinton extends JFrame{
 	 * Create the application.
 	 */
 	public DisplayQuinton() {
+		frame = new JFrame();
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize the contents e of the frame.
 	 */
 	private void initialize() {
 		frame.setLayout(new CardLayout());
@@ -82,13 +83,15 @@ public class DisplayQuinton extends JFrame{
 		wagonGame = new WagonGame();
 		frame.add(wagonGame.getPanel(), "WagonGame");
 
-		deathScreen = new DeathScreen();
+		deathScreen = new DeathScreen(null);
 		frame.add(deathScreen.getPanel(), "DeathScreen");
 		
+		showDeathScreen();
+
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setLayout(new CardLayout(0, 0));
-		this.requestFocusInWindow();
+		this.setVisible(true);
         TravelScreen travelScreen = new TravelScreen(locations);
 		
 		this.getContentPane().add(travelScreen.getPanel(), "TravelScreen");
@@ -103,7 +106,7 @@ public class DisplayQuinton extends JFrame{
 		this.getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");
 		this.getContentPane().add(wagonGame.getPanel(), "WagonGame");
 		this.getContentPane().add(deathScreen.getPanel(), "DeathScreen");
-
+		
 		System.out.println(this.getFocusOwner());
 		
 	}
@@ -168,18 +171,3 @@ public class DisplayQuinton extends JFrame{
 		cardLayout.show(frame.getContentPane(), "DeathScreen");
 	}
 }
-
-
-/*
- * Card Layout stuff:
- * private StoreScreen storeScreen;
- * frame.setLayout(new CardLayout());
- * storeScreen = new StoreScreen(this, inventory);
- * frame.add(storeScreen.getPanel(), "StoreScreen");
- * showStoreScreen(); -> only used if showing as the initial screen
- * 
- * public void showStoreScreen() {
-        CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-        cardLayout.show(frame.getContentPane(), "StoreScreen");
-    }
- */
