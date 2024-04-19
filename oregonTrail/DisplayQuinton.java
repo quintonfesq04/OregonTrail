@@ -18,7 +18,7 @@ public class DisplayQuinton extends JFrame{
 	private WagonGame wagonGame;
 	private DeathScreen deathScreen;
 
-    private Locations locations = new Locations();
+    Locations locations = new Locations();
 
 	/**
 	 * Launch the application.
@@ -47,12 +47,9 @@ public class DisplayQuinton extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		this.setLayout(new CardLayout());
+		frame.setLayout(new CardLayout());
 
 		travelScreen = new TravelScreen(locations); // needs the constructors (i think)
-<<<<<<< Updated upstream
-		this.add(travelScreen.getPanel(), "TravelScreeen");
-=======
 		frame.add(travelScreen.getPanel(), "TravelScreeen");
 
 		startScreen = new StartScreen();
@@ -87,7 +84,6 @@ public class DisplayQuinton extends JFrame{
 
 		deathScreen = new DeathScreen();
 		frame.add(deathScreen.getPanel(), "DeathScreen");
->>>>>>> Stashed changes
 		
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,8 +109,8 @@ public class DisplayQuinton extends JFrame{
 	}
 
 	public void showTravelScreen() {
-		CardLayout cardLayout = (CardLayout) this.getContentPane().getLayout();
-		cardLayout.show(this.getContentPane(), "TravelScreen");
+		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
+		cardLayout.show(frame.getContentPane(), "TravelScreen");
 	}
 
 	public void showStartScreen() {

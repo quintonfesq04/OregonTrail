@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import javax.swing.JPanel;
 
 public class LandmarkScreen extends AbstractScreen{
@@ -17,13 +16,6 @@ public class LandmarkScreen extends AbstractScreen{
 
     @Override
     public JPanel getPanel() {
-=======
-import java.awt.Component;
-
-public class LandmarkScreen {
-
-    public Component getPanel() {
->>>>>>> Stashed changes
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getPanel'");
     }
