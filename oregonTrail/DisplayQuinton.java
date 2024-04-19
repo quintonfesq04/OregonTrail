@@ -53,7 +53,7 @@ public class DisplayQuinton extends JFrame{
 		travelScreen = new TravelScreen(locations); // needs the constructors (i think)
 		frame.add(travelScreen.getPanel(), "TravelScreeen");
 
-		startScreen = new StartScreen();
+		startScreen = new StartScreen(null);
 		frame.add(startScreen.getPanel(), "StartScreen");
 
 		storeScreen = new StoreScreen();
