@@ -45,6 +45,7 @@ public class Display extends JFrame{
 	 * Create the application.
 	 */
 	public Display() {
+		frame = new JFrame();
 		initialize();
 	}
 
@@ -90,6 +91,8 @@ public class Display extends JFrame{
 		deathScreen = new DeathScreen();
 		frame.add(deathScreen.getPanel(), "DeathScreen");
 		
+		showDeathScreen();
+
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setLayout(new CardLayout(0, 0));
@@ -108,11 +111,6 @@ public class Display extends JFrame{
 		this.getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");
 		this.getContentPane().add(wagonGame.getPanel(), "WagonGame");
 		this.getContentPane().add(deathScreen.getPanel(), "DeathScreen");
-		
-		this.setBounds(100, 100, 450, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.getContentPane().setLayout(new CardLayout(0, 0));
-		this.requestFocusInWindow();
 		
 		System.out.println(this.getFocusOwner());
 		
