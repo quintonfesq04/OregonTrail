@@ -9,9 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class DeathScreen extends AbstractScreen{
-    private JPanel panel = new JPanel();
-    private JFrame frame = new JFrame();
-    private PicPanel viewPanel;
+    File image = new File("Images\\death screen.jpeg");
+    private PicPanel viewPanel = new PicPanel(image);
     private Display display;
 
     public DeathScreen(Display display) {
@@ -21,15 +20,11 @@ public class DeathScreen extends AbstractScreen{
 
     @Override
     protected void initialize() {
-        panel.setBackground(new Color(78, 78, 78));
-        panel.setLayout(null);
+        viewPanel.setBackground(new Color(78, 78, 78));
+        viewPanel.setLayout(null);
 
-        File image = new File("Images/Oregon Trail Map 1.jpg");
-        System.out.println("Error Opening Image");
-
-
+        File image = new File("Images\\death screen.jpeg");
         viewPanel = new PicPanel(image);
-        panel.add(viewPanel);
         viewPanel.repaint();
     }
 
@@ -40,7 +35,7 @@ public class DeathScreen extends AbstractScreen{
 
     @Override
     public JPanel getPanel() {
-        return panel;
+        return viewPanel;
     }
     
 }
