@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
  */
 public class MapChecker extends KeyAdapter {
     Locations location;
-    Map map = new Map();
+    this.map = new Map();
 
     public MapChecker(Locations location) {
         this.location = location;
