@@ -96,9 +96,10 @@ public class Display extends JFrame{
 		this.setBounds(100, 100, 450, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setLayout(new CardLayout(0, 0));
-		this.requestFocusInWindow();
+		this.setVisible(true);
         TravelScreen travelScreen = new TravelScreen(locations);
 		
+<<<<<<< Updated upstream
 		this.getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 		this.getContentPane().add(startScreen.getPanel(), "StartScreen");
 		this.getContentPane().add(storeScreen.getPanel(), "StoreScreen");
@@ -112,6 +113,22 @@ public class Display extends JFrame{
 		this.getContentPane().add(wagonGame.getPanel(), "WagonGame");
 		this.getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 		
+=======
+		this.getContentPane().add(travelScreen.getPanel(), "travelScreen");
+		this.requestFocusInWindow();
+		this.getContentPane().requestFocus();
+		this.addKeyListener(new KeyAdapter(){
+            public void keyPressed(KeyEvent e){
+                int vk = e.getKeyCode();
+                if(vk == KeyEvent.VK_M){
+                    Map map = new Map();
+                    map.display();
+                }
+                else 
+                    System.out.println(vk);
+            }
+        });
+>>>>>>> Stashed changes
 		System.out.println(this.getFocusOwner());
 		
 	}

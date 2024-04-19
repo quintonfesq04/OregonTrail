@@ -23,10 +23,11 @@ public class TravelScreen extends AbstractScreen {
 
     protected void initialize(){
         viewPanel.setFocusable(true);
-        viewPanel.requestFocus();
+        viewPanel.requestFocusInWindow();
         //viewPanel.addKeyListener(new MapChecker(location));
         viewPanel.addKeyListener( new KeyAdapter(){
             public void keyPressed(KeyEvent e){
+                viewPanel.requestFocusInWindow();
                 int vk = e.getKeyCode();
                 if(vk == KeyEvent.VK_M){
                     Map map = new Map();
