@@ -88,7 +88,7 @@ public class Display extends JFrame{
 		wagonGame = new WagonGame();
 		frame.add(wagonGame.getPanel(), "WagonGame");
 
-		deathScreen = new DeathScreen();
+		deathScreen = new DeathScreen(null);
 		frame.add(deathScreen.getPanel(), "DeathScreen");
 		
 		showDeathScreen();

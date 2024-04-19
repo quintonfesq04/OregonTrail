@@ -12,15 +12,17 @@ public class DeathScreen extends AbstractScreen{
     private JPanel panel = new JPanel();
     private JFrame frame = new JFrame();
     private PicPanel viewPanel;
+    private Display display;
+
+    public DeathScreen(Display display) {
+        this.display = display;
+        initialize();
+    }
 
     @Override
     protected void initialize() {
-        frame = new JFrame();
-		frame.setBackground(new Color(78, 78, 78));
-		frame.getContentPane().setBackground(new Color(78, 78, 78));
-		frame.setBounds(100, 100, 400, 400);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+        panel.setBackground(new Color(78, 78, 78));
+        panel.setLayout(null);
 
         File image = new File("Images/death screen.jpg");
 
