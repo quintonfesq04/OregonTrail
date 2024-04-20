@@ -1,12 +1,9 @@
+package Screens;
 import java.awt.event.KeyEvent;
 import java.awt.Dimension;
 import java.awt.event.KeyAdapter;
 import java.io.File;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
+import Stuff.*;
 
 /**
  * TravelScreen.java -- the screen seen when traveling

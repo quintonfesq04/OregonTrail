@@ -1,4 +1,9 @@
+package Stuff;
 import javax.swing.*;
+
+import Hunting.HuntingScreen;
+import Screens.*;
+
 import java.awt.*;
 
 public class Display extends JFrame {

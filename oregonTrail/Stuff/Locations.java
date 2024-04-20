@@ -1,3 +1,4 @@
+package Stuff;
 
 /**
  * Locations.java -- stores the location of the player along the trail

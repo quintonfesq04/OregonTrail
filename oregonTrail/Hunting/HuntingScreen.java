@@ -1,6 +1,9 @@
+package Hunting;
 import javax.swing.JPanel;
+import Screens.AbstractScreen;
+import Stuff.*;
 
-public class StoreScreen extends AbstractScreen{
+public class HuntingScreen extends AbstractScreen{
     private JPanel panel = new JPanel();
 
     @Override

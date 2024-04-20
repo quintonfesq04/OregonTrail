@@ -1,3 +1,4 @@
+package Screens;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,14 +7,16 @@ import java.awt.event.KeyAdapter;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import Stuff.*;
+
 import java.io.File;
 
 public class StartScreen extends AbstractScreen {
     private File[] images = {
-        new File("Images/start screen0.jpg")
-        new File("Images/start screen1.jpg");
-        new File("Images/start screen2.jpg");
-    }
+        new File("Images/start screen0.jpg"),
+        new File("Images/start screen1.jpg"),
+        new File("Images/start screen2.jpg")
+    };
     private PicPanel viewPanel = new PicPanel(images[0]);
     private Display display;
     private Timer timer;

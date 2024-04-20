@@ -1,3 +1,4 @@
+package Stuff;
 import java.awt.Component;
 
 import javax.swing.JPanel;

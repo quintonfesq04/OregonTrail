@@ -1,3 +1,4 @@
+package Stuff;
 import javax.swing.JFrame;
 import java.io.File;
 

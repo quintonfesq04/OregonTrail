@@ -1,4 +1,6 @@
+package Screens;
 import javax.swing.JPanel;
+import Stuff.*;
 
 public class ConditionsScreen extends AbstractScreen{
     private JPanel panel = new JPanel();

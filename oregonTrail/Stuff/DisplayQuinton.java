@@ -1,4 +1,8 @@
+package Stuff;
 import javax.swing.*;
+
+import Hunting.HuntingScreen;
+import Screens.*;
 import java.awt.*;
 
 public class DisplayQuinton extends JFrame{
@@ -59,7 +63,7 @@ public class DisplayQuinton extends JFrame{
 		storeScreen = new StoreScreen();
 		frame.add(storeScreen.getPanel(), "StoreScreen");
 
-		riverScreen = new RiverScreen();
+		riverScreen = new RiverScreen(locations);
 		frame.add(riverScreen.getPanel(), "RiverScreen");
 
 		tradeScreen = new TradeScreen();
