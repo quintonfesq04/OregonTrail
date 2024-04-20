@@ -1,4 +1,3 @@
-package Screens;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,15 +6,47 @@ import java.awt.event.KeyAdapter;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-import Stuff.*;
-
 import java.io.File;
 
 public class StartScreen extends AbstractScreen {
     private File[] images = {
         new File("Images/start screen0.jpg"),
         new File("Images/start screen1.jpg"),
-        new File("Images/start screen2.jpg")
+        new File("Images/start screen2.jpg"),
+        new File("Images/start screen3.jpg"),
+        new File("Images/start screen4.jpg"),
+        new File("Images/start screen5.jpg"),
+        new File("Images/start screen6.jpg"),
+        new File("Images/start screen7.jpg"),
+        new File("Images/start screen8.jpg"),
+        new File("Images/start screen9.jpg"),
+        new File("Images/start screen10.jpg"),
+        new File("Images/start screen11.jpg"),
+        new File("Images/start screen12.jpg"),
+        new File("Images/start screen13.jpg"),
+        new File("Images/start screen14.jpg"),
+        new File("Images/start screen15.jpg"),
+        new File("Images/start screen16.jpg"),
+        new File("Images/start screen17.jpg"),
+        new File("Images/start screen18.jpg"),
+        new File("Images/start screen19.jpg"),
+        new File("Images/start screen20.jpg"),
+        new File("Images/start screen21.jpg"),
+        new File("Images/start screen22.jpg"),
+        new File("Images/start screen23.jpg"),
+        new File("Images/start screen24.jpg"),
+        new File("Images/start screen25.jpg"),
+        new File("Images/start screen26.jpg"),
+        new File("Images/start screen27.jpg"),
+        new File("Images/start screen28.jpg"),
+        new File("Images/start screen29.jpg"),
+        new File("Images/start screen30.jpg"),
+        new File("Images/start screen31.jpg"),
+        new File("Images/start screen32.jpg"),
+        new File("Images/start screen33.jpg"),
+        new File("Images/start screen34.jpg"),
+        new File("Images/start screen35.jpg"),
+        new File(""),
     };
     private PicPanel viewPanel = new PicPanel(images[0]);
     private Display display;
