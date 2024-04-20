@@ -9,9 +9,13 @@ import javax.swing.Timer;
 import java.io.File;
 
 public class StartScreen extends AbstractScreen {
-    private File image = new File("Images/start screen0.jpg");
-    private File image1 = new File("Images/Intro prompt0.jpg");
-    private PicPanel viewPanel = new PicPanel(image);
+    private File[] images = {
+        new File("Images/start screen0.jpg")
+        new File("Images/start screen1.jpg");
+        new File("Images/start screen2.jpg");
+    }
+    private PicPanel viewPanel = new PicPanel(images[0]);
+    private PicPanel viewPanel = new PicPanel(image0);
     private Display display;
     private Timer timer;
     private int alpha;
@@ -61,15 +65,11 @@ public class StartScreen extends AbstractScreen {
     }
 
     private void switchToNextImage() {
-        // Increment the image index
         imageIndex++;
-        if (imageIndex == 1) {
-            viewPanel.setImage(image1); // Switch to the second image
+        if (imageIndex < images.length) {
+            viewPanel.setImage(images[imageIndex]); // Switch to the next image
         } else {
-            // If there are no more images, do something (like start the game)
-            // For now, just reset the image index
-            imageIndex = 0;
-            viewPanel.setImage(image); // Switch back to the first image
+            System.exit(0); // If there are no more images, exit the application
         }
     }
 

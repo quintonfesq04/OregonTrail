@@ -35,7 +35,7 @@ public class Display extends JFrame {
 
     private void initialize() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 450);
+        setBounds(100, 100, 1200, 675);
         getContentPane().setLayout(new CardLayout());
 
         travelScreen = new TravelScreen(locations);
