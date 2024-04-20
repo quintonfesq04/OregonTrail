@@ -26,6 +26,14 @@ public class PicPanel extends JPanel {
         }
     }
 
+    /**
+     * Blank constructor for the Cloud class to extend from
+     * If using this constructor setImage must be called
+     */
+    protected PicPanel(){
+
+    }
+
     // paintComponent override to create background
     @Override
     protected void paintComponent(Graphics g) {
@@ -71,7 +79,7 @@ public class PicPanel extends JPanel {
      * @param newH              The new height for the resized image
      * @return                  The resized image
      */
-    private BufferedImage resize(Image backgroundImage, int newW, int newH) {
+    protected BufferedImage resize(Image backgroundImage, int newW, int newH) {
         Image tmp = backgroundImage.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
         BufferedImage resizedImg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = resizedImg.createGraphics();

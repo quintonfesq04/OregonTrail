@@ -14,7 +14,8 @@ import javax.swing.JPanel;
  * @version 1.0.0 4/18/24
  */
 public class TravelScreen extends AbstractScreen {
-    private PicPanel cloud = new PicPanel(new File("Images\\Cloud.png"));
+    private Cloud cloud = new Cloud(50,50,new File("Images\\Cloud.png"));
+    private Cloud cloud2 = new Cloud(200,80, new File("Images\\Cloud.png"));
 
     protected PicPanel viewPanel = new PicPanel(new File("Images\\Covered Wagon.jpg"));
 
@@ -35,16 +36,19 @@ public class TravelScreen extends AbstractScreen {
         viewPanel.setLayout(null);
         cloud.setPreferredSize(new Dimension(100,100));
         cloud.setSize(cloud.getPreferredSize());
-        cloud.setOpaque(false);
+
+        cloud2.setPreferredSize(new Dimension(75,50));
+        cloud2.setSize(cloud2.getPreferredSize());
+
         viewPanel.add(cloud);
-        cloud.setLocation(LocX,LocY);
+        viewPanel.add(cloud2);
         viewPanel.addKeyListener(new MapChecker(location));
         viewPanel.addKeyListener(new KeyAdapter(){
             @Override
             public void keyPressed(KeyEvent e){
                 int vk = e.getKeyCode();
                 if(vk == KeyEvent.VK_SPACE)
-                    UpdateImages(50);
+                    travel();
             }
         });
     }
@@ -60,11 +64,18 @@ public class TravelScreen extends AbstractScreen {
         //cloud.resizeImage();
     }
 
-    public void UpdateImages(int speed){
-        if(LocX < viewPanel.getWidth())
-            LocX += speed;
+    private void travel(){
+        if(cloud.getX() < viewPanel.getWidth())
+            cloud.update(50);
         else
+            cloud.setX(-100);
+
+        if(cloud2.getX() < viewPanel.getWidth())
+            cloud2.update(100);
+        else
+            cloud2.setX(-100);
+        cloud.setLocation(cloud.getX(), cloud.getY());
+        cloud2.setLocation(cloud.getX(), cloud.getY());
         
-        cloud.setLocation(LocX, LocY);
     }
 }
