@@ -31,7 +31,7 @@ public class PicPanel extends JPanel {
      * Blank constructor for the Cloud class to extend from
      * If using this constructor setImage must be called
      */
-    protected PicPanel(){
+    public PicPanel(){
 
     }
 
