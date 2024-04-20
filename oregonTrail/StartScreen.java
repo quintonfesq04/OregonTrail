@@ -15,7 +15,6 @@ public class StartScreen extends AbstractScreen {
         new File("Images/start screen2.jpg");
     }
     private PicPanel viewPanel = new PicPanel(images[0]);
-    private PicPanel viewPanel = new PicPanel(image0);
     private Display display;
     private Timer timer;
     private int alpha;
