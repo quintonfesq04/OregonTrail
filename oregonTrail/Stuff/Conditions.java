@@ -123,7 +123,7 @@ public class Conditions {
     public Inventory handleInventory() {
         eventInfo = "";
         if (isEventOccurred()) {
-            int event = random.nextInt(3);
+            int event = random.nextInt(4);
             switch (event) {
                 case 0:
                     // Weather event
@@ -152,6 +152,17 @@ public class Conditions {
                     } else {
                         eventInfo += " You were unable to fix it!";
                     }
+                    break;
+                case 3:
+                    // Disease event
+                    String[] diseases = {"Exhaustion", "Typhoid", "Cholera", "Measles", "Dysentery", "Fever"};
+                    String disease = diseases[random.nextInt(diseases.length)];
+                    eventInfo = "Random Disease Event: " + disease;
+                    // Apply effects of disease to inventory or travelers
+                    // For demonstration, let's assume it affects the inventory
+                    int affectedAmount = random.nextInt(11); // Random amount affected (0-10)
+                    inventory.removeItem("medicine", affectedAmount); // Remove medicine as treatment
+                    eventInfo += ". " + affectedAmount + " units of medicine used for treatment.";
                     break;
             }
         }
