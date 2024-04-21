@@ -1,8 +1,9 @@
 package Stuff;
 import javax.swing.*;
 
-import Hunting.HuntingScreen;
+import Hunting.*;
 import Screens.*;
+import Stuff.*;
 
 import java.awt.*;
 
