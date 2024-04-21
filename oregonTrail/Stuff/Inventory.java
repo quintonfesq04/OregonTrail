@@ -1,3 +1,4 @@
+package Stuff;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -96,3 +97,4 @@ public class Inventory {
     public void setFood(int food){
         this.food = food;
     }
+}
