@@ -1,3 +1,4 @@
+package Stuff;
 import java.util.Random;
 
 /**
@@ -10,7 +11,7 @@ public class Conditions {
     private static Random random = new Random();
     private Inventory inventory;
     private String eventInfo;
-    Private String weather;
+    private String weather;
 
     //constuctor for conditions object
     public Conditions(Inventory inventory) {

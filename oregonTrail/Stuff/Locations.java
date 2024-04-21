@@ -1,12 +1,15 @@
+package Stuff;
+
 import javax.swing.JOptionPane;
 
 /**
- * @File Locations.java
- * @author Lane Kanagy
- * @version 1.0.0 4/16/2024
- *This class calculates distance from the final destination, sets the players current 
- *location, and outputs the distance left to travel. It is used as the go-to class for
- *and calculations in relation to location.
+ * Locations.java   --  This class calculates distance from the final destination, sets the players current 
+ *                      location, and outputs the distance left to travel. It is used as the go-to class for
+ *                      and calculations in relation to location.
+ * @author Ethan Burch
+ * @author Madison Scott
+ * @version 1.0.0 4/8/2024
+ *
  */
 public class Locations {
     private int distance = 0;
@@ -25,25 +28,21 @@ public class Locations {
     public static final String DALLES           =   "The Dalles";
     public static final String O_CITY_NORTH     =   "Oregon City North";
     public static final String O_CITY_SOUTH     =   "Oregon City South";
-
     public static final int KANSAS_DISTANCE = 102;
     public static final int BIG_BLUE_DISTANCE = 185;
     public static final int GREEN_DISTANCE = 989;
     public static final int SNAKE_DISTANCE = 1372;
-
     private boolean pastKansas = false;
     private boolean pastBigBlue = false;
     private boolean pastGreen = false;
     private boolean pastSnake = false;
-
     private String riverName;
-
     public static final String LOCATIONS[] = {"Independence","Courthouse","Chimney Rock","Fort Laramie", "Independence Rock", 
                                                 "Fort Bridger", "Soda Springs", "Fort Hall", "Fort Boise", "Fort Boise North",
                                                  "Fort Boise South", "The Dalles", "Oregon City North", "Oregon City South"};
       
     public static final int LOCATION_DISTANCE[] = {0, 566, 587, 663, 846, 1085, 1225, 1289, 1569, 1569, 1915, 2051, 2051};
-     
+
     private String nextLandmark;
 
     // Constructor for Locations object
@@ -98,7 +97,8 @@ public class Locations {
     public String getRiverName(){
         return riverName;
     }
-    
+
+
     /**
      * Returns the name of the next landmark to be reached
      * @param currentLoc the location of the player
@@ -119,23 +119,19 @@ public class Locations {
         }
         return "At Final Location";
     }
-
     /*
      * uses current loaction as an int to check distance from next location
      */
     public int distanceTo(int currentLoc, String nextLoc){
         int nextLocInt = 0;
-
         for(int i =0; i<13; i++){
             if(nextLoc.compareTo(LOCATIONS[i]) == 0){
                 nextLocInt = LOCATION_DISTANCE[i];
                 break;
             }
         }
-
         return nextLocInt - currentLoc;
     }
-
     /**
      * moves along the trail
      * @param distance the number to move along by
@@ -143,7 +139,6 @@ public class Locations {
     public void addDistance(int distance){
         this.distance += distance;
     }
-
     /**
      * obtain next landmark
      * @return String for next landmark
@@ -152,7 +147,6 @@ public class Locations {
         nextLandmark = nextLocation(distance);
         return nextLandmark;
     }
-
     /** 
     *Uses a varible from the main code to manually assign the distance varible a value
     *@param int distance is the value of the range the player is from the final destination
@@ -161,7 +155,6 @@ public class Locations {
     public Locations(int distance, int location){
         this.distance = distance;
     }
-
     /**
     *Allows the value of distance from final destination to be called
     *@param void
@@ -170,7 +163,6 @@ public class Locations {
     public int getDistance(){
         return this.distance;
     }
-
     /**
     *Uses a varible from the main code to manually assign the distance varible a value
     *@param int distance is the value of the range the player is from the final destination
@@ -180,4 +172,3 @@ public class Locations {
         this.distance = distance;
     }
 }
-

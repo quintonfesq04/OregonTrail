@@ -1,3 +1,4 @@
+package Stuff;
 import java.util.Random;
 
 /**

@@ -22,7 +22,7 @@ public class Display extends JFrame {
     private WagonGame wagonGame;
     private DeathScreen deathScreen;
 
-    Locations locations = new Locations();
+    Locations locations = new Locations(0);
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
