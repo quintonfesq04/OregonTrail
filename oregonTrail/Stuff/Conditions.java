@@ -3,7 +3,8 @@ package Stuff;
 import java.util.Random;
 
 /**
- * Conditions.java  --  Controls the conditions on the trail
+ * Conditions.java -- Controls the conditions on the trail
+ * 
  * @author Madison Scott
  * @author Ethan Burch
  * @version 1.5.0 4/21/24
@@ -69,7 +70,8 @@ public class Conditions {
     }
 
     private double calculateThunderstormProbability(double avgPrecipitation) {
-        // Implement logic to calculate thunderstorm probability based on average precipitation
+        // Implement logic to calculate thunderstorm probability based on average
+        // precipitation
         return avgPrecipitation * 0.01; // Placeholder logic
     }
 
@@ -108,7 +110,7 @@ public class Conditions {
                 case 1:
                     // Thieves event
                     eventInfo = "Random Event: Thieves attacked your wagon!\n";
-                    String[] itemNames = { "food", "water"};
+                    String[] itemNames = { "food", "water" };
                     String item = itemNames[random.nextInt(itemNames.length)];
                     int stolenAmount = random.nextInt(inventory.getItemCount(item) + 1);
                     inventory.removeItem(item, stolenAmount);
@@ -118,19 +120,19 @@ public class Conditions {
                 case 2:
                     // Wagon breakdown event
                     eventInfo = "Random Event: Your wagon broke down.\n";
-                    String[] wagonParts = { "wagon wheel", "wagon tongue", "wagon axle"};
+                    String[] wagonParts = { "wagon wheel", "wagon tongue", "wagon axle" };
                     String part = wagonParts[random.nextInt(wagonParts.length)];
                     if (inventory.getItemCount(part) > 0) {
                         inventory.removeItem(part, 1);
                     } else {
                         eventInfo += " You were unable to fix it!\n";
                     }
-                
+
                     break;
-                    
+
                 case 3:
                     // Disease event
-                    String[] diseases = {"Exhaustion", "Typhoid", "Cholera", "Measles", "Dysentery", "Fever"};
+                    String[] diseases = { "Exhaustion", "Typhoid", "Cholera", "Measles", "Dysentery", "Fever" };
                     String disease = diseases[random.nextInt(diseases.length)];
                     eventInfo = "Random Disease Event: " + disease + "\n";
                     int affectedAmount = random.nextInt(11); // Random amount affected (0-10)
@@ -142,7 +144,7 @@ public class Conditions {
                     // Indians help find food
                     if (inventory.getItemCount("food") == 0) {
                         if (random.nextDouble() < 0.05) {
-                            inventory.setFood(inventory.getFood()+30);
+                            inventory.setFood(inventory.getFood() + 30);
                             eventInfo = "Indians helped you find food! +30 lbs of food.\n";
                         }
                     }
@@ -154,7 +156,8 @@ public class Conditions {
                     double probability = calculateThunderstormProbability(avgPrecipitation);
                     if (random.nextDouble() < probability) {
                         eventInfo = "Random Event: Severe thunderstorm!\n";
-                        // Implement logic for consequences of severe thunderstorm, such as lost supplies or damaged wagon
+                        // Implement logic for consequences of severe thunderstorm, such as lost
+                        // supplies or damaged wagon
                         int lostFood = random.nextInt(11); // Random amount lost (0-10)
                         inventory.removeItem("food", lostFood);
                         eventInfo += "Lost " + lostFood + " lbs of food due to the severe thunderstorm.\n";
@@ -256,7 +259,7 @@ public class Conditions {
                     // Finding wild fruit
                     if (isMayToSeptember() && random.nextDouble() < 0.04) {
                         eventInfo = "Random Event: Found wild fruit! +20 lbs of food.\n";
-                        inventory.setFood(inventory.getFood()+20);
+                        inventory.setFood(inventory.getFood() + 20);
                     }
                     break;
 
