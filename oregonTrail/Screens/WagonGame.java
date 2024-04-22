@@ -22,6 +22,10 @@ public class WagonGame extends AbstractScreen {
     }
 
     private void initializeUI() {
+        // Create the main panel to hold all components
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        
         // Create the bubbles panel
         bubblesPanel = new JPanel();
         bubblesPanel.setLayout(new CardLayout()); // Set layout to null for manual positioning
@@ -37,39 +41,39 @@ public class WagonGame extends AbstractScreen {
         addBubble("Tongue", 150, 250, bubblesPanel);
         addBubble("Tongue", 250, 250, bubblesPanel);
         
-        // Create and add timer and score labels
+        // Create and add timer, score, and hit labels
         timerLabel = new JLabel("Time: 60");
         scoreLabel = new JLabel("Score: 0");
         hitLabel = new JLabel("Hit: "); // Initialize hitLabel here
         
-        // Set positions for timer, score, and hit labels
-        timerLabel.setBounds(10, 10, 100, 20);
-        scoreLabel.setBounds(300, 10, 100, 20);
-        hitLabel.setBounds(150, 10, 100, 20);
+        // Create a panel to hold the labels
+        JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        labelPanel.add(timerLabel);
+        labelPanel.add(scoreLabel);
+        labelPanel.add(hitLabel);
         
-        // Start the game
-        createBubble();
+        // Add bubbles panel and label panel to the main panel
+        mainPanel.add(bubblesPanel, BorderLayout.CENTER);
+        mainPanel.add(labelPanel, BorderLayout.NORTH);
+        
+        // Add the main panel to the frame
+        frame = new JFrame();
+        frame.setTitle("Wagon Game");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(mainPanel);
+        frame.setSize(400, 400); // Set a custom size for the frame
+        frame.setLocationRelativeTo(null); // Center the frame
+        frame.setVisible(true); // Make the frame visible
+
     }
     
     // Add bubble to the specified panel at specified coordinates
     private void addBubble(String type, int x, int y, JPanel panel) {
-        JLabel bubble = createBubble(type, x, y);
-        panel.add(bubble);
     }
 
     // Create a bubble JLabel with specified type and coordinates
     private JLabel createBubble(String type, int x, int y) {
-        JLabel bubble = new JLabel(type, SwingConstants.CENTER);
-        bubble.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        bubble.setBounds(x, y, 50, 50); // Set size and position
-        bubble.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                JLabel clickedBubble = (JLabel) e.getSource();
-                // Implement your logic for handling mouse clicks here
-            }
-        });
-        return bubble;
+		return null;
     }
 
     // Create new random bubble labels and add them to the bubbles panel
@@ -126,7 +130,23 @@ public class WagonGame extends AbstractScreen {
         checkBubble();
     }
 
-    // Implement all abstract methods from AbstractScreen here
+    private JFrame frame;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    WagonGame window = new WagonGame();
+                    window.frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
     @Override
     protected void initialize() {
@@ -142,11 +162,5 @@ public class WagonGame extends AbstractScreen {
     public JPanel getPanel() {
         // No implementation needed for now
         return null;
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new WagonGame();
-        });
     }
 }
