@@ -1,10 +1,9 @@
 package Stuff;
 
 /**
- * @File Inventory.java
+ * @File Inventory.java -- Creates the inventory for the journey along the oregon trail
  * @author Quinton Fesq
  * @version 1.5.2 4/17/24
- * Creates the inventory for the journey along the oregon trail
  */
 public class Inventory {
     private int food = 0;
