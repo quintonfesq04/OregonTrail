@@ -25,6 +25,8 @@ public class Inventory {
     public static final String BULLETS = "bullets";
     public static final String CLOTHING = "clothing";
 
+    private boolean oxenHealthy = true;
+
     public void setFood(int number) {
         this.food = number;
     }
@@ -89,6 +91,14 @@ public class Inventory {
         return this.clothing;
     }
 
+    public boolean getOxenHealthy(){
+        return oxenHealthy;
+    }
+
+    public void setOxenHealthy(boolean oxenHealthy){
+        this.oxenHealthy = oxenHealthy;
+    }
+
     public int getItemCount(String item) {
         if (item == FOOD) {
             return getFood();
@@ -107,7 +117,7 @@ public class Inventory {
         } else if (item == CLOTHING) {
             return getClothing();
         } else
-            return 4000000;
+            return -1;
 
     }
 
