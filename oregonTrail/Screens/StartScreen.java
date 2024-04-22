@@ -129,7 +129,7 @@ public class StartScreen extends AbstractScreen {
         List<String> imageNames = pathImageMap.get(path);
         if (imageNames != null && !imageNames.isEmpty()) {
             // Display the panels associated with the chosen path
-            display.setScreens(imageNames);
+            //display.setScreens(imageNames);
         } else {
             // Handle case where the path is not found
             System.out.println("Path not found: " + path);

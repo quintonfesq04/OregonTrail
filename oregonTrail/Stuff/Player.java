@@ -7,140 +7,204 @@ import javax.swing.JOptionPane;
  * @version: 2.0.0 4/16/24
  * @Description: controls the players health and sickness count
  */
+
 public class Player {
     private int health;
     private int food;
     private int sicknessCount;
     private int consumptionRate;
+    private double freezeStarveFactor;
 
-    /**
-     * Constructs a Player object with default values for health, food, sickness count, and consumption rate.
-     */
     public Player() {
-        this.health = 100; // Starting health
-        this.food = 50;    // Starting food
-        this.sicknessCount = 0; 
+        this.health = 100;
+        this.food = 50;
+        this.sicknessCount = 0;
         this.consumptionRate = 15;
+        this.freezeStarveFactor = 0;
     }
 
-    /**
-     * Constructs a Player object with specified values for health, food, sickness count, and consumption rate.
-     *
-     * @param health the initial health of the player
-     * @param food the initial food level of the player
-     * @param sicknessCount the initial sickness count of the player
-     * @param consumptionRate the initial consumption rate of the player
-     */
     public Player(int health, int food, int sicknessCount, int consumptionRate) {
-    	this.health = health;
-    	this.food = food;
-    	this.sicknessCount = sicknessCount;
-    	this.consumptionRate = consumptionRate;
+        this.health = health;
+        this.food = food;
+        this.sicknessCount = sicknessCount;
+        this.consumptionRate = consumptionRate;
+        this.freezeStarveFactor = 0;
     }
 
-    /**
-     * Sets the consumption rate of the player based on the provided string.
-     *
-     * @param str the string representing the consumption rate ("Filling", "Bare-Bones", "Meager", or any other string)
-     */
     public void setConsumption(String str) {
-    	if(str.compareTo("Filling")== 0) 
-    		this.consumptionRate = 25;
-    	else if (str.compareTo("Bare-Bones")== 0) 
-    		this.consumptionRate = 20;
-    	else if (str.compareTo("Meager")== 0) 
-    		this.consumptionRate = 15;
-    	else 
-    		this.consumptionRate = 0;
-    }
-    
-    /**
-     * Returns the current consumption rate of the player.
-     *
-     * @return the current consumption rate of the player
-     */
-    public int getConsumption() {
-    	return this.consumptionRate;
+        if(str.equals("Filling")) 
+            this.consumptionRate = 25;
+        else if (str.equals("Bare-Bones")) 
+            this.consumptionRate = 20;
+        else if (str.equals("Meager")) 
+            this.consumptionRate = 15;
+        else 
+            this.consumptionRate = 0;
     }
 
-    /**
-     * Returns the current health of the player.
-     *
-     * @return the current health of the player
-     */
+    public int getConsumption() {
+        return this.consumptionRate;
+    }
+
     public int getHealth() {
         return health;
     }
 
-    /**
-     * Sets the health of the player.
-     *
-     * @param health the new health value for the player
-     */
     public void setHealth(int health) {
         this.health = health;
     }
 
-    /**
-     * Returns the current food level of the player.
-     *
-     * @return the current food level of the player
-     */
     public int getFood() {
         return food;
     }
 
-    /**
-     * Sets the food level of the player.
-     *
-     * @param food the new food level for the player
-     */
     public void setFood(int food) {
         this.food = food;
     }
-    
-    /**
-     * Decreases the food level of the player by the consumption rate.
-     *
-     * @return the updated food level of the player after decrementing
-     */
+
     public int decrementFood() {
-    	food = food - consumptionRate;
-    	return food;
+        food -= consumptionRate;
+        return food;
     }
-   
-    /**
-     * Increases the sickness count of the player and prints a message if the player becomes sick.
-     */
+
     public void getSick() {
-        this.sicknessCount++;
-        System.out.println("Player got sick. Sickness count: " + this.sicknessCount);
-        if (this.sicknessCount >= 2) {
-            this.health = 0; // Simulate immediate death
+        sicknessCount++;
+        System.out.println("Player got sick. Sickness count: " + sicknessCount);
+        if (sicknessCount >= 2) {
+            health = 0; // Simulate immediate death
             System.out.println("Player's health decreased to zero due to sickness!");
         }
     }
 
-    /**
-     * Simulates the player's health deteriorating by a specified amount.
-     *
-     * @param healthDecrease the amount by which the player's health will decrease
-     * @return the player's updated health after the decrease
-     */
     public int deteriorateHealth(int healthDecrease) {
-        this.health -= healthDecrease;
-        if (this.health < 0) {
-            this.health = 0;
+        health -= healthDecrease;
+        if (health < 0) {
+            health = 0;
         }
-        System.out.println("Health decreased by " + healthDecrease + ". Current health: " + this.health);
-        return this.health;
+        System.out.println("Health decreased by " + healthDecrease + ". Current health: " + health);
+        return health;
     }
 
-    /**
-     * The main method to demonstrate the functionality of the Player class.
-     *
-     * @param args the command-line arguments (not used)
-     */
+    // Method to simulate the effects of weather on health
+    public void applyWeatherEffect(String weather) {
+        switch (weather) {
+            case "Very hot":
+                health += 2;
+                break;
+            case "Hot":
+                health += 1;
+                break;
+            case "Cool":
+            case "Warm":
+                // No effect
+                break;
+            case "Cold":
+                health += calculateColdEffect();
+                break;
+            case "Very cold":
+                health += calculateVeryColdEffect();
+                break;
+        }
+    }
+
+    // Method to calculate the health effect of cold weather
+    private int calculateColdEffect() {
+        int clothingSets = 2; // Assuming initial clothing sets
+        int coldEffect = 0;
+        // Logic to determine the cold effect based on clothing sets
+        if (clothingSets == 0) {
+            coldEffect = 2;
+        } else if (clothingSets < 2) {
+            // Apply sliding scale
+        }
+        return coldEffect;
+    }
+
+    // Method to calculate the health effect of very cold weather
+    private int calculateVeryColdEffect() {
+        int clothingSets = 4; // Assuming initial clothing sets
+        int veryColdEffect = 0;
+        // Logic to determine the very cold effect based on clothing sets
+        if (clothingSets == 0) {
+            veryColdEffect = 4;
+        } else if (clothingSets < 4) {
+            // Apply sliding scale
+        }
+        return veryColdEffect;
+    }
+
+    // Method to apply the effect of food rations on health
+    public void applyFoodRationEffect(String foodRation) {
+        switch (foodRation) {
+            case "Filling":
+                // No effect
+                break;
+            case "Meager":
+                health += 2;
+                break;
+            case "Bare-Bones":
+                health += 4;
+                break;
+            case "Out of food":
+                health += 6;
+                break;
+        }
+    }
+
+    // Method to update the freeze/starve factor
+    private void updateFreezeStarveFactor(boolean isFreezing, boolean isStarving) {
+        if (isFreezing || isStarving) {
+            freezeStarveFactor += 0.8;
+        } else {
+            freezeStarveFactor /= 2;
+        }
+    }
+
+    // Method to apply the pace effect on health
+    public void applyPaceEffect(String pace) {
+        switch (pace) {
+            case "Resting":
+                // No effect
+                break;
+            case "Steady":
+                health += 2;
+                break;
+            case "Strenuous":
+                health += 4;
+                break;
+            case "Grueling":
+                health += 6;
+                break;
+        }
+    }
+
+    // Method to handle random events affecting health
+    public void handleRandomEvent(String event) {
+        switch (event) {
+            case "Bad water":
+                health += 20;
+                break;
+            case "Very little water":
+                health += 10;
+                break;
+            case "Diseased party member":
+                sicknessCount++; // Increment sickness count for a diseased party member
+                break;
+            case "Rough trail":
+                health += 10;
+                break;
+        }
+    }
+
+    // Method to simulate the chance of contracting a disease
+    public void simulateDisease() {
+        int chance = (int) (Math.random() * 41); // Random number between 0 and 40
+        if (chance > 0 && chance <= 40) { // There's a 0% to 40% chance of contracting a disease
+            // Simulate disease strike
+            // Choose a party member randomly and set sickness count to 10 days
+        }
+    }
+
     public static void main(String[] args) {
         Player player = new Player();
 
@@ -151,4 +215,3 @@ public class Player {
         JOptionPane.showMessageDialog(null,"Player's current health: " + player.getHealth());
     }
 }
-

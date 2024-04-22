@@ -150,32 +150,6 @@ public class Display extends JFrame {
 		cardLayout.show(getContentPane(), "DeathScreen");
 	}
 
-    public void setScreens(List<String> imageNames) {
-        List<JPanel> panels = new ArrayList<>();
-        for (String imageName : imageNames) {
-            try {
-                File file = new File(imageName);
-                if (file.exists()) {
-                    JLabel label = new JLabel(new ImageIcon(ImageIO.read(file)));
-                    JPanel panel = new JPanel(new BorderLayout());
-                    panel.add(label);
-                    panels.add(panel);
-                } else {
-                    System.err.println("File not found: " + imageName);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     
-        if (!panels.isEmpty()) {
-            currentPanel = panels.get(0); // Show the first panel
-            getContentPane().removeAll(); // Clear the content pane
-            getContentPane().add(currentPanel, "StartScreen"); // Add the current panel as the StartScreen
-            showStartScreen(); // Show the StartScreen
-            revalidate(); // Refresh the frame
-            repaint();
-        }
-    }
     
 }
