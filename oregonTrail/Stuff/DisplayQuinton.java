@@ -1,177 +1,153 @@
 package Stuff;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import Hunting.HuntingScreen;
+import Hunting.*;
 import Screens.*;
+import Stuff.*;
+
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class DisplayQuinton extends JFrame{
-	private JPanel panel;
-	private JFrame frame;
+public class DisplayQuinton extends JFrame {
+    private JFrame frame;
+    private JPanel currentPanel;
 
-	private TravelScreen travelScreen;
-	private StartScreen startScreen;
-	private StoreScreen storeScreen;
-	private RiverScreen riverScreen;
-	private TradeScreen tradeScreen;
-	private ControlScreen controlScreen;
-	private HuntingScreen huntingScreen;
-	private ConversationScreen conversationScreen;
-	private ConditionsScreen conditionsScreen;
-	private LandmarkScreen landmarkScreen;
-	private WagonGame wagonGame;
-	private DeathScreen deathScreen;
+    private TravelScreen travelScreen;
+    //private StartScreen startScreen;
+    private StoreScreen storeScreen;
+    private RiverScreen riverScreen;
+    private TradeScreen tradeScreen;
+    private ControlScreen controlScreen;
+    private HuntingScreen huntingScreen;
+    private ConversationScreen conversationScreen;
+    private ConditionsScreen conditionsScreen;
+    private LandmarkScreen landmarkScreen;
+    private WagonGame wagonGame;
+    private DeathScreen deathScreen;
 
-    Locations locations = new Locations();
+    Locations locations = new Locations(0);
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Display window = new Display();
-					window.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            try {
+                Display window = new Display();
+                window.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
-	/**
-	 * Create the application.
-	 */
-	public DisplayQuinton() {
-		frame = new JFrame();
-		initialize();
-	}
+    public DisplayQuinton() {
+        initialize();
+    }
 
-	/**
-	 * Initialize the contents e of the frame.
-	 */
-	private void initialize() {
-		frame.setLayout(new CardLayout());
+    private void initialize() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 1200, 675);
+        getContentPane().setLayout(new CardLayout());
 
-		travelScreen = new TravelScreen(locations); // needs the constructors (i think)
-		frame.add(travelScreen.getPanel(), "TravelScreeen");
+        travelScreen = new TravelScreen(locations);
+        getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 
-		startScreen = new StartScreen(null);
-		frame.add(startScreen.getPanel(), "StartScreen");
+        //startScreen = new StartScreen(this);
+        //getContentPane().add(startScreen.getPanel(), "StartScreen");
 
-		storeScreen = new StoreScreen();
-		frame.add(storeScreen.getPanel(), "StoreScreen");
+        storeScreen = new StoreScreen();
+        getContentPane().add(storeScreen.getPanel(), "StoreScreen");
 
-		riverScreen = new RiverScreen(locations);
-		frame.add(riverScreen.getPanel(), "RiverScreen");
+        riverScreen = new RiverScreen(locations);
+        getContentPane().add(riverScreen.getPanel(), "RiverScreen");
 
-		tradeScreen = new TradeScreen();
-		frame.add(tradeScreen.getPanel(), "TradeScreen");
+        tradeScreen = new TradeScreen();
+        getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
 
-		controlScreen = new ControlScreen();
-		frame.add(controlScreen.getPanel(), "ControlScreen");
+        controlScreen = new ControlScreen();
+        getContentPane().add(controlScreen.getPanel(), "ControlScreen");
 
-		huntingScreen = new HuntingScreen();
-		frame.add(huntingScreen.getPanel(), "HuntingScreen");
+        huntingScreen = new HuntingScreen();
+        getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
 
-		conversationScreen = new ConversationScreen();
-		frame.add(conversationScreen.getPanel(), "ConversationScreen");
+        conversationScreen = new ConversationScreen();
+        getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
 
-		conditionsScreen = new ConditionsScreen();
-		frame.add(conditionsScreen.getPanel(), "ConditionsScreen");
+        conditionsScreen = new ConditionsScreen();
+        getContentPane().add(conditionsScreen.getPanel(), "ConditionsScreen");
 
-		landmarkScreen = new LandmarkScreen();
-		frame.add(landmarkScreen.getPanel(), "LandmarkScreen");
+        landmarkScreen = new LandmarkScreen();
+        getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");
 
-		wagonGame = new WagonGame();
-		frame.add(wagonGame.getPanel(), "WagonGame");
+        wagonGame = new WagonGame();
+        getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
-		deathScreen = new DeathScreen(null);
-		frame.add(deathScreen.getPanel(), "DeathScreen");
-		
-		showDeathScreen();
+        deathScreen = new DeathScreen(null);
+        getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-		this.setBounds(100, 100, 450, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.getContentPane().setLayout(new CardLayout(0, 0));
-		this.setVisible(true);
-        TravelScreen travelScreen = new TravelScreen(locations);
-		
-		this.getContentPane().add(travelScreen.getPanel(), "TravelScreen");
-		this.getContentPane().add(startScreen.getPanel(), "StartScreen");
-		this.getContentPane().add(storeScreen.getPanel(), "StoreScreen");
-		this.getContentPane().add(riverScreen.getPanel(), "RiverScreen");
-		this.getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
-		this.getContentPane().add(controlScreen.getPanel(), "ControlScreen");
-		this.getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
-		this.getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
-		this.getContentPane().add(conditionsScreen.getPanel(), "ConditionsScreen");
-		this.getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");
-		this.getContentPane().add(wagonGame.getPanel(), "WagonGame");
-		this.getContentPane().add(deathScreen.getPanel(), "DeathScreen");
-		
-		System.out.println(this.getFocusOwner());
-		
-	}
+        showTravelScreen();
+    }
 
 	public void showTravelScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "TravelScreen");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "TravelScreen");
 	}
 
-	public void showStartScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "StartScreen");
-	}
+	/*public void showStartScreen() {
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "StartScreen");
+	}*/
 
 	public void showStoreScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "StoreScreen");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "StoreScreen");
 	}
 
 	public void showRiverScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "RiverScreen");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "RiverScreen");
 	}
 
 	public void showTradeScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "TradeScreen");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "TradeScreen");
 	}
 
 	public void showControlScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "ControlScreen");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "ControlScreen");
 	}
 
 	public void showHuntinScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "HuntingScreen");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "HuntingScreen");
 	}
 
 	public void showConversationScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "ConversationScreen");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "ConversationScreen");
 	}
 
 	public void showConditionsScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "ConditionsScreen");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "ConditionsScreen");
 	}
 
 	public void showLandmarkScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "LandmarkScreen");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "LandmarkScreen");
 	}
 
 	public void showWagonGame() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "WagonGame");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "WagonGame");
 	}
 
 	public void showDeathScreen() {
-		CardLayout cardLayout = (CardLayout) frame.getContentPane().getLayout();
-		cardLayout.show(frame.getContentPane(), "DeathScreen");
+		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+		cardLayout.show(getContentPane(), "DeathScreen");
 	}
+    
 }

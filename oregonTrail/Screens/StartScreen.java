@@ -1,3 +1,4 @@
+/*
 package Screens;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -145,3 +146,4 @@ public class StartScreen extends AbstractScreen {
         return viewPanel;
     }
 }
+*/
