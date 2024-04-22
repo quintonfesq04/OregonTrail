@@ -16,6 +16,15 @@ public class Inventory {
     private int bullets = 0; 
     private int clothing = 0;
 
+    public static final String FOOD = "food";
+    public static final String OXEN = "oxen";
+    public static final String MONEY = "money";
+    public static final String WAGONWHEEL = "wagon wheel";
+    public static final String WAGONTONGUE = "wagon tongue";
+    public static final String WAGONAXLE = "wagon axle";
+    public static final String BULLETS = "bullets";
+    public static final String CLOTHING = "clothing";
+
     public void setFood(int number){
         this.food = number;
     }
@@ -78,6 +87,64 @@ public class Inventory {
 
     public int getClothing(){
         return this.clothing;
+    }
+
+    public int getItemCount(String item){
+        if(item == FOOD){
+            return getFood();
+        }
+        else if(item == OXEN){
+            return getOxen();
+        }
+        else if(item == MONEY){
+            return getMoney();
+        }
+        else if(item == WAGONAXLE){
+            return getWagonAxle();
+        }
+        else if(item == WAGONTONGUE){
+            return getWagonTongue();
+        }
+        else if(item == WAGONWHEEL){
+            return getWagonWheel();
+        }
+        else if(item == BULLETS){
+            return getBullets();
+        }
+        else if(item == CLOTHING){
+            return getClothing();
+        }
+        else
+            return 4000000;
+        
+    }
+
+    public void removeItem(String item, int number){
+        if(item == FOOD){
+            setFood(getFood()-number);
+        }
+        else if(item == OXEN){
+            setOxen(getOxen()-number);
+        }
+        else if(item == MONEY){
+            setMoney(getMoney()-number);
+        }
+        else if(item == WAGONAXLE){
+            setWagonAxle(getWagonAxle()-number);
+        }
+        else if(item == WAGONTONGUE){
+            setWagonTongue(getWagonTongue()-number);
+        }
+        else if(item == WAGONWHEEL){
+            setWagonWheel(getWagonWheel()-number);
+        }
+        else if(item == BULLETS){
+            setBullets(getBullets()-number);
+        }
+        else if(item == CLOTHING){
+            setClothing(getClothing()-number);
+        }
+        
     }
 
 }

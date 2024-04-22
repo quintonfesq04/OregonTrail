@@ -2,6 +2,12 @@ package Stuff;
 
 import java.util.Random;
 
+/**
+ * Conditions.java  --  Controls the conditions on the trail
+ * @author Madison Scott
+ * @author Ethan Burch
+ * @version 1.5.0 4/21/24
+ */
 public class Conditions {
     private static Random random = new Random();
     private Inventory inventory;
@@ -119,8 +125,9 @@ public class Conditions {
                     } else {
                         eventInfo += " You were unable to fix it!\n";
                     }
+                
                     break;
-
+                    
                 case 3:
                     // Disease event
                     String[] diseases = {"Exhaustion", "Typhoid", "Cholera", "Measles", "Dysentery", "Fever"};
@@ -135,7 +142,7 @@ public class Conditions {
                     // Indians help find food
                     if (inventory.getItemCount("food") == 0) {
                         if (random.nextDouble() < 0.05) {
-                            inventory.addItem("food", 30);
+                            inventory.setFood(inventory.getFood()+30);
                             eventInfo = "Indians helped you find food! +30 lbs of food.\n";
                         }
                     }
@@ -249,7 +256,7 @@ public class Conditions {
                     // Finding wild fruit
                     if (isMayToSeptember() && random.nextDouble() < 0.04) {
                         eventInfo = "Random Event: Found wild fruit! +20 lbs of food.\n";
-                        inventory.addItem("food", 20);
+                        inventory.setFood(inventory.getFood()+20);
                     }
                     break;
 
