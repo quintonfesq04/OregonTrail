@@ -1,18 +1,22 @@
 package Stuff;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyAdapter;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.Timer;
+import Screens.*;
 
-import Screens.AbstractScreen;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.text.Document;
 
+import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.io.File;
+import java.io.IOException;
 
 public class StartScreen extends AbstractScreen {
+    private Map<String, List<String>> pathImageMap = new HashMap<>();
+    private JTextField input;
     private File[] images = {
         new File("Images/start screen0.jpg"),
         new File("Images/start screen1.jpg"),
@@ -64,8 +68,6 @@ public class StartScreen extends AbstractScreen {
     };
     private PicPanel viewPanel = new PicPanel(images[0]);
     private Display display;
-    private Timer timer;
-    private int alpha;
     private int imageIndex = 0;
 
     public StartScreen(Display display) {
@@ -77,46 +79,58 @@ public class StartScreen extends AbstractScreen {
     protected void initialize() {
         viewPanel.setFocusable(true);
         viewPanel.requestFocusInWindow();
+        input = new JTextField(5);
+        input.setDocument((Document) new JTextFieldLimit(1, 5));
+
+        viewPanel.add(input);
+
         viewPanel.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 viewPanel.requestFocusInWindow();
                 int vk = e.getKeyCode();
                 if (vk == KeyEvent.VK_SPACE) {
-                    timer.start(); // Start fading out the current screen
+                    String choice = input.getText();
+                    processChoice(choice);
                 }
             }
         });
-
-        timer = new Timer(50, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                alpha -= 5;
-                if (alpha <= 0) {
-                    timer.stop();
-                    switchToNextImage(); // Switch to next image
-                }
-                viewPanel.repaint();
-            }
-        });
-
-        // JButton startButton = new JButton("Start Game");
-        // startButton.setBounds(300, 500, 200, 50);
-        // startButton.addActionListener(new ActionListener() {
-        //     @Override
-        //     public void actionPerformed(ActionEvent e) {
-        //         timer.start(); // Start fading out the current screen
-        //     }
-        // });
-        // viewPanel.add(startButton);
     }
 
-    private void switchToNextImage() {
-        imageIndex++;
-        if (imageIndex < images.length) {
-            viewPanel.setImage(images[imageIndex]); // Switch to the next image
+    private void processChoice(String choice) {
+        int option = Integer.parseInt(choice);
+        if(option >= 1 && option <= 5) {
+            switch(option) {
+                case 1:
+                    navigateToPath("path1");
+                    break;
+                case 2:
+                    navigateToPath("path2");
+                    break;
+                case 3:
+                    navigateToPath("path3");
+                    break;
+                case 4:
+                    navigateToPath("path4");
+                    break;
+                case 5:
+                    navigateToPath("path5");
+                    break;
+            }
         } else {
-            System.exit(0); // If there are no more images, exit the application
+            JOptionPane.showMessageDialog(null, "Invalid Choice. Please Enter A Number Between 1 & 5");
+        }
+    }
+
+    private void navigateToPath(String path) {
+        // Logic to navigate to the specified path
+        List<String> imageNames = pathImageMap.get(path);
+        if (imageNames != null && !imageNames.isEmpty()) {
+            // Display the panels associated with the chosen path
+            display.setScreens(imageNames);
+        } else {
+            // Handle case where the path is not found
+            System.out.println("Path not found: " + path);
         }
     }
 

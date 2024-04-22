@@ -1,4 +1,5 @@
 package Stuff;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Hunting.*;
@@ -6,8 +7,14 @@ import Screens.*;
 import Stuff.*;
 
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Display extends JFrame {
+    private JFrame frame;
+    private JPanel currentPanel;
 
     private TravelScreen travelScreen;
     private StartScreen startScreen;
@@ -80,7 +87,7 @@ public class Display extends JFrame {
         deathScreen = new DeathScreen(null);
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showTravelScreen();
+        showStartScreen();
     }
 
 	public void showTravelScreen() {
@@ -142,4 +149,31 @@ public class Display extends JFrame {
 		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
 		cardLayout.show(getContentPane(), "DeathScreen");
 	}
+
+    public void setScreens(List<String> imageNames) {
+        List<JPanel> panels = new ArrayList<>();
+        for (String imageName : imageNames) {
+            try {
+                File file = new File(imageName);
+                if (file.exists()) {
+                    JLabel label = new JLabel(new ImageIcon(ImageIO.read(file)));
+                    JPanel panel = new JPanel(new BorderLayout());
+                    panel.add(label);
+                    panels.add(panel);
+                } else {
+                    System.err.println("File not found: " + imageName);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (!panels.isEmpty()) {
+            currentPanel = panels.get(0); // Show the first panel
+            frame.getContentPane().removeAll(); // Clear the frame
+            frame.getContentPane().add(currentPanel);
+            frame.revalidate(); // Refresh the frame
+            frame.repaint();
+        }
+    }
 }
