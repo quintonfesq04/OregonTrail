@@ -1,5 +1,7 @@
 package Screens;
 import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import java.io.File;
@@ -23,8 +25,18 @@ public class DeathScreen extends AbstractScreen{
 
     @Override
     protected void initialize() {
+        viewPanel.setFocusable(true);
+        viewPanel.requestFocusInWindow();
         viewPanel.setBackground(new Color(78, 78, 78));
         viewPanel.setLayout(null);
+        viewPanel.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyPressed(KeyEvent e){
+                int vk = e.getKeyCode();
+                if(vk == KeyEvent.VK_SPACE)
+                    System.exit(0);
+            }
+        });
     }
 
     @Override
