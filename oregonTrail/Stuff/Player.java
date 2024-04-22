@@ -16,7 +16,7 @@ public class Player {
     private double freezeStarveFactor;
 
     public Player() {
-        this.health = 100;
+        this.health = 0;
         this.food = 50;
         this.sicknessCount = 0;
         this.consumptionRate = 15;
