@@ -7,6 +7,7 @@ import java.util.Random;
  * 
  * @author Madison Scott
  * @author Ethan Burch
+ * @author Lane Kanagy
  * @version 1.5.0 4/21/24
  */
 public class Conditions {
@@ -202,12 +203,13 @@ public class Conditions {
                 case 9:
                     // Injured or dead ox
                     double oxInjuryProbability = isMountain() ? 0.035 : 0.02;
-                    if (inventory.getAllOxenHealthy() && random.nextDouble() < oxInjuryProbability) {
+                    if (inventory.getOxenHealthy() && random.nextDouble() < oxInjuryProbability) {
                         eventInfo = "Random Event: An ox has been injured!\n";
-                        inventory.setRandomOxInjured();
-                    } else if (!inventory.getAllOxenHealthy() && random.nextDouble() < 0.02) {
+                        inventory.setOxenHealthy(false);
+                    } else if (!inventory.getOxenHealthy() && random.nextDouble() < 0.02) {
                         eventInfo = "Random Event: An ox has died!\n";
-                        inventory.removeRandomSickOx();
+                        inventory.setOxen(inventory.getOxen() - 1);
+                        inventory.setOxenHealthy(true);
                     }
                     break;
 
