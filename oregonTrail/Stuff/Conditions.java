@@ -2,6 +2,12 @@ package Stuff;
 
 import java.util.Random;
 
+/**
+ * Conditions.java  --  Controls the conditions on the trail
+ * @author Madison Scott
+ * @author Ethan Burch
+ * @version 1.5.0 4/21/24
+ */
 public class Conditions {
     private static Random random = new Random();
     private Inventory inventory;
