@@ -1,9 +1,11 @@
-package Stuff;
-import Screens.*;
-
+package Screens;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.Document;
+
+import Stuff.Display;
+import Stuff.JTextFieldLimit;
+import Stuff.PicPanel;
 
 import java.awt.*;
 import java.awt.event.*;
