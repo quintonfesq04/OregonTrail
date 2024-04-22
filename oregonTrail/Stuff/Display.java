@@ -54,8 +54,8 @@ public class Display extends JFrame {
         travelScreen = new TravelScreen(locations);
         getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 
-        startScreen = new StartScreen(this);
-        getContentPane().add(startScreen.getPanel(), "StartScreen");
+        //startScreen = new StartScreen(this);
+        //getContentPane().add(startScreen.getPanel(), "StartScreen");
 
         storeScreen = new StoreScreen();
         getContentPane().add(storeScreen.getPanel(), "StoreScreen");
@@ -87,7 +87,7 @@ public class Display extends JFrame {
         deathScreen = new DeathScreen(null);
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showStartScreen();
+        showTravelScreen();
     }
 
 	public void showTravelScreen() {
@@ -95,10 +95,10 @@ public class Display extends JFrame {
 		cardLayout.show(getContentPane(), "TravelScreen");
 	}
 
-	public void showStartScreen() {
+	/*public void showStartScreen() {
 		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
 		cardLayout.show(getContentPane(), "StartScreen");
-	}
+	}*/
 
 	public void showStoreScreen() {
 		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
@@ -149,7 +149,5 @@ public class Display extends JFrame {
 		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
 		cardLayout.show(getContentPane(), "DeathScreen");
 	}
-
-    
     
 }
