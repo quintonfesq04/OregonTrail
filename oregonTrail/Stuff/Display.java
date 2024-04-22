@@ -1,4 +1,5 @@
 package Stuff;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -17,7 +18,7 @@ public class Display extends JFrame {
     private JPanel currentPanel;
 
     private TravelScreen travelScreen;
-    //private StartScreen startScreen;
+    // private StartScreen startScreen;
     private StoreScreen storeScreen;
     private RiverScreen riverScreen;
     private TradeScreen tradeScreen;
@@ -90,64 +91,64 @@ public class Display extends JFrame {
         showDeathScreen();
     }
 
-	public void showTravelScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "TravelScreen");
-	}
+    public void showTravelScreen() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "TravelScreen");
+    }
 
-	// public void showStartScreen() {
-	// 	CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-	// 	cardLayout.show(getContentPane(), "StartScreen");
-	// }
+    // public void showStartScreen() {
+    // CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+    // cardLayout.show(getContentPane(), "StartScreen");
+    // }
 
-	public void showStoreScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "StoreScreen");
-	}
+    public void showStoreScreen() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "StoreScreen");
+    }
 
-	public void showRiverScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "RiverScreen");
-	}
+    public void showRiverScreen() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "RiverScreen");
+    }
 
-	public void showTradeScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "TradeScreen");
-	}
+    public void showTradeScreen() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "TradeScreen");
+    }
 
-	public void showControlScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "ControlScreen");
-	}
+    public void showControlScreen() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "ControlScreen");
+    }
 
-	public void showHuntinScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "HuntingScreen");
-	}
+    public void showHuntinScreen() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "HuntingScreen");
+    }
 
-	public void showConversationScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "ConversationScreen");
-	}
+    public void showConversationScreen() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "ConversationScreen");
+    }
 
-	public void showConditionsScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "ConditionsScreen");
-	}
+    public void showConditionsScreen() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "ConditionsScreen");
+    }
 
-	public void showLandmarkScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "LandmarkScreen");
-	}
+    public void showLandmarkScreen() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "LandmarkScreen");
+    }
 
-	public void showWagonGame() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "WagonGame");
-	}
+    public void showWagonGame() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "WagonGame");
+    }
 
-	public void showDeathScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "DeathScreen");
-	}
-    
+    public void showDeathScreen() {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "DeathScreen");
+    }
+
 }

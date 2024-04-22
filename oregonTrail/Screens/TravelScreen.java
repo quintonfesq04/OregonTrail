@@ -34,9 +34,6 @@ public class TravelScreen extends AbstractScreen {
         cloud.setPreferredSize(new Dimension(100,100));
         cloud.setSize(cloud.getPreferredSize());
 
-        cloud2.setPreferredSize(new Dimension(75,50));
-        cloud2.setSize(cloud2.getPreferredSize());
-
         viewPanel.add(cloud);
         viewPanel.add(cloud2);
         viewPanel.addKeyListener(new MapChecker(location));

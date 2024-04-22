@@ -11,35 +11,35 @@ public class Cloud extends PicPanel {
     private int y;
     private File image;
 
-    public Cloud(int x, int y, File image){
+    public Cloud(int x, int y, File image) {
         this.x = x;
         this.y = y;
         this.image = image;
         init();
     }
 
-    private void init(){
+    private void init() {
         this.setImage(image);
         this.setOpaque(false);
     }
 
-    public int getX(){
+    public int getX() {
         return this.x;
     }
-    
-    public void setX(int newX){
+
+    public void setX(int newX) {
         this.x = newX;
     }
 
-    public int getY(){
+    public int getY() {
         return this.y;
     }
 
-    public void setY(int newY){
+    public void setY(int newY) {
         this.y = newY;
     }
 
-    public void update(int step){
+    public void update(int step) {
         this.x += step;
     }
 
@@ -52,5 +52,5 @@ public class Cloud extends PicPanel {
         g2d.dispose();
         return resizedImg;
     }
-    
+
 }
