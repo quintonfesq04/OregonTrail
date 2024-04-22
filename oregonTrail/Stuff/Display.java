@@ -2,8 +2,9 @@ package Stuff;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import Hunting.HuntingScreen;
+import Hunting.*;
 import Screens.*;
+import Stuff.*;
 
 import java.awt.*;
 import java.io.File;
@@ -28,7 +29,7 @@ public class Display extends JFrame {
     private WagonGame wagonGame;
     private DeathScreen deathScreen;
 
-    Locations locations = new Locations();
+    Locations locations = new Locations(0);
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
