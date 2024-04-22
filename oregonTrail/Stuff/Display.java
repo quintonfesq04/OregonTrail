@@ -54,8 +54,8 @@ public class Display extends JFrame {
         travelScreen = new TravelScreen(locations);
         getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 
-        //startScreen = new StartScreen(this);
-        //getContentPane().add(startScreen.getPanel(), "StartScreen");
+        // startScreen = new StartScreen(this);
+        // getContentPane().add(startScreen.getPanel(), "StartScreen");
 
         storeScreen = new StoreScreen();
         getContentPane().add(storeScreen.getPanel(), "StoreScreen");
@@ -84,10 +84,10 @@ public class Display extends JFrame {
         wagonGame = new WagonGame();
         getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
-        deathScreen = new DeathScreen(null);
+        deathScreen = new DeathScreen(this);
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showTravelScreen();
+        showDeathScreen();
     }
 
 	public void showTravelScreen() {
@@ -95,10 +95,10 @@ public class Display extends JFrame {
 		cardLayout.show(getContentPane(), "TravelScreen");
 	}
 
-	/*public void showStartScreen() {
-		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-		cardLayout.show(getContentPane(), "StartScreen");
-	}*/
+	// public void showStartScreen() {
+	// 	CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+	// 	cardLayout.show(getContentPane(), "StartScreen");
+	// }
 
 	public void showStoreScreen() {
 		CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
