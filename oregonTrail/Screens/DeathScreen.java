@@ -16,10 +16,9 @@ import Stuff.*;
 public class DeathScreen extends AbstractScreen{
     File image = new File("Images\\death screen.jpg");
     private PicPanel viewPanel = new PicPanel(image);
-    private Display display;
+   
 
-    public DeathScreen(Display display) {
-        this.display = display;
+    public DeathScreen() {
         initialize();
     }
 

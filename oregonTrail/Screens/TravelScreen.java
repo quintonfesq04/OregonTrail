@@ -16,13 +16,17 @@ public class TravelScreen extends AbstractScreen {
 
     protected PicPanel viewPanel = new PicPanel(new File("Images\\Covered Wagon.jpg"));
 
-    private Locations location;
+    private Locations locations;
+    private Conditions conditions;
+    private Display display;
 
     private int LocX = 50;
     private int LocY = 50; 
 
-    public TravelScreen(Locations location){
-        this.location = location;
+    public TravelScreen(Locations location, Conditions conditions, Display display){
+        this.locations = location;
+        this.conditions = conditions;
+        this.display = display;
         initialize();
     }
 
@@ -31,18 +35,21 @@ public class TravelScreen extends AbstractScreen {
         viewPanel.setFocusable(true);
         viewPanel.requestFocusInWindow();
         viewPanel.setLayout(null);
+
         cloud.setPreferredSize(new Dimension(100,100));
         cloud.setSize(cloud.getPreferredSize());
 
         viewPanel.add(cloud);
         viewPanel.add(cloud2);
-        viewPanel.addKeyListener(new MapChecker(location));
+        viewPanel.addKeyListener(new MapChecker(locations));
         viewPanel.addKeyListener(new KeyAdapter(){
             @Override
             public void keyPressed(KeyEvent e){
                 int vk = e.getKeyCode();
                 if(vk == KeyEvent.VK_SPACE)
                     travel();
+                else if (vk == KeyEvent.VK_I)
+                    display.showControlScreen();
             }
         });
     }
@@ -56,6 +63,12 @@ public class TravelScreen extends AbstractScreen {
     public void resizeImages(){
         viewPanel.resizeImage();
         //cloud.resizeImage();
+    }
+
+    public void updateScreen(Locations locations, Conditions conditions){
+        this.locations = locations;
+        this.conditions = conditions;
+        initialize();
     }
 
     private void travel(){

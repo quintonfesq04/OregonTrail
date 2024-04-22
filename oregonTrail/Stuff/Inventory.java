@@ -19,9 +19,9 @@ public class Inventory {
     public static final String FOOD = "food";
     public static final String OXEN = "oxen";
     public static final String MONEY = "money";
-    public static final String WAGONWHEEL = "wagon wheel";
-    public static final String WAGONTONGUE = "wagon tongue";
-    public static final String WAGONAXLE = "wagon axle";
+    public static final String WAGON_WHEEL = "wagon wheel";
+    public static final String WAGON_TONGUE = "wagon tongue";
+    public static final String WAGON_AXLE = "wagon axle";
     public static final String BULLETS = "bullets";
     public static final String CLOTHING = "clothing";
 
@@ -96,11 +96,11 @@ public class Inventory {
             return getOxen();
         } else if (item == MONEY) {
             return getMoney();
-        } else if (item == WAGONAXLE) {
+        } else if (item == WAGON_AXLE) {
             return getWagonAxle();
-        } else if (item == WAGONTONGUE) {
+        } else if (item == WAGON_TONGUE) {
             return getWagonTongue();
-        } else if (item == WAGONWHEEL) {
+        } else if (item == WAGON_WHEEL) {
             return getWagonWheel();
         } else if (item == BULLETS) {
             return getBullets();
@@ -118,11 +118,11 @@ public class Inventory {
             setOxen(getOxen() - number);
         } else if (item == MONEY) {
             setMoney(getMoney() - number);
-        } else if (item == WAGONAXLE) {
+        } else if (item == WAGON_AXLE) {
             setWagonAxle(getWagonAxle() - number);
-        } else if (item == WAGONTONGUE) {
+        } else if (item == WAGON_TONGUE) {
             setWagonTongue(getWagonTongue() - number);
-        } else if (item == WAGONWHEEL) {
+        } else if (item == WAGON_WHEEL) {
             setWagonWheel(getWagonWheel() - number);
         } else if (item == BULLETS) {
             setBullets(getBullets() - number);

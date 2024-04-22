@@ -1,9 +1,12 @@
 package Screens;
+import java.io.File;
+
 import javax.swing.JPanel;
 import Stuff.*;
 
 public class StoreScreen extends AbstractScreen{
-    private JPanel panel = new JPanel();
+    private File image = new File("Images\\start screen46.jpg");
+    private PicPanel panel = new PicPanel(image);
 
     @Override
     protected void initialize() {

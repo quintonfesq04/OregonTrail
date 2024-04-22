@@ -30,7 +30,10 @@ public class Display extends JFrame {
     private WagonGame wagonGame;
     private DeathScreen deathScreen;
 
+    Inventory inventory = new Inventory();
     Locations locations = new Locations(0);
+    Conditions conditions = new Conditions(inventory);
+    Player player = new Player();
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -52,7 +55,7 @@ public class Display extends JFrame {
         setBounds(100, 100, 1200, 675);
         getContentPane().setLayout(new CardLayout());
 
-        travelScreen = new TravelScreen(locations);
+        travelScreen = new TravelScreen(locations, conditions, this);
         getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 
         // startScreen = new StartScreen(this);
@@ -67,7 +70,7 @@ public class Display extends JFrame {
         tradeScreen = new TradeScreen();
         getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
 
-        controlScreen = new ControlScreen();
+        controlScreen = new ControlScreen(inventory, player, this);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");
 
         huntingScreen = new HuntingScreen();
@@ -85,21 +88,22 @@ public class Display extends JFrame {
         wagonGame = new WagonGame();
         getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
-        deathScreen = new DeathScreen(this);
+        deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showDeathScreen();
+        showControlScreen();
     }
 
     public void showTravelScreen() {
+        travelScreen.updateScreen(locations, conditions);
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "TravelScreen");
     }
 
-    // public void showStartScreen() {
-    // CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-    // cardLayout.show(getContentPane(), "StartScreen");
-    // }
+    public void showStartScreen() {
+    CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+    cardLayout.show(getContentPane(), "StartScreen");
+    }
 
     public void showStoreScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
@@ -121,7 +125,7 @@ public class Display extends JFrame {
         cardLayout.show(getContentPane(), "ControlScreen");
     }
 
-    public void showHuntinScreen() {
+    public void showHuntingScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "HuntingScreen");
     }
