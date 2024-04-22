@@ -1,4 +1,4 @@
-package Stuff;
+package Screens;
 import java.awt.Component;
 
 import javax.swing.JPanel;

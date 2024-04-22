@@ -87,7 +87,7 @@ public class Display extends JFrame {
         deathScreen = new DeathScreen(null);
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showTravelScreen();
+        showDeathScreen();
     }
 
 	public void showTravelScreen() {
