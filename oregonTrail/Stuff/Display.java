@@ -54,7 +54,7 @@ public class Display extends JFrame {
         travelScreen = new TravelScreen(locations);
         getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 
-        startScreen = new StartScreen(null);
+        startScreen = new StartScreen(this);
         getContentPane().add(startScreen.getPanel(), "StartScreen");
 
         storeScreen = new StoreScreen();
@@ -167,13 +167,15 @@ public class Display extends JFrame {
                 e.printStackTrace();
             }
         }
-
+    
         if (!panels.isEmpty()) {
             currentPanel = panels.get(0); // Show the first panel
-            frame.getContentPane().removeAll(); // Clear the frame
-            frame.getContentPane().add(currentPanel);
-            frame.revalidate(); // Refresh the frame
-            frame.repaint();
+            getContentPane().removeAll(); // Clear the content pane
+            getContentPane().add(currentPanel, "StartScreen"); // Add the current panel as the StartScreen
+            showStartScreen(); // Show the StartScreen
+            revalidate(); // Refresh the frame
+            repaint();
         }
     }
+    
 }

@@ -1,9 +1,10 @@
-package Stuff;
-import Screens.*;
-
+package Screens;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.Document;
+
+import Stuff.Display;
+import Stuff.PicPanel;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -80,7 +81,7 @@ public class StartScreen extends AbstractScreen {
         viewPanel.setFocusable(true);
         viewPanel.requestFocusInWindow();
         input = new JTextField(5);
-        input.setDocument((Document) new JTextFieldLimit(1, 5));
+        //input.setDocument((Document) new JTextFieldLimit(1, 5));
 
         viewPanel.add(input);
 
