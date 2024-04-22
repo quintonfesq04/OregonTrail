@@ -17,7 +17,7 @@ public class Display extends JFrame {
     private JPanel currentPanel;
 
     private TravelScreen travelScreen;
-    private StartScreen startScreen;
+    //private StartScreen startScreen;
     private StoreScreen storeScreen;
     private RiverScreen riverScreen;
     private TradeScreen tradeScreen;
