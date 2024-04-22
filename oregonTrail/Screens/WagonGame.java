@@ -24,82 +24,75 @@ public class WagonGame extends AbstractScreen {
     private void initializeUI() {
         // Create the bubbles panel
         bubblesPanel = new JPanel();
-        bubblesPanel.setLayout(null); // Set layout to null for manual positioning
-    
+        bubblesPanel.setLayout(new CardLayout()); // Set layout to null for manual positioning
+        
         // Create and add the bubbles representing wagon parts
-        JLabel wheel1 = createBubble("Wheel", 50, 50);
-        JLabel wheel2 = createBubble("Wheel", 150, 50);
-        JLabel wheel3 = createBubble("Wheel", 50, 150);
-        JLabel wheel4 = createBubble("Wheel", 150, 150);
-        JLabel axle1 = createBubble("Axle", 250, 50);
-        JLabel axle2 = createBubble("Axle", 250, 150);
-        JLabel tongue1 = createBubble("Tongue", 50, 250);
-        JLabel tongue2 = createBubble("Tongue", 150, 250);
-        JLabel tongue3 = createBubble("Tongue", 250, 250);
-    
-        // Add bubbles to the bubbles panel
-        bubblesPanel.add(wheel1);
-        bubblesPanel.add(wheel2);
-        bubblesPanel.add(wheel3);
-        bubblesPanel.add(wheel4);
-        bubblesPanel.add(axle1);
-        bubblesPanel.add(axle2);
-        bubblesPanel.add(tongue1);
-        bubblesPanel.add(tongue2);
-        bubblesPanel.add(tongue3);
-    
+        addBubble("Wheel", 50, 50, bubblesPanel);
+        addBubble("Wheel", 150, 50, bubblesPanel);
+        addBubble("Wheel", 50, 150, bubblesPanel);
+        addBubble("Wheel", 150, 150, bubblesPanel);
+        addBubble("Axle", 250, 50, bubblesPanel);
+        addBubble("Axle", 250, 150, bubblesPanel);
+        addBubble("Tongue", 50, 250, bubblesPanel);
+        addBubble("Tongue", 150, 250, bubblesPanel);
+        addBubble("Tongue", 250, 250, bubblesPanel);
+        
         // Create and add timer and score labels
         timerLabel = new JLabel("Time: 60");
         scoreLabel = new JLabel("Score: 0");
+        hitLabel = new JLabel("Hit: "); // Initialize hitLabel here
         
-        // Set positions for timer and score labels
+        // Set positions for timer, score, and hit labels
         timerLabel.setBounds(10, 10, 100, 20);
         scoreLabel.setBounds(300, 10, 100, 20);
-    
-        // Add components to the screen
-        add(bubblesPanel);
-        add(timerLabel);
-        add(scoreLabel);
-    
+        hitLabel.setBounds(150, 10, 100, 20);
+        
         // Start the game
         createBubble();
     }
     
+    // Add bubble to the specified panel at specified coordinates
+    private void addBubble(String type, int x, int y, JPanel panel) {
+        JLabel bubble = createBubble(type, x, y);
+        panel.add(bubble);
+    }
 
-    // Implement all abstract methods from AbstractScreen here
+    // Create a bubble JLabel with specified type and coordinates
+    private JLabel createBubble(String type, int x, int y) {
+        JLabel bubble = new JLabel(type, SwingConstants.CENTER);
+        bubble.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        bubble.setBounds(x, y, 50, 50); // Set size and position
+        bubble.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JLabel clickedBubble = (JLabel) e.getSource();
+                // Implement your logic for handling mouse clicks here
+            }
+        });
+        return bubble;
+    }
 
+    // Create new random bubble labels and add them to the bubbles panel
     private void createBubble() {
         bubblesPanel.removeAll();
         Random rand = new Random();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 9; i++) { // Change to the number of wagon parts
             int random = rand.nextInt(10);
-            JLabel bubble = new JLabel(String.valueOf(random), SwingConstants.CENTER);
-            bubble.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            bubble.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    JLabel clickedBubble = (JLabel) e.getSource();
-                    int hit = Integer.parseInt(hitLabel.getText().split(": ")[1]);
-                    int clickedValue = Integer.parseInt(clickedBubble.getText());
-                    if (hit == clickedValue) {
-                        newScore += 10;
-                        scoreLabel.setText("Score: " + newScore);
-                        createBubble();
-                    }
-                }
-            });
-            bubblesPanel.add(bubble);
+            addBubble(String.valueOf(random), rand.nextInt(300), rand.nextInt(300), bubblesPanel);
         }
         bubblesPanel.revalidate();
         bubblesPanel.repaint();
+        checkBubble();
     }
 
+    // Set a random hit value
     private void checkBubble() {
         Random rand = new Random();
         int hit = rand.nextInt(10);
         hitLabel.setText("Hit: " + hit);
     }
 
+    // Start the game timer
     private void startGameTimer() {
         Timer gameTimer = new Timer();
         gameTimer.scheduleAtFixedRate(new TimerTask() {
@@ -123,6 +116,7 @@ public class WagonGame extends AbstractScreen {
         }, 1000, 1000);
     }
 
+    // Reset the game
     private void resetGame() {
         time = 60;
         newScore = 0;
@@ -131,23 +125,28 @@ public class WagonGame extends AbstractScreen {
         createBubble();
         checkBubble();
     }
-}
+
+    // Implement all abstract methods from AbstractScreen here
 
     @Override
     protected void initialize() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
+        // No implementation needed for now
     }
 
     @Override
     public void resizeImages() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resizeImages'");
+        // No implementation needed for now
     }
 
     @Override
     public JPanel getPanel() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPanel'");
+        // No implementation needed for now
+        return null;
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new WagonGame();
+        });
     }
 }
