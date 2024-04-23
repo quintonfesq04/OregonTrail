@@ -133,6 +133,22 @@ public class Locations {
         return "At Final Location";
     }
 
+    public String getLocation(int currentLoc) {
+        int test1 = 0, test2 = 0;
+
+        for (int i = 0; i < 13; i++) {
+            test1 = LOCATION_DISTANCE[i];
+            test2 = LOCATION_DISTANCE[i + 1];
+            if ((test1 < currentLoc) && (currentLoc < test2)) {
+                return LOCATIONS[i];
+            }
+            if ((test1 == currentLoc) && (currentLoc == test2)) {
+                return LOCATIONS[i + 1] + " and " + LOCATIONS[i];
+            }
+        }
+        return "At Final Location";
+    }
+
     /*
      * uses current loaction as an int to check distance from next location
      */
@@ -176,6 +192,10 @@ public class Locations {
      */
     public Locations(int distance, int location) {
         this.distance = distance;
+    }
+
+    public Locations(Conversations conversations) {
+        //TODO Auto-generated constructor stub
     }
 
     /**
