@@ -12,16 +12,17 @@ import java.util.List;
 import java.util.Random;
 
 public class WagonGame extends AbstractScreen {
+    protected PicPanel viewPanel = new PicPanel(new File("Images/wagon game0.jpg"));
+
     private JFrame frame;
     private JPanel bubblesPanel;
     private JLabel scoreLabel;
-    private JLabel timerLabel;
-    private int time = 30;
+    private JLabel timerLabel; // Timer label
     private int score;
-    private int bubbleCount;
+    private int bubbleCount; // Keep track of clicked bubbles
     private List<Bubble> bubbles;
     private Timer gameTimer;
-    private PicPanel viewPanel = new PicPanel(new File("Images\\Covered Wagon.jpg"));
+    private int time = 30;
 
     public WagonGame() {
         initializeUI();
@@ -33,43 +34,50 @@ public class WagonGame extends AbstractScreen {
     }
 
     private void initializeUI() {
-        frame = new JFrame("Wagon Game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Create the main panel to hold all components
+        viewPanel.setLayout(new BorderLayout());
     
-        // Create and add the score and timer panel
+        // Create a panel for score and timer labels
         JPanel scoreTimerPanel = new JPanel(new GridLayout(1, 2));
-    
+        
+        // Create and add score label
         scoreLabel = new JLabel("Score: 0");
         scoreTimerPanel.add(scoreLabel);
     
+        // Create and add timer label
         timerLabel = new JLabel("Time: 30");
         scoreTimerPanel.add(timerLabel);
     
-        frame.add(scoreTimerPanel, BorderLayout.NORTH);
+        // Add scoreTimerPanel to the main panel
+        viewPanel.add(scoreTimerPanel, BorderLayout.NORTH);
     
-        // Ensure bubblesPanel is transparent
-        bubblesPanel = new JPanel(null);
+        // Create the bubbles panel
+        bubblesPanel = new JPanel();
+        bubblesPanel.setLayout(null); // Use null layout for absolute positioning
+        bubblesPanel.setPreferredSize(new Dimension(704, 396)); // Set size
         bubblesPanel.setOpaque(false);
     
-        // Add the bubblesPanel to the frame
-        frame.add(bubblesPanel, BorderLayout.CENTER);
+        // Add bubbles panel to the main panel
+        viewPanel.add(bubblesPanel, BorderLayout.CENTER);
     
-        frame.setContentPane(viewPanel);
-        frame.setSize(800, 600);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    
-        createBubbles(); // Create bubbles after the frame is visible
+        // Add the main panel to the frame
+        frame = new JFrame();
+        frame.setTitle("Wagon Game");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(viewPanel);
+        frame.pack(); // Pack components
+        frame.setLocationRelativeTo(null); // Center the frame
+        frame.setVisible(true); // Make the frame visible
     }
     
-    
+
     private void createBubbles() {
         bubbles = new ArrayList<>();
 
         Random rand = new Random();
-        for (int i = 0; i < 10; i++) {
-            int x = rand.nextInt(450);
-            int y = rand.nextInt(450);
+        for (int i = 0; i < 10; i++) { // Create 10 bubbles
+            int x = rand.nextInt(674);
+            int y = rand.nextInt(366);
             Bubble bubble = new Bubble(x, y);
             bubbles.add(bubble);
             bubble.addMouseListener(new BubbleClickListener());
@@ -95,9 +103,9 @@ public class WagonGame extends AbstractScreen {
         });
         gameTimer.start();
     }
+    
 
     private void endGame() {
-        gameTimer.stop();
         JOptionPane.showMessageDialog(frame, "Game Over! Your Score: " + score, "Game Over", JOptionPane.INFORMATION_MESSAGE);
         System.exit(0);
     }
@@ -107,25 +115,28 @@ public class WagonGame extends AbstractScreen {
         public void mouseClicked(MouseEvent e) {
             Bubble clickedBubble = (Bubble) e.getSource();
             score++;
-            bubbleCount++;
+            bubbleCount++; // Increment bubble count
             updateScoreLabel();
             bubblesPanel.remove(clickedBubble);
             bubbles.remove(clickedBubble);
             bubblesPanel.repaint();
             bubblesPanel.revalidate();
 
+            // Check if all bubbles are clicked
             if (bubbleCount == 10) {
-                endGame();
+                endGame(); // End game if all bubbles are clicked
             }
         }
     }
 
+    // Bubble class representing a bubble
     private static class Bubble extends JLabel {
         public Bubble(int x, int y) {
-            setBounds(x, y, 20, 20);
+            // Set bubble properties
+            setBounds(x, y, 20, 20); // Set position and size
             setOpaque(true);
-            setBackground(Color.BLUE);
-            setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            setBackground(Color.BLUE); // Set color (you can change this)
+            setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Add border (optional)
         }
     }
 
@@ -141,12 +152,11 @@ public class WagonGame extends AbstractScreen {
     @Override
     public void resizeImages() {
         // No implementation needed for now
-        viewPanel.resizeImage();
     }
 
     @Override
-    public PicPanel getPanel() {
+    public JPanel getPanel() {
         // No implementation needed for now
-        return viewPanel;
+        return null;
     }
 }
