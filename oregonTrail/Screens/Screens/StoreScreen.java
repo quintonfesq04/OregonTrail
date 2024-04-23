@@ -44,9 +44,11 @@ public class StoreScreen extends AbstractScreen{
 		panel.add(bottomPanel, BorderLayout.SOUTH);
 		bottomPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_1 = new JLabel("Total Cost: $");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		bottomPanel.add(lblNewLabel_1);
+		JLabel priceLbl = new JLabel("Total Cost: $");
+		priceLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		bottomPanel.add(priceLbl);
+        priceLbl.setFont(wordFont);
+
 		
 		JButton btnNewButton = new JButton("Buy");
 		bottomPanel.add(btnNewButton);
@@ -137,9 +139,10 @@ public class StoreScreen extends AbstractScreen{
 		buyPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Purchase Amount", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		optionPanel.add(buyPanel);
 		buyPanel.setLayout(new BoxLayout(buyPanel, BoxLayout.Y_AXIS));
-		buyPanel.setPreferredSize(new Dimension(300, buyPanel.getPreferredSize().height));
-		
+		buyPanel.setMaximumSize(new Dimension(10000, 235));
         
+		
+
 		JSpinner foodSpinner = new JSpinner();
 		buyPanel.add(foodSpinner);
 		
