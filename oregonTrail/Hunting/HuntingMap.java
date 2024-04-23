@@ -75,4 +75,27 @@ public class HuntingMap extends JPanel{
     public void setMap(char[][] map){
         this.map = map;
     }
+
+    public void updateDisplay(){
+        PicPanel panels[][] = new PicPanel[MAP_ROWS][MAP_COL];
+
+        for(int i = 0; i < MAP_ROWS; i++){
+            for(int j = 0; j < MAP_COL; j++){
+                panels[i][j] = new PicPanel();
+                if(map[i][j] == 'w'){
+                    panels[i][j].setBackground(Color.BLUE);
+                }
+                else if(map[i][j] == 'p'){
+                    panels[i][j].setBackground(Color.BLACK);
+                }
+                else if(map[i][j] == 'g'){
+                    panels[i][j].setBackground(Color.GRAY);
+                }
+                else if(map[i][j] == 'h'){
+                    panels[i][j].setBackground(Color.YELLOW);
+                }
+                this.add(panels[i][j]);
+            }
+        }
+    }
 }

@@ -1,31 +1,42 @@
 package Hunting;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 import javax.swing.JPanel;
 import Screens.*;
 
 
 import Stuff.*;
 
-public class HuntingScreen extends AbstractScreen{
-    private JPanel panel = new JPanel();
+public class HuntingScreen extends JPanel{
     HuntingMap huntingMap = new HuntingMap();
     Hunter hunter = new Hunter(12,9,Hunter.NOT_MOVING);
+    private Timer clock;
 
-    @Override
-    protected void initialize() {
-        panel.add(huntingMap);
-        hunter.moveLeft();
-        
+
+    public HuntingScreen(){
+        initialize();
+        clock = new Timer(500, new ActionListener(){
+            public void actionPerformed(ActionEvent evt){
+                updateDisplay(evt); 
+            }
+        });
     }
 
-    @Override
-    public void resizeImages() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resizeImages'");
-    }
-
-    @Override
-    public JPanel getPanel() {
-        return panel;
-    }
     
+    private void initialize() {
+        
+        add(huntingMap);
+    }    
+
+    private void updateDisplay(ActionEvent evt){
+        char[][] mapCopy = huntingMap.getMap();
+        mapCopy[hunter.getColIndex()][hunter.getRowIndex()] = 'p';
+        //hunter.moveLeft();
+        mapCopy[hunter.getColIndex()][hunter.getRowIndex()] = 'h';
+        huntingMap.setMap(mapCopy);
+        huntingMap.updateDisplay();
+        add(huntingMap);
+    }
 }
