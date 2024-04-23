@@ -10,11 +10,8 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 
 public class TradeScreen {
-	JPanel panel;
-	private JPanel viewPanel;
+	private JPanel panel = new JPanel();
     private JLabel tradeLabel;
-
-    
 
     /**
      * Create the application.
@@ -27,15 +24,15 @@ public class TradeScreen {
      * Initialize the contents of the frame.
      */
     private void initialize() {
-        viewPanel.setLayout(new BorderLayout(0, 0));
+        panel.setLayout(new BorderLayout(0, 0));
         
         JLabel titleLabel = new JLabel("Potential Trade");
         titleLabel.setFont(new Font("Rockwell", Font.PLAIN, 24));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        viewPanel.add(titleLabel, BorderLayout.NORTH);
+        panel.add(titleLabel, BorderLayout.NORTH);
         
         JPanel panel_3 = new JPanel();
-        viewPanel.add(panel_3, BorderLayout.CENTER);
+        panel.add(panel_3, BorderLayout.CENTER);
         panel_3.setLayout(new BorderLayout(0, 0));
         
         tradeLabel = new JLabel("Trade Text");
@@ -56,6 +53,6 @@ public class TradeScreen {
 
     }
 		public JPanel getPanel() {   
-			return viewPanel;
+			return panel;
     }
 }
