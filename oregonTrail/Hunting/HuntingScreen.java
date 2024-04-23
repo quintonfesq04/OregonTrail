@@ -7,11 +7,14 @@ import Stuff.*;
 
 public class HuntingScreen extends AbstractScreen{
     private JPanel panel = new JPanel();
+    HuntingMap huntingMap = new HuntingMap();
+    Hunter hunter = new Hunter(12,9,Hunter.NOT_MOVING);
 
     @Override
     protected void initialize() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
+        panel.add(huntingMap);
+        hunter.moveLeft();
+        
     }
 
     @Override
