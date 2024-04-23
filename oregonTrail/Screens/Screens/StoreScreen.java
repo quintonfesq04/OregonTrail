@@ -15,6 +15,8 @@ import javax.swing.JSpinner;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import Stuff.*;
 
@@ -31,7 +33,12 @@ public class StoreScreen extends AbstractScreen{
 	private JLabel wheelPriceLbl;
 	private JLabel tonguePriceLbl;
 
-    public StoreScreen(){
+	Inventory inventory;
+	Store store;
+
+    public StoreScreen(Inventory inventory, Store store){
+		this.inventory = inventory;
+		this.store = store;
         initialize();
     }
 
@@ -144,6 +151,12 @@ public class StoreScreen extends AbstractScreen{
 		
 
 		JSpinner foodSpinner = new JSpinner();
+		foodSpinner.addChangeListener(new ChangeListener(){
+			@Override
+			public void stateChanged(ChangeEvent e){
+				
+			}
+		});
 		buyPanel.add(foodSpinner);
 		
 		JSpinner oxenSpinner = new JSpinner();
@@ -171,6 +184,10 @@ public class StoreScreen extends AbstractScreen{
     public void resizeImages() {
         panel.resizeImage();
     }
+
+	public void resetStore(){
+
+	}
 
     @Override
     public JPanel getPanel() {
