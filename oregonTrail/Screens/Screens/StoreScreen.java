@@ -154,27 +154,70 @@ public class StoreScreen extends AbstractScreen{
 		foodSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
-				
+				store.updateCost(Inventory.FOOD, (Integer) foodSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + store.getCost());
 			}
 		});
 		buyPanel.add(foodSpinner);
 		
 		JSpinner oxenSpinner = new JSpinner();
+		oxenSpinner.addChangeListener(new ChangeListener(){
+			@Override
+			public void stateChanged(ChangeEvent e){
+				store.updateCost(Inventory.OXEN, (Integer) oxenSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + store.getCost());
+			}
+		});
 		buyPanel.add(oxenSpinner);
 		
 		JSpinner clothingSpinner = new JSpinner();
+		clothingSpinner.addChangeListener(new ChangeListener(){
+			@Override
+			public void stateChanged(ChangeEvent e){
+				store.updateCost(Inventory.CLOTHING, (Integer) clothingSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + store.getCost());
+			}
+		});
 		buyPanel.add(clothingSpinner);
 		
 		JSpinner bulletSpinner = new JSpinner();
+		bulletSpinner.addChangeListener(new ChangeListener(){
+			@Override
+			public void stateChanged(ChangeEvent e){
+				store.updateCost(Inventory.BULLETS, (Integer) bulletSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + store.getCost());
+			}
+		});
 		buyPanel.add(bulletSpinner);
 		
 		JSpinner axleSpinner = new JSpinner();
+		axleSpinner.addChangeListener(new ChangeListener(){
+			@Override
+			public void stateChanged(ChangeEvent e){
+				store.updateCost(Inventory.WAGON_AXLE, (Integer) axleSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + store.getCost());
+			}
+		});
 		buyPanel.add(axleSpinner);
 		
 		JSpinner tongueSpinner = new JSpinner();
+		tongueSpinner.addChangeListener(new ChangeListener(){
+			@Override
+			public void stateChanged(ChangeEvent e){
+				store.updateCost(Inventory.WAGON_TONGUE, (Integer) tongueSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + store.getCost());
+			}
+		});
 		buyPanel.add(tongueSpinner);
 		
 		JSpinner wheelSpinner = new JSpinner();
+		wheelSpinner.addChangeListener(new ChangeListener(){
+			@Override
+			public void stateChanged(ChangeEvent e){
+				store.updateCost(Inventory.WAGON_WHEEL, (Integer) wheelSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + store.getCost());
+			}
+		});
 		buyPanel.add(wheelSpinner);
 
         panel.setVisible(true);
@@ -186,7 +229,7 @@ public class StoreScreen extends AbstractScreen{
     }
 
 	public void resetStore(){
-
+		store.resetQuantity();
 	}
 
     @Override
