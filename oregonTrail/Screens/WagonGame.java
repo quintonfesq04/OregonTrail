@@ -2,8 +2,6 @@ package Screens;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.File;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,37 +27,45 @@ public class WagonGame extends AbstractScreen {
         
         // Create the bubbles panel
         bubblesPanel = new JPanel();
-        bubblesPanel.setLayout(new CardLayout()); // Set layout to null for manual positioning
+        bubblesPanel.setLayout(new GridLayout(3, 3)); // Set layout to grid
         
         // Create and add the bubbles representing wagon parts
-        addBubble("Wheel", 50, 50, bubblesPanel);
-        addBubble("Wheel", 150, 50, bubblesPanel);
-        addBubble("Wheel", 50, 150, bubblesPanel);
-        addBubble("Wheel", 150, 150, bubblesPanel);
-        addBubble("Axle", 250, 50, bubblesPanel);
-        addBubble("Axle", 250, 150, bubblesPanel);
-        addBubble("Tongue", 50, 250, bubblesPanel);
-        addBubble("Tongue", 150, 250, bubblesPanel);
-        addBubble("Tongue", 250, 250, bubblesPanel);
+        addBubble("Wheel", bubblesPanel);
+        addBubble("Wheel", bubblesPanel);
+        addBubble("Wheel", bubblesPanel);
+        addBubble("Wheel", bubblesPanel);
+        addBubble("Axle", bubblesPanel);
+        addBubble("Axle", bubblesPanel);
+        addBubble("Tongue", bubblesPanel);
+        addBubble("Tongue", bubblesPanel);
+        addBubble("Tongue", bubblesPanel);
         
         // Create and add timer, score, and hit labels
         timerLabel = new JLabel("Time: 60");
         scoreLabel = new JLabel("Score: 0");
         hitLabel = new JLabel("Hit: "); // Initialize hitLabel here
         
-        JLabel wheelLbl = new JLabel(new ImageIcon("Wheel0.png"));
-        
-        
         // Create a panel to hold the labels
         JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
+    
         labelPanel.add(timerLabel);
         labelPanel.add(scoreLabel);
         labelPanel.add(hitLabel);
         
+        // Create a panel to hold the wheel label
+        JPanel wheelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JLabel wheelLbl = new JLabel(new ImageIcon("Images/Wheel0.png")) {
+            @Override
+            public Dimension getPreferredSize() {
+                return new Dimension(100, 100);
+            }
+        };
+        wheelPanel.add(wheelLbl);
+        
         // Add bubbles panel and label panel to the main panel
         mainPanel.add(bubblesPanel, BorderLayout.CENTER);
         mainPanel.add(labelPanel, BorderLayout.NORTH);
+        mainPanel.add(wheelPanel, BorderLayout.WEST); // Add wheel panel to the left side
         
         // Add the main panel to the frame
         frame = new JFrame();
@@ -71,33 +77,12 @@ public class WagonGame extends AbstractScreen {
         frame.setVisible(true); // Make the frame visible
     }
     
-    // Add bubble to the specified panel at specified coordinates
-    private void addBubble(String type, int x, int y, JPanel panel) {
-    }
 
-    // Create a bubble JLabel with specified type and coordinates
-    private JLabel createBubble(String type, int x, int y) {
-		return null;
-    }
-
-    // Create new random bubble labels and add them to the bubbles panel
-    private void createBubble() {
-        bubblesPanel.removeAll();
-        Random rand = new Random();
-        for (int i = 0; i < 9; i++) { // Change to the number of wagon parts
-            int random = rand.nextInt(10);
-            addBubble(String.valueOf(random), rand.nextInt(300), rand.nextInt(300), bubblesPanel);
-        }
-        bubblesPanel.revalidate();
-        bubblesPanel.repaint();
-        checkBubble();
-    }
-
-    // Set a random hit value
-    private void checkBubble() {
-        Random rand = new Random();
-        int hit = rand.nextInt(10);
-        hitLabel.setText("Hit: " + hit);
+    // Add bubble to the specified panel
+    private void addBubble(String type, JPanel bubblesPanel2) {
+        ImageIcon icon = new ImageIcon("Images/" + type + ".png");
+        JLabel bubble = new JLabel(icon);
+        bubblesPanel.add(bubble);
     }
 
     // Start the game timer
@@ -134,20 +119,37 @@ public class WagonGame extends AbstractScreen {
         checkBubble();
     }
 
+    // Create new random bubble labels and add them to the bubbles panel
+    private void createBubble() {
+        bubblesPanel.removeAll();
+        Random rand = new Random();
+        for (int i = 0; i < 9; i++) { // Change to the number of wagon parts
+            int random = rand.nextInt(10);
+            addBubble("Part" + random, bubblesPanel);
+        }
+        bubblesPanel.revalidate();
+        bubblesPanel.repaint();
+        checkBubble();
+    }
+
+    // Set a random hit value
+    private void checkBubble() {
+        Random rand = new Random();
+        int hit = rand.nextInt(10);
+        hitLabel.setText("Hit: " + hit);
+    }
+
     private JFrame frame;
 
     /**
      * Launch the application.
      */
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    WagonGame window = new WagonGame();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        EventQueue.invokeLater(() -> {
+            try {
+                WagonGame window = new WagonGame();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }
