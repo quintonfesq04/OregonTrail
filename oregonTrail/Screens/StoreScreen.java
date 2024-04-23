@@ -2,6 +2,7 @@ package Screens;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.io.File;
@@ -29,6 +30,10 @@ public class StoreScreen extends AbstractScreen{
 	private JLabel axlePriceLbl;
 	private JLabel wheelPriceLbl;
 	private JLabel tonguePriceLbl;
+
+    public StoreScreen(){
+        initialize();
+    }
 
     @Override
     protected void initialize() {
@@ -123,7 +128,8 @@ public class StoreScreen extends AbstractScreen{
 		wheelPriceLbl = new JLabel("$20");
 		wheelPriceLbl.setFont(wordFont);
 		pricePanel.add(wheelPriceLbl);
-		
+
+        
 		pricePanel.setVisible(true);
 		panel.setVisible(true);
 		
@@ -133,6 +139,7 @@ public class StoreScreen extends AbstractScreen{
 		buyPanel.setLayout(new BoxLayout(buyPanel, BoxLayout.Y_AXIS));
 		buyPanel.setPreferredSize(new Dimension(300, buyPanel.getPreferredSize().height));
 		
+        
 		JSpinner foodSpinner = new JSpinner();
 		buyPanel.add(foodSpinner);
 		
