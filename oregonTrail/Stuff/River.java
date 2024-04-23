@@ -1,8 +1,6 @@
 package Stuff;
 import java.util.Random;
-
-
- /**
+/**
  * River.java
  * @author Madison Scott
  * @version 1.2.0 4/20/24
