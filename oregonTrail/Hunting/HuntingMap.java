@@ -23,7 +23,7 @@ public class HuntingMap extends JPanel{
         {'w','w','w','w','p','w','p','w','g','w','p','w','p','w','w','w','w'},
         {'p','p','p','p','p','p','p','w','p','w','p','p','p','p','p','p','p'},
         {'w','w','w','w','p','w','p','w','w','w','p','w','p','w','w','w','w'},
-        {'w','w','w','w','p','w','p','p','p','p','p','w','p','w','w','w','w'},
+        {'w','w','w','w','p','w','p','p','h','p','p','w','p','w','w','w','w'},
         {'w','w','w','w','p','w','p','w','w','w','p','w','p','w','w','w','w'},
         {'w','w','w','w','p','p','p','p','w','p','p','p','p','w','w','w','w'},
         {'w','w','w','w','p','w','w','p','w','p','w','w','p','w','w','w','w'},
@@ -58,6 +58,9 @@ public class HuntingMap extends JPanel{
                 }
                 else if(MAP[i][j] == 'g'){
                     panels[i][j].setBackground(Color.GRAY);
+                }
+                else if(MAP[i][j] == 'h'){
+                    panels[i][j].setBackground(Color.YELLOW);
                 }
                 this.add(panels[i][j]);
                 
