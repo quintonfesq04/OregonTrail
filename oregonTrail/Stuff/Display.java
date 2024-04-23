@@ -61,8 +61,8 @@ public class Display extends JFrame {
         // startScreen = new StartScreen(this);
         // getContentPane().add(startScreen.getPanel(), "StartScreen");
 
-        storeScreen = new StoreScreen();
-        getContentPane().add(storeScreen.getPanel(), "StoreScreen");
+        //storeScreen = new StoreScreen();
+        //getContentPane().add(storeScreen.getPanel(), "StoreScreen");
 
         riverScreen = new RiverScreen(locations);
         getContentPane().add(riverScreen.getPanel(), "RiverScreen");
@@ -73,8 +73,8 @@ public class Display extends JFrame {
         controlScreen = new ControlScreen(inventory, player, this);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");
 
-        huntingScreen = new HuntingScreen();
-        getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
+        //huntingScreen = new HuntingScreen();
+        //getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
 
         conversationScreen = new ConversationScreen();
         getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
@@ -91,7 +91,7 @@ public class Display extends JFrame {
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showTradeScreen();
+        showRiverScreen();
     }
 
     public void showTravelScreen() {
