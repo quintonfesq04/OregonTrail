@@ -10,8 +10,9 @@ import javax.swing.RootPaneContainer;
 import javax.swing.SwingConstants;
 import java.awt.Font;
    
-	
-private JLabel tradeLabel;
+public class TradeScreen extends AbstractScreen{
+	private JLabel tradeLabel;
+	JPanel panel = new JPanel();
 
 	/**
 	 * Launch the application.
@@ -39,19 +40,17 @@ private JLabel tradeLabel;
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		panel = new JFrame();
+	protected void initialize() {
 		panel.setBounds(100, 100, 839, 510);
-		panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		((RootPaneContainer) panel).getContentPane().setLayout(new BorderLayout(0, 0));
+		panel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel titleLabel = new JLabel("Potential Trade");
 		titleLabel.setFont(new Font("Rockwell", Font.PLAIN, 24));
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.getContentPane().add(titleLabel, BorderLayout.NORTH);
+		panel.add(titleLabel, BorderLayout.NORTH);
 		
 		JPanel panel_3 = new JPanel();
-		panel.getContentPane().add(panel_3, BorderLayout.CENTER);
+		panel.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(new BorderLayout(0, 0));
 		
 		tradeLabel = new JLabel("Trade Text");
@@ -70,7 +69,21 @@ private JLabel tradeLabel;
 		declineButton.setFont(new Font("Rockwell", Font.PLAIN, 24));
 		panel_1.add(declineButton);
 	}
+
+	@Override
+	public void resizeImages() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'resizeImages'");
+	}
+
+	@Override
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	
     
+}
 
 
     
