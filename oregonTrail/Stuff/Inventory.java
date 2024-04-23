@@ -8,7 +8,7 @@ package Stuff;
 public class Inventory {
     private int food = 0;
     private int oxen = 0;
-    private int money = 0;
+    private double money = 0;
     private int wagonWheel = 0;
     private int wagonTongue = 0;
     private int wagonAxle = 0;
@@ -69,7 +69,7 @@ public class Inventory {
         return this.oxen;
     }
 
-    public int getMoney() {
+    public double getMoney() {
         return this.money;
     }
 
@@ -106,8 +106,6 @@ public class Inventory {
             return getFood();
         } else if (item == OXEN) {
             return getOxen();
-        } else if (item == MONEY) {
-            return getMoney();
         } else if (item == WAGON_AXLE) {
             return getWagonAxle();
         } else if (item == WAGON_TONGUE) {
@@ -128,8 +126,6 @@ public class Inventory {
             setFood(getFood() - number);
         } else if (item == OXEN) {
             setOxen(getOxen() - number);
-        } else if (item == MONEY) {
-            setMoney(getMoney() - number);
         } else if (item == WAGON_AXLE) {
             setWagonAxle(getWagonAxle() - number);
         } else if (item == WAGON_TONGUE) {
