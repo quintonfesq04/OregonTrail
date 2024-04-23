@@ -10,7 +10,8 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 
 public class TradeScreen {
-    private JFrame frame;
+	JPanel panel;
+	private JFrame frame;
     private JLabel tradeLabel;
 
     /**
@@ -69,5 +70,10 @@ public class TradeScreen {
         JButton declineButton = new JButton("Decline");
         declineButton.setFont(new Font("Rockwell", Font.PLAIN, 24));
         panel_1.add(declineButton);
+
+    }
+		public JPanel getPanel() {
+      
+			return panel;
     }
 }
