@@ -48,27 +48,44 @@ public class Store {
        
     }
 
+    public void resetQuantity(){
+        foodQuantity = 0;
+        oxenQuantity = 0;
+        clothingQuantity = 0;
+        bulletQuantity = 0;
+        wagonWheelQuantity = 0;
+        wagonAxleQuantity = 0;
+        wagonTongueQuantity = 0;
+    }
+
     public void updateCost(String item,int quantity){
         switch(item){
         case Inventory.FOOD:
+            foodQuantity = quantity;
             totalCost += foodPricePerPound * quantity;
             break;
         case Inventory.OXEN:
+            oxenQuantity = quantity;
             totalCost = oxenPrice;
             break;
         case Inventory.CLOTHING:
+            clothingQuantity = quantity;
             totalCost = clothingPrice;
             break;
         case Inventory.BULLETS:
+            bulletQuantity = quantity;
             totalCost = bulletsPrice;
             break;
         case Inventory.WAGON_WHEEL:
+            wagonWheelQuantity = quantity;
             totalCost = wagonWheelPrice;
             break;
         case Inventory.WAGON_AXLE:
+            wagonAxleQuantity = quantity;
             totalCost = wagonAxlePrice;
             break;
         case Inventory.WAGON_TONGUE:
+            wagonTongueQuantity = quantity;
             totalCost  = wagonTonguePrice;
             break;
         default:
