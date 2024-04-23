@@ -137,7 +137,7 @@ public class StoreScreen extends AbstractScreen{
 		buyPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Purchase Amount", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		optionPanel.add(buyPanel);
 		buyPanel.setLayout(new BoxLayout(buyPanel, BoxLayout.Y_AXIS));
-		buyPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, pricePanel.getHeight()));
+		buyPanel.setPreferredSize(new Dimension(300, buyPanel.getPreferredSize().height));
 		
         
 		JSpinner foodSpinner = new JSpinner();
