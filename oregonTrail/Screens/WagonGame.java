@@ -3,6 +3,7 @@ package Screens;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -46,8 +47,12 @@ public class WagonGame extends AbstractScreen {
         scoreLabel = new JLabel("Score: 0");
         hitLabel = new JLabel("Hit: "); // Initialize hitLabel here
         
+        JLabel wheelLbl = new JLabel(new ImageIcon("Wheel0.png"));
+        
+        
         // Create a panel to hold the labels
         JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
         labelPanel.add(timerLabel);
         labelPanel.add(scoreLabel);
         labelPanel.add(hitLabel);
@@ -64,7 +69,6 @@ public class WagonGame extends AbstractScreen {
         frame.setSize(400, 400); // Set a custom size for the frame
         frame.setLocationRelativeTo(null); // Center the frame
         frame.setVisible(true); // Make the frame visible
-
     }
     
     // Add bubble to the specified panel at specified coordinates
