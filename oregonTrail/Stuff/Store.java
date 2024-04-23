@@ -66,34 +66,60 @@ public class Store {
             break;
         case Inventory.OXEN:
             oxenQuantity = quantity;
-            totalCost = oxenPrice;
+            totalCost += oxenPrice;
             break;
         case Inventory.CLOTHING:
             clothingQuantity = quantity;
-            totalCost = clothingPrice;
+            totalCost += clothingPrice;
             break;
         case Inventory.BULLETS:
             bulletQuantity = quantity;
-            totalCost = bulletsPrice;
+            totalCost += bulletsPrice;
             break;
         case Inventory.WAGON_WHEEL:
             wagonWheelQuantity = quantity;
-            totalCost = wagonWheelPrice;
+            totalCost += wagonWheelPrice;
             break;
         case Inventory.WAGON_AXLE:
             wagonAxleQuantity = quantity;
-            totalCost = wagonAxlePrice;
+            totalCost += wagonAxlePrice;
             break;
         case Inventory.WAGON_TONGUE:
             wagonTongueQuantity = quantity;
-            totalCost  = wagonTonguePrice;
+            totalCost  += wagonTonguePrice;
             break;
         default:
             totalCost = -1;
             break;
         }
-    
+      
     }
 
+    /**
+     * @param inventory
+     * @param quantity
+     */
+    public Inventory buyMethod(Inventory inventory){
+        inventory.setMoney((int)(inventory.getMoney() - totalCost));
+        inventory.setFood(inventory.getFood() + foodQuantity);
+        inventory.setOxen(inventory.getOxen() + oxenQuantity);
+        inventory.setClothing(inventory.getClothing() + clothingQuantity);
+        inventory.setBullets(inventory.getBullets() + bulletQuantity);
+        inventory.setWagonWheel(inventory.getWagonWheel() + wagonWheelQuantity);
+        inventory.setWagonAxle(inventory.getWagonAxle() + wagonAxleQuantity);
+        inventory.setWagonTongue(inventory.getWagonTongue() + wagonTongueQuantity);
 
+        return inventory;
+    }
+  
+    public boolean checkIfEnoughMoney(Inventory inventory){
+       return (totalCost<= inventory.getMoney());
+    }
+    
+
+    public double getCost(){
+        return totalCost;
+    }
 }
+
+
