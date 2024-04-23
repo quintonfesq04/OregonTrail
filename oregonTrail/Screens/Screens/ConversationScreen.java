@@ -1,8 +1,9 @@
 package Screens;
 import javax.swing.JPanel;
+
 import Stuff.*;
 
-public class TradeScreen extends AbstractScreen{
+public class ConversationScreen extends AbstractScreen{
     private JPanel panel = new JPanel();
 
     @Override
