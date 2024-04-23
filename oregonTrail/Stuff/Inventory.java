@@ -24,6 +24,10 @@ public class Inventory {
     public static final String BULLETS = "bullets";
     public static final String CLOTHING = "clothing";
 
+    public static final String itemNames[] = {  "food", "oxen", "money", "wagon wheel",
+                                            "wagon tongue", "wagon axle", "bullets", "clothing", 
+                                            "Fort Boise", "Fort Boise North" }; 
+
     private boolean oxenHealthy = true;
 
     public void setFood(int number) {
