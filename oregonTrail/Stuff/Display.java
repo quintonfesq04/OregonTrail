@@ -69,7 +69,7 @@ public class Display extends JFrame {
         getContentPane().add(riverScreen.getPanel(), "RiverScreen");
 
         tradeScreen = new TradeScreen();
-        getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
+        add(tradeScreen.getPanel(), "TradeScreen");
 
         controlScreen = new ControlScreen(inventory, player, this);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");
