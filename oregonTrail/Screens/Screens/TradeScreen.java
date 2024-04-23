@@ -11,24 +11,10 @@ import java.awt.Font;
 
 public class TradeScreen {
 	JPanel panel;
-	private JFrame frame;
+	private JPanel viewPanel;
     private JLabel tradeLabel;
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    TradeScreen window = new TradeScreen();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+    
 
     /**
      * Create the application.
@@ -41,18 +27,15 @@ public class TradeScreen {
      * Initialize the contents of the frame.
      */
     private void initialize() {
-        frame = new JFrame();
-        frame.setBounds(100, 100, 839, 510);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(new BorderLayout(0, 0));
+        viewPanel.setLayout(new BorderLayout(0, 0));
         
         JLabel titleLabel = new JLabel("Potential Trade");
         titleLabel.setFont(new Font("Rockwell", Font.PLAIN, 24));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        frame.getContentPane().add(titleLabel, BorderLayout.NORTH);
+        viewPanel.add(titleLabel, BorderLayout.NORTH);
         
         JPanel panel_3 = new JPanel();
-        frame.getContentPane().add(panel_3, BorderLayout.CENTER);
+        viewPanel.add(panel_3, BorderLayout.CENTER);
         panel_3.setLayout(new BorderLayout(0, 0));
         
         tradeLabel = new JLabel("Trade Text");
@@ -73,6 +56,6 @@ public class TradeScreen {
 
     }
 		public JPanel getPanel() {   
-			return panel;
+			return viewPanel;
     }
 }
