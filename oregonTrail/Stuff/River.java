@@ -30,12 +30,27 @@ import java.util.Random;
       * @param width  The width of the river (in meters).
       */
      public River(String name, int height, int flow, int width) {
-         super(0); // Calls the constructor of the parent class Locations with a distance of 0
-         this.name = name;
-         this.height = height;
-         this.flow = flow;
-         this.width = width;
-     }
+        super(0); // Calls the constructor of the parent class Locations with a distance of 0
+        this.name = determineRiverName(getCurrentLocation(0));
+        this.height = height;
+        this.flow = flow;
+        this.width = width;
+    }
+    
+    private String determineRiverName(String currentLocation) {
+        switch (currentLocation) {
+            case "Kansas River":
+                return "Kansas River";
+            case "Big Blue River":
+                return "Big Blue River";
+            case "Green River":
+                return "Green River";
+            case "Snake River":
+                return "Snake River";
+            default:
+                return null; // Handle if the current location is not a river
+        }
+    }
  
      /**
       * Get the name of the river.

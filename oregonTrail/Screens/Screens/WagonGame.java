@@ -106,6 +106,7 @@ public class WagonGame extends AbstractScreen {
     
 
     private void endGame() {
+        gameTimer.stop();
         JOptionPane.showMessageDialog(frame, "Game Over! Your Score: " + score, "Game Over", JOptionPane.INFORMATION_MESSAGE);
         System.exit(0);
     }

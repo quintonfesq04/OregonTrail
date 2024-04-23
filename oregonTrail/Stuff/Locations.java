@@ -107,9 +107,19 @@ public class Locations {
      * 
      * @return the name of the river
      */
-    public String getRiverName() {
-        return riverName;
+    public String getRiverName(String currentLocation) {
+        if (currentLocation.equals("Kansas River")) {
+            return "Kansas River";
+        } else if (currentLocation.equals("Big Blue River")) {
+            return "Big Blue River";
+        } else if (currentLocation.equals("Green River")) {
+            return "Green River";
+        } else if (currentLocation.equals("Snake River")) {
+            return "Snake River";
+        }
+        return null; // Handle if the current location is not a river
     }
+    
 
     /**
      * Returns the name of the next landmark to be reached
@@ -192,6 +202,16 @@ public class Locations {
      */
     public Locations(int distance, int location) {
         this.distance = distance;
+    }
+
+    public String getCurrentLocation(int distance) {
+        for (int i = 0; i < LOCATION_DISTANCE.length - 1; i++) {
+            if (distance >= LOCATION_DISTANCE[i] && distance < LOCATION_DISTANCE[i + 1]) {
+                return LOCATIONS[i];
+            }
+        }
+        // If the distance is beyond the last known location, return the final location
+        return LOCATIONS[LOCATIONS.length - 1];
     }
 
     public Locations(Conversations conversations) {
