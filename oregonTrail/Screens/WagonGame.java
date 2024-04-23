@@ -1,7 +1,10 @@
 package Screens;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -14,6 +17,8 @@ public class WagonGame extends AbstractScreen {
 
     private int time = 60;
     private int newScore = 0;
+
+    Image image;
 
     public WagonGame() {
         initializeUI();
@@ -54,7 +59,18 @@ public class WagonGame extends AbstractScreen {
         
         // Create a panel to hold the wheel label
         JPanel wheelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JLabel wheelLbl = new JLabel(new ImageIcon("Images/Wheel0.png")) {
+
+        File file = new File("Images/Wheel0.png");
+        try {
+            image = ImageIO.read(file);
+            image = image.getScaledInstance(100,100,Image.SCALE_SMOOTH);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        
+        JLabel wheelLbl = new JLabel(new ImageIcon(image)) {
             @Override
             public Dimension getPreferredSize() {
                 return new Dimension(100, 100);
