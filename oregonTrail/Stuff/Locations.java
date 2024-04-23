@@ -107,17 +107,8 @@ public class Locations {
      * 
      * @return the name of the river
      */
-    public String getRiverName(String currentLocation) {
-        if (currentLocation.equals("Kansas River")) {
-            return "Kansas River";
-        } else if (currentLocation.equals("Big Blue River")) {
-            return "Big Blue River";
-        } else if (currentLocation.equals("Green River")) {
-            return "Green River";
-        } else if (currentLocation.equals("Snake River")) {
-            return "Snake River";
-        }
-        return null; // Handle if the current location is not a river
+    public String getRiverName() {
+        return riverName;
     }
     
 

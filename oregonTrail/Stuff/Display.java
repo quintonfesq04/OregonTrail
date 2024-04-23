@@ -31,7 +31,7 @@ public class Display extends JFrame {
     private DeathScreen deathScreen;
 
     Inventory inventory = new Inventory();
-    Locations locations = new Locations(0);
+    Locations locations = new Locations(102);
     Conditions conditions = new Conditions(inventory);
     Store store = new Store();
     Player player = new Player();
@@ -92,7 +92,7 @@ public class Display extends JFrame {
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showTradeScreen();
+        showRiverScreen();
     }
 
     public void showTravelScreen() {

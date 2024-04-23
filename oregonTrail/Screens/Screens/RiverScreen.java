@@ -29,7 +29,7 @@ public class RiverScreen extends AbstractScreen {
         crossBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Get the current location from the Locations object
-                String currentLocation = location.getCurrentLocation(location.getDistance());
+                String currentLocation = location.getRiverName();
                 // Create a river object with the current location
                 River river = new River(currentLocation, height, flow, width);
 
