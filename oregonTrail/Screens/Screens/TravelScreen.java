@@ -13,7 +13,6 @@ import Stuff.*;
  */
 public class TravelScreen extends AbstractScreen {
     private Cloud cloud = new Cloud(50,50,new File("Images\\Cloud.png"));
-    private Cloud cloud2 = new Cloud(200,80, new File("Images\\Cloud.png"));
 
     protected PicPanel viewPanel = new PicPanel(new File("Images\\Covered Wagon.jpg"));
 
@@ -21,8 +20,6 @@ public class TravelScreen extends AbstractScreen {
     private Conditions conditions;
     private Display display;
 
-    private int LocX = 50;
-    private int LocY = 50; 
 
     public TravelScreen(Locations location, Conditions conditions, Display display){
         this.locations = location;
@@ -41,7 +38,6 @@ public class TravelScreen extends AbstractScreen {
         cloud.setSize(cloud.getPreferredSize());
 
         viewPanel.add(cloud);
-        viewPanel.add(cloud2);
         viewPanel.addKeyListener(new MapChecker(locations));
         viewPanel.addKeyListener(new KeyAdapter(){
             @Override
@@ -51,6 +47,7 @@ public class TravelScreen extends AbstractScreen {
                     travel();
                 else if (vk == KeyEvent.VK_I)
                     display.showControlScreen();
+                
             }
         });
     }
@@ -77,13 +74,7 @@ public class TravelScreen extends AbstractScreen {
             cloud.update(50);
         else
             cloud.setX(-100);
-
-        if(cloud2.getX() < viewPanel.getWidth())
-            cloud2.update(100);
-        else
-            cloud2.setX(-100);
         cloud.setLocation(cloud.getX(), cloud.getY());
-        cloud2.setLocation(cloud.getX(), cloud.getY());
-        
+
     }
 }
