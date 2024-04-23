@@ -6,11 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class WagonGame extends AbstractScreen {
+    protected PicPanel viewPanel = new PicPanel(new File("Images/wagon game0.jpg"));
+
     private JFrame frame;
     private JPanel bubblesPanel;
     private JLabel scoreLabel;
@@ -32,8 +35,7 @@ public class WagonGame extends AbstractScreen {
 
     private void initializeUI() {
         // Create the main panel to hold all components
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
+        viewPanel.setLayout(new BorderLayout());
     
         // Create a panel for score and timer labels
         JPanel scoreTimerPanel = new JPanel(new GridLayout(1, 2));
@@ -47,21 +49,22 @@ public class WagonGame extends AbstractScreen {
         scoreTimerPanel.add(timerLabel);
     
         // Add scoreTimerPanel to the main panel
-        mainPanel.add(scoreTimerPanel, BorderLayout.NORTH);
+        viewPanel.add(scoreTimerPanel, BorderLayout.NORTH);
     
         // Create the bubbles panel
         bubblesPanel = new JPanel();
         bubblesPanel.setLayout(null); // Use null layout for absolute positioning
-        bubblesPanel.setPreferredSize(new Dimension(400, 400)); // Set size
+        bubblesPanel.setPreferredSize(new Dimension(704, 396)); // Set size
+        bubblesPanel.setOpaque(false);
     
         // Add bubbles panel to the main panel
-        mainPanel.add(bubblesPanel, BorderLayout.CENTER);
+        viewPanel.add(bubblesPanel, BorderLayout.CENTER);
     
         // Add the main panel to the frame
         frame = new JFrame();
         frame.setTitle("Wagon Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(mainPanel);
+        frame.getContentPane().add(viewPanel);
         frame.pack(); // Pack components
         frame.setLocationRelativeTo(null); // Center the frame
         frame.setVisible(true); // Make the frame visible
@@ -73,8 +76,8 @@ public class WagonGame extends AbstractScreen {
 
         Random rand = new Random();
         for (int i = 0; i < 10; i++) { // Create 10 bubbles
-            int x = rand.nextInt(350);
-            int y = rand.nextInt(350);
+            int x = rand.nextInt(674);
+            int y = rand.nextInt(366);
             Bubble bubble = new Bubble(x, y);
             bubbles.add(bubble);
             bubble.addMouseListener(new BubbleClickListener());
