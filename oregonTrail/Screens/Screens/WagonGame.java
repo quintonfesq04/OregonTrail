@@ -19,6 +19,7 @@ public class WagonGame extends AbstractScreen {
     private int bubbleCount; // Keep track of clicked bubbles
     private List<Bubble> bubbles;
     private Timer gameTimer;
+    private int time = 30;
 
     public WagonGame() {
         initializeUI();
@@ -33,23 +34,29 @@ public class WagonGame extends AbstractScreen {
         // Create the main panel to hold all components
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
-
+    
+        // Create a panel for score and timer labels
+        JPanel scoreTimerPanel = new JPanel(new GridLayout(1, 2));
+        
+        // Create and add score label
+        scoreLabel = new JLabel("Score: 0");
+        scoreTimerPanel.add(scoreLabel);
+    
+        // Create and add timer label
+        timerLabel = new JLabel("Time: 30");
+        scoreTimerPanel.add(timerLabel);
+    
+        // Add scoreTimerPanel to the main panel
+        mainPanel.add(scoreTimerPanel, BorderLayout.NORTH);
+    
         // Create the bubbles panel
         bubblesPanel = new JPanel();
         bubblesPanel.setLayout(null); // Use null layout for absolute positioning
         bubblesPanel.setPreferredSize(new Dimension(400, 400)); // Set size
-
+    
         // Add bubbles panel to the main panel
         mainPanel.add(bubblesPanel, BorderLayout.CENTER);
-
-        // Create and add score label
-        scoreLabel = new JLabel("Score: 0");
-        mainPanel.add(scoreLabel, BorderLayout.NORTH);
-
-        // Create and add timer label
-        timerLabel = new JLabel("Time: 30");
-        mainPanel.add(timerLabel, BorderLayout.EAST); // Add timer label to the right
-
+    
         // Add the main panel to the frame
         frame = new JFrame();
         frame.setTitle("Wagon Game");
@@ -59,14 +66,15 @@ public class WagonGame extends AbstractScreen {
         frame.setLocationRelativeTo(null); // Center the frame
         frame.setVisible(true); // Make the frame visible
     }
+    
 
     private void createBubbles() {
         bubbles = new ArrayList<>();
 
         Random rand = new Random();
         for (int i = 0; i < 10; i++) { // Create 10 bubbles
-            int x = rand.nextInt(bubblesPanel.getWidth());
-            int y = rand.nextInt(bubblesPanel.getHeight());
+            int x = rand.nextInt(350);
+            int y = rand.nextInt(350);
             Bubble bubble = new Bubble(x, y);
             bubbles.add(bubble);
             bubble.addMouseListener(new BubbleClickListener());
@@ -79,15 +87,20 @@ public class WagonGame extends AbstractScreen {
     }
 
     private void startGameTimer() {
-        gameTimer = new Timer(30000, new ActionListener() {
+        gameTimer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                endGame();
+                if (time > 0) {
+                    time--;
+                    timerLabel.setText("Time: " + time);
+                } else {
+                    endGame();
+                }
             }
         });
-        gameTimer.setRepeats(false);
         gameTimer.start();
     }
+    
 
     private void endGame() {
         JOptionPane.showMessageDialog(frame, "Game Over! Your Score: " + score, "Game Over", JOptionPane.INFORMATION_MESSAGE);
