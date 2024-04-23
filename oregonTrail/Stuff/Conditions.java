@@ -2,6 +2,7 @@ package Stuff;
 
 import java.util.Random;
 
+
 /**
  * Conditions.java -- Controls the conditions on the trail
  * 
@@ -17,6 +18,7 @@ public class Conditions {
     private String weather;
     private double accumulatedRainfall;
     private String previousWeather;
+    private Player player;
 
     public Conditions(Inventory inventory) {
         this.inventory = inventory;

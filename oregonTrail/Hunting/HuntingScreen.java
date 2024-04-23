@@ -1,6 +1,8 @@
 package Hunting;
 import javax.swing.JPanel;
-import Screens.AbstractScreen;
+import Screens.*;
+
+
 import Stuff.*;
 
 public class HuntingScreen extends AbstractScreen{
