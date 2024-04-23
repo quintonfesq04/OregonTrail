@@ -140,4 +140,23 @@ public class Inventory {
 
     }
 
+    public void addItem(String item, int number) {
+        if (item == FOOD) {
+            setFood(getFood() + number);
+        } else if (item == OXEN) {
+            setOxen(getOxen() + number);
+        } else if (item == WAGON_AXLE) {
+            setWagonAxle(getWagonAxle() + number);
+        } else if (item == WAGON_TONGUE) {
+            setWagonTongue(getWagonTongue() + number);
+        } else if (item == WAGON_WHEEL) {
+            setWagonWheel(getWagonWheel() + number);
+        } else if (item == BULLETS) {
+            setBullets(getBullets() + number);
+        } else if (item == CLOTHING) {
+            setClothing(getClothing() + number);
+        }
+
+    }
+
 }
