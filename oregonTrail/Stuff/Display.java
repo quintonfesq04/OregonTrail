@@ -21,7 +21,7 @@ public class Display extends JFrame {
     // private StartScreen startScreen;
     private StoreScreen storeScreen;
     private RiverScreen riverScreen;
-    private TradeScreen tradeScreen;
+    //private TradeScreen tradeScreen;
     private ControlScreen controlScreen;
     private HuntingScreen huntingScreen;
     private ConversationScreen conversationScreen;
@@ -68,8 +68,8 @@ public class Display extends JFrame {
         riverScreen = new RiverScreen(locations);
         getContentPane().add(riverScreen.getPanel(), "RiverScreen");
 
-        tradeScreen = new TradeScreen();
-        getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
+        // tradeScreen = new TradeScreen();
+        // getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
 
         controlScreen = new ControlScreen(inventory, player, this);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");

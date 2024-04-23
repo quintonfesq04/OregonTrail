@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.BoxLayout;
@@ -57,8 +59,14 @@ public class StoreScreen extends AbstractScreen{
         priceLbl.setFont(wordFont);
 
 		
-		JButton btnNewButton = new JButton("Buy");
-		bottomPanel.add(btnNewButton);
+		JButton buyBtn = new JButton("Buy");
+		buyBtn.addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				if(store.checkIfEnoughMoney(inventory))
+					inventory = store.buyMethod(inventory);
+			}
+		});
+		bottomPanel.add(buyBtn);
 		
 		JPanel textPanel = new JPanel();
 		panel.add(textPanel, BorderLayout.NORTH);
@@ -110,7 +118,7 @@ public class StoreScreen extends AbstractScreen{
 		optionPanel.add(pricePanel);
 		pricePanel.setLayout(new BoxLayout(pricePanel, BoxLayout.Y_AXIS));
 		
-		foodPriceLbl = new JLabel("$.85");
+		foodPriceLbl = new JLabel("$.20");
 		foodPriceLbl.setFont(wordFont);
 		pricePanel.add(foodPriceLbl);
 		
@@ -146,7 +154,7 @@ public class StoreScreen extends AbstractScreen{
 		buyPanel.setBorder(new TitledBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null), "Purchase Amount", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		optionPanel.add(buyPanel);
 		buyPanel.setLayout(new BoxLayout(buyPanel, BoxLayout.Y_AXIS));
-		buyPanel.setMaximumSize(new Dimension(10000, 235));
+		buyPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 235));
         
 		
 
