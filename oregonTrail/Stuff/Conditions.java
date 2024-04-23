@@ -218,7 +218,7 @@ public class Conditions {
                     double injuryProbability = isMountain() ? 0.035 : 0.02;
                     if (random.nextDouble() < injuryProbability) {
                         eventInfo = "Random Event: A party member is injured!\n";
-                        inventory.setRandomPartyMemberInjured();
+                        player.getSick();
                     }
                     break;
 
