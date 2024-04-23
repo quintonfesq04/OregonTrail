@@ -11,7 +11,7 @@ import Stuff.PicPanel;
 public class HuntingMap extends JPanel{
     private static final int MAP_ROWS = 24;
     private static final int MAP_COL = 17;
-    private static final char MAP[][]= {
+    private char map[][]= {
         {'w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w'},
         {'w','p','p','p','p','p','p','p','w','p','p','p','p','p','p','p','w'},
         {'w','p','w','w','p','w','w','p','w','p','w','w','p','w','w','p','w'},
@@ -23,7 +23,7 @@ public class HuntingMap extends JPanel{
         {'w','w','w','w','p','w','p','w','g','w','p','w','p','w','w','w','w'},
         {'p','p','p','p','p','p','p','w','p','w','p','p','p','p','p','p','p'},
         {'w','w','w','w','p','w','p','w','w','w','p','w','p','w','w','w','w'},
-        {'w','w','w','w','p','w','p','p','h','p','p','w','p','w','w','w','w'},
+        {'w','w','w','w','p','w','p','p','p','p','p','w','p','w','w','w','w'},
         {'w','w','w','w','p','w','p','w','w','w','p','w','p','w','w','w','w'},
         {'w','w','w','w','p','p','p','p','w','p','p','p','p','w','w','w','w'},
         {'w','w','w','w','p','w','w','p','w','p','w','w','p','w','w','w','w'},
@@ -50,16 +50,16 @@ public class HuntingMap extends JPanel{
         for(int i = 0; i < MAP_ROWS; i++){
             for(int j = 0; j < MAP_COL; j++){
                 panels[i][j] = new PicPanel();
-                if(MAP[i][j] == 'w'){
+                if(map[i][j] == 'w'){
                     panels[i][j].setBackground(Color.BLUE);
                 }
-                else if(MAP[i][j] == 'p'){
+                else if(map[i][j] == 'p'){
                     panels[i][j].setBackground(Color.BLACK);
                 }
-                else if(MAP[i][j] == 'g'){
+                else if(map[i][j] == 'g'){
                     panels[i][j].setBackground(Color.GRAY);
                 }
-                else if(MAP[i][j] == 'h'){
+                else if(map[i][j] == 'h'){
                     panels[i][j].setBackground(Color.YELLOW);
                 }
                 this.add(panels[i][j]);
@@ -68,4 +68,11 @@ public class HuntingMap extends JPanel{
         }
     }
 
+    public char[][] getMap(){
+        return map;
+    }
+
+    public void setMap(char[][] map){
+        this.map = map;
+    }
 }
