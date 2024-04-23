@@ -1,5 +1,7 @@
 package Stuff;
 
+import java.text.DecimalFormat;
+
 import javax.swing.JOptionPane;
 
 public class Store {
@@ -11,13 +13,13 @@ public class Store {
     private double wagonAxlePrice;
     private double wagonTonguePrice;
     private double totalCost;
-    private int maxFood;
-    private int maxOxen;
-    private int maxClothing;
-    private int maxBullets;
-    private int maxWagonWheels;
-    private int maxWagonAxles;
-    private int maxWagonTongues;
+    private double foodCost;
+    private double oxenCost;
+    private double clothingCost;
+    private double bulletCost;
+    private double wagonWheelCost;
+    private double wagonAxleCost;
+    private double wagonTongueCost;
 
    private int foodQuantity;
    private int oxenQuantity;
@@ -36,16 +38,6 @@ public class Store {
         wagonWheelPrice = 10.0;       
         wagonAxlePrice = 10.0;
         wagonTonguePrice = 10.0;
-
-        maxFood = 2000;
-        maxOxen = 20;
-        maxClothing = 99;
-        maxBullets = 99;
-        maxWagonWheels = 3;
-        maxWagonAxles = 3;
-        maxWagonTongues = 3;
-
-       
     }
 
     public void resetQuantity(){
@@ -62,37 +54,36 @@ public class Store {
         switch(item){
         case Inventory.FOOD:
             foodQuantity = quantity;
-            totalCost += foodPricePerPound * quantity;
+            foodCost = foodPricePerPound * quantity;
             break;
         case Inventory.OXEN:
             oxenQuantity = quantity;
-            totalCost += oxenPrice;
+            oxenCost = oxenPrice * quantity;
             break;
         case Inventory.CLOTHING:
             clothingQuantity = quantity;
-            totalCost += clothingPrice;
+            clothingCost = clothingPrice * quantity;
             break;
         case Inventory.BULLETS:
             bulletQuantity = quantity;
-            totalCost += bulletsPrice;
+            bulletCost = bulletsPrice * quantity;
             break;
         case Inventory.WAGON_WHEEL:
             wagonWheelQuantity = quantity;
-            totalCost += wagonWheelPrice;
+            wagonWheelCost = wagonWheelPrice * quantity;
             break;
         case Inventory.WAGON_AXLE:
             wagonAxleQuantity = quantity;
-            totalCost += wagonAxlePrice;
+            wagonAxleCost = wagonAxlePrice * quantity;
             break;
         case Inventory.WAGON_TONGUE:
             wagonTongueQuantity = quantity;
-            totalCost  += wagonTonguePrice;
+            wagonTongueCost  = wagonTonguePrice * quantity;
             break;
         default:
             totalCost = -1;
             break;
-        }
-      
+        }  
     }
 
     /**
@@ -100,6 +91,8 @@ public class Store {
      * @param quantity
      */
     public Inventory buyMethod(Inventory inventory){
+        totalCost = foodCost + oxenCost + clothingCost + bulletCost + wagonAxleCost + wagonTongueCost + wagonWheelCost;
+
         inventory.setMoney((int)(inventory.getMoney() - totalCost));
         inventory.setFood(inventory.getFood() + foodQuantity);
         inventory.setOxen(inventory.getOxen() + oxenQuantity);
@@ -118,6 +111,9 @@ public class Store {
     
 
     public double getCost(){
+        totalCost = foodCost + oxenCost + clothingCost + bulletCost + wagonAxleCost + wagonTongueCost + wagonWheelCost;
+        DecimalFormat df = new DecimalFormat("####.##");
+        totalCost = Double.valueOf(df.format(totalCost));
         return totalCost;
     }
 }

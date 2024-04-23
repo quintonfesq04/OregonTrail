@@ -33,6 +33,7 @@ public class Display extends JFrame {
     Inventory inventory = new Inventory();
     Locations locations = new Locations(0);
     Conditions conditions = new Conditions(inventory);
+    Store store = new Store();
     Player player = new Player();
 
     public static void main(String[] args) {
@@ -61,7 +62,7 @@ public class Display extends JFrame {
         // startScreen = new StartScreen(this);
         // getContentPane().add(startScreen.getPanel(), "StartScreen");
 
-        storeScreen = new StoreScreen();
+        storeScreen = new StoreScreen(inventory, store);
         getContentPane().add(storeScreen.getPanel(), "StoreScreen");
 
         riverScreen = new RiverScreen(locations);
@@ -73,8 +74,8 @@ public class Display extends JFrame {
         controlScreen = new ControlScreen(inventory, player, this);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");
 
-        huntingScreen = new HuntingScreen();
-        getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
+        // huntingScreen = new HuntingScreen();
+        // getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
 
         conversationScreen = new ConversationScreen();
         getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
@@ -91,7 +92,7 @@ public class Display extends JFrame {
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showTradeScreen();
+        showStoreScreen();
     }
 
     public void showTravelScreen() {
