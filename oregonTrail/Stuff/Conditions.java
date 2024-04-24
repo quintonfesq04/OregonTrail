@@ -28,7 +28,6 @@ public class Conditions {
      *
      * @param inventory the inventory to be associated with this Conditions object
      */
-
     public Conditions(Inventory inventory) {
         this.inventory = inventory;
     }
@@ -38,7 +37,6 @@ public class Conditions {
      *
      * @return the associated inventory
      */
-
     public Inventory getInventory() {
         return inventory;
     }
@@ -48,11 +46,9 @@ public class Conditions {
      *
      * @param inventory the inventory to be associated with this Conditions object
      */
-
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
-
     private boolean isEventOccurred() {
         int eventChance = random.nextInt(100);
         return eventChance == 0;
@@ -64,7 +60,6 @@ public class Conditions {
      * @param temperature the current temperature
      * @param avgRainfall the average monthly rainfall
      */
-
     public void generateWeather(int temperature, double avgRainfall) {
         if (temperature > 90) {
             weather = "Very Hot";
@@ -126,7 +121,6 @@ public class Conditions {
      *
      * @return the updated inventory after handling events
      */
-
     public Inventory handleInventory() {
         eventInfo = "";
         if (isEventOccurred()) {
@@ -365,7 +359,6 @@ public class Conditions {
      *
      * @return the message describing the latest condition event
      */
-
     public String getConditionMessage() {
         return eventInfo;
     }
