@@ -23,6 +23,11 @@ import Screens.*;
 import Stuff.*;
 import Hunting.*;
 
+/**
+ * StoreScreen.java -- a screen for when the player enters a store
+ * @author Ethan Burch
+ * @version 1.4.0 4/23/24
+ */
 public class StoreScreen extends AbstractScreen{
     private File image = new File("Images/Background.jpg");
     private PicPanel panel = new PicPanel(image);
@@ -41,6 +46,12 @@ public class StoreScreen extends AbstractScreen{
 	Store store;
 	Display display;
 
+	/**
+	 * Constructor for StoreScreen object
+	 * @param inventory the inventory to add to
+	 * @param store the store used by the screen
+	 * @param display the display that this will be used in
+	 */
     public StoreScreen(Inventory inventory, Store store, Display display){
 		this.inventory = inventory;
 		this.store = store;

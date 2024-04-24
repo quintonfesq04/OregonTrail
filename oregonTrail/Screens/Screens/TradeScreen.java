@@ -76,7 +76,11 @@ public class TradeScreen {
         panel_1.add(declineButton);
 
     }
-		public JPanel getPanel() {   
+    /**
+     * obtain the JPanel created by this class
+     * @return a JPanel containing the TradeScreen
+     */
+	public JPanel getPanel() {   
 			return panel;
     }
 }
