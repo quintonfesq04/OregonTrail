@@ -22,15 +22,18 @@ public class TravelScreen extends AbstractScreen {
 
     private Locations locations;
     private Conditions conditions;
+    private Inventory inventory;
     private Display display;
     private Trade trade;
+    private int distanceMoved;
 
 
-    public TravelScreen(Locations location, Conditions conditions, Display display, Trade trade) {
+    public TravelScreen(Locations location, Conditions conditions, Trade trade, Inventory inventory, Display display) {
         this.locations = location;
         this.conditions = conditions;
         this.display = display;
         this.trade = trade; 
+        this.inventory = inventory;
         initialize();
     }
 
@@ -77,14 +80,15 @@ public class TravelScreen extends AbstractScreen {
     
     private void arriveAtLandmark() {
         String nextLandmark = locations.getNextLandmark();
+        inventory = conditions.handleInventory();
         if (nextLandmark != null) {
             if (locations.hitRiver()) {
                 display.showRiverScreen();
             } else if (trade.tradeTime()) {
                 display.showTradeScreen();
-            } else if (conditions.eventInfo.contains("Your wagon broke down")) {
+            } else if (conditions.getConditionMessage().contains("Your wagon broke down")) {
                 display.showWagonGame();
-            } else {
+            } else if(checkLandmark() ){
                 display.showLandmarkScreen();
             }
         }
@@ -94,7 +98,7 @@ public class TravelScreen extends AbstractScreen {
 
    
     private void travel() {
-        int distanceMoved = 50; // Distance the cloud moves
+        distanceMoved = 50; // Distance the cloud moves
         if (cloud.getX() < viewPanel.getWidth()) {
             cloud.update(distanceMoved); // Update cloud position
         } else {
@@ -107,8 +111,14 @@ public class TravelScreen extends AbstractScreen {
     
         arriveAtLandmark(); // Check if the cloud has arrived at a landmark
     }
-    
-    
-        
+
+    private boolean checkLandmark(){
+        for(int i = 0; i < Locations.LOCATION_DISTANCE.length; i++){
+            if(Locations.LOCATION_DISTANCE[i] + distanceMoved - 1 >= locations.getDistance() &&
+                                             Locations.LOCATION_DISTANCE[i] <= locations.getDistance())
+                return true;
+        } 
+        return false;
     }
+}
 

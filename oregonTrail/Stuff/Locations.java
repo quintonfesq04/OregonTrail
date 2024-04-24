@@ -131,7 +131,6 @@ public class Locations {
         return "At Final Location";
     }
     
-
     public String getLocation(int currentLoc) {
         int test1 = 0, test2 = 0;
 

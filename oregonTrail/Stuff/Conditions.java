@@ -17,7 +17,7 @@ import Hunting.*;
 public class Conditions {
     private static Random random = new Random();
     private Inventory inventory;
-    public String eventInfo;
+    private String eventInfo;
     private String weather;
     private double accumulatedRainfall;
     private String previousWeather;
