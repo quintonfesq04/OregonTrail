@@ -10,6 +10,11 @@ import javax.swing.JOptionPane;
  * @version 1.5.0 4/19/2024
  *
  */
+
+ import Screens.*;
+import Stuff.*;
+import Hunting.*;
+
 public class Locations {
     private int distance = 0;
 
@@ -35,6 +40,7 @@ public class Locations {
     private boolean pastBigBlue = false;
     private boolean pastGreen = false;
     private boolean pastSnake = false;
+    private boolean leftStartingLandmark = false;
     private String riverName;
     public static final String LOCATIONS[] = {  "Independence", "Courthouse", "Chimney Rock", "Fort Laramie",
                                                 "Independence Rock", "Fort Bridger", "Soda Springs", "Fort Hall", 
@@ -226,5 +232,15 @@ public class Locations {
      */
     public void setDistance(int distance) {
         this.distance = distance;
+    }
+    
+    public boolean hasLeftStartingLandmark(int currentLocation) {
+    	if(currentLocation > 0) {
+    		leftStartingLandmark = true;
+    	}
+    	else {
+    		leftStartingLandmark = false;
+    	}
+		return leftStartingLandmark;
     }
 }

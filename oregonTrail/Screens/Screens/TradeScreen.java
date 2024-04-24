@@ -5,18 +5,27 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 public class TradeScreen {
 	private JPanel panel = new JPanel();
     private JLabel tradeLabel;
+    private Display display;
+    private Trade trade;
 
     /**
      * Create the application.
      */
-    public TradeScreen() {
+    public TradeScreen(Display display) {
+    	this.display = display;
         initialize();
     }
 
@@ -44,10 +53,22 @@ public class TradeScreen {
         panel_3.add(panel_1, BorderLayout.SOUTH);
         
         JButton acceptButton = new JButton("Accept");
+        acceptButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		trade.acceptTrade();
+        		display.showTravelScreen();
+        	}
+        });
         acceptButton.setFont(new Font("Rockwell", Font.PLAIN, 24));
         panel_1.add(acceptButton);
         
         JButton declineButton = new JButton("Decline");
+        declineButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		JOptionPane.showMessageDialog(null, "Trade Declined!");
+        		display.showTravelScreen();
+        	}
+        });
         declineButton.setFont(new Font("Rockwell", Font.PLAIN, 24));
         panel_1.add(declineButton);
 

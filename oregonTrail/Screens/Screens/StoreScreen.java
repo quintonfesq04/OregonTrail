@@ -19,8 +19,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
+import Screens.*;
 import Stuff.*;
+import Hunting.*;
 
 public class StoreScreen extends AbstractScreen{
     private File image = new File("Images\\Background.jpg");
@@ -34,13 +35,16 @@ public class StoreScreen extends AbstractScreen{
 	private JLabel axlePriceLbl;
 	private JLabel wheelPriceLbl;
 	private JLabel tonguePriceLbl;
+	public JButton returnToLandmarkBtn;
 
 	Inventory inventory;
 	Store store;
+	Display display;
 
-    public StoreScreen(Inventory inventory, Store store){
+    public StoreScreen(Inventory inventory, Store store, Display display){
 		this.inventory = inventory;
 		this.store = store;
+		this.display = display;
         initialize();
     }
 
@@ -67,6 +71,23 @@ public class StoreScreen extends AbstractScreen{
 			}
 		});
 		bottomPanel.add(buyBtn);
+		
+		JButton travelBtn = new JButton("Travel");
+		travelBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				display.showTravelScreen();
+			}
+		});
+		bottomPanel.add(travelBtn);
+		
+		JButton returnToLandmarkBtn = new JButton("Return To Landmark");
+		returnToLandmarkBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				display.showLandmarkScreen();
+			}
+		});
+		bottomPanel.add(returnToLandmarkBtn);
+		returnToLandmarkBtn.setEnabled(false);
 		
 		JPanel textPanel = new JPanel();
 		panel.add(textPanel, BorderLayout.NORTH);

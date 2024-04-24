@@ -2,6 +2,9 @@ package Hunting;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 import javax.swing.JPanel;
 import Screens.*;

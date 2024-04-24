@@ -1,6 +1,9 @@
 package Screens;
 
 import javax.swing.JPanel;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 import Stuff.*;
 

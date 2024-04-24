@@ -1,6 +1,9 @@
 package Stuff;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 /**
  * MapChecker.java -- displays the map when M key is pressed

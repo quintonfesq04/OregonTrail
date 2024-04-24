@@ -1,5 +1,8 @@
 package Stuff;
 import java.util.Random;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 /**
  * River.java
  * @author Madison Scott

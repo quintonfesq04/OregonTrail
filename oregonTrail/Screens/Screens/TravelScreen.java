@@ -3,8 +3,10 @@ import java.awt.event.KeyEvent;
 import java.awt.Dimension;
 import java.awt.event.KeyAdapter;
 import java.io.File;
-
+import java.util.Arrays;
+import Screens.*;
 import Stuff.*;
+import Hunting.*;
 
 /**
  * TravelScreen.java -- the screen seen when traveling
@@ -19,12 +21,14 @@ public class TravelScreen extends AbstractScreen {
     private Locations locations;
     private Conditions conditions;
     private Display display;
+    private Trade trade;
 
 
     public TravelScreen(Locations location, Conditions conditions, Display display){
         this.locations = location;
         this.conditions = conditions;
         this.display = display;
+        this.trade = trade;
         initialize();
     }
 
@@ -68,6 +72,26 @@ public class TravelScreen extends AbstractScreen {
         this.conditions = conditions;
         initialize();
     }
+    
+    private void arriveAtLandmark() {
+    	String nextLandmark = locations.getNextLandmark();
+        int landmarkIndex = Arrays.asList(Locations.LOCATIONS).indexOf(nextLandmark);
+        if (landmarkIndex != -1 && cloud.getX() >= locations.LOCATION_DISTANCE[landmarkIndex]) {
+            if(locations.hitRiver()){
+            	display.showRiverScreen();
+            }
+            else if (trade.tradeTime()) {
+                    display.showTradeScreen();
+            }
+            else if (conditions.eventInfo.contains("Your wagon broke down")) {
+            	display.showWagonGame();
+            }
+            else {
+            		display.showLandmarkScreen();
+            	}
+            }
+        }
+    
 
     private void travel(){
         if(cloud.getX() < viewPanel.getWidth())

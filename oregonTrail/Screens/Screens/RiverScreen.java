@@ -1,57 +1,76 @@
 package Screens;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
+import javax.swing.JPanel;
+//import Stuff.*;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
-import Stuff.Locations;
-import Stuff.PicPanel;
-import Stuff.River;
-import Stuff.Display;
-
+import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.BoxLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
+
+//import Stuff.*;
 
 public class RiverScreen extends AbstractScreen {
     private PicPanel viewPanel = new PicPanel(new File("Images/river screen0.jpg"));
-    private Display display;    
+    private JPanel panel = new JPanel();
     private Locations location;
+    private Display display;
+    private River river;
     private int height = 10;
     private int flow = 10;
     private int width = 50;
 
-    public RiverScreen(Locations location) {
-        viewPanel.setLayout(new BorderLayout());
-        JButton crossBtn = new JButton("Cross");
-        crossBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Get the current location from the Locations object
-                String currentLocation = location.getRiverName();
-                // Create a river object with the current location
-                River river = new River(currentLocation, height, flow, width);
+    public RiverScreen(Display display, Locations location){
+    	viewPanel.setLayout(new BorderLayout());
+    	
+    	JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.DARK_GRAY);
+        panel.add(buttonPanel);
+    	
+    	 JLabel heightLbl = new JLabel("Height: " + height);
+         heightLbl.setForeground(Color.LIGHT_GRAY);
+         buttonPanel.add(heightLbl);
 
-                // Attempt to cross the river
-                if (river.crossRiver()) {
-                    JOptionPane.showMessageDialog(null, "Successfully crossed the " + river.getName() + " river");
-                    display.showTravelScreen();
-                } else {
-                    JOptionPane.showMessageDialog(null, "You did not cross the " + river.getName() + " river");
-                    JOptionPane.showMessageDialog(null, "You Died!");
-                    System.exit(0);
-                }
-            }
-        });
-        viewPanel.add(crossBtn, BorderLayout.SOUTH);
+         JLabel flowLbl = new JLabel("Flow: " + flow);
+         flowLbl.setForeground(Color.LIGHT_GRAY);
+         buttonPanel.add(flowLbl);
+
+         JLabel widthLbl = new JLabel("Width: " + width);
+         widthLbl.setForeground(Color.LIGHT_GRAY);
+         buttonPanel.add(widthLbl);
+    	
+    	JButton btnNewButton = new JButton("Cross");
+    	btnNewButton.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+    			river = new River("RiverName", height, flow, width);
+    			if(river.crossRiver()) {
+    				JOptionPane.showMessageDialog(null, "You Crossed " + river.getName());
+    				display.showTravelScreen();
+    			}
+    			else {
+    				JOptionPane.showMessageDialog(null, "You Did Not Cross " + river.getName());
+    				display.showDeathScreen();
+    			}
+    		}
+    	});
+    	viewPanel.add(btnNewButton, BorderLayout.SOUTH);
         this.location = location;
         initialize();
     }
 
     @Override
     protected void initialize() {
-        // Implement if needed
+        
     }
 
     @Override
@@ -63,4 +82,5 @@ public class RiverScreen extends AbstractScreen {
     public JPanel getPanel() {
         return viewPanel;
     }
+    
 }

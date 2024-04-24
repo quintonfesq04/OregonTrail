@@ -2,6 +2,9 @@ package Stuff;
 import javax.swing.JFrame;
 import java.io.File;
 
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 /**
  * @File Map.java
  * @author Ethan Burch

@@ -4,6 +4,9 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 public class Cloud extends PicPanel {
 

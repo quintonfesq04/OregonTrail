@@ -2,14 +2,60 @@ package Screens;
 import javax.swing.JPanel;
 
 import Stuff.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LandmarkScreen extends AbstractScreen{
     private JPanel panel = new JPanel();
+    private Display display;
+    
+    public LandmarkScreen(Display display) {
+    	this.display = display;
+    	initialize();
+    }
 
+    /**
+     * @wbp.parser.entryPoint
+     */
     @Override
     protected void initialize() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
+    	panel.setBounds(100, 100, 573, 456);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		JPanel bottomPanel = new JPanel();
+		panel.add(bottomPanel);
+		bottomPanel.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JButton btnNewButton_2 = new JButton("Store");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				display.showStoreScreen();
+			}
+		});
+		bottomPanel.add(btnNewButton_2);
+		
+		JButton btnNewButton_1 = new JButton("Travel");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				display.showTravelScreen();
+			}
+		});
+		bottomPanel.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("Conversation");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				display.showConversationScreen();
+			}
+		});
+		bottomPanel.add(btnNewButton);
     }
 
     @Override

@@ -1,5 +1,8 @@
 package Screens;
 import javax.swing.JPanel;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 /**
  * AbstractScreen.java -- gives a blueprint for the screen objects

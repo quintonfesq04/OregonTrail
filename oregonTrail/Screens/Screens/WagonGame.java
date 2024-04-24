@@ -10,6 +10,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 public class WagonGame extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/wagon game0.jpg"));
@@ -22,9 +25,11 @@ public class WagonGame extends AbstractScreen {
     private int bubbleCount; // Keep track of clicked bubbles
     private List<Bubble> bubbles;
     private Timer gameTimer;
-    private int time = 30;
+    private int time = 15;
+    private Display display;
 
-    public WagonGame() {
+    public WagonGame(Display display) {
+    	this.display = display;
         initializeUI();
         createBubbles();
         score = 0;
@@ -45,7 +50,7 @@ public class WagonGame extends AbstractScreen {
         scoreTimerPanel.add(scoreLabel);
     
         // Create and add timer label
-        timerLabel = new JLabel("Time: 30");
+        timerLabel = new JLabel("Time: 15");
         scoreTimerPanel.add(timerLabel);
     
         // Add scoreTimerPanel to the main panel
@@ -96,6 +101,9 @@ public class WagonGame extends AbstractScreen {
                 if (time > 0) {
                     time--;
                     timerLabel.setText("Time: " + time);
+                    if(time == 0) {
+                    	endGame();
+                    }
                 } else {
                     endGame();
                 }
@@ -108,7 +116,7 @@ public class WagonGame extends AbstractScreen {
     private void endGame() {
         gameTimer.stop();
         JOptionPane.showMessageDialog(frame, "Game Over! Your Score: " + score, "Game Over", JOptionPane.INFORMATION_MESSAGE);
-        System.exit(0);
+        display.showTravelScreen();
     }
 
     private class BubbleClickListener extends MouseAdapter {
@@ -140,11 +148,7 @@ public class WagonGame extends AbstractScreen {
             setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Add border (optional)
         }
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(WagonGame::new);
-    }
-
+    
     @Override
     protected void initialize() {
         // No implementation needed for now

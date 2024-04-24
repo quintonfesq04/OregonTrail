@@ -31,7 +31,7 @@ public class Display extends JFrame {
     private DeathScreen deathScreen;
 
     Inventory inventory = new Inventory();
-    Locations locations = new Locations(102);
+    Locations locations = new Locations(0);
     Conditions conditions = new Conditions(inventory);
     Store store = new Store();
     Player player = new Player();
@@ -62,13 +62,13 @@ public class Display extends JFrame {
         // startScreen = new StartScreen(this);
         // getContentPane().add(startScreen.getPanel(), "StartScreen");
 
-        storeScreen = new StoreScreen(inventory, store);
+        storeScreen = new StoreScreen(inventory, store, this);
         getContentPane().add(storeScreen.getPanel(), "StoreScreen");
 
-        riverScreen = new RiverScreen(locations);
+        riverScreen = new RiverScreen(this, locations);
         getContentPane().add(riverScreen.getPanel(), "RiverScreen");
 
-        tradeScreen = new TradeScreen();
+        tradeScreen = new TradeScreen(this);
         getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
 
         controlScreen = new ControlScreen(inventory, player, this);
@@ -83,16 +83,16 @@ public class Display extends JFrame {
         conditionsScreen = new ConditionsScreen();
         getContentPane().add(conditionsScreen.getPanel(), "ConditionsScreen");
 
-        landmarkScreen = new LandmarkScreen();
+        landmarkScreen = new LandmarkScreen(this);
         getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");
 
-        // wagonGame = new WagonGame();
-        // getContentPane().add(wagonGame.getPanel(), "WagonGame");
+        wagonGame = new WagonGame(this);
+        getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showStoreScreen();
+        showWagonGame();
     }
 
     public void showTravelScreen() {
@@ -109,6 +109,11 @@ public class Display extends JFrame {
     public void showStoreScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "StoreScreen");
+        if (locations.hasLeftStartingLandmark(locations.getDistance())) {
+            storeScreen.returnToLandmarkBtn.setEnabled(true);
+        } else {
+            storeScreen.returnToLandmarkBtn.setEnabled(false);
+        }
     }
 
     public void showRiverScreen() {

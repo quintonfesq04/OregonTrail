@@ -1,11 +1,20 @@
 package Stuff;
 
 import java.util.Random;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 public class Trade {
 
     private Inventory inventory = new Inventory();
     private static Random random = new Random();
+    
+    public boolean tradeTime(){
+        Random rand = new Random();
+        int randNum = rand.nextInt(8);
+		return randNum == 0;
+    } 
 
     public String[] createTrade(){
         String tradeOutput[] = {"receive", "R_number", "give", "G_number"};

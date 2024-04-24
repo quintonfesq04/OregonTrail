@@ -1,6 +1,9 @@
 package Stuff;
 
 import java.util.Random;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 
 /**
@@ -14,7 +17,7 @@ import java.util.Random;
 public class Conditions {
     private static Random random = new Random();
     private Inventory inventory;
-    private String eventInfo;
+    public String eventInfo;
     private String weather;
     private double accumulatedRainfall;
     private String previousWeather;

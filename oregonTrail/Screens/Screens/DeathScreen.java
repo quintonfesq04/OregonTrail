@@ -2,6 +2,9 @@ package Screens;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 import javax.swing.JFrame;
 import java.io.File;

@@ -1,5 +1,8 @@
 package Stuff;
 import javax.swing.JOptionPane;
+import Screens.*;
+import Stuff.*;
+import Hunting.*;
 
 /**
  * @File: Player.java
