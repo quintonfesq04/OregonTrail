@@ -26,6 +26,7 @@ public class TradeScreen {
      */
     public TradeScreen(Display display) {
     	this.display = display;
+        this.trade = new Trade();
         initialize();
     }
 
@@ -55,7 +56,9 @@ public class TradeScreen {
         JButton acceptButton = new JButton("Accept");
         acceptButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		trade.acceptTrade();
+                String[] tradeOffer = trade.createTrade();
+                String result = trade.acceptTrade(tradeOffer);
+        		JOptionPane.showMessageDialog(null, result);
         		display.showTravelScreen();
         	}
         });

@@ -1,67 +1,78 @@
 package Stuff;
 
 import java.util.Random;
-import Screens.*;
-import Stuff.*;
-import Hunting.*;
+import Stuff.Inventory;
 
 public class Trade {
 
     private Inventory inventory = new Inventory();
     private static Random random = new Random();
     
-    public boolean tradeTime(){
-        Random rand = new Random();
-        int randNum = rand.nextInt(8);
-		return randNum == 0;
+    // Method to check if it's time for a trade
+    public boolean tradeTime() {
+        // Adjust the probability as needed
+        return random.nextInt(50) == 0; // 1 in 50 chance for trade
     } 
 
-    public String[] createTrade(){
-        String tradeOutput[] = {"receive", "R_number", "give", "G_number"};
+    // Method to create a random trade offer
+    public String[] createTrade() {
+        String tradeOutput[] = new String[4];
         String itemList[] = Inventory.itemNames;
-        int number = random.nextInt(8);
-        int number2 = random.nextInt(8);
 
-        int randomNumber1, randomNumber2;
+        // Generate random item indices
+        int itemIndex1 = random.nextInt(itemList.length);
+        int itemIndex2 = random.nextInt(itemList.length);
 
-        while(number2 == number){
-            number2 = random.nextInt(8);
+        // Ensure that the two items are different
+        while (itemIndex2 == itemIndex1) {
+            itemIndex2 = random.nextInt(itemList.length);
         }
 
-        tradeOutput[0] = itemList[number];
-        tradeOutput[2] = itemList[number2];
+        // Assign items to trade
+        tradeOutput[0] = itemList[itemIndex1];
+        tradeOutput[2] = itemList[itemIndex2];
 
-        if(tradeOutput[0]==itemList[0]||tradeOutput[0]==itemList[2]||tradeOutput[0]==itemList[6]){
-            randomNumber1 = random.nextInt(32) + 1;
-        }
-        else {
-            randomNumber1 = random.nextInt(4) + 1;
-        }
+        // Generate random quantities based on item types
+        int randomNumber1 = generateRandomQuantity(itemIndex1);
+        int randomNumber2 = generateRandomQuantity(itemIndex2);
 
-        if(tradeOutput[2]==itemList[0]||tradeOutput[2]==itemList[2]||tradeOutput[2]==itemList[6]){
-            randomNumber2 = random.nextInt(32) + 1;
-        }
-        else {
-            randomNumber2 = random.nextInt(4) + 1;
-        }
-
+        // Assign quantities to trade
         tradeOutput[1] = Integer.toString(randomNumber1);
         tradeOutput[3] = Integer.toString(randomNumber2);
 
         return tradeOutput;
     }
 
-    public String acceptTrade(String tradeOutput[]){
-        //String tradeOutput[] = {"receive", "R_number", "give", "G_number"};
-        int itemOneCount = inventory.getItemCount(tradeOutput[0]);
-        int itemTwoCount = inventory.getItemCount(tradeOutput[0]);
+    // Method to handle accepting a trade offer
+    public String acceptTrade(String tradeOutput[]) {
+        String receiveItem = tradeOutput[0];
+        int receiveCount = Integer.parseInt(tradeOutput[1]);
+        String giveItem = tradeOutput[2];
+        int giveCount = Integer.parseInt(tradeOutput[3]);
 
-        if(Integer.parseInt(tradeOutput[3])>itemTwoCount){
-            return "trade failed, not enough items";
+        // Check if the player has enough of the item to give away
+        int playerItemCount = inventory.getItemCount(giveItem);
+        if (playerItemCount < giveCount) {
+            return "Trade failed: Not enough items to trade.";
         }
 
-        inventory.addItem(tradeOutput[0], itemTwoCount);
-        inventory.removeItem(tradeOutput[2], itemOneCount);
-        return "Trade Success";
+        // Execute the trade by adding the received item and removing the given item from the inventory
+        inventory.addItem(receiveItem, receiveCount);
+        inventory.removeItem(giveItem, giveCount);
+
+        return "Trade success";
+    }
+
+    // Method to generate random quantity based on item type
+    private int generateRandomQuantity(int itemIndex) {
+        String[] itemList = Inventory.itemNames;
+        // Adjust quantity ranges as needed for different item types
+        if (itemIndex == 0 || itemIndex == 2 || itemIndex == 6) {
+            // Food, Money, Bullets: 1-32
+            return random.nextInt(32) + 1;
+        } else {
+            // Other items: 1-4
+            return random.nextInt(4) + 1;
+        }
     }
 }
