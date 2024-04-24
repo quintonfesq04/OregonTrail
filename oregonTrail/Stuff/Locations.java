@@ -122,10 +122,10 @@ public class Locations {
      */
     public String nextLocation(int currentLoc) {
         int test1 = 0, test2 = 0;
-
+    
         for (int i = 0; i < 13; i++) {
             test1 = LOCATION_DISTANCE[i];
-            test2 = LOCATION_DISTANCE[i + 1];
+            test2 = LOCATION_DISTANCE[i + 1]; // Potential issue here
             if ((test1 < currentLoc) && (currentLoc < test2)) {
                 return LOCATIONS[i + 1];
             }
@@ -135,6 +135,7 @@ public class Locations {
         }
         return "At Final Location";
     }
+    
 
     public String getLocation(int currentLoc) {
         int test1 = 0, test2 = 0;

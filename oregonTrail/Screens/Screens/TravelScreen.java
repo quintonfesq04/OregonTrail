@@ -7,6 +7,8 @@ import java.util.Arrays;
 import Screens.*;
 import Stuff.*;
 import Hunting.*;
+import Stuff.Trade; 
+
 
 /**
  * TravelScreen.java -- the screen seen when traveling
@@ -24,11 +26,11 @@ public class TravelScreen extends AbstractScreen {
     private Trade trade;
 
 
-    public TravelScreen(Locations location, Conditions conditions, Display display){
+    public TravelScreen(Locations location, Conditions conditions, Display display, Trade trade) {
         this.locations = location;
         this.conditions = conditions;
         this.display = display;
-        this.trade = trade;
+        this.trade = trade; 
         initialize();
     }
 
@@ -94,10 +96,18 @@ public class TravelScreen extends AbstractScreen {
     
 
     private void travel(){
-        if(cloud.getX() < viewPanel.getWidth())
+        int distanceTraveled = 0;
+        locations.setPlayerPostion(distanceTraveled);
+
+        arriveAtLandmark();
+
+        if(cloud.getX() < viewPanel.getWidth()) {
             cloud.update(50);
-        else
+        }
+        else {
             cloud.setX(-100);
-        cloud.setLocation(cloud.getX(), cloud.getY());
+            cloud.setLocation(cloud.getX(), cloud.getY());
+        }
+        
     }
 }
