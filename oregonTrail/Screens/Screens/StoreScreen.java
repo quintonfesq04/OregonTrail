@@ -24,7 +24,7 @@ import Stuff.*;
 import Hunting.*;
 
 public class StoreScreen extends AbstractScreen{
-    private File image = new File("Images\\Background.jpg");
+    private File image = new File("Images/Background.jpg");
     private PicPanel panel = new PicPanel(image);
 
 	private Font wordFont = new Font("Rockwell", Font.PLAIN, 24);
@@ -80,7 +80,7 @@ public class StoreScreen extends AbstractScreen{
 		});
 		bottomPanel.add(travelBtn);
 		
-		JButton returnToLandmarkBtn = new JButton("Return To Landmark");
+		returnToLandmarkBtn = new JButton("Return To Landmark");
 		returnToLandmarkBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				display.showLandmarkScreen();

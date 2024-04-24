@@ -14,9 +14,9 @@ import Hunting.*;
  * @version 1.0.0 4/18/24
  */
 public class TravelScreen extends AbstractScreen {
-    private Cloud cloud = new Cloud(50,50,new File("Images\\Cloud.png"));
+    private Cloud cloud = new Cloud(50,50,new File("Images/Cloud.png"));
 
-    protected PicPanel viewPanel = new PicPanel(new File("Images\\Covered Wagon.jpg"));
+    protected PicPanel viewPanel = new PicPanel(new File("Images/basic travel0.jpg"));
 
     private Locations locations;
     private Conditions conditions;

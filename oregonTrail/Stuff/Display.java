@@ -86,13 +86,13 @@ public class Display extends JFrame {
         landmarkScreen = new LandmarkScreen(this);
         getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");
 
-        wagonGame = new WagonGame(this);
-        getContentPane().add(wagonGame.getPanel(), "WagonGame");
+        //wagonGame = new WagonGame(this);
+        //getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showWagonGame();
+        showDeathScreen();
     }
 
     public void showTravelScreen() {
