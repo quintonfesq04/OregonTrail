@@ -14,7 +14,7 @@ import Hunting.*;
  * @version 1.0.0 4/18/24
  */
 public class TravelScreen extends AbstractScreen {
-    private Cloud cloud = new Cloud(50,50,new File("Images/Cloud.png"));
+    private Cloud cloud = new Cloud(50,25,new File("Images/Cloud.png"));
 
     protected PicPanel viewPanel = new PicPanel(new File("Images/basic travel0.jpg"));
 
@@ -38,7 +38,7 @@ public class TravelScreen extends AbstractScreen {
         viewPanel.requestFocusInWindow();
         viewPanel.setLayout(null);
 
-        cloud.setPreferredSize(new Dimension(100,100));
+        cloud.setPreferredSize(new Dimension(150,150));
         cloud.setSize(cloud.getPreferredSize());
 
         viewPanel.add(cloud);
@@ -95,7 +95,7 @@ public class TravelScreen extends AbstractScreen {
 
     private void travel(){
         if(cloud.getX() < viewPanel.getWidth())
-            cloud.update(50);
+            cloud.update(25);
         else
             cloud.setX(-100);
         cloud.setLocation(cloud.getX(), cloud.getY());

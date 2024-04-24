@@ -18,8 +18,13 @@ import Screens.*;
 import Stuff.*;
 import Hunting.*;
 
-//import Stuff.*;
 
+/**
+ * RiverScreen.java -- Screen shows during river crossing
+ * @author Ethan Burch
+ * @author Quinton Fesq
+ * @version 1.5.2 4/24/24
+ */
 public class RiverScreen extends AbstractScreen {
     private PicPanel viewPanel = new PicPanel(new File("Images/river screen0.jpg"));
     private JPanel panel = new JPanel();
@@ -30,8 +35,20 @@ public class RiverScreen extends AbstractScreen {
     private int flow = 10;
     private int width = 50;
 
+    /**
+     * constructor for RiverScreen object
+     * @param display the display that this will be used in
+     * @param location the location of the player along the trail
+     */
     public RiverScreen(Display display, Locations location){
-    	viewPanel.setLayout(new BorderLayout());
+        this.display = display;
+        this.location = location;
+        initialize();
+    }
+
+    @Override
+    protected void initialize() {
+        viewPanel.setLayout(new BorderLayout());
     	
     	JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.DARK_GRAY);
@@ -64,13 +81,6 @@ public class RiverScreen extends AbstractScreen {
     		}
     	});
     	viewPanel.add(btnNewButton, BorderLayout.SOUTH);
-        this.location = location;
-        initialize();
-    }
-
-    @Override
-    protected void initialize() {
-        
     }
 
     @Override

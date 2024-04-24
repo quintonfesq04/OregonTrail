@@ -12,6 +12,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * LandmarkScreen.java -- shows the landmark that the player has arrived at
+ * @author Quinton Fesq
+ * @version 1.3.1 4/24/24
+ */
+
 public class LandmarkScreen extends AbstractScreen{
     private JPanel panel = new JPanel();
     private Display display;

@@ -16,11 +16,19 @@ import javax.swing.JPanel;
 
 import Stuff.*;
 
+/**
+ * DeathScreen.java -- the screen that is shown when the player dies
+ * @author Ethan Burch
+ * @version 1.2.0 4/23/24
+ */
 public class DeathScreen extends AbstractScreen{
     File image = new File("Images/death screen.jpg");
     private PicPanel viewPanel = new PicPanel(image);
    
 
+    /**
+     * Constructor for DeathScreen object
+     */
     public DeathScreen() {
         initialize();
     }
