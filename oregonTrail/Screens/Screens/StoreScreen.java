@@ -205,7 +205,7 @@ public class StoreScreen extends AbstractScreen{
 				store.updateCost(Inventory.WAGON_AXLE, (Integer) axleSpinner.getValue());
 				priceLbl.setText("Total Cost: $" + store.getCost());
 			}
-		});
+		}); 
 		buyPanel.add(axleSpinner);
 		
 		JSpinner tongueSpinner = new JSpinner();

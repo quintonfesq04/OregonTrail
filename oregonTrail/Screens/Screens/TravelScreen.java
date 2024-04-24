@@ -75,6 +75,5 @@ public class TravelScreen extends AbstractScreen {
         else
             cloud.setX(-100);
         cloud.setLocation(cloud.getX(), cloud.getY());
-
     }
 }
