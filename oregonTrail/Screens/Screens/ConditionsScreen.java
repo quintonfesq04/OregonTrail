@@ -7,6 +7,11 @@ import Hunting.*;
 
 import Stuff.*;
 
+/**
+ * ConditionsScreen.java -- The screen shown during certain trail conditions
+ * @author Ethan Burch
+ * @version 1.0.0 4/18/24
+ */
 public class ConditionsScreen extends AbstractScreen{
     private JPanel panel = new JPanel();
 

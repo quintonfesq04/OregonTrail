@@ -23,23 +23,43 @@ public class Conditions {
     private String previousWeather;
     private Player player;
 
+    /**
+     * Constructs a Conditions object with the given inventory.
+     *
+     * @param inventory the inventory to be associated with this Conditions object
+     */
     public Conditions(Inventory inventory) {
         this.inventory = inventory;
     }
 
+    /**
+     * Retrieves the associated inventory.
+     *
+     * @return the associated inventory
+     */
     public Inventory getInventory() {
         return inventory;
     }
 
+    /**
+     * Sets the associated inventory.
+     *
+     * @param inventory the inventory to be associated with this Conditions object
+     */
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
-
     private boolean isEventOccurred() {
         int eventChance = random.nextInt(100);
         return eventChance == 0;
     }
 
+    /**
+     * Generates weather conditions based on temperature and average rainfall.
+     *
+     * @param temperature the current temperature
+     * @param avgRainfall the average monthly rainfall
+     */
     public void generateWeather(int temperature, double avgRainfall) {
         if (temperature > 90) {
             weather = "Very Hot";
@@ -72,35 +92,35 @@ public class Conditions {
     }
 
     private double getAverageMonthlyPrecipitation() {
-        return 50.0; // Placeholder for average monthly precipitation
+        return 50.0; 
     }
 
     private double calculateThunderstormProbability(double avgPrecipitation) {
-        // Implement logic to calculate thunderstorm probability based on average
-        // precipitation
-        return avgPrecipitation * 0.01; // Placeholder logic
+        return avgPrecipitation * 0.01; 
     }
 
     private boolean isAfterFortHall() {
-        // Implement logic to check if after Fort Hall
-        return true; // Placeholder logic
+        return true; 
     }
 
     private boolean isVeryHot() {
-        // Implement logic to check if temperature is very hot
-        return true; // Placeholder logic
+        return true; 
     }
 
     private boolean isMountain() {
-        // Implement logic to check if currently in mountains
-        return true; // Placeholder logic
+        return true; 
     }
 
     private boolean isMayToSeptember() {
         // Implement logic to check if current month is May to September
-        return true; // Placeholder logic
+        return true;
     }
 
+    /**
+     * Handles inventory updates based on random events.
+     *
+     * @return the updated inventory after handling events
+     */
     public Inventory handleInventory() {
         eventInfo = "";
         if (isEventOccurred()) {
@@ -162,8 +182,6 @@ public class Conditions {
                     double probability = calculateThunderstormProbability(avgPrecipitation);
                     if (random.nextDouble() < probability) {
                         eventInfo = "Random Event: Severe thunderstorm!\n";
-                        // Implement logic for consequences of severe thunderstorm, such as lost
-                        // supplies or damaged wagon
                         int lostFood = random.nextInt(11); // Random amount lost (0-10)
                         inventory.removeItem("food", lostFood);
                         eventInfo += "Lost " + lostFood + " lbs of food due to the severe thunderstorm.\n";
@@ -336,6 +354,11 @@ public class Conditions {
         return inventory;
     }
 
+    /**
+     * Retrieves the message describing the latest condition event.
+     *
+     * @return the message describing the latest condition event
+     */
     public String getConditionMessage() {
         return eventInfo;
     }

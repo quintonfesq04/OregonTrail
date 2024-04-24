@@ -30,7 +30,7 @@ public class PicPanel extends JPanel {
         }
     }
 
-    // paintComponent override to create background
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -52,9 +52,15 @@ public class PicPanel extends JPanel {
         }
     }
 
-    // Method to resize a BufferedImage
-    private BufferedImage resize(Image backgroundImage2, int newW, int newH) {
-        Image tmp = backgroundImage2.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+    /**
+     * resizes the background imag
+     * @param backgroundImage the image to be resized
+     * @param newW  the desired width of the image
+     * @param newH  the desired height of the image
+     * @return a resized image
+     */
+    private BufferedImage resize(Image backgroundImage, int newW, int newH) {
+        Image tmp = backgroundImage.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
         BufferedImage resizedImg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = resizedImg.createGraphics();
         g2d.drawImage(tmp, 0, 0, null);
