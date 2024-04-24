@@ -200,13 +200,19 @@ public class Player {
     }
 
     // Method to simulate the chance of contracting a disease
+
+    /*
     public void simulateDisease() {
         int chance = (int) (Math.random() * 41); // Random number between 0 and 40
         if (chance > 0 && chance <= 40) { // There's a 0% to 40% chance of contracting a disease
             // Simulate disease strike
             // Choose a party member randomly and set sickness count to 10 days
+            // Assuming partyMembers array holds all party members
+            int partyMemberIndex = (int) (Math.random() * partyMembers.length); 
+            partyMembers[partyMemberIndex].setSicknessCount(10);
         }
     }
+    */
 
     public static void main(String[] args) {
         Player player = new Player();
