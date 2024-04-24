@@ -10,11 +10,6 @@ import javax.swing.JOptionPane;
  * @version 1.5.0 4/19/2024
  *
  */
-
- import Screens.*;
-import Stuff.*;
-import Hunting.*;
-
 public class Locations {
     private int distance = 0;
 
