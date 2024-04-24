@@ -96,18 +96,15 @@ public class TravelScreen extends AbstractScreen {
     
 
     private void travel(){
-        int distanceTraveled = 0;
-        locations.setPlayerPostion(distanceTraveled);
+            if(cloud.getX() < viewPanel.getWidth()){
+                cloud.update(50);
+            }
+            else {
+                cloud.setX(-100);
+            }
 
-        arriveAtLandmark();
+                cloud.setLocation(cloud.getX(), cloud.getY());
 
-        if(cloud.getX() < viewPanel.getWidth()) {
-            cloud.update(50);
-        }
-        else {
-            cloud.setX(-100);
-            cloud.setLocation(cloud.getX(), cloud.getY());
-        }
-        
+                arriveAtLandmark();
     }
 }
