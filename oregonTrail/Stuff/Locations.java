@@ -3,15 +3,11 @@ package Stuff;
 import javax.swing.JOptionPane;
 
 /**
- * Locations.java -- This class calculates distance from the final destination,
- * sets the players current
- * location, and outputs the distance left to travel. It is used as the go-to
- * class for
- * and calculations in relation to location.
+ * Locations.java -- This class tracks the players position along the trail.
  * 
  * @author Ethan Burch
  * @author Madison Scott
- * @version 1.0.0 4/8/2024
+ * @version 1.5.0 4/19/2024
  *
  */
 public class Locations {
