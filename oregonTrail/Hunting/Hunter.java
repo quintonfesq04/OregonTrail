@@ -1,7 +1,4 @@
 package Hunting;
-import Screens.*;
-import Stuff.*;
-import Hunting.*;
 
 public class Hunter {
     private int colIndex;

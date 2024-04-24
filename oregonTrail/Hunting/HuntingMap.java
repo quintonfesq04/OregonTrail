@@ -1,12 +1,8 @@
 package Hunting;
-import Screens.*;
-import Stuff.*;
-import Hunting.*;
+
 
 import java.awt.Color;
 import java.awt.GridLayout;
-
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Stuff.PicPanel;

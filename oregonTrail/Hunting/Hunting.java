@@ -1,7 +1,5 @@
 package Hunting;
-import Screens.*;
-import Stuff.*;
-import Hunting.*;
+
 
 import java.awt.EventQueue;
 

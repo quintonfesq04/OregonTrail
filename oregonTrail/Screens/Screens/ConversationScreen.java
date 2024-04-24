@@ -4,8 +4,6 @@ import Screens.*;
 import Stuff.*;
 import Hunting.*;
 
-import Stuff.*;
-
 /**
  * ConversationScreen.java -- a screen that shows conversations between the player and people along the trail
  * @author Ethan Burch

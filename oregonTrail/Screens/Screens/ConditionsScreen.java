@@ -1,11 +1,6 @@
 package Screens;
 
 import javax.swing.JPanel;
-import Screens.*;
-import Stuff.*;
-import Hunting.*;
-
-import Stuff.*;
 
 /**
  * ConditionsScreen.java -- The screen shown during certain trail conditions

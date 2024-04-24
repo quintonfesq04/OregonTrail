@@ -1,10 +1,7 @@
 package Stuff;
 
 import java.text.DecimalFormat;
-import Screens.*;
-import Stuff.*;
-import Hunting.*;
-import javax.swing.JOptionPane;
+
 
 /**
  * Store.java

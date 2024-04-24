@@ -5,16 +5,10 @@ import java.awt.event.KeyEvent;
 import Screens.*;
 import Stuff.*;
 import Hunting.*;
-
-import javax.swing.JFrame;
 import java.io.File;
-
-import java.awt.Color;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Stuff.*;
+
 
 /**
  * DeathScreen.java -- the screen that is shown when the player dies

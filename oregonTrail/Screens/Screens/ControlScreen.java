@@ -1,12 +1,9 @@
 package Screens;
 import java.io.File;
-import Screens.*;
 import Stuff.*;
-import Hunting.*;
-
 import javax.swing.JPanel;
 
-import Stuff.*;
+
 
 /**
  * ControlScreen.java -- Shows the player their inventory, food consumption, and travel speed.
