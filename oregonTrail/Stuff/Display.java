@@ -70,7 +70,7 @@ public class Display extends JFrame {
         setBounds(100, 100, 1200, 675);
         getContentPane().setLayout(new CardLayout());
 
-        travelScreen = new TravelScreen(locations, conditions, this);
+        travelScreen = new TravelScreen(locations, conditions, this, new Trade());
         getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 
         // startScreen = new StartScreen(this);
