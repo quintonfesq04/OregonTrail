@@ -76,35 +76,39 @@ public class TravelScreen extends AbstractScreen {
     }
     
     private void arriveAtLandmark() {
-    	String nextLandmark = locations.getNextLandmark();
-        int landmarkIndex = Arrays.asList(Locations.LOCATIONS).indexOf(nextLandmark);
-        if (landmarkIndex != -1 && cloud.getX() >= locations.LOCATION_DISTANCE[landmarkIndex]) {
-            if(locations.hitRiver()){
-            	display.showRiverScreen();
-            }
-            else if (trade.tradeTime()) {
-                    display.showTradeScreen();
-            }
-            else if (conditions.eventInfo.contains("Your wagon broke down")) {
-            	display.showWagonGame();
-            }
-            else {
-            		display.showLandmarkScreen();
-            	}
+        String nextLandmark = locations.getNextLandmark();
+        if (nextLandmark != null) {
+            if (locations.hitRiver()) {
+                display.showRiverScreen();
+            } else if (trade.tradeTime()) {
+                display.showTradeScreen();
+            } else if (conditions.eventInfo.contains("Your wagon broke down")) {
+                display.showWagonGame();
+            } else {
+                display.showLandmarkScreen();
             }
         }
+    }
+    
     
 
-    private void travel(){
-            if(cloud.getX() < viewPanel.getWidth()){
-                cloud.update(50);
-            }
-            else {
-                cloud.setX(-100);
-            }
-
-                cloud.setLocation(cloud.getX(), cloud.getY());
-
-                arriveAtLandmark();
+   
+    private void travel() {
+        int distanceMoved = 50; // Distance the cloud moves
+        if (cloud.getX() < viewPanel.getWidth()) {
+            cloud.update(distanceMoved); // Update cloud position
+        } else {
+            cloud.setX(-100); // Reset cloud position
+        }
+    
+        cloud.setLocation(cloud.getX(), cloud.getY()); // Set cloud location
+    
+        locations.addDistance(distanceMoved); // Update distance traveled
+    
+        arriveAtLandmark(); // Check if the cloud has arrived at a landmark
     }
-}
+    
+    
+        
+    }
+

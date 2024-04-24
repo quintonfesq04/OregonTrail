@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  */
 public class Locations {
-    private int distance = 0;
+    public int distance = 0;
 
     public static final String INDEPENDENCE = "Independence";
     public static final String COURTHOUSE = "Courthouse";
