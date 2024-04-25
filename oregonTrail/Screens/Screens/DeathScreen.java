@@ -8,8 +8,6 @@ import Hunting.*;
 import java.io.File;
 import javax.swing.JPanel;
 
-
-
 /**
  * DeathScreen.java -- the screen that is shown when the player dies
  * @author Ethan Burch
