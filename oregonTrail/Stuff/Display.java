@@ -142,7 +142,8 @@ public class Display extends JFrame {
     /**
      * Switches to the River Screen
      */
-    public void showRiverScreen() {
+    public void showRiverScreen(Locations locations) {
+        riverScreen.update(locations);
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "RiverScreen");
     }

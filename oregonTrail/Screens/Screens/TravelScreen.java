@@ -9,7 +9,6 @@ import Stuff.*;
 import Hunting.*;
 import Stuff.Trade; 
 
-
 /**
  * TravelScreen.java -- the screen seen when traveling
  * @author Ethan Burch
@@ -83,7 +82,7 @@ public class TravelScreen extends AbstractScreen {
         inventory = conditions.handleInventory();
         if (nextLandmark != null) {
             if (locations.hitRiver()) {
-                display.showRiverScreen();
+                display.showRiverScreen(locations);
             } else if (trade.tradeTime()) {
                 display.showTradeScreen();
             } else if (conditions.getConditionMessage().contains("Your wagon broke down")) {
@@ -94,9 +93,6 @@ public class TravelScreen extends AbstractScreen {
         }
     }
     
-    
-
-   
     private void travel() {
         distanceMoved = 50; // Distance the cloud moves
         if (cloud.getX() < viewPanel.getWidth()) {

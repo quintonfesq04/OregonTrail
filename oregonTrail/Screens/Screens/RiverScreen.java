@@ -69,7 +69,7 @@ public class RiverScreen extends AbstractScreen {
     	JButton btnNewButton = new JButton("Cross");
     	btnNewButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
-    			river = new River("RiverName", height, flow, width);
+    			river = new River(location.getRiverName(), height, flow, width);
     			if(river.crossRiver()) {
     				JOptionPane.showMessageDialog(null, "You Crossed " + river.getName());
     				display.showTravelScreen();
@@ -91,6 +91,10 @@ public class RiverScreen extends AbstractScreen {
     @Override
     public JPanel getPanel() {
         return viewPanel;
+    }
+
+    public void update(Locations location){
+        this.location = location;
     }
     
 }
