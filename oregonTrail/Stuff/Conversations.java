@@ -4,9 +4,6 @@ import Stuff.*;
 import Hunting.*;
 
 public class Conversations {
-    
-    
-
     private Locations locations = new Locations(this);
 
     public String getConversation(){
