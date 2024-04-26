@@ -1,9 +1,11 @@
-package Stuff;
+package Gameplay;
 import javax.swing.JFrame;
+
+import Gameplay.*;
+
 import java.io.File;
 
 import Screens.*;
-import Stuff.*;
 import Hunting.*;
 /**
  * @File Map.java

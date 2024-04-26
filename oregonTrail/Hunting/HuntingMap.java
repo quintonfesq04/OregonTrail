@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
 
-import Stuff.PicPanel;
+import Gameplay.PicPanel;
 
 public class HuntingMap extends JPanel{
     private static final int MAP_ROWS = 24;

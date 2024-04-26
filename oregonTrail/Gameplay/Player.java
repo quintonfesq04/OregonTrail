@@ -1,7 +1,8 @@
-package Stuff;
+package Gameplay;
 import javax.swing.JOptionPane;
+
+import Gameplay.*;
 import Screens.*;
-import Stuff.*;
 import Hunting.*;
 
 /**

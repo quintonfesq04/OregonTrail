@@ -1,8 +1,9 @@
-package Stuff;
+package Gameplay;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
+import Gameplay.*;
 import Screens.*;
-import Stuff.*;
 import Hunting.*;
 
 /**

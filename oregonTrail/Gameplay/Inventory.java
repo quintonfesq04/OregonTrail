@@ -1,4 +1,4 @@
-package Stuff;
+package Gameplay;
 
 /**
  * @File Inventory.java -- Creates the inventory for the journey along the oregon trail
@@ -7,7 +7,7 @@ package Stuff;
  */
 
  import Screens.*;
-import Stuff.*;
+import Gameplay.*;
 import Hunting.*;
 public class Inventory {
     private int food = 0;

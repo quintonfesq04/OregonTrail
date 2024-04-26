@@ -1,11 +1,11 @@
-package Stuff;
+package Gameplay;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import Gameplay.*;
 import Hunting.*;
 import Screens.*;
-import Stuff.*;
 
 import java.awt.*;
 import java.io.File;

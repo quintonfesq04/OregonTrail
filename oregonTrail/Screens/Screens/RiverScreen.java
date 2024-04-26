@@ -8,6 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+
+import Gameplay.*;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 
@@ -15,7 +18,6 @@ import javax.swing.BoxLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import Screens.*;
-import Stuff.*;
 import Hunting.*;
 
 

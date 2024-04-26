@@ -19,8 +19,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
+import Gameplay.*;
 import Screens.*;
-import Stuff.*;
 import Hunting.*;
 
 /**
@@ -133,7 +134,7 @@ public class StoreScreen extends AbstractScreen{
 		bulletsLbl.setFont(wordFont);
 		itemPanel.add(bulletsLbl);
 		
-		JLabel axleLbl = new JLabel("Wagon Axles:");
+		JLabel axleLbl = new JLabel("Wagon Axels:");
 		axleLbl.setFont(wordFont);
 		itemPanel.add(axleLbl);
 		

@@ -4,10 +4,10 @@ import java.awt.Dimension;
 import java.awt.event.KeyAdapter;
 import java.io.File;
 import java.util.Arrays;
+
+import Gameplay.*;
 import Screens.*;
-import Stuff.*;
-import Hunting.*;
-import Stuff.Trade; 
+import Hunting.*; 
 
 /**
  * TravelScreen.java -- the screen seen when traveling
