@@ -7,13 +7,10 @@ import Hunting.*;
 import java.io.File;
 import javax.swing.JPanel;
 
-<<<<<<< Updated upstream
-=======
 import Gameplay.*;
 
 
 
->>>>>>> Stashed changes
 /**
  * DeathScreen.java -- the screen that is shown when the player dies
  * @author Ethan Burch
