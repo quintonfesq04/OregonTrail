@@ -13,6 +13,7 @@ import javax.swing.ButtonGroup;
 import Gameplay.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
 
@@ -62,7 +63,18 @@ public class ControlScreen extends AbstractScreen{
     @Override
     protected void initialize() {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-		
+        panel.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyPressed(KeyEvent e){
+                int vk = e.getKeyCode();
+                if(vk == KeyEvent.VK_SPACE || vk == KeyEvent.VK_I){
+                    display.showTravelScreen();
+                }
+                else 
+                    System.out.println((char)vk);
+            }
+        });
+        
 		JPanel inventoryPanel = new JPanel();
 		inventoryPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Inventory", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.add(inventoryPanel);
@@ -142,15 +154,6 @@ public class ControlScreen extends AbstractScreen{
 		buttonGroup.add(fillingBtn);
 		fillingBtn.setFont(sliderFont);
 		consumptionPanel.add(fillingBtn);
-    }
-
-    public void keyPressed(KeyEvent e){
-        int vk = e.getKeyCode();
-        if(vk == KeyEvent.VK_I){
-            this.map.display();
-        }
-        else 
-            System.out.println((char)vk);
     }
 
     @Override
