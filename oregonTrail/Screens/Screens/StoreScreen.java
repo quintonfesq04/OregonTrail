@@ -33,7 +33,7 @@ public class StoreScreen extends AbstractScreen{
     private File image = new File("Images/Background.jpg");
     private PicPanel panel = new PicPanel(image);
 
-	private Font wordFont = new Font("Rockwell", Font.PLAIN, 24);
+	private Font wordFont = new Font("Trajan Pro", Font.PLAIN, 24);
 	private JLabel foodPriceLbl;
 	private JLabel oxenPriceLbl;
 	private JLabel clothingPriceLbl;
