@@ -1,6 +1,6 @@
-package Stuff;
+package Gameplay;
 import Screens.*;
-import Stuff.*;
+import Gameplay.*;
 import Hunting.*;
 
 public class Conversations {

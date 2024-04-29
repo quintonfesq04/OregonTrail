@@ -1,11 +1,12 @@
-package Stuff;
+package Gameplay;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+
+import Gameplay.*;
 import Screens.*;
-import Stuff.*;
 import Hunting.*;
 
 /**

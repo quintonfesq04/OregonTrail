@@ -8,6 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+
+import Gameplay.*;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 
@@ -15,7 +18,6 @@ import javax.swing.BoxLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import Screens.*;
-import Stuff.*;
 import Hunting.*;
 
 
@@ -69,7 +71,7 @@ public class RiverScreen extends AbstractScreen {
     	JButton btnNewButton = new JButton("Cross");
     	btnNewButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
-    			river = new River("RiverName", height, flow, width);
+    			river = new River(location.getRiverName(), height, flow, width);
     			if(river.crossRiver()) {
     				JOptionPane.showMessageDialog(null, "You Crossed " + river.getName());
     				display.showTravelScreen();
@@ -91,6 +93,10 @@ public class RiverScreen extends AbstractScreen {
     @Override
     public JPanel getPanel() {
         return viewPanel;
+    }
+
+    public void update(Locations location){
+        this.location = location;
     }
     
 }

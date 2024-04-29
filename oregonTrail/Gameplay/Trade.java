@@ -1,7 +1,8 @@
-package Stuff;
+package Gameplay;
 
 import java.util.Random;
-import Stuff.Inventory;
+
+import Gameplay.Inventory;
 
 public class Trade {
 

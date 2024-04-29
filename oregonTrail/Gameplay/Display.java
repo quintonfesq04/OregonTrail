@@ -1,11 +1,11 @@
-package Stuff;
+package Gameplay;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import Gameplay.*;
 import Hunting.*;
 import Screens.*;
-import Stuff.*;
 
 import java.awt.*;
 import java.io.File;
@@ -142,7 +142,8 @@ public class Display extends JFrame {
     /**
      * Switches to the River Screen
      */
-    public void showRiverScreen() {
+    public void showRiverScreen(Locations locations) {
+        riverScreen.update(locations);
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "RiverScreen");
     }

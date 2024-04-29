@@ -1,4 +1,4 @@
-package Stuff;
+package Gameplay;
 
 import javax.swing.JOptionPane;
 

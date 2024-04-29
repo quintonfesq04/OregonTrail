@@ -3,10 +3,11 @@ import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import Screens.*;
-import Stuff.*;
 import Hunting.*;
 import java.io.File;
 import javax.swing.JPanel;
+
+import Gameplay.*;
 
 
 

@@ -4,11 +4,10 @@ import java.awt.Dimension;
 import java.awt.event.KeyAdapter;
 import java.io.File;
 import java.util.Arrays;
-import Screens.*;
-import Stuff.*;
-import Hunting.*;
-import Stuff.Trade; 
 
+import Gameplay.*;
+import Screens.*;
+import Hunting.*; 
 
 /**
  * TravelScreen.java -- the screen seen when traveling
@@ -83,7 +82,7 @@ public class TravelScreen extends AbstractScreen {
         inventory = conditions.handleInventory();
         if (nextLandmark != null) {
             if (locations.hitRiver()) {
-                display.showRiverScreen();
+                display.showRiverScreen(locations);
             } else if (trade.tradeTime()) {
                 display.showTradeScreen();
             } else if (conditions.getConditionMessage().contains("Your wagon broke down")) {
@@ -94,9 +93,6 @@ public class TravelScreen extends AbstractScreen {
         }
     }
     
-    
-
-   
     private void travel() {
         distanceMoved = 50; // Distance the cloud moves
         if (cloud.getX() < viewPanel.getWidth()) {

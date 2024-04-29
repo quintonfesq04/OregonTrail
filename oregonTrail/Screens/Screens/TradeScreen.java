@@ -8,11 +8,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import Gameplay.*;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import Screens.*;
-import Stuff.*;
 import Hunting.*;
 
 public class TradeScreen {

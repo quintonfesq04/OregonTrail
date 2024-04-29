@@ -1,11 +1,11 @@
 package Screens;
 import javax.swing.JPanel;
 
-import Stuff.*;
+import Gameplay.*;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import Screens.*;
-import Stuff.*;
 import Hunting.*;
 
 import javax.swing.JButton;
