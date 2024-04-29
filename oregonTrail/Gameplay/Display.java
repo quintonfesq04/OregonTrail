@@ -31,7 +31,7 @@ public class Display extends JFrame {
     private ConversationScreen conversationScreen;
     private ConditionsScreen conditionsScreen;
     private LandmarkScreen landmarkScreen;
-    //private WagonGame wagonGame;
+    private WagonGame wagonGame;
     private DeathScreen deathScreen;
 
     Inventory inventory = new Inventory();
@@ -100,8 +100,8 @@ public class Display extends JFrame {
         landmarkScreen = new LandmarkScreen(this);
         getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");
 
-        //wagonGame = new WagonGame(this);
-        //getContentPane().add(wagonGame.getPanel(), "WagonGame");
+        wagonGame = new WagonGame(this);
+        getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
