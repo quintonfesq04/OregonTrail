@@ -26,7 +26,7 @@ public class Display extends JFrame {
     private StoreScreen storeScreen;
     private RiverScreen riverScreen;
     private TradeScreen tradeScreen;
-    private ControlScreen controlScreen;
+    private ControlScreen controlScreen;        
     //private HuntingScreen huntingScreen;
     private ConversationScreen conversationScreen;
     private ConditionsScreen conditionsScreen;
@@ -60,7 +60,7 @@ public class Display extends JFrame {
      */
     public Display() {
         initialize();
-    }
+    }     
 
     /**
      * initializes the Display
@@ -108,7 +108,7 @@ public class Display extends JFrame {
 
         showTravelScreen();
     }
-
+   
     /**
      * Switches to the Travel Screen
      */
