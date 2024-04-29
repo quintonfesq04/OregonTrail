@@ -11,6 +11,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import Gameplay.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 
@@ -140,6 +142,15 @@ public class ControlScreen extends AbstractScreen{
 		buttonGroup.add(fillingBtn);
 		fillingBtn.setFont(sliderFont);
 		consumptionPanel.add(fillingBtn);
+    }
+
+    public void keyPressed(KeyEvent e){
+        int vk = e.getKeyCode();
+        if(vk == KeyEvent.VK_I){
+            this.map.display();
+        }
+        else 
+            System.out.println((char)vk);
     }
 
     @Override
