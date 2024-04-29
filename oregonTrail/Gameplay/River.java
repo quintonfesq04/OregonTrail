@@ -29,14 +29,16 @@ import Hunting.*;
       * @param flow   The flow rate of the river (in cubic meters per second).
       * @param width  The width of the river (in meters).
       */
-     public River(String name, int height, int flow, int width) {
-        super(0); // Calls the constructor of the parent class Locations with a distance of 0
-        this.name = name;
-        this.height = height;
-        this.flow = flow;
-        this.width = width;
-        this.crossingProbability = 0.8;
-     }
+     // Add a new constructor with default values for height, flow, and width
+public River(String name) {
+    super(0); // Calls the constructor of the parent class Locations with a distance of 0
+    this.name = name;
+    this.height = 10; // Default height
+    this.flow = 10; // Default flow
+    this.width = 50; // Default width
+    this.crossingProbability = 0.8;
+}
+
 
 
  
