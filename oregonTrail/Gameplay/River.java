@@ -19,6 +19,7 @@ import Hunting.*;
      private int flow; // Flow rate of the river (in cubic meters per second)
      private int width; // Width of the river (in meters)
      private double crossingProbability; // Probability of successfully crossing the river
+     
  
      /**
       * Constructor for River class.
@@ -28,14 +29,16 @@ import Hunting.*;
       * @param flow   The flow rate of the river (in cubic meters per second).
       * @param width  The width of the river (in meters).
       */
-     public River(String name, int height, int flow, int width, double crossingProbability) {
+     public River(String name, int height, int flow, int width) {
         super(0); // Calls the constructor of the parent class Locations with a distance of 0
         this.name = name;
         this.height = height;
         this.flow = flow;
         this.width = width;
-        this.crossingProbability = crossingProbability;
-    }
+        this.crossingProbability = 0.8;
+     }
+
+
  
     
      /**
@@ -53,16 +56,11 @@ import Hunting.*;
       * @return True if the crossing is successful, false otherwise.
       */
      public boolean crossRiver() {
-        // Generating a random number between 0 to 9         double random = new Random().nextDouble();
+        
         double random = new Random().nextDouble();
- 
-         // Check if the crossing is successful based on random chance and success threshold
-         if (random < crossingProbability) {
-             return true;
-         } else {
-             return false;
-         }
-     }
- }
- 
+   
 
+        // Check if the crossing is successful based on random chance and success threshold
+        return random < crossingProbability;
+    }
+ }

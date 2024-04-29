@@ -108,7 +108,7 @@ public class Display extends JFrame {
 
         showConversationScreen();
     }
-
+   
     /**
      * Switches to the Travel Screen
      */
