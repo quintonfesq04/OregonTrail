@@ -6,9 +6,10 @@ package Stuff;
  * @version 1.5.2 4/17/24
  */
 
- import Screens.*;
+import Screens.*;
 import Stuff.*;
 import Hunting.*;
+
 public class Inventory {
     private int food = 0;
     private int oxen = 0;
