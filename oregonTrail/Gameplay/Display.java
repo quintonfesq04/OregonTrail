@@ -108,7 +108,7 @@ public class Display extends JFrame {
 
         showTravelScreen();
     }
-
+   
     /**
      * Switches to the Travel Screen
      */

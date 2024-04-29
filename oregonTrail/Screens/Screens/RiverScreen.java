@@ -36,7 +36,7 @@ public class RiverScreen extends AbstractScreen {
     private int height = 10;
     private int flow = 10;
     private int width = 50;
-    private int crossingProbability;
+  
 
     /**
      * constructor for RiverScreen object
@@ -46,7 +46,7 @@ public class RiverScreen extends AbstractScreen {
     public RiverScreen(Display display, Locations location){
         this.display = display;
         this.location = location;
-        this.crossingProbability = crossingProbability;
+     
         initialize();
     }
 
@@ -73,7 +73,7 @@ public class RiverScreen extends AbstractScreen {
     	JButton btnNewButton = new JButton("Cross");
     	btnNewButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
-    			river = new River(location.getRiverName(), height, flow, width, crossingProbability);
+    			river = new River(location.getRiverName(), height, flow, width);
     			boolean crossed = river.crossRiver();
                 if(crossed) {
     				JOptionPane.showMessageDialog(null, "You Crossed " + river.getName());
