@@ -13,13 +13,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import Screens.*;
+
 import Hunting.*;
+import Screens.*;
 
 public class WagonGame extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/wagon game0.jpg"));
 
-    private JFrame frame;
+    private JPanel panel;
     private JPanel bubblesPanel;
     private JLabel scoreLabel;
     private JLabel timerLabel; // Timer label
@@ -31,7 +32,7 @@ public class WagonGame extends AbstractScreen {
     private Display display;
 
     public WagonGame(Display display) {
-    	this.display = display;
+        this.display = display;
         initializeUI();
         createBubbles();
         score = 0;
@@ -43,40 +44,36 @@ public class WagonGame extends AbstractScreen {
     private void initializeUI() {
         // Create the main panel to hold all components
         viewPanel.setLayout(new BorderLayout());
-    
+
         // Create a panel for score and timer labels
         JPanel scoreTimerPanel = new JPanel(new GridLayout(1, 2));
-        
+
         // Create and add score label
         scoreLabel = new JLabel("Score: 0");
         scoreTimerPanel.add(scoreLabel);
-    
+
         // Create and add timer label
         timerLabel = new JLabel("Time: 15");
         scoreTimerPanel.add(timerLabel);
-    
+
         // Add scoreTimerPanel to the main panel
         viewPanel.add(scoreTimerPanel, BorderLayout.NORTH);
-    
+
         // Create the bubbles panel
         bubblesPanel = new JPanel();
         bubblesPanel.setLayout(null); // Use null layout for absolute positioning
         bubblesPanel.setPreferredSize(new Dimension(704, 396)); // Set size
         bubblesPanel.setOpaque(false);
-    
+
         // Add bubbles panel to the main panel
         viewPanel.add(bubblesPanel, BorderLayout.CENTER);
-    
-        // Add the main panel to the frame
-        frame = new JFrame();
-        frame.setTitle("Wagon Game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(viewPanel);
-        frame.pack(); // Pack components
-        frame.setLocationRelativeTo(null); // Center the frame
-        frame.setVisible(true); // Make the frame visible
+
+        // Add the main panel
+        panel = new JPanel(new BorderLayout());
+        panel.add(viewPanel);
+
+        // No need to pack or set visible when using JPanel
     }
-    
 
     private void createBubbles() {
         bubbles = new ArrayList<>();
@@ -104,7 +101,7 @@ public class WagonGame extends AbstractScreen {
                     time--;
                     timerLabel.setText("Time: " + time);
                     if(time == 0) {
-                    	endGame();
+                        endGame();
                     }
                 } else {
                     endGame();
@@ -113,11 +110,11 @@ public class WagonGame extends AbstractScreen {
         });
         gameTimer.start();
     }
-    
+
 
     private void endGame() {
         gameTimer.stop();
-        JOptionPane.showMessageDialog(frame, "Game Over! Your Score: " + score, "Game Over", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(panel, "Game Over! Your Score: " + score, "Game Over", JOptionPane.INFORMATION_MESSAGE);
         display.showTravelScreen();
     }
 
@@ -164,6 +161,6 @@ public class WagonGame extends AbstractScreen {
     @Override
     public JPanel getPanel() {
         // No implementation needed for now
-        return null;
+        return panel;
     }
 }

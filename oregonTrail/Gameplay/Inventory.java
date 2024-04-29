@@ -9,6 +9,7 @@ package Gameplay;
  import Screens.*;
 import Gameplay.*;
 import Hunting.*;
+
 public class Inventory {
     private int food = 0;
     private int oxen = 0;
