@@ -1,10 +1,7 @@
 package Screens;
+
 import java.io.File;
-
-import java.awt.EventQueue;
 import java.awt.Font;
-
-import javax.swing.JFrame;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -13,7 +10,6 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
-
 import Gameplay.*;
 
 
@@ -30,7 +26,7 @@ public class ControlScreen extends AbstractScreen{
     private Inventory inventory;
     private Player player;
     private Display display;
-    
+
 	private JLabel moneyLbl;
 	private JLabel oxenLbl;
 	private JLabel clothesLbl;
