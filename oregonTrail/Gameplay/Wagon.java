@@ -12,6 +12,30 @@ public class Wagon {
 
     }
     
+    public void setInventory(Inventory inventory){
+        this.inventory = inventory;
+    }
+
+    public Inventory getInventory(){
+        return this.inventory;
+    }
+
+    public void setLocations(Locations locations){
+        this.locations = locations;
+    }
+
+    public Locations getLocations(){
+        return this.locations;
+    }
+
+    public void setConditions(Conditions conditions){
+        this.conditions = conditions;
+    }
+
+    public Conditions getConditions(){
+        return this.conditions;
+    }
+
     public void setPlayer(Player player){
         this.player = player;
     }
