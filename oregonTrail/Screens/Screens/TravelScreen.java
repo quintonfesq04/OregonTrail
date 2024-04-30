@@ -77,7 +77,7 @@ public class TravelScreen extends AbstractScreen {
         wagon.setInventory(wagon.getConditions().handleInventory());
         if (nextLandmark != null) {
             if (wagon.getLocations().hitRiver()) {
-                display.showRiverScreen(wagon.getLocations());
+                display.showRiverScreen(wagon);
             } else if (wagon.getTrade().tradeTime()) {
                 display.showTradeScreen();
             } else if (wagon.getConditions().getConditionMessage().contains("Your wagon broke down")) {

@@ -88,7 +88,7 @@ public class Display extends JFrame {
         // huntingScreen = new HuntingScreen();
         // getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
 
-        conversationScreen = new ConversationScreen(wagon,this);
+        conversationScreen = new ConversationScreen(wagon, this);
         getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
 
         conditionsScreen = new ConditionsScreen();
@@ -130,7 +130,7 @@ public class Display extends JFrame {
     public void showStoreScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "StoreScreen");
-        if (locations.hasLeftStartingLandmark(locations.getDistance())) {
+        if (wagon.getLocations().hasLeftStartingLandmark(wagon.getLocations().getDistance())) {
             storeScreen.returnToLandmarkBtn.setEnabled(true);
         } else {
             storeScreen.returnToLandmarkBtn.setEnabled(false);
@@ -140,8 +140,8 @@ public class Display extends JFrame {
     /**
      * Switches to the River Screen
      */
-    public void showRiverScreen(Locations locations) {
-        riverScreen.update(locations);
+    public void showRiverScreen(Wagon wagon) {
+        riverScreen.update(wagon);
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "RiverScreen");
     }

@@ -53,7 +53,7 @@ public class LandmarkScreen extends AbstractScreen{
 		JButton btnNewButton_1 = new JButton("Travel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				display.showTravelScreen(wagon.getLocations());
+				display.showTravelScreen(wagon);
 			}
 		});
 		bottomPanel.add(btnNewButton_1);
