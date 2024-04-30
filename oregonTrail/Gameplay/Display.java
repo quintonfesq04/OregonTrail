@@ -43,6 +43,7 @@ public class Display extends JFrame {
 
     Wagon wagon = new Wagon();
     
+
     /**
      * the main gateway into the program
      * @param args
