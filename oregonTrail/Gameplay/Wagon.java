@@ -11,6 +11,12 @@ public class Wagon {
     private Wagon(){
 
     }
-
     
+    public void setPlayer(Player player){
+        this.player = player;
+    }
+
+    public Player getPlayer(){
+        return this.player;
+    }
 }
