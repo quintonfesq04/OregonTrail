@@ -73,46 +73,46 @@ public class Display extends JFrame {
         // startScreen = new StartScreen(this);
         // getContentPane().add(startScreen.getPanel(), "StartScreen");
 
-        storeScreen = new StoreScreen(inventory, store, this, locations);
+        storeScreen = new StoreScreen(wagon, this);
         getContentPane().add(storeScreen.getPanel(), "StoreScreen");
 
-        riverScreen = new RiverScreen(this, locations);
+        riverScreen = new RiverScreen(wagon,this);
         getContentPane().add(riverScreen.getPanel(), "RiverScreen");
 
-        tradeScreen = new TradeScreen(this, locations);
+        tradeScreen = new TradeScreen(wagon, this);
         getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
 
-        controlScreen = new ControlScreen(inventory, player, this, locations);
+        controlScreen = new ControlScreen(wagon, this);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");
 
         // huntingScreen = new HuntingScreen();
         // getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
 
-        conversationScreen = new ConversationScreen(conversations,this);
+        conversationScreen = new ConversationScreen(wagon,this);
         getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
 
         conditionsScreen = new ConditionsScreen();
         getContentPane().add(conditionsScreen.getPanel(), "ConditionsScreen");
 
-        landmarkScreen = new LandmarkScreen(this, locations);
+        landmarkScreen = new LandmarkScreen(wagon, this);
         getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");
 
-        wagonGame = new WagonGame(this, locations);
+        wagonGame = new WagonGame(wagon, this);
         getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showTravelScreen(locations);
+        showTravelScreen(wagon);
     }
    
     /**
      * Switches to the Travel Screen
      */
-    public void showTravelScreen(Locations locations) {
+    public void showTravelScreen(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "TravelScreen");
-        travelScreen.updateScreen(locations, conditions);
+        travelScreen.updateScreen(wagon);
         travelScreen.getPanel().requestFocusInWindow();
     }
 

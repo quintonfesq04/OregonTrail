@@ -78,7 +78,8 @@ public class StoreScreen extends AbstractScreen{
 		buyBtn.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				if(wagon.getStore().checkIfEnoughMoney(wagon.getInventory()))
-					wagon.setInventory(wagon.getStore().buyMethod(wagon.getInventory));
+					wagon.setInventory(wagon.getStore().buyMethod(wagon.getInventory()));
+			}
 		});
 	
 		bottomPanel.add(buyBtn);
@@ -86,7 +87,7 @@ public class StoreScreen extends AbstractScreen{
 		JButton travelBtn = new JButton("Travel");
 		travelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				display.showTravelScreen(locations);
+				display.showTravelScreen(wagon);
 			}
 		});
 		bottomPanel.add(travelBtn);
@@ -194,8 +195,8 @@ public class StoreScreen extends AbstractScreen{
 		foodSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
-				store.updateCost(Inventory.FOOD, (Integer) foodSpinner.getValue());
-				priceLbl.setText("Total Cost: $" + store.getCost());
+				wagon.getStore().updateCost(Inventory.FOOD, (Integer) foodSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + wagon.getStore().getCost());
 			}
 		});
 		buyPanel.add(foodSpinner);
@@ -204,8 +205,8 @@ public class StoreScreen extends AbstractScreen{
 		oxenSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
-				store.updateCost(Inventory.OXEN, (Integer) oxenSpinner.getValue());
-				priceLbl.setText("Total Cost: $" + store.getCost());
+				wagon.getStore().updateCost(Inventory.OXEN, (Integer) oxenSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + wagon.getStore().getCost());
 			}
 		});
 		buyPanel.add(oxenSpinner);
@@ -214,8 +215,8 @@ public class StoreScreen extends AbstractScreen{
 		clothingSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
-				store.updateCost(Inventory.CLOTHING, (Integer) clothingSpinner.getValue());
-				priceLbl.setText("Total Cost: $" + store.getCost());
+				wagon.getStore().updateCost(Inventory.CLOTHING, (Integer) clothingSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + wagon.getStore().getCost());
 			}
 		});
 		buyPanel.add(clothingSpinner);
@@ -224,8 +225,8 @@ public class StoreScreen extends AbstractScreen{
 		bulletSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
-				store.updateCost(Inventory.BULLETS, (Integer) bulletSpinner.getValue());
-				priceLbl.setText("Total Cost: $" + store.getCost());
+				wagon.getStore().updateCost(Inventory.BULLETS, (Integer) bulletSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + wagon.getStore().getCost());
 			}
 		});
 		buyPanel.add(bulletSpinner);
@@ -234,8 +235,8 @@ public class StoreScreen extends AbstractScreen{
 		axleSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
-				store.updateCost(Inventory.WAGON_AXLE, (Integer) axleSpinner.getValue());
-				priceLbl.setText("Total Cost: $" + store.getCost());
+				wagon.getStore().updateCost(Inventory.WAGON_AXLE, (Integer) axleSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + wagon.getStore().getCost());
 			}
 		}); 
 		buyPanel.add(axleSpinner);
@@ -244,8 +245,8 @@ public class StoreScreen extends AbstractScreen{
 		tongueSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
-				store.updateCost(Inventory.WAGON_TONGUE, (Integer) tongueSpinner.getValue());
-				priceLbl.setText("Total Cost: $" + store.getCost());
+				wagon.getStore().updateCost(Inventory.WAGON_TONGUE, (Integer) tongueSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + wagon.getStore().getCost());
 			}
 		});
 		buyPanel.add(tongueSpinner);
@@ -254,15 +255,15 @@ public class StoreScreen extends AbstractScreen{
 		wheelSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
-				store.updateCost(Inventory.WAGON_WHEEL, (Integer) wheelSpinner.getValue());
-				priceLbl.setText("Total Cost: $" + store.getCost());
+				wagon.getStore().updateCost(Inventory.WAGON_WHEEL, (Integer) wheelSpinner.getValue());
+				priceLbl.setText("Total Cost: $" + wagon.getStore().getCost());
 			}
 		});
 		buyPanel.add(wheelSpinner);
 
         panel.setVisible(true);
 	}
-}
+
 	public void resetStore(){
 		wagon.getStore().resetQuantity();
 	}
@@ -278,3 +279,4 @@ public class StoreScreen extends AbstractScreen{
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'getPanel'");
 	}
+}

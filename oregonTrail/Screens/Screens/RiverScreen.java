@@ -76,7 +76,7 @@ public class RiverScreen extends AbstractScreen {
     			boolean crossed = river.crossRiver();
                 if(crossed) {
     				JOptionPane.showMessageDialog(null, "You Crossed " + river.getName());
-    				display.showTravelScreen(wagon.getLocations());
+    				display.showTravelScreen(wagon);
     			}
     			else {
     				JOptionPane.showMessageDialog(null, "You Did Not Cross " + river.getName());

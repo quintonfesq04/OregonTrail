@@ -8,10 +8,8 @@ import Gameplay.*;
 
 public class ControlScreen extends AbstractScreen {
     private JPanel panel;
-    private Inventory inventory;
-    private Player player;
+    private Wagon wagon;
     private Display display;
-    private Locations locations;
 
     private JLabel foodLbl;
     private JLabel moneyLbl;
@@ -32,11 +30,9 @@ public class ControlScreen extends AbstractScreen {
     private JSlider slider;
     private final ButtonGroup buttonGroup = new ButtonGroup();
 
-    public ControlScreen(Inventory inventory, Player player, Display display, Locations locations) {
-        this.inventory = inventory;
-        this.player = player;
+    public ControlScreen(Wagon wagon, Display display) {
+        this.wagon = wagon;
         this.display = display;
-        this.locations = locations;
         initialize();
     }
 
@@ -115,7 +111,7 @@ public class ControlScreen extends AbstractScreen {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_I) {
-                    display.showTravelScreen(locations);
+                    display.showTravelScreen(wagon);
                 } else {
                     System.out.println((char) e.getKeyCode());
                 }
@@ -124,14 +120,14 @@ public class ControlScreen extends AbstractScreen {
     }
 
     public void updateDisplay(){
-        moneyLbl.setText("Money:" + inventory.getMoney());
-        oxenLbl.setText("Oxen:" + inventory.getOxen());
-        foodLbl.setText("Food:" + inventory.getFood());
-        clothesLbl.setText("Clothes:" + inventory.getClothing());
-        ammoLbl.setText("Ammo:" + inventory.getBullets());
-        wheelLbl.setText("Wagon Wheels:" + inventory.getWagonWheel());
-        axleLbl.setText("Wagon Axles:" + inventory.getWagonAxle());
-        tongueLbl.setText("Wagon Tongues:" + inventory.getWagonTongue());
+        moneyLbl.setText("Money:" + wagon.getInventory().getMoney());
+        oxenLbl.setText("Oxen:" + wagon.getInventory().getOxen());
+        foodLbl.setText("Food:" + wagon.getInventory().getFood());
+        clothesLbl.setText("Clothes:" + wagon.getInventory().getClothing());
+        ammoLbl.setText("Ammo:" + wagon.getInventory().getBullets());
+        wheelLbl.setText("Wagon Wheels:" + wagon.getInventory().getWagonWheel());
+        axleLbl.setText("Wagon Axles:" + wagon.getInventory().getWagonAxle());
+        tongueLbl.setText("Wagon Tongues:" + wagon.getInventory().getWagonTongue());
     }
     @Override
     public void resizeImages() {
