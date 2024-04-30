@@ -40,7 +40,7 @@ public class ControlScreen extends AbstractScreen {
     }
 
     protected void initialize() {
-        panel = new JPanel(new BorderLayout());
+        panel = new JPanel(new GridLayout());
 
         JPanel inventoryPanel = new JPanel();
         inventoryPanel.setBorder(BorderFactory.createTitledBorder("Inventory"));
