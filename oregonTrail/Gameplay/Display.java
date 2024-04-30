@@ -67,6 +67,7 @@ public class Display extends JFrame {
      * initializes the Display
      */
     private void initialize() {
+        inventory.setFood(100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 1200, 675);
         getContentPane().setLayout(new CardLayout());
@@ -165,6 +166,7 @@ public class Display extends JFrame {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "ControlScreen");
         controlScreen.getPanel().setVisible(true);
+        controlScreen.updateDisplay();
         controlScreen.getPanel().requestFocusInWindow();
     }
 
