@@ -92,7 +92,7 @@ public class Display extends JFrame {
         // huntingScreen = new HuntingScreen();
         // getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
 
-        conversationScreen = new ConversationScreen(inventory, this, conversations);
+        conversationScreen = new ConversationScreen(conversations,this);
         getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
 
         conditionsScreen = new ConditionsScreen();
