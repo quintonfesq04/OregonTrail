@@ -46,6 +46,7 @@ public class StoreScreen extends AbstractScreen{
 	Inventory inventory;
 	Store store;
 	Display display;
+	Locations locations;
 
 	/**
 	 * Constructor for StoreScreen object
@@ -53,10 +54,11 @@ public class StoreScreen extends AbstractScreen{
 	 * @param store the store used by the screen
 	 * @param display the display that this will be used in
 	 */
-    public StoreScreen(Inventory inventory, Store store, Display display){
+    public StoreScreen(Inventory inventory, Store store, Display display, Locations locations){
 		this.inventory = inventory;
 		this.store = store;
 		this.display = display;
+		this.locations = locations;
         initialize();
     }
 
@@ -87,7 +89,7 @@ public class StoreScreen extends AbstractScreen{
 		JButton travelBtn = new JButton("Travel");
 		travelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				display.showTravelScreen();
+				display.showTravelScreen(locations);
 			}
 		});
 		bottomPanel.add(travelBtn);

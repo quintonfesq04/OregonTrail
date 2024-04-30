@@ -30,9 +30,11 @@ public class WagonGame extends AbstractScreen {
     private Timer gameTimer;
     private int time = 15;
     private Display display;
+    private Locations locations;
 
-    public WagonGame(Display display) {
+    public WagonGame(Display display, Locations locations) {
         this.display = display;
+        this.locations = locations;
         initializeUI();
         createBubbles();
         score = 0;
@@ -115,7 +117,7 @@ public class WagonGame extends AbstractScreen {
     private void endGame() {
         gameTimer.stop();
         JOptionPane.showMessageDialog(panel, "Game Over! Your Score: " + score, "Game Over", JOptionPane.INFORMATION_MESSAGE);
-        display.showTravelScreen();
+        display.showTravelScreen(locations);
     }
 
     private class BubbleClickListener extends MouseAdapter {

@@ -23,12 +23,12 @@ import java.awt.event.KeyListener;
  * @version 1.1.0 4/22/24
  */
 public class ControlScreen extends AbstractScreen{
-    private File image = new File("Images\\start screen46.jpg");
-    private PicPanel panel = new PicPanel(image);
-
+    private JPanel panel = new JPanel();
     private Inventory inventory;
     private Player player;
     private Display display;
+    private Locations locations;
+
 
 	private JLabel moneyLbl;
 	private JLabel oxenLbl;
@@ -54,10 +54,11 @@ public class ControlScreen extends AbstractScreen{
      * @param player    the player object used 
      * @param display   the main display that this will be shown in
      */
-    public ControlScreen(Inventory inventory, Player player, Display display){
+    public ControlScreen(Inventory inventory, Player player, Display display, Locations locations){
         this.inventory = inventory;
         this.player = player;
         this.display = display;
+        this.locations = locations;
     }
     
     @Override
@@ -68,13 +69,13 @@ public class ControlScreen extends AbstractScreen{
             public void keyPressed(KeyEvent e){
                 int vk = e.getKeyCode();
                 if(vk == KeyEvent.VK_SPACE || vk == KeyEvent.VK_I){
-                    display.showTravelScreen();
+                    display.showTravelScreen(locations);
                 }
                 else 
                     System.out.println((char)vk);
             }
         });
-        
+
 		JPanel inventoryPanel = new JPanel();
 		inventoryPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Inventory", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.add(inventoryPanel);
@@ -154,6 +155,7 @@ public class ControlScreen extends AbstractScreen{
 		buttonGroup.add(fillingBtn);
 		fillingBtn.setFont(sliderFont);
 		consumptionPanel.add(fillingBtn);
+		panel.setVisible(true);
     }
 
     @Override

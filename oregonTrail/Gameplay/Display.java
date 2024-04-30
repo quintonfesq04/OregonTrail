@@ -76,16 +76,16 @@ public class Display extends JFrame {
         // startScreen = new StartScreen(this);
         // getContentPane().add(startScreen.getPanel(), "StartScreen");
 
-        storeScreen = new StoreScreen(inventory, store, this);
+        storeScreen = new StoreScreen(inventory, store, this, locations);
         getContentPane().add(storeScreen.getPanel(), "StoreScreen");
 
         riverScreen = new RiverScreen(this, locations);
         getContentPane().add(riverScreen.getPanel(), "RiverScreen");
 
-        tradeScreen = new TradeScreen(this);
+        tradeScreen = new TradeScreen(this, locations);
         getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
 
-        controlScreen = new ControlScreen(inventory, player, this);
+        controlScreen = new ControlScreen(inventory, player, this, locations);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");
 
         // huntingScreen = new HuntingScreen();
@@ -97,22 +97,22 @@ public class Display extends JFrame {
         conditionsScreen = new ConditionsScreen();
         getContentPane().add(conditionsScreen.getPanel(), "ConditionsScreen");
 
-        landmarkScreen = new LandmarkScreen(this);
+        landmarkScreen = new LandmarkScreen(this, locations);
         getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");
 
-        wagonGame = new WagonGame(this);
+        wagonGame = new WagonGame(this, locations);
         getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showTravelScreen();
+        showTravelScreen(locations);
     }
    
     /**
      * Switches to the Travel Screen
      */
-    public void showTravelScreen() {
+    public void showTravelScreen(Locations locations) {
         travelScreen.updateScreen(locations, conditions);
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "TravelScreen");

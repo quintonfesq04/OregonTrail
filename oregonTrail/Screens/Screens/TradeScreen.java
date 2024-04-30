@@ -22,12 +22,14 @@ public class TradeScreen {
     private JLabel tradeLabel;
     private Display display;
     private Trade trade;
+    private Locations locations;
 
     /**
      * Create the application.
      */
-    public TradeScreen(Display display) {
+    public TradeScreen(Display display, Locations locations) {
     	this.display = display;
+        this.locations = locations;
         this.trade = new Trade();
         initialize();
     }
@@ -61,7 +63,7 @@ public class TradeScreen {
                 String[] tradeOffer = trade.createTrade();
                 String result = trade.acceptTrade(tradeOffer);
         		JOptionPane.showMessageDialog(null, result);
-        		display.showTravelScreen();
+        		display.showTravelScreen(locations);
         	}
         });
         acceptButton.setFont(new Font("Rockwell", Font.PLAIN, 24));
@@ -71,7 +73,7 @@ public class TradeScreen {
         declineButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		JOptionPane.showMessageDialog(null, "Trade Declined!");
-        		display.showTravelScreen();
+        		display.showTravelScreen(locations);
         	}
         });
         declineButton.setFont(new Font("Rockwell", Font.PLAIN, 24));
