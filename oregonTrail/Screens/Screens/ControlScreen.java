@@ -29,7 +29,6 @@ public class ControlScreen extends AbstractScreen{
     private Display display;
     private Locations locations;
 
-
 	private JLabel moneyLbl;
 	private JLabel oxenLbl;
 	private JLabel clothesLbl;
@@ -114,6 +113,7 @@ public class ControlScreen extends AbstractScreen{
 		inventoryPanel.add(tongueLbl);
 		
 		
+
 		JPanel optionPanel = new JPanel();
 		panel.add(optionPanel);
 		optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.Y_AXIS));
@@ -155,6 +155,7 @@ public class ControlScreen extends AbstractScreen{
 		buttonGroup.add(fillingBtn);
 		fillingBtn.setFont(sliderFont);
 		consumptionPanel.add(fillingBtn);
+
 		panel.setVisible(true);
     }
 
