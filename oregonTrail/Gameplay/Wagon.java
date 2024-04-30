@@ -37,6 +37,14 @@ public class Wagon {
         return this.conditions;
     }
 
+    public void setConversations(Conversations conversations){
+        this.conversations = conversations;
+    }
+
+    public Conversations getConversations(){
+        return this.conversations;
+    }
+
     public void setPlayer(Player player){
         this.player = player;
     }
