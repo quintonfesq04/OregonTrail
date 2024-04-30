@@ -1,4 +1,5 @@
 package Hunting;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -22,7 +23,7 @@ public class HuntingScreen extends JPanel{
 
     
     private void initialize() {
-        setLayout(null);
+        setLayout(new BorderLayout());
         add(huntingMap);
     }    
 

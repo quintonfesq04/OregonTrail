@@ -1,5 +1,6 @@
 package Hunting;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
@@ -23,7 +24,7 @@ public class Hunting extends JFrame{
     }
 
     private void init(){
-        this.setLayout(null);
+        this.setLayout(new BorderLayout());
         this.add(huntingScreen);
         this.setSize(500,500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
