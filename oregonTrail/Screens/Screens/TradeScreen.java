@@ -61,10 +61,8 @@ public class TradeScreen {
         JButton acceptButton = new JButton("Accept");
         acceptButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-                String[] tradeOffer = trade.createTrade();
-                String result = trade.acceptTrade(tradeOffer);
-        		JOptionPane.showMessageDialog(null, result);
-        		display.showTravelScreen(locations);
+                JOptionPane.showMessageDialog(null, trade.acceptTrade(tradeStr));
+                display.showTravelScreen(locations);
         	}
         });
 
@@ -89,7 +87,8 @@ public class TradeScreen {
 
     private void makeTrade(){
         tradeStr = trade.createTrade();
-        
+        String sendString = "A traveler wants to trade " + tradeStr[1] + " " + tradeStr[0] + " for " + tradeStr[3] + " " + tradeStr[2] + ".";
+        tradeLabel.setText(sendString);
     }
     /**
      * obtain the JPanel created by this class
