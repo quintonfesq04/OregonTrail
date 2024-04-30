@@ -277,6 +277,6 @@ public class StoreScreen extends AbstractScreen{
 	@Override
 	public JPanel getPanel() {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getPanel'");
+		return panel;
 	}
 }
