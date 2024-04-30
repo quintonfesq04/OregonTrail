@@ -20,15 +20,18 @@ import Hunting.*;
 public class TradeScreen {
 	private JPanel panel = new JPanel();
     private JLabel tradeLabel;
-    private Display display;   
+    private Display display;
+    private Trade trade;
+    private Locations locations;
     private String[] tradeStr;
-    private Wagon wagon;
+
     /**
      * Create the application.
      */
-    public TradeScreen(Wagon wagon,Display display) {
+    public TradeScreen(Display display, Locations locations) {
     	this.display = display;
-        this.wagon = wagon;
+        this.locations = locations;
+        this.trade = new Trade();
         initialize();
     }
 
@@ -58,8 +61,8 @@ public class TradeScreen {
         JButton acceptButton = new JButton("Accept");
         acceptButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, wagon.getTrade().acceptTrade(tradeStr));
-                display.showTravelScreen(wagon.getLocations());
+                JOptionPane.showMessageDialog(null, trade.acceptTrade(tradeStr));
+                display.showTravelScreen(locations);
         	}
         });
 
@@ -70,7 +73,7 @@ public class TradeScreen {
         declineButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		JOptionPane.showMessageDialog(null, "Trade Declined!");
-        		display.showTravelScreen(wagon.getLocations());
+        		display.showTravelScreen(locations);
         	}
         });
         declineButton.setFont(new Font("Rockwell", Font.PLAIN, 24));
@@ -83,7 +86,7 @@ public class TradeScreen {
     }
 
     private void makeTrade(){
-        tradeStr = wagon.getTrade().createTrade();
+        tradeStr = trade.createTrade();
         String sendString = "A traveler wants to trade " + tradeStr[1] + " " + tradeStr[0] + " for " + tradeStr[3] + " " + tradeStr[2] + ".";
         tradeLabel.setText(sendString);
     }

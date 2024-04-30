@@ -24,7 +24,6 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
     public ConversationScreen(Conversations conversations, Display display){
         this.conversations = conversations;
         this.display = display;
-        //initialize();
     }
     @Override
     protected void initialize() {
@@ -33,9 +32,6 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
 
         // Set the text alignment of the conversationLabel to center
         conversationLabel.setHorizontalAlignment(SwingConstants.CENTER);
-
-        //conversationLabel.setText(conversations.getConversation());
-
 
         // Add the conversationLabel to the panel at the center position
         panel.add(conversationLabel, BorderLayout.CENTER);
@@ -55,12 +51,18 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
         return panel;
     }
 
+    // Method to update the conversation label text
+    private void updateConversation() {
+
+        String nextConversation = conversations.getConversation();
+        conversationLabel.setText(nextConversation);
+    }
+
     // KeyListener methods
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            conversationLabel.setText(conversations.getConversation());
-            display.showLandmarkScreen();
+            updateConversation();
         }
     }
 
@@ -73,5 +75,4 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
     public void keyTyped(KeyEvent e) {
         // Unused
     }
-    
 }
