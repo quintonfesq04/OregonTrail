@@ -21,15 +21,15 @@ import java.awt.event.ActionEvent;
 public class LandmarkScreen extends AbstractScreen{
     private JPanel panel = new JPanel();
     private Display display;
-	private Locations locations;
+	private Wagon wagon;
     
 	/**
 	 * constructor for LandmarkScreen object
 	 * @param display the display that this will be used in
 	 */
-    public LandmarkScreen(Display display, Locations locations) {
+    public LandmarkScreen(Wagon wagon, Display display) {
     	this.display = display;
-		this.locations = locations;
+		this.wagon = wagon;
     	initialize();
     }
 
@@ -53,7 +53,7 @@ public class LandmarkScreen extends AbstractScreen{
 		JButton btnNewButton_1 = new JButton("Travel");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				display.showTravelScreen();
+				display.showTravelScreen(wagon.getLocations());
 			}
 		});
 		bottomPanel.add(btnNewButton_1);
