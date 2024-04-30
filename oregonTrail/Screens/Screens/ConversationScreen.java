@@ -17,7 +17,6 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
     private JPanel panel = new JPanel();
     private JLabel conversationLabel = new JLabel();
     private Conversations conversations = new Conversations();
-    private int currentConversationIndex = 0;
 
     @Override
 protected void initialize() {
@@ -48,8 +47,8 @@ protected void initialize() {
 
     // Method to update the conversation label text
     private void updateConversation() {
-        currentConversationIndex++;
-        String nextConversation = conversations.getConversation(currentConversationIndex);
+        
+        String nextConversation = conversations.getConversation();
         conversationLabel.setText(nextConversation);
     }
 
