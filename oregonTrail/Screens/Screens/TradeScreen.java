@@ -23,6 +23,7 @@ public class TradeScreen {
     private Display display;
     private Trade trade;
     private Locations locations;
+    private String[] tradeStr;
 
     /**
      * Create the application.
@@ -66,6 +67,7 @@ public class TradeScreen {
         		display.showTravelScreen(locations);
         	}
         });
+
         acceptButton.setFont(new Font("Rockwell", Font.PLAIN, 24));
         panel_1.add(acceptButton);
         
@@ -78,13 +80,22 @@ public class TradeScreen {
         });
         declineButton.setFont(new Font("Rockwell", Font.PLAIN, 24));
         panel_1.add(declineButton);
+        updateDisplay();
+    }
 
+    public void updateDisplay(){
+        makeTrade();
+    }
+
+    private void makeTrade(){
+        tradeStr = trade.createTrade();
+        
     }
     /**
      * obtain the JPanel created by this class
      * @return a JPanel containing the TradeScreen
      */
 	public JPanel getPanel() {   
-			return panel;
+		return panel;
     }
 }
