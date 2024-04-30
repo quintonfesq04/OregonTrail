@@ -118,6 +118,16 @@ public class ControlScreen extends AbstractScreen {
         });
     }
 
+    public void updateDisplay(){
+        moneyLbl.setText("Money:" + inventory.getMoney());
+        oxenLbl.setText("Oxen:" + inventory.getOxen());
+        foodLbl.setText("Food:" + inventory.getFood());
+        clothesLbl.setText("Clothes:" + inventory.getClothing());
+        ammoLbl.setText("Ammo:" + inventory.getBullets());
+        wheelLbl.setText("Wagon Wheels:" + inventory.getWagonWheel());
+        axleLbl.setText("Wagon Axles:" + inventory.getWagonAxle());
+        tongueLbl.setText("Wagon Tongues:" + inventory.getWagonTongue());
+    }
     @Override
     public void resizeImages() {
         // TODO: Implement resizing of images
