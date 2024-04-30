@@ -6,7 +6,7 @@ import Hunting.*;
 public class Conversations {
     private Locations locations = new Locations(this);
 
-    public String getConversation(int index){
+    public String getConversation(){
         int distance = locations.getDistance();
         String place = locations.getLocation(distance);
         String locationReader;
@@ -18,7 +18,7 @@ public class Conversations {
                 caseType = i;
             }
         }
-        switch(index){
+        switch(caseType){
             case 0 :
                 line = "Captain: What are you going to do? *The Captain gives a groan and falls to the ground.*";
                 break;
