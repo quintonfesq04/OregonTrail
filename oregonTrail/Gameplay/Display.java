@@ -164,6 +164,7 @@ public class Display extends JFrame {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "ControlScreen");
         controlScreen.getPanel().setVisible(true);
+        controlScreen.getPanel().requestFocusInWindow();
     }
 
     /**
