@@ -18,11 +18,11 @@ import Gameplay.*;
 public class ConversationScreen extends AbstractScreen implements KeyListener {
     private JPanel panel = new JPanel();
     private JLabel conversationLabel = new JLabel();
-    private Conversations conversations;
+    private Wagon wagon;
     private Display display;
 
-    public ConversationScreen(Conversations conversations, Display display){
-        this.conversations = conversations;
+    public ConversationScreen(Wagon wagon, Display display){
+        this.wagon = wagon;
         this.display = display;
     }
     @Override
@@ -54,7 +54,7 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
     // Method to update the conversation label text
     private void updateConversation() {
 
-        String nextConversation = conversations.getConversation();
+        String nextConversation = wagon.getConversations().getConversation();
         conversationLabel.setText(nextConversation);
     }
 
