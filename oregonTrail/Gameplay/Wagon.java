@@ -9,7 +9,7 @@ public class Wagon {
     private Trade trade = new Trade();
     private Store store = new Store();
 
-    private Wagon(){
+    public Wagon(){
 
     }
     

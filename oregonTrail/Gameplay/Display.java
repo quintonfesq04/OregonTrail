@@ -41,6 +41,8 @@ public class Display extends JFrame {
     Store store = new Store();
     Player player = new Player();
 
+    Wagon wagon = new Wagon();
+    
     /**
      * the main gateway into the program
      * @param args
