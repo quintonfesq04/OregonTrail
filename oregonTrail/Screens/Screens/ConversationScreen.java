@@ -25,7 +25,7 @@ protected void initialize() {
     
     // Set the text alignment of the conversationLabel to center
     conversationLabel.setHorizontalAlignment(SwingConstants.CENTER);
-    
+
     // Add the conversationLabel to the panel at the center position
     panel.add(conversationLabel, BorderLayout.CENTER);
     
