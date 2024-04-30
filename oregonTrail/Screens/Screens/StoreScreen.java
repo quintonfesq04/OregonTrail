@@ -43,10 +43,9 @@ public class StoreScreen extends AbstractScreen{
 	private JLabel tonguePriceLbl;
 	public JButton returnToLandmarkBtn;
 
-	Inventory inventory;
-	Store store;
-	Display display;
-	Locations locations;
+	private Display display;
+    private Wagon wagon;
+
 
 	/**
 	 * Constructor for StoreScreen object
@@ -54,11 +53,9 @@ public class StoreScreen extends AbstractScreen{
 	 * @param store the store used by the screen
 	 * @param display the display that this will be used in
 	 */
-    public StoreScreen(Inventory inventory, Store store, Display display, Locations locations){
-		this.inventory = inventory;
-		this.store = store;
-		this.display = display;
-		this.locations = locations;
+    public StoreScreen(Wagon wagon, Display display){
+		this.wagon = wagon;
+        this.display = display;
         initialize();
     }
 
@@ -80,10 +77,10 @@ public class StoreScreen extends AbstractScreen{
 		JButton buyBtn = new JButton("Buy");
 		buyBtn.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				if(store.checkIfEnoughMoney(inventory))
-					inventory = store.buyMethod(inventory);
-			}
+				if(wagon.getStore().checkIfEnoughMoney(wagon.getInventory()))
+					wagon.setInventory(wagon.getStore().buyMethod(wagon.getInventory));
 		});
+	
 		bottomPanel.add(buyBtn);
 		
 		JButton travelBtn = new JButton("Travel");
@@ -264,20 +261,20 @@ public class StoreScreen extends AbstractScreen{
 		buyPanel.add(wheelSpinner);
 
         panel.setVisible(true);
-    }
-
-    @Override
-    public void resizeImages() {
-        panel.resizeImage();
-    }
-
+	}
+}
 	public void resetStore(){
-		store.resetQuantity();
+		wagon.getStore().resetQuantity();
 	}
 
-    @Override
-    public JPanel getPanel() {
-        return panel;
-    }
-    
-}
+	@Override
+	public void resizeImages() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'resizeImages'");
+	}
+
+	@Override
+	public JPanel getPanel() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getPanel'");
+	}
