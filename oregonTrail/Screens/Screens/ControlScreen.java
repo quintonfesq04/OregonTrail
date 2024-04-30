@@ -13,6 +13,7 @@ public class ControlScreen extends AbstractScreen {
     private Display display;
     private Locations locations;
 
+    private JLabel foodLbl;
     private JLabel moneyLbl;
     private JLabel oxenLbl;
     private JLabel clothesLbl;
@@ -20,9 +21,9 @@ public class ControlScreen extends AbstractScreen {
     private JLabel axleLbl;
     private JLabel tongueLbl;
     private JLabel ammoLbl;
+    
     private Font labelFont = new Font("Trajan Pro", Font.PLAIN, 24);
     private Font sliderFont = new Font("Trajan Pro", Font.PLAIN, 16);
-    private JLabel foodLbl;
     private JPanel sliderPanel;
     private JPanel consumptionPanel;
     private JRadioButton meagerBtn;
@@ -41,7 +42,7 @@ public class ControlScreen extends AbstractScreen {
 
     protected void initialize() {
         panel = new JPanel(new GridLayout());
-        
+
         JPanel inventoryPanel = new JPanel();
         inventoryPanel.setBorder(BorderFactory.createTitledBorder("Inventory"));
         inventoryPanel.setLayout(new BoxLayout(inventoryPanel, BoxLayout.PAGE_AXIS));
@@ -90,6 +91,7 @@ public class ControlScreen extends AbstractScreen {
         sliderPanel = new JPanel(new BorderLayout());
         sliderPanel.setBorder(BorderFactory.createTitledBorder("Travel Speed"));
         sliderPanel.add(slider, BorderLayout.NORTH);
+        sliderPanel.setFont(sliderFont);
         optionPanel.add(sliderPanel);
 
         consumptionPanel = new JPanel(new GridLayout(3, 1));
@@ -104,6 +106,9 @@ public class ControlScreen extends AbstractScreen {
         consumptionPanel.add(meagerBtn);
         consumptionPanel.add(bareBonesBtn);
         consumptionPanel.add(fillingBtn);
+        meagerBtn.setFont(sliderFont);
+        bareBonesBtn.setFont(sliderFont);
+        fillingBtn.setFont(sliderFont);
         optionPanel.add(consumptionPanel);
 
         panel.addKeyListener(new KeyAdapter() {
