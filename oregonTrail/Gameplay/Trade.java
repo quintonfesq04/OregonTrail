@@ -73,7 +73,7 @@ public class Trade {
             return random.nextInt(32) + 1;
         } else {
             // Other items: 1-4
-            return random.nextInt(4) + 1;
+            return random.nextInt(3) + 1;
         }
     }
 }
