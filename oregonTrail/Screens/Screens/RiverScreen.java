@@ -30,22 +30,21 @@ import Hunting.*;
 public class RiverScreen extends AbstractScreen {
     private PicPanel viewPanel = new PicPanel(new File("Images/river screen0.jpg"));
     private JPanel panel = new JPanel();
-    private Locations locations;
     private Display display;
     private River river;
     private int height = 10;
     private int flow = 10;
     private int width = 50;
-    
+    private Wagon wagon;
 
     /**
      * constructor for RiverScreen object
      * @param display the display that this will be used in
      * @param location the location of the player along the trail
      */
-    public RiverScreen(Display display, Locations locations){
+    public RiverScreen(Wagon wagon, Display display){
         this.display = display;
-        this.locations = locations;
+        this.wagon = wagon;
      
         initialize();
     }
@@ -73,11 +72,11 @@ public class RiverScreen extends AbstractScreen {
     	JButton btnNewButton = new JButton("Cross");
     	btnNewButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) {
-    			river = new River(locations.getRiverName());
+    			river = new River(wagon.getLocations().getRiverName());
     			boolean crossed = river.crossRiver();
                 if(crossed) {
     				JOptionPane.showMessageDialog(null, "You Crossed " + river.getName());
-    				display.showTravelScreen(locations);
+    				display.showTravelScreen(wagon.getLocations());
     			}
     			else {
     				JOptionPane.showMessageDialog(null, "You Did Not Cross " + river.getName());
@@ -98,8 +97,8 @@ public class RiverScreen extends AbstractScreen {
         return viewPanel;
     }
 
-    public void update(Locations locations){
-        this.locations = locations;
+    public void update(Wagon wagon){
+        this.wagon = wagon;
     }
     
 }
