@@ -23,6 +23,7 @@ public class TradeScreen {
     private Display display;
     private Trade trade;
     private Locations locations;
+    private String[] tradeStr;
 
     /**
      * Create the application.
@@ -84,14 +85,11 @@ public class TradeScreen {
 
     public void updateDisplay(){
         makeTrade();
-        String[] tradeStr = trade.createTrade();
-        for(String str : tradeStr){
-            System.out.println(str);
-        }
     }
 
     private void makeTrade(){
-
+        tradeStr = trade.createTrade();
+        
     }
     /**
      * obtain the JPanel created by this class
