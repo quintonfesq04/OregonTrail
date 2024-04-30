@@ -67,7 +67,7 @@ public class Inventory {
     }
 
     public int getFood() {
-        return this.food;
+        return food;
     }
 
     public int getOxen() {
