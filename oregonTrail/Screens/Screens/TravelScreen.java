@@ -19,20 +19,15 @@ public class TravelScreen extends AbstractScreen {
 
     protected PicPanel viewPanel = new PicPanel(new File("Images/basic travel0.jpg"));
 
-    private Locations locations;
-    private Conditions conditions;
-    private Inventory inventory;
     private Display display;
-    private Trade trade;
+    private Wagon wagon;
+
     private int distanceMoved;
 
 
-    public TravelScreen(Locations location, Conditions conditions, Trade trade, Inventory inventory, Display display) {
-        this.locations = location;
-        this.conditions = conditions;
+    public TravelScreen(Wagon wagon, Display display) {
+        this.wagon = wagon;
         this.display = display;
-        this.trade = trade; 
-        this.inventory = inventory;
         initialize();
     }
 
@@ -46,7 +41,7 @@ public class TravelScreen extends AbstractScreen {
         cloud.setSize(cloud.getPreferredSize());
 
         viewPanel.add(cloud);
-        viewPanel.addKeyListener(new MapChecker(locations));
+        viewPanel.addKeyListener(new MapChecker(wagon.getLocations()));
         viewPanel.addKeyListener(new KeyAdapter(){
             @Override
             public void keyPressed(KeyEvent e){
@@ -71,21 +66,21 @@ public class TravelScreen extends AbstractScreen {
         //cloud.resizeImage();
     }
 
-    public void updateScreen(Locations locations, Conditions conditions){
-        this.locations = locations;
-        this.conditions = conditions;
+    public void updateScreen(Wagon wagon){
+        this.wagon.setLocations(wagon.getLocations());
+        this.wagon.setConditions(wagon.getConditions());
         initialize();
     }
     
     private void arriveAtLandmark() {
-        String nextLandmark = locations.getNextLandmark();
-        inventory = conditions.handleInventory();
+        String nextLandmark = wagon.getLocations().getNextLandmark();
+        wagon.setInventory(wagon.getConditions().handleInventory());
         if (nextLandmark != null) {
-            if (locations.hitRiver()) {
-                display.showRiverScreen(locations);
-            } else if (trade.tradeTime()) {
+            if (wagon.getLocations().hitRiver()) {
+                display.showRiverScreen(wagon.getLocations());
+            } else if (wagon.getTrade().tradeTime()) {
                 display.showTradeScreen();
-            } else if (conditions.getConditionMessage().contains("Your wagon broke down")) {
+            } else if (wagon.getConditions().getConditionMessage().contains("Your wagon broke down")) {
                 display.showWagonGame();
             } else if(checkLandmark() ){
                 display.showLandmarkScreen();
@@ -103,15 +98,15 @@ public class TravelScreen extends AbstractScreen {
     
         cloud.setLocation(cloud.getX(), cloud.getY()); // Set cloud location
     
-        locations.addDistance(distanceMoved); // Update distance traveled
+        wagon.getLocations().addDistance(distanceMoved); // Update distance traveled
     
         arriveAtLandmark(); // Check if the cloud has arrived at a landmark
     }
 
     private boolean checkLandmark(){
         for(int i = 0; i < Locations.LOCATION_DISTANCE.length; i++){
-            if(Locations.LOCATION_DISTANCE[i] + distanceMoved - 1 >= locations.getDistance() &&
-                                             Locations.LOCATION_DISTANCE[i] <= locations.getDistance())
+            if(Locations.LOCATION_DISTANCE[i] + distanceMoved - 1 >= wagon.getLocations().getDistance() &&
+                                             Locations.LOCATION_DISTANCE[i] <= wagon.getLocations().getDistance())
                 return true;
         } 
         return false;

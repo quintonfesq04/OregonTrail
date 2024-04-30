@@ -34,15 +34,8 @@ public class Display extends JFrame {
     private WagonGame wagonGame;
     private DeathScreen deathScreen;
 
-    Inventory inventory = new Inventory();
-    Locations locations = new Locations(0);
-    Conditions conditions = new Conditions(inventory);
-    Conversations conversations = new Conversations();
-    Store store = new Store();
-    Player player = new Player();
-
     Wagon wagon = new Wagon();
-    
+
 
     /**
      * the main gateway into the program
@@ -70,12 +63,11 @@ public class Display extends JFrame {
      * initializes the Display
      */
     private void initialize() {
-        inventory.setFood(100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 1200, 675);
         getContentPane().setLayout(new CardLayout());
 
-        travelScreen = new TravelScreen(locations, conditions, new Trade(), inventory, this);
+        travelScreen = new TravelScreen(wagon, this);
         getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 
         // startScreen = new StartScreen(this);
