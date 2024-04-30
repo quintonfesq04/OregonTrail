@@ -16,7 +16,13 @@ import Gameplay.*;
 public class ConversationScreen extends AbstractScreen implements KeyListener {
     private JPanel panel = new JPanel();
     private JLabel conversationLabel = new JLabel();
-    private Conversations conversations = new Conversations();
+    private Conversations conversations;
+    private Display display;
+
+    public ConversationScreen(Display display, Conversations conversations){
+        this.conversations = conversations;
+        this.display = display;
+    }
 
     @Override
 protected void initialize() {
