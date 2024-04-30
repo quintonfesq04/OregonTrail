@@ -6,7 +6,7 @@ package Gameplay;
  * @version 1.5.2 4/17/24
  */
 
- import Screens.*;
+import Screens.*;
 import Gameplay.*;
 import Hunting.*;
 
