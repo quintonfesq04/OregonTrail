@@ -37,6 +37,7 @@ public class Display extends JFrame {
     Inventory inventory = new Inventory();
     Locations locations = new Locations(0);
     Conditions conditions = new Conditions(inventory);
+    Conversations conversations = new Conversations();
     Store store = new Store();
     Player player = new Player();
 
@@ -91,7 +92,7 @@ public class Display extends JFrame {
         // huntingScreen = new HuntingScreen();
         // getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
 
-        conversationScreen = new ConversationScreen();
+        conversationScreen = new ConversationScreen(inventory, this, conversations);
         getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
 
         conditionsScreen = new ConditionsScreen();
