@@ -16,31 +16,24 @@ import Gameplay.*;
 public class ConversationScreen extends AbstractScreen implements KeyListener {
     private JPanel panel = new JPanel();
     private JLabel conversationLabel = new JLabel();
-    private Conversations conversation;
-    private Display display;
-    private Inventory inventory;
-
-    public ConversationScreen(Inventory inventory, Display display, Conversations conversation) {
-        this.inventory = inventory;
-        this.display = display;
-        this.conversation = conversation; // Initialize the conversation object
-        initialize();
-    }    
+    private Conversations conversations = new Conversations();
+    private int currentConversationIndex = 0;
 
     @Override
-    protected void initialize() {
-        // Set the layout manager of the panel to BorderLayout
-        panel.setLayout(new BorderLayout());
+protected void initialize() {
+    // Set the layout manager of the panel to BorderLayout
+    panel.setLayout(new BorderLayout());
     
-        // Set the text alignment of the conversationLabel to center
-        conversationLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        conversationLabel.setText(conversation.getConversation());
-        panel.add(conversationLabel, BorderLayout.CENTER);
+    // Set the text alignment of the conversationLabel to center
+    conversationLabel.setHorizontalAlignment(SwingConstants.CENTER);
     
-        panel.setFocusable(true);
-        panel.requestFocusInWindow();
-        panel.addKeyListener(this);
-    }
+    // Add the conversationLabel to the panel at the center position
+    panel.add(conversationLabel, BorderLayout.CENTER);
+    
+    panel.setFocusable(true);
+    panel.requestFocusInWindow();
+    panel.addKeyListener(this);
+}
 
 
     @Override
@@ -53,11 +46,18 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
         return panel;
     }
 
+    // Method to update the conversation label text
+    private void updateConversation() {
+        currentConversationIndex++;
+        String nextConversation = conversations.getConversation(currentConversationIndex);
+        conversationLabel.setText(nextConversation);
+    }
+
     // KeyListener methods
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            display.showLandmarkScreen();
+            updateConversation();
         }
     }
 
