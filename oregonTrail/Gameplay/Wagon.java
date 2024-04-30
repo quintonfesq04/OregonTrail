@@ -19,4 +19,20 @@ public class Wagon {
     public Player getPlayer(){
         return this.player;
     }
+
+    public void setTrade(Trade trade){
+        this.trade = trade;
+    }
+
+    public Trade getTrade(){
+        return this.trade;
+    }
+
+    public void setStore(Store store){
+        this.store = store;
+    }
+
+    public Store getStore(){
+        return this.store;
+    }
 }
