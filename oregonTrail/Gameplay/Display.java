@@ -106,17 +106,17 @@ public class Display extends JFrame {
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        //showTravelScreen(locations);
-        showTradeScreen();
+        showTravelScreen(locations);
     }
    
     /**
      * Switches to the Travel Screen
      */
     public void showTravelScreen(Locations locations) {
-        travelScreen.updateScreen(locations, conditions);
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "TravelScreen");
+        travelScreen.updateScreen(locations, conditions);
+        travelScreen.getPanel().requestFocusInWindow();
     }
 
     /**
@@ -212,6 +212,16 @@ public class Display extends JFrame {
     public void showDeathScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "DeathScreen");
+    }
+
+    public boolean showingLandmarkScreen() {
+        Component[] components = getContentPane().getComponents();
+        for(Component component : components) {
+            if(component.isVisible() && component.getName().equals("LandmarkScreen")) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
