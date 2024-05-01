@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import Screens.*;
-import Hunting.*;
+import Hunting.*; 
 
 /**
  * PicPanel.java - Creates a JPanel whose background can be set to an image
