@@ -92,15 +92,15 @@ public class ControlScreen extends AbstractScreen {
 
         consumptionPanel = new JPanel(new GridLayout(3, 1));
         consumptionPanel.setBorder(BorderFactory.createTitledBorder("Food Consumption"));
-        meagerBtn = new JRadioButton("Meager");
         bareBonesBtn = new JRadioButton("Bare-Bones");
+        meagerBtn = new JRadioButton("Meager");
         fillingBtn = new JRadioButton("Filling");
         fillingBtn.setSelected(true);
-        buttonGroup.add(meagerBtn);
         buttonGroup.add(bareBonesBtn);
+        buttonGroup.add(meagerBtn);
         buttonGroup.add(fillingBtn);
-        consumptionPanel.add(meagerBtn);
         consumptionPanel.add(bareBonesBtn);
+        consumptionPanel.add(meagerBtn);
         consumptionPanel.add(fillingBtn);
         meagerBtn.setFont(sliderFont);
         bareBonesBtn.setFont(sliderFont);

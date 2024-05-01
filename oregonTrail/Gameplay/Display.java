@@ -6,7 +6,7 @@ import javax.swing.*;
 import Gameplay.*;
 import Hunting.*;
 import Screens.*;
-import StartScreen.*;
+//import StartScreen.*;
 
 import java.awt.*;
 import java.io.File;
@@ -36,8 +36,8 @@ public class Display extends JFrame {
     private DeathScreen deathScreen;
 
     //StartScreen separator
-    private WelcomeScreen welcomeScreen;
-    private TheOregonTrail theOregonTrail;
+    //private WelcomeScreen welcomeScreen;
+    //private TheOregonTrail theOregonTrail;
 
     Wagon wagon = new Wagon();
 
@@ -113,11 +113,11 @@ public class Display extends JFrame {
          * Start Screen Separator
          */
 
-        welcomeScreen = new WelcomeScreen(wagon, this);
-        getContentPane().add(welcomeScreen.getPanel(), "WelcomeScreen");
+       // welcomeScreen = new WelcomeScreen(wagon, this);
+       // getContentPane().add(welcomeScreen.getPanel(), "WelcomeScreen");
 
-        theOregonTrail = new TheOregonTrail(wagon, this);
-        getContentPane().add(theOregonTrail.getPanel(), "TheOregonTrail");
+       // theOregonTrail = new TheOregonTrail(wagon, this);
+       // getContentPane().add(theOregonTrail.getPanel(), "TheOregonTrail");
 
 
         // show what screen
