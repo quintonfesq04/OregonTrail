@@ -17,15 +17,21 @@ import Gameplay.*;
 
 public class ConversationScreen extends AbstractScreen implements KeyListener {
     private JPanel panel = new JPanel();
-    private JLabel conversationLabel = new JLabel();
+    private JLabel conversationLabel = new JLabel("");
     private Wagon wagon;
     private Display display;
+    private Locations locations = new Locations(0);
     private Conversations conversations = new Conversations();
-    private int conversationCase = 0;
+    private int conversationCase;
+    int distance = locations.getDistance();
+    //String place = locations.getLocation(distance);
+    String locationReader;
 
     public ConversationScreen(Wagon wagon, Display display){
         this.wagon = wagon;
         this.display = display;
+        this.locations = new Locations(0);
+        initialize();
     }
     @Override
     protected void initialize() {
@@ -41,6 +47,8 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
         panel.setFocusable(true);
         panel.requestFocusInWindow();
         panel.addKeyListener(this);
+
+        getConversation();
     }
 
     private int getConversation() {
@@ -116,8 +124,6 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
     public JPanel getPanel() {
         return panel;
     }
-
-   
 
     // KeyListener methods
     @Override
