@@ -6,7 +6,7 @@ import javax.swing.*;
 import Gameplay.*;
 import Hunting.*;
 import Screens.*;
-//import StartScreen.*;
+import StartScreen.*;
 
 import java.awt.*;
 import java.io.File;
@@ -36,8 +36,12 @@ public class Display extends JFrame {
     private DeathScreen deathScreen;
 
     //StartScreen separator
-    //private WelcomeScreen welcomeScreen;
-    //private TheOregonTrail theOregonTrail;
+    private WelcomeScreen welcomeScreen;
+    private TheOregonTrail theOregonTrail;
+    private TrailScreen trailScreen;
+    private LearnTrail learnTrail;
+    private WagonLeader wagonLeader;
+    private GroupInfo groupInfo;
 
     Wagon wagon = new Wagon();
 
@@ -113,12 +117,20 @@ public class Display extends JFrame {
          * Start Screen Separator
          */
 
-       // welcomeScreen = new WelcomeScreen(wagon, this);
-       // getContentPane().add(welcomeScreen.getPanel(), "WelcomeScreen");
+        welcomeScreen = new WelcomeScreen(wagon, this);
+        getContentPane().add(welcomeScreen.getPanel(), "WelcomeScreen");
 
-       // theOregonTrail = new TheOregonTrail(wagon, this);
-       // getContentPane().add(theOregonTrail.getPanel(), "TheOregonTrail");
+        theOregonTrail = new TheOregonTrail(wagon, this);
+        getContentPane().add(theOregonTrail.getPanel(), "TheOregonTrail");
 
+        trailScreen = new TrailScreen(wagon, this);
+        getContentPane().add(trailScreen.getPanel(), "TrailScreen");
+
+        learnTrail = new LearnTrail(wagon, this);
+        getContentPane().add(learnTrail.getPanel(), "LearnTrail");
+
+        wagonLeader = new WagonLeader(wagon, this);
+        getContentPane().add(wagonLeader.getPanel(), "WagonLeader");
 
         // show what screen
         showWelcomeScreen(wagon);
@@ -256,14 +268,9 @@ public class Display extends JFrame {
         cardLayout.show(getContentPane(), "LearnTrail");
     }
 
-    public void showOregonTopTen(Wagon wagon){
+    public void showWagonLeader(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-        cardLayout.show(getContentPane(), "OregonTopTen");
-    }
-
-    public void showSoundOff(Wagon wagon){
-        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-        cardLayout.show(getContentPane(), "SoundOff");
+        cardLayout.show(getContentPane(), "WagonLeader");
     }
 
     /*
