@@ -49,18 +49,17 @@ public class WagonLeader extends AbstractScreen {
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.anchor = GridBagConstraints.WEST;
+		gbc.gridx = 0; 
+        gbc.gridy = 0; 
 		
 		JLabel leaderNameLbl = new JLabel("What is the first name of the Wagon Leader?");
         leaderNameLbl.setForeground(new Color(93, 199, 255));
         leaderNameLbl.setFont(smallFont);
 
-        gbc.gridx = 0; // Set the column
-        gbc.gridy = 0; // Set the row
-        gbc.insets = new Insets(10, 10, 10, 10); // Set insets (optional)
         viewPanel.add(leaderNameLbl, gbc);
 		
 		textField = new JTextField();
-		gbc.gridx = 1; // Move to the next column
+		gbc.gridx = 1; 
         viewPanel.add(textField, gbc);
 		textField.setColumns(10);
 		
