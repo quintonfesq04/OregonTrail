@@ -2,7 +2,9 @@ package StartScreen;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.io.File;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -42,16 +44,23 @@ public class WagonLeader extends AbstractScreen {
 	protected void initialize() {
 		viewPanel.setFocusable(true);
 		viewPanel.setLayout(new GridBagLayout());
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.anchor = GridBagConstraints.WEST;
 		
 		JLabel leaderNameLbl = new JLabel("What is the first name of the Wagon Leader?");
         leaderNameLbl.setForeground(new Color(93, 199, 255));
-		viewPanel.add(leaderNameLbl, BorderLayout.WEST);
         leaderNameLbl.setFont(smallFont);
+
+        gbc.gridx = 0; // Set the column
+        gbc.gridy = 0; // Set the row
+        gbc.insets = new Insets(10, 10, 10, 10); // Set insets (optional)
+        viewPanel.add(leaderNameLbl, gbc);
 		
 		textField = new JTextField();
-		viewPanel.add(textField, BorderLayout.CENTER);
+		gbc.gridx = 1; // Move to the next column
+        viewPanel.add(textField, gbc);
 		textField.setColumns(10);
-		textField.setBounds(100,100,100,100);
 	}
 
     @Override
