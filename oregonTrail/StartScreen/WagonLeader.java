@@ -6,6 +6,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.io.File;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -20,7 +22,7 @@ import java.awt.Dimension;
 
 public class WagonLeader extends AbstractScreen {
 	protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
-
+	private static final int TEXT_FIELD_MAX = 20;
     private Display display;
     private Wagon wagon;
 
@@ -61,6 +63,20 @@ public class WagonLeader extends AbstractScreen {
 		gbc.gridx = 1; // Move to the next column
         viewPanel.add(textField, gbc);
 		textField.setColumns(10);
+		
+		textField.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String str = textField.getText();
+				if(str.length() > TEXT_FIELD_MAX){
+					str = str.substring(0, TEXT_FIELD_MAX);
+					textField.setText(str);
+				}
+					
+			}
+			
+		});
 	}
 
     @Override
