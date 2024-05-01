@@ -40,7 +40,6 @@ public class WagonGame extends AbstractScreen {
         score = 0;
         bubbleCount = 0;
         updateScoreLabel();
-        
     }
 
     private void initializeUI() {
