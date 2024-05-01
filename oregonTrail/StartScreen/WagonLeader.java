@@ -2,6 +2,7 @@ package StartScreen;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridBagLayout;
 import java.io.File;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -40,7 +41,7 @@ public class WagonLeader extends AbstractScreen {
 	 */
 	protected void initialize() {
 		viewPanel.setFocusable(true);
-		viewPanel.setLayout(new BorderLayout(0, 0));
+		viewPanel.setLayout(new GridBagLayout());
 		
 		JLabel leaderNameLbl = new JLabel("What is the first name of the Wagon Leader?");
         leaderNameLbl.setForeground(new Color(93, 199, 255));
