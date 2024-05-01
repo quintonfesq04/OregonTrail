@@ -40,7 +40,7 @@ public class WagonGame extends AbstractScreen {
         score = 0;
         bubbleCount = 0;
         updateScoreLabel();
-        startGameTimer();
+        
     }
 
     private void initializeUI() {
@@ -95,8 +95,8 @@ public class WagonGame extends AbstractScreen {
         scoreLabel.setText("Score: " + score);
     }
 
-    private void startGameTimer() {
-        gameTimer = new Timer(1000, new ActionListener() {
+    public void startGame() { 
+    gameTimer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (time > 0) {
@@ -114,7 +114,7 @@ public class WagonGame extends AbstractScreen {
     }
 
 
-    private void endGame() {
+    public void endGame() {
         gameTimer.stop();
         JOptionPane.showMessageDialog(panel, "Game Over! Your Score: " + score, "Game Over", JOptionPane.INFORMATION_MESSAGE);
         display.showTravelScreen(wagon);

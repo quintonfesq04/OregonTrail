@@ -128,6 +128,9 @@ public class Display extends JFrame {
      * Switches to the Travel Screen
      */
     public void showTravelScreen(Wagon wagon) {
+        if(wagonGame!= null){
+            wagonGame.endGame(); 
+        }
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "TravelScreen");
         travelScreen.updateScreen(wagon);
@@ -221,6 +224,7 @@ public class Display extends JFrame {
     public void showWagonGame() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "WagonGame");
+        wagonGame.startGame();
     }
 
     /**
