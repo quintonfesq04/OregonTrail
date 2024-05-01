@@ -6,6 +6,7 @@ import javax.swing.*;
 import Gameplay.*;
 import Hunting.*;
 import Screens.*;
+import StartScreen.*;
 
 import java.awt.*;
 import java.io.File;
@@ -33,6 +34,7 @@ public class Display extends JFrame {
     private LandmarkScreen landmarkScreen;
     private WagonGame wagonGame;
     private DeathScreen deathScreen;
+    private WelcomeScreen welcomeScreen;
 
     Wagon wagon = new Wagon();
 
@@ -104,7 +106,16 @@ public class Display extends JFrame {
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        showTravelScreen(wagon);
+        /*
+         * Start Screen Separator
+         */
+
+        welcomeScreen = new WelcomeScreen(wagon, this);
+        getContentPane().add(welcomeScreen.getPanel(), "WelcomeScreen");
+
+
+        // show what screen
+        showWelcomeScreen(wagon);
     }
    
     /**
@@ -212,6 +223,15 @@ public class Display extends JFrame {
     public void showDeathScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "DeathScreen");
+    }
+
+    /*
+     * Start Screen Separator
+     * Switches to the Start Screen
+     */
+    public void showWelcomeScreen(Wagon wagon2) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "WelcomeScreen");
     }
 
     public boolean showingLandmarkScreen() {
