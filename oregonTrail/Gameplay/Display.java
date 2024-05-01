@@ -34,7 +34,10 @@ public class Display extends JFrame {
     private LandmarkScreen landmarkScreen;
     private WagonGame wagonGame;
     private DeathScreen deathScreen;
+
+    //StartScreen separator
     private WelcomeScreen welcomeScreen;
+    private TheOregonTrail theOregonTrail;
 
     Wagon wagon = new Wagon();
 
@@ -112,6 +115,9 @@ public class Display extends JFrame {
 
         welcomeScreen = new WelcomeScreen(wagon, this);
         getContentPane().add(welcomeScreen.getPanel(), "WelcomeScreen");
+
+        theOregonTrail = new TheOregonTrail(wagon, this);
+        getContentPane().add(theOregonTrail.getPanel(), "TheOregonTrail");
 
 
         // show what screen
@@ -229,9 +235,14 @@ public class Display extends JFrame {
      * Start Screen Separator
      * Switches to the Start Screen
      */
-    public void showWelcomeScreen(Wagon wagon2) {
+    public void showWelcomeScreen(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "WelcomeScreen");
+    }
+
+    public void showTheOregonTrail(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "TheOregonTrail");
     }
 
     public boolean showingLandmarkScreen() {

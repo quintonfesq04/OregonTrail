@@ -60,7 +60,7 @@ public class WelcomeScreen extends AbstractScreen {
             public void keyPressed(KeyEvent e){
                 int vk = e.getKeyCode();
                 if(vk == KeyEvent.VK_SPACE)
-                    display.showStoreScreen();   
+                    display.showTheOregonTrail(wagon);   
             }
         });
 	}
