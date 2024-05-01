@@ -51,5 +51,16 @@ public class WagonLeader extends AbstractScreen {
 		textField.setColumns(10);
 	}
 
-    
+    @Override
+	public void resizeImages() {
+		// TODO Auto-generated method stub
+        viewPanel.resizeImage();
+		
+	}
+
+	@Override
+	public JPanel getPanel() {
+		// TODO Auto-generated method stub
+		return viewPanel;
+	}
 }
