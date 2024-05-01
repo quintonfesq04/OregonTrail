@@ -42,14 +42,18 @@ public class TheOregonTrail extends AbstractScreen{
 		viewPanel.setFocusable(true);
 		viewPanel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("The Oregon Trail");
-		lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		viewPanel.add(lblNewLabel, BorderLayout.NORTH);
+		JLabel theOregonTrailLbl = new JLabel("The Oregon Trail");
+        theOregonTrailLbl.setForeground(new Color(93, 199, 255));
+		theOregonTrailLbl.setVerticalAlignment(SwingConstants.BOTTOM);
+		theOregonTrailLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		viewPanel.add(theOregonTrailLbl, BorderLayout.NORTH);
+        theOregonTrailLbl.setFont(titleFont);
 		
-		JLabel lblNewLabel_1 = new JLabel("You May:");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		viewPanel.add(lblNewLabel_1, BorderLayout.WEST);
+		JLabel youMayLbl = new JLabel("You May:");
+        youMayLbl.setForeground(new Color(93, 199, 255));
+		youMayLbl.setHorizontalAlignment(SwingConstants.RIGHT);
+		viewPanel.add(youMayLbl, BorderLayout.WEST);
+        youMayLbl.setFont(smallFont);
 		
 		JComboBox <String> comboBox = new JComboBox();
 		comboBox.addItem("1. Travel The Trail");
