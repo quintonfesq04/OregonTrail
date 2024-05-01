@@ -210,7 +210,7 @@ public class Display extends JFrame {
     /**
      * Switches to the Conversations Screen
      */
-    public void showConversationScreen() {
+    public void showConversationScreen(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "ConversationScreen");
     }

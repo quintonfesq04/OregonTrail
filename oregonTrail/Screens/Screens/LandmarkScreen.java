@@ -61,7 +61,7 @@ public class LandmarkScreen extends AbstractScreen{
 		JButton btnNewButton = new JButton("Conversation");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				display.showConversationScreen();
+				display.showConversationScreen(wagon);
 			}
 		});
 		bottomPanel.add(btnNewButton);
