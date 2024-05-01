@@ -47,16 +47,22 @@ public class LearnTrail extends AbstractScreen {
 		viewPanel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel titleLbl = new JLabel("The Oregon Trail");
+        titleLbl.setForeground(new Color(93, 199, 255));
 		titleLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		viewPanel.add(titleLbl, BorderLayout.NORTH);
+        titleLbl.setFont(smallFont);
 		
 		infoLbl = new JLabel("");
+        infoLbl.setForeground(new Color(93, 199, 255));
 		infoLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		viewPanel.add(infoLbl, BorderLayout.CENTER);
+        infoLbl.setFont(smallFont);
 		
 		JLabel continueLbl = new JLabel("Press Space To Continue");
+        continueLbl.setForeground(new Color(93, 199, 255));
 		continueLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		viewPanel.add(continueLbl, BorderLayout.SOUTH);
+        continueLbl.setFont(smallFont);
 	}
 
     private void switchLable() {
