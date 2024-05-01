@@ -48,18 +48,20 @@ public class TheOregonTrail extends AbstractScreen{
 		gbl_viewPanel.columnWidths = new int[]{98, 0, 0, 0, 0};
 		viewPanel.setLayout(gbl_viewPanel);
 		        
-		        GridBagConstraints gbc1 = new GridBagConstraints();
-		        gbc1.insets = new Insets(0, 0, 5, 5);
-		        gbc1.gridx = 1;
-		        gbc1.gridy = 0;
-		        gbc1.anchor = GridBagConstraints.NORTH;
-		        
-		        JLabel theOregonTrailLbl = new JLabel("The Oregon Trail");
-		        theOregonTrailLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		        theOregonTrailLbl.setVerticalAlignment(SwingConstants.TOP);
-		        theOregonTrailLbl.setForeground(new Color(93, 199, 255));
-		        viewPanel.add(theOregonTrailLbl, gbc1);
-		        theOregonTrailLbl.setFont(titleFont);
+		// JLabel "The Oregon Trail"
+		GridBagConstraints gbc1 = new GridBagConstraints();
+		gbc1.insets = new Insets(0, 0, 5, 5);
+		gbc1.gridx = 0; // Adjusted gridx to position at the left
+		gbc1.gridy = 0; // Adjusted gridy to position at the top
+		gbc1.gridwidth = 2; // Set gridwidth to 2 to span across two columns
+		gbc1.anchor = GridBagConstraints.CENTER; // Center the component horizontally
+		JLabel theOregonTrailLbl = new JLabel("The Oregon Trail");
+		theOregonTrailLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		theOregonTrailLbl.setVerticalAlignment(SwingConstants.TOP);
+		theOregonTrailLbl.setForeground(new Color(93, 199, 255));
+		viewPanel.add(theOregonTrailLbl, gbc1);
+		theOregonTrailLbl.setFont(titleFont);
+
 		
 		        GridBagConstraints gbc = new GridBagConstraints();
 		        gbc.insets = new Insets(0, 0, 5, 5);
