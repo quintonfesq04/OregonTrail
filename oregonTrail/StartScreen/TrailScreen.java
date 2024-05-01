@@ -43,11 +43,15 @@ public class TrailScreen extends AbstractScreen {
 		viewPanel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel titleLbl = new JLabel("Many kinds of women made the trip to Oregon.");
+        titleLbl.setForeground(new Color(93, 199, 255));
 		titleLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		viewPanel.add(titleLbl, BorderLayout.NORTH);
+        titleLbl.setFont(titleFont);
 		
 		JLabel youMayLbl = new JLabel("You May:");
+        youMayLbl.setForeground(new Color(93, 199, 255));
 		viewPanel.add(youMayLbl, BorderLayout.WEST);
+        youMayLbl.setFont(smallFont);
 		
 		JComboBox comboBox = new JComboBox();
         comboBox.addItem("1. Be a Doctor from Dayton");
@@ -79,10 +83,13 @@ public class TrailScreen extends AbstractScreen {
 		});
 
 		viewPanel.add(comboBox, BorderLayout.CENTER);
-		
+		viewPanel.requestFocusInWindow();
+
 		JLabel choiceLbl = new JLabel("What is your choice?");
+        choiceLbl.setForeground(new Color(93, 199, 255));
 		choiceLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		viewPanel.add(choiceLbl, BorderLayout.SOUTH);
+        choiceLbl.setFont(smallFont);
 	}
 
     @Override
