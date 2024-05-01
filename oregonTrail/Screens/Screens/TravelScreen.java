@@ -89,15 +89,16 @@ public class TravelScreen extends AbstractScreen {
     }
     
     private void travel() {
-        distanceMoved = 50; // Distance the cloud moves
+        int cloudDistanceMoved = 50; // Distance the cloud moves
         if (cloud.getX() < viewPanel.getWidth()) {
-            cloud.update(distanceMoved); // Update cloud position
+            cloud.update(cloudDistanceMoved); // Update cloud position
         } else {
             cloud.setX(-100); // Reset cloud position
         }
     
         cloud.setLocation(cloud.getX(), cloud.getY()); // Set cloud location
-    
+        
+        distanceMoved = wagon.getPlayer().getTravelSpeed();
         wagon.getLocations().addDistance(distanceMoved); // Update distance traveled
     
         arriveAtLandmark(); // Check if the cloud has arrived at a landmark

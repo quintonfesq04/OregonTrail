@@ -17,6 +17,7 @@ public class Player {
     private int food;
     private int sicknessCount;
     private int consumptionRate;
+    private int travelSpeed;
     private double freezeStarveFactor;
 
     public Player() {
@@ -25,14 +26,24 @@ public class Player {
         this.sicknessCount = 0;
         this.consumptionRate = 15;
         this.freezeStarveFactor = 0;
+        this.travelSpeed = 20;
     }
 
-    public Player(int health, int food, int sicknessCount, int consumptionRate) {
+    public Player(int health, int food, int sicknessCount, int consumptionRate, int travelSpeed) {
         this.health = health;
         this.food = food;
         this.sicknessCount = sicknessCount;
         this.consumptionRate = consumptionRate;
+        this.travelSpeed = travelSpeed;
         this.freezeStarveFactor = 0;
+    }
+
+    public void setTravelSpeed(int travelSpeed){
+        this.travelSpeed = travelSpeed;
+    }
+
+    public int getTravelSpeed(){
+        return travelSpeed;
     }
 
     public void setConsumption(String str) {

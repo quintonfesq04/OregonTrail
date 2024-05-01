@@ -2,6 +2,9 @@ package Screens;
 
 import javax.swing.*;
 import javax.swing.border.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import java.awt.*;
 import java.awt.event.*;
 import Gameplay.*;
@@ -84,6 +87,14 @@ public class ControlScreen extends AbstractScreen {
         slider.setMajorTickSpacing(1);
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
+        slider.addChangeListener(new ChangeListener(){
+
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                wagon.getPlayer().setTravelSpeed(slider.getValue());
+            }
+            
+        });
         sliderPanel = new JPanel(new BorderLayout());
         sliderPanel.setBorder(BorderFactory.createTitledBorder("Travel Speed"));
         sliderPanel.add(slider, BorderLayout.NORTH);
