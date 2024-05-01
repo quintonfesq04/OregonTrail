@@ -65,7 +65,7 @@ public class LearnTrail extends AbstractScreen {
         continueLbl.setFont(smallFont);
 	}
 
-    private void switchLable() {
+    private void switchLabel() {
         viewPanel.addKeyListener(new KeyAdapter(){
             @Override
             public void keyPressed(KeyEvent e){
