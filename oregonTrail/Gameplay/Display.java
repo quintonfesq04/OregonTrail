@@ -132,6 +132,9 @@ public class Display extends JFrame {
         wagonLeader = new WagonLeader(wagon, this);
         getContentPane().add(wagonLeader.getPanel(), "WagonLeader");
 
+        groupInfo = new GroupInfo(wagon,this);
+        getContentPane().add(groupInfo.getPanel(), "GroupInfo");
+
         // show what screen
         showWelcomeScreen(wagon);
     }
@@ -271,6 +274,11 @@ public class Display extends JFrame {
     public void showWagonLeader(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "WagonLeader");
+    }
+
+    public void showGroupInfo(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "GroupInfo");
     }
 
     /*
