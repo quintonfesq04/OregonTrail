@@ -13,6 +13,7 @@ import Screens.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 
 public class WagonLeader extends AbstractScreen {
 	protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
@@ -49,6 +50,7 @@ public class WagonLeader extends AbstractScreen {
 		textField = new JTextField();
 		viewPanel.add(textField, BorderLayout.CENTER);
 		textField.setColumns(10);
+		textField.setBounds(100,100,100,100);
 	}
 
     @Override
