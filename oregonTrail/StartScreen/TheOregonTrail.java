@@ -58,9 +58,7 @@ public class TheOregonTrail extends AbstractScreen{
 		JComboBox <String> comboBox = new JComboBox();
 		comboBox.addItem("1. Travel The Trail");
 		comboBox.addItem("2. Learn About The Trail");
-		comboBox.addItem("3. See The Oregon Top Ten");
-		comboBox.addItem("4. Turn Sound Off");
-		comboBox.addItem("5. End");
+		comboBox.addItem("3. End");
 		
 		comboBox.addActionListener(new ActionListener() {
             @Override
@@ -75,13 +73,7 @@ public class TheOregonTrail extends AbstractScreen{
                 	case "2. Learn About The Trail":
                 		display.showLearnTrail(wagon);
                 		break;
-                	case "3. See The Oregon Top Ten":
-                		display.showOregonTopTen(wagon);
-                		break;
-                	case "4. Turn Sound Off":
-                		display.showSoundOff(wagon);
-                		break;
-                	case "5. End":
+                	case "3. End":
                 		display.showDeathScreen();
                 		break;
                 }
