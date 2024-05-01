@@ -245,6 +245,30 @@ public class Display extends JFrame {
         cardLayout.show(getContentPane(), "TheOregonTrail");
     }
 
+    public void showTrailScreen(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "TrailScreen");
+    }
+
+    public void showLearnTrail(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "LearnTrail");
+    }
+
+    public void showOregonTopTen(Wagon wagon){
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "OregonTopTen");
+    }
+
+    public void showSoundOff(Wagon wagon){
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "SoundOff");
+    }
+
+    /*
+     * Start Screen Separator - end
+     */
+
     public boolean showingLandmarkScreen() {
         Component[] components = getContentPane().getComponents();
         for(Component component : components) {
