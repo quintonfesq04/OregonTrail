@@ -136,7 +136,8 @@ public class Display extends JFrame {
         getContentPane().add(groupInfo.getPanel(), "GroupInfo");
 
         // show what screen
-        showWelcomeScreen(wagon);
+        //showWelcomeScreen(wagon);
+        showTravelScreen(wagon);
     }
    
     /**

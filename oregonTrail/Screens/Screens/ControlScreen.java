@@ -92,6 +92,7 @@ public class ControlScreen extends AbstractScreen {
             @Override
             public void stateChanged(ChangeEvent e) {
                 wagon.getPlayer().setTravelSpeed(slider.getValue());
+                panel.requestFocusInWindow();
             }
             
         });
@@ -117,6 +118,32 @@ public class ControlScreen extends AbstractScreen {
         bareBonesBtn.setFont(sliderFont);
         fillingBtn.setFont(sliderFont);
         optionPanel.add(consumptionPanel);
+
+        
+        ActionListener radioListener = new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.requestFocusInWindow();
+                if(e.getSource() instanceof JRadioButton){
+                    if(e.getSource() == bareBonesBtn){
+                        wagon.getPlayer().setConsumption(Player.BARE_BONES);
+                    }
+                    else if (e.getSource() == fillingBtn){
+                        wagon.getPlayer().setConsumption(Player.FILLING);
+                    }
+                    else if(e.getSource() == meagerBtn){
+                        wagon.getPlayer().setConsumption(Player.MEAGER);
+                    }
+                }
+            }
+            
+        };
+
+        fillingBtn.addActionListener(radioListener);
+        meagerBtn.addActionListener(radioListener);
+        bareBonesBtn.addActionListener(radioListener);
+        
 
         panel.addKeyListener(new KeyAdapter() {
             @Override

@@ -19,6 +19,9 @@ public class Player {
     private int consumptionRate;
     private int travelSpeed;
     private double freezeStarveFactor;
+    public static final String FILLING      = "Filling";
+    public static final String BARE_BONES   = "Bare-Bones";
+    public static final String MEAGER       = "Meager";
 
     public Player() {
         this.health = 0;
