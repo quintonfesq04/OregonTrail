@@ -20,6 +20,7 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
     private JLabel conversationLabel = new JLabel();
     private Wagon wagon;
     private Display display;
+    private Conversations conversations = new Conversations();
 
     public ConversationScreen(Wagon wagon, Display display){
         this.wagon = wagon;
@@ -30,6 +31,7 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
         // Set the layout manager of the panel to BorderLayout
         panel.setLayout(new BorderLayout());
 
+        conversationLabel.setText(getConversation(caseType));
         // Set the text alignment of the conversationLabel to center
         conversationLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -51,19 +53,16 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
         return panel;
     }
 
-    // Method to update the conversation label text
-    private void updateConversation() {
-
-        String nextConversation = wagon.getConversations().getConversation();
-        conversationLabel.setText(nextConversation);
-    }
+   
 
     // KeyListener methods
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            updateConversation();
+            display.showLandmarkScreen();
         }
+
+     
     }
 
     @Override
