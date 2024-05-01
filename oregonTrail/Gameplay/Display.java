@@ -38,6 +38,10 @@ public class Display extends JFrame {
     //StartScreen separator
     private WelcomeScreen welcomeScreen;
     private TheOregonTrail theOregonTrail;
+    private TrailScreen trailScreen;
+    private LearnTrail learnTrail;
+    private OregonTopTen oregonTopTen;
+    private SoundOff soundOff;
 
     Wagon wagon = new Wagon();
 
@@ -118,6 +122,18 @@ public class Display extends JFrame {
 
         theOregonTrail = new TheOregonTrail(wagon, this);
         getContentPane().add(theOregonTrail.getPanel(), "TheOregonTrail");
+
+        trailScreen = new TrailScreen(wagon, this);
+        getContentPane().add(trailScreen.getPanel(), "TrailScreen");
+
+        learnTrail = new LearnTrail(wagon, this);
+        getContentPane().add(learnTrail.getPanel(), "LearnTrail");
+
+        oregonTopTen = new OregonTopTen(wagon, this);
+        getContentPane().add(oregonTopTen.getPanel(), "OregonTopTen");
+
+        soundOff = new SoundOff(wagon, this);
+        getContentPane().add(soundOff.getPanel(), "SoundOff");
 
 
         // show what screen
@@ -244,6 +260,30 @@ public class Display extends JFrame {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "TheOregonTrail");
     }
+
+    public void showTrailScreen(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "TrailScreen");
+    }
+
+    public void showLearnTrail(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "LearnTrail");
+    }
+
+    public void showOregonTopTen(Wagon wagon){
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "OregonTopTen");
+    }
+
+    public void showSoundOff(Wagon wagon){
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "SoundOff");
+    }
+
+    /*
+     * Start Screen Separator - end
+     */
 
     public boolean showingLandmarkScreen() {
         Component[] components = getContentPane().getComponents();

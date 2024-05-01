@@ -70,16 +70,16 @@ public class TheOregonTrail extends AbstractScreen{
                 // Check which item is selected and perform action accordingly
                 switch (selectedOption) {
                 	case "1. Travel The Trail":
-                		display.showTrailScreen();
+                		display.showTrailScreen(wagon);
                 		break;
                 	case "2. Learn About The Trail":
-                		display.showLearnTrail();
+                		display.showLearnTrail(wagon);
                 		break;
                 	case "3. See The Oregon Top Ten":
-                		display.showOregonTopTen();
+                		display.showOregonTopTen(wagon);
                 		break;
                 	case "4. Turn Sound Off":
-                		display.showSoundOff();
+                		display.showSoundOff(wagon);
                 		break;
                 	case "5. End":
                 		display.showDeathScreen();
