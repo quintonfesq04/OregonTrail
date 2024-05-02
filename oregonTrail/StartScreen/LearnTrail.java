@@ -64,11 +64,15 @@ public class LearnTrail extends AbstractScreen {
         viewPanel.setFocusable(true);
         viewPanel.requestFocusInWindow();
 
+        System.out.println("Init ran");
+        System.out.println(viewPanel.isFocusOwner());
+
         viewPanel.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 int vk = e.getKeyCode();
                 if (vk == KeyEvent.VK_SPACE) {
+                    System.out.println("key event made");
                     switchLabel();
                 }
             }
@@ -81,7 +85,7 @@ public class LearnTrail extends AbstractScreen {
             case 0:
                 infoLbl.setText("<html>How will you corss the river? if you have money, you might take a ferry (if there is a ferry). Or, you can ford the river and hope you and your wagon aren't swallowed alive!");
                 instructionScreen++;
-                return;
+                break;
             case 1:
                 infoLbl.setText("<html>What about supplies? Well, if you're low on food you can forage. You might get a berry... you might. And there are potatoes in the mountains.");
                 instructionScreen++;
@@ -107,7 +111,7 @@ public class LearnTrail extends AbstractScreen {
                 instructionScreen++;
                 break;
             case 7:
-                infoLbl.setText("<html>The software team responsible for the creation of this product includes: Ethan Burch Quinton Fesq Madison Scott Lane Kanagy");
+                infoLbl.setText("<html><center>The software team responsible for the creation of this product includes:<br>Ethan Burch<br>Quinton Fesq<br>Madison Scott<br>Lane Kanagy</html>");
                 instructionScreen++;
                 break;
             case 8:
@@ -115,6 +119,7 @@ public class LearnTrail extends AbstractScreen {
                 display.showTheOregonTrail(wagon);
                 break;
         }
+        System.out.println(instructionScreen);
     }
 
     @Override

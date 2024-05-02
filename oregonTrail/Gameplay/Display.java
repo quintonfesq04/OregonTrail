@@ -272,6 +272,7 @@ public class Display extends JFrame {
     public void showLearnTrail(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "LearnTrail");
+        learnTrail.getPanel().requestFocusInWindow();
     }
 
     public void showGroupInfo(Wagon wagon) {
