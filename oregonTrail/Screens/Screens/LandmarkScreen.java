@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 /**
  * LandmarkScreen.java -- shows the landmark that the player has arrived at
  * @author Quinton Fesq
+ * @author Ethan Burch
  * @version 1.3.1 4/24/24
  */
 

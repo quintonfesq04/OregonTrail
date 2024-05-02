@@ -3,6 +3,12 @@ import Screens.*;
 import Gameplay.*;
 import Hunting.*;
 
+/**
+ * Conversations.java 
+ * @author Lane Kanagy
+ * @author Ethan Burch
+ * @version 1.4.0 5/1/24
+ */
 public class Conversations {
     private Locations locations = new Locations(this);
 

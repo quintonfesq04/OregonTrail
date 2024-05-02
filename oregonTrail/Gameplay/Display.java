@@ -19,7 +19,7 @@ import java.util.List;
  * @author Ethan Burch
  * @author Quinton Fesq
  * @author Madison Scott
- * @version 2.4.1 4/24/24
+ * @version 2.4.4 4/24/24
  */
 public class Display extends JFrame {
     private TravelScreen travelScreen;

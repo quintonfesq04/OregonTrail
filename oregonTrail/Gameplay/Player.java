@@ -8,7 +8,8 @@ import Hunting.*;
 /**
  * @File: Player.java
  * @author: Madison Scott
- * @version: 2.0.0 4/16/24
+ * @author Ethan Burch
+ * @version: 2.1.0 5/1/24
  * @Description: controls the players health and sickness count
  */
 

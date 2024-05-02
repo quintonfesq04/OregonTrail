@@ -17,6 +17,13 @@ import java.awt.event.ActionEvent;
 import Screens.*;
 import Hunting.*;
 
+/**
+ * TradeScreen.java --
+ * @author Madison Scott
+ * @author Ethan Burch
+ * @author Quinton Fesq
+ * @version 1.1.0 4/26/24
+ */
 public class TradeScreen {
 	private JPanel panel = new JPanel();
     private JLabel tradeLabel;
