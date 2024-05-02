@@ -42,6 +42,7 @@ public class Display extends JFrame {
     private LearnTrail learnTrail;
     private GroupInfo groupInfo;
     private WagonNames wagonNames;
+    private ChooseMonth chooseMonth;
 
     Wagon wagon = new Wagon();
 
@@ -135,8 +136,9 @@ public class Display extends JFrame {
         wagonNames = new WagonNames(wagon, this);
         getContentPane().add(wagonNames.getPanel(), "WagonNames");
 
-        // show what screen
-        //showWelcomeScreen(wagon);
+        chooseMonth = new ChooseMonth(wagon, this);
+        getContentPane().add(chooseMonth.getPanel(), "ChooseMonth");
+
         showWelcomeScreen(wagon);
     }
    
@@ -280,6 +282,11 @@ public class Display extends JFrame {
     public void showWagonNames(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "WagonNames");
+    }
+
+    public void showChooseMonth(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "ChooseMonth");
     }
 
     /*

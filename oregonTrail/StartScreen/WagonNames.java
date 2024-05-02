@@ -9,6 +9,8 @@ import Screens.*;
 import StartScreen.*;
 
 import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -303,7 +305,7 @@ public class WagonNames extends AbstractScreen {
 
                 correctNameBtn.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        
+                        display.showChooseMonth(wagon);
                     }
                 });
 
@@ -318,8 +320,23 @@ public class WagonNames extends AbstractScreen {
                 viewPanel.add(incorrectNameBtn, gbc_incorrectNameBtn);
                 viewPanel.revalidate();
                 viewPanel.repaint();
+
+                incorrectNameBtn.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        resetScreen();
+                    }
+                });
             }
         });
+    }
+
+    private void resetScreen() {
+        viewPanel.removeAll();
+        //add your elements
+        viewPanel.revalidate();
+        viewPanel.repaint();
+        display.showWagonNames(wagon);
+        initialize();
     }
 
     @Override
