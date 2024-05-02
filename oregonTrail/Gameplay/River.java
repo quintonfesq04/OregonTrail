@@ -7,6 +7,8 @@ import Hunting.*;
 /**
  * River.java
  * @author Madison Scott
+ * @author Ethan Burch
+ * @author Quinton Fesq
  * @version 1.2.0 4/20/24
  * This program represents a river using attributes 
  * like its name, height, flow rate, and width. The crossRiver() method 

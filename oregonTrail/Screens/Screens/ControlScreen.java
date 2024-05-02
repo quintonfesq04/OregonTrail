@@ -9,6 +9,11 @@ import java.awt.*;
 import java.awt.event.*;
 import Gameplay.*;
 
+/**
+ * ControlScreen.java -- pulls up a screen that allows to player to see their inventory and make edits to how they traverse the trail
+ * @author Ethan Burch
+ * @version 1.4.2 5/1/24
+ */
 public class ControlScreen extends AbstractScreen {
     private JPanel panel;
     private Wagon wagon;

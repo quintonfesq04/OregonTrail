@@ -1,5 +1,11 @@
 package Gameplay;
 
+/**
+ * Wagon.java -- Controls the different options
+ * @author Ethan Burch
+ * @author Madison Scott
+ * @version 4/30/24 1.0.0
+ */
 public class Wagon {
     private Inventory inventory = new Inventory();
     private Locations locations = new Locations(0);

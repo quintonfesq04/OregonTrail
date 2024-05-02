@@ -4,6 +4,12 @@ import java.util.Random;
 
 import Gameplay.Inventory;
 
+/**
+ * Trade.java -- 
+ * @author Lane Kanagy
+ * @author Quinton Fesq
+ * @version 1.2.0
+ */
 public class Trade {
 
     private Inventory inventory = new Inventory();

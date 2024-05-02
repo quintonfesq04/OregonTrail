@@ -17,6 +17,13 @@ import java.util.Random;
 import Hunting.*;
 import Screens.*;
 
+/**
+ * WagonGame.java -- 
+ * @author Quinton Fesq
+ * @author Ethan Burch
+ * @author Madison Scott
+ * @version 1.7.1 5/1/24
+ */
 public class WagonGame extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/wagon game0.jpg"));
 
