@@ -23,12 +23,11 @@ import java.util.List;
  */
 public class Display extends JFrame {
     private TravelScreen travelScreen;
-    // private StartScreen startScreen;
+    private ForagingScreen foragingScreen;
     private StoreScreen storeScreen;
     private RiverScreen riverScreen;
     private TradeScreen tradeScreen;
     private ControlScreen controlScreen;        
-    //private HuntingScreen huntingScreen;
     private ConversationScreen conversationScreen;
     private ConditionsScreen conditionsScreen;
     private LandmarkScreen landmarkScreen;
@@ -81,9 +80,6 @@ public class Display extends JFrame {
         travelScreen = new TravelScreen(wagon, this);
         getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 
-        // startScreen = new StartScreen(this);
-        // getContentPane().add(startScreen.getPanel(), "StartScreen");
-
         storeScreen = new StoreScreen(wagon, this);
         getContentPane().add(storeScreen.getPanel(), "StoreScreen");
 
@@ -95,9 +91,6 @@ public class Display extends JFrame {
 
         controlScreen = new ControlScreen(wagon, this);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");
-
-        // huntingScreen = new HuntingScreen();
-        // getContentPane().add(huntingScreen.getPanel(), "HuntingScreen");
 
         conversationScreen = new ConversationScreen(wagon, this);
         getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
@@ -111,8 +104,13 @@ public class Display extends JFrame {
         wagonGame = new WagonGame(wagon, this);
         getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
+        foragingScreen = new ForagingScreen(wagon, this);        
+        getContentPane().add(foragingScreen.getPanel(), "ForagingScreen");
+
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
+
+        
 
         /*
          * Start Screen Separator
@@ -139,7 +137,7 @@ public class Display extends JFrame {
         chooseMonth = new ChooseMonth(wagon, this);
         getContentPane().add(chooseMonth.getPanel(), "ChooseMonth");
 
-        showWelcomeScreen(wagon);
+        showForagingScreen(wagon);
     }
    
     /**
@@ -158,6 +156,13 @@ public class Display extends JFrame {
     public void showStartScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "StartScreen");
+    }
+
+    public void showForagingScreen(Wagon wagon){
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "ForagingScreen");
+        foragingScreen.updatePanel(wagon);
+        foragingScreen.getPanel().requestFocusInWindow();
     }
 
     /**
@@ -248,6 +253,7 @@ public class Display extends JFrame {
     public void showDeathScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "DeathScreen");
+        deathScreen.getPanel().requestFocusInWindow();
     }
 
     /*
