@@ -63,52 +63,51 @@ public class TheOregonTrail extends AbstractScreen{
 		theOregonTrailLbl.setFont(titleFont);
 
 		
-		        GridBagConstraints gbc = new GridBagConstraints();
-		        gbc.insets = new Insets(0, 0, 5, 5);
-		        gbc.anchor = GridBagConstraints.WEST;
-		        gbc.gridx = 0; 
-		        gbc.gridy = 3; 
-		        gbc.gridx = 0;
-		        gbc.gridy = 2;
-		        
-		        JLabel youMayLbl = new JLabel("You May:");
-		        youMayLbl.setForeground(new Color(93, 199, 255));
-		        viewPanel.add(youMayLbl, gbc);
-		        youMayLbl.setFont(smallFont);
-		
+		// JLabel "You May:"
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(0, 0, 5, 5);
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.gridx = 0; 
+		gbc.gridy = 1; // Adjusted gridy to position below the title
+		JLabel youMayLbl = new JLabel("You May:");
+		youMayLbl.setForeground(new Color(93, 199, 255));
+		viewPanel.add(youMayLbl, gbc);
+		youMayLbl.setFont(smallFont);
+
+		// JComboBox
 		GridBagConstraints gbc2 = new GridBagConstraints();
 		gbc2.anchor = GridBagConstraints.WEST;
 		gbc2.insets = new Insets(0, 0, 5, 5);
 		gbc2.gridx = 1;
-		gbc2.gridy = 2;
-		
-		JComboBox <String> comboBox = new JComboBox();
+		gbc2.gridy = 1; // Adjusted gridy to position next to the JLabel
+		JComboBox<String> comboBox = new JComboBox<>();
 		comboBox.addItem("1. Travel The Trail");
 		comboBox.addItem("2. Learn About The Trail");
 		comboBox.addItem("3. End");
-		
+
 		comboBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JComboBox<String> combo = (JComboBox<String>) e.getSource();
-                String selectedOption = (String) combo.getSelectedItem();
-                // Check which item is selected and perform action accordingly
-                switch (selectedOption) {
-                	case "1. Travel The Trail":
+    		@Override
+    		public void actionPerformed(ActionEvent e) {
+        	JComboBox<String> combo = (JComboBox<String>) e.getSource();
+        	String selectedOption = (String) combo.getSelectedItem();
+        	// Check which item is selected and perform action accordingly
+        		switch (selectedOption) {
+            		case "1. Travel The Trail":
                 		display.showTrailScreen(wagon);
                 		break;
-                	case "2. Learn About The Trail":
-                		display.showLearnTrail(wagon);
+            		case "2. Learn About The Trail":
+               			display.showLearnTrail(wagon);
                 		break;
-                	case "3. End":
+            		case "3. End":
                 		display.showDeathScreen();
                 		break;
-                }
-            }
+        		}
+    		}
 		});
-		
+
 		viewPanel.add(comboBox, gbc2);
-        viewPanel.requestFocusInWindow();
+		viewPanel.requestFocusInWindow();
+
 	}
 	
 	@Override

@@ -25,11 +25,14 @@ public class WagonLeader extends AbstractScreen {
 	private static final int TEXT_FIELD_MAX = 20;
     private Display display;
     private Wagon wagon;
+	private WagonNames wagonNames;
 
 	private JPanel panel;
 	private Font titleFont = new Font("Trajan Pro", Font.BOLD, 24);
 	private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 	private JTextField textField;
+
+	private String name1;
 
 	/**
 	 * Create the application.
@@ -37,6 +40,7 @@ public class WagonLeader extends AbstractScreen {
 	public WagonLeader(Wagon wagon, Display display) {
 		this.wagon = wagon;
 		this.display = display;
+		this.wagonNames = wagonNames;
 		initialize();
 	}
 
@@ -46,38 +50,42 @@ public class WagonLeader extends AbstractScreen {
 	protected void initialize() {
 		viewPanel.setFocusable(true);
 		viewPanel.setLayout(new GridBagLayout());
-
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.anchor = GridBagConstraints.WEST;
-		
+	
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.insets = new Insets(10, 10, 10, 10); // Add some padding
+	
+		// JLabel "What is the first name of the Wagon Leader?"
 		JLabel leaderNameLbl = new JLabel("What is the first name of the Wagon Leader?");
-        leaderNameLbl.setForeground(new Color(93, 199, 255));
-        leaderNameLbl.setFont(smallFont);
-        //gbc.gridx = 0; 
-       // gbc.gridy = 0; 
-		
-        viewPanel.add(leaderNameLbl, gbc);
-		
+		leaderNameLbl.setForeground(new Color(93, 199, 255));
+		leaderNameLbl.setFont(smallFont);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		viewPanel.add(leaderNameLbl, gbc);
+	
+		// JTextField
 		textField = new JTextField();
-		//gbc.gridx = 1; 
-		//gbc.gridy = 0;
-        viewPanel.add(textField, gbc);
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		gbc.fill = GridBagConstraints.HORIZONTAL; // Allow the text field to expand horizontally
+		viewPanel.add(textField, gbc);
 		textField.setColumns(10);
-		
+	
 		textField.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				if(str.length() > TEXT_FIELD_MAX){
-					str = str.substring(0, TEXT_FIELD_MAX);
-					textField.setText(str);
-				}
-					
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String str = textField.getText();
+                name1 = str; // Set the name1 variable with the entered text
+                if (wagonNames != null) { // Check if wagonNames object is not null
+                    wagonNames.updateName1(name1); // Update the name1 label in WagonNames class
+                }
+                textField.setText("");
+				display.showWagonNames(wagon);
 			}
-			
 		});
-	}
+		
+		
+	}	
 
     @Override
 	public void resizeImages() {
@@ -90,5 +98,9 @@ public class WagonLeader extends AbstractScreen {
 	public JPanel getPanel() {
 		// TODO Auto-generated method stub
 		return viewPanel;
+	}
+
+	public String getName1() {
+		return name1;
 	}
 }

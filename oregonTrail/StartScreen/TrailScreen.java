@@ -2,6 +2,9 @@ package StartScreen;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.io.File;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -40,57 +43,72 @@ public class TrailScreen extends AbstractScreen {
 	 */
 	protected void initialize() {
 		viewPanel.setFocusable(true);
-		viewPanel.setLayout(new BorderLayout(0, 0));
-		
+		viewPanel.setLayout(new GridBagLayout());
+	
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.anchor = GridBagConstraints.WEST;
+		gbc.insets = new Insets(10, 10, 10, 10); // Add some padding
+	
+		// JLabel "Many kinds of women made the trip to Oregon."
 		JLabel titleLbl = new JLabel("Many kinds of women made the trip to Oregon.");
-        titleLbl.setForeground(new Color(93, 199, 255));
+		titleLbl.setForeground(new Color(93, 199, 255));
 		titleLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		viewPanel.add(titleLbl, BorderLayout.NORTH);
-        titleLbl.setFont(titleFont);
-		
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 2; // Set gridwidth to 2 to span across two columns
+		viewPanel.add(titleLbl, gbc);
+		titleLbl.setFont(titleFont);
+	
+		// JLabel "You May:"
 		JLabel youMayLbl = new JLabel("You May:");
-        youMayLbl.setForeground(new Color(93, 199, 255));
-		viewPanel.add(youMayLbl, BorderLayout.WEST);
-        youMayLbl.setFont(smallFont);
-		
-		JComboBox comboBox = new JComboBox();
-        comboBox.addItem("1. Be a Doctor from Dayton");
-        comboBox.addItem("2. Be a Homesteader from Hamden");
-        comboBox.addItem("3. Be a Teacher from Toledo");
-        comboBox.addItem("4. Find out the differences between these choices");
-
-        comboBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JComboBox<String> combo = (JComboBox<String>) e.getSource();
-                String selectedOption = (String) combo.getSelectedItem();
-                // Check which item is selected and perform action accordingly
-                switch (selectedOption) {
-                	case "1. Be a Doctor from Dayton":
-                		display.showWagonLeader(wagon);
-                		break;
-                	case "2. Be a Homesteader from Hamden":
-                		display.showWagonLeader(wagon);
-                		break;
-                	case "3. Be a Teacher from Toledo":
-                		display.showWagonLeader(wagon);
-                		break;
-                	case "4. Find out the differences between these choices":
-                		display.showGroupInfo(wagon);
-                		break;
-                }
-            }
+		youMayLbl.setForeground(new Color(93, 199, 255));
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.gridwidth = 1; // Reset gridwidth
+		viewPanel.add(youMayLbl, gbc);
+		youMayLbl.setFont(smallFont);
+	
+		// JComboBox
+		JComboBox<String> comboBox = new JComboBox<>();
+		comboBox.addItem("1. Be a Doctor from Dayton");
+		comboBox.addItem("2. Be a Homesteader from Hamden");
+		comboBox.addItem("3. Be a Teacher from Toledo");
+		comboBox.addItem("4. Find out the differences between these choices");
+		gbc.gridx = 1;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL; // Allow the combo box to expand horizontally
+		viewPanel.add(comboBox, gbc);
+	
+		comboBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JComboBox<String> combo = (JComboBox<String>) e.getSource();
+				String selectedOption = (String) combo.getSelectedItem();
+				// Check which item is selected and perform action accordingly
+				switch (selectedOption) {
+					case "1. Be a Doctor from Dayton":
+					case "2. Be a Homesteader from Hamden":
+					case "3. Be a Teacher from Toledo":
+						display.showWagonLeader(wagon);
+						break;
+					case "4. Find out the differences between these choices":
+						display.showGroupInfo(wagon);
+						break;
+				}
+			}
 		});
-
-		viewPanel.add(comboBox, BorderLayout.CENTER);
-		viewPanel.requestFocusInWindow();
-
+	
+		// JLabel "What is your choice?"
 		JLabel choiceLbl = new JLabel("What is your choice?");
-        choiceLbl.setForeground(new Color(93, 199, 255));
+		choiceLbl.setForeground(new Color(93, 199, 255));
 		choiceLbl.setHorizontalAlignment(SwingConstants.CENTER);
-		viewPanel.add(choiceLbl, BorderLayout.SOUTH);
-        choiceLbl.setFont(smallFont);
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.gridwidth = 2; // Set gridwidth to 2 to span across two columns
+		viewPanel.add(choiceLbl, gbc);
+		choiceLbl.setFont(smallFont);
 	}
+	
 
     @Override
 	public void resizeImages() {

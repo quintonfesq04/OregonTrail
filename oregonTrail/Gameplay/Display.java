@@ -42,6 +42,7 @@ public class Display extends JFrame {
     private LearnTrail learnTrail;
     private WagonLeader wagonLeader;
     private GroupInfo groupInfo;
+    private WagonNames wagonNames;
 
     Wagon wagon = new Wagon();
 
@@ -135,9 +136,12 @@ public class Display extends JFrame {
         groupInfo = new GroupInfo(wagon,this);
         getContentPane().add(groupInfo.getPanel(), "GroupInfo");
 
+        wagonNames = new WagonNames(wagon, this, wagonLeader);
+        getContentPane().add(wagonNames.getPanel(), "WagonNames");
+
         // show what screen
         //showWelcomeScreen(wagon);
-        showTravelScreen(wagon);
+        showWelcomeScreen(wagon);
     }
    
     /**
@@ -280,6 +284,11 @@ public class Display extends JFrame {
     public void showGroupInfo(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "GroupInfo");
+    }
+
+    public void showWagonNames(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "WagonNames");
     }
 
     /*
