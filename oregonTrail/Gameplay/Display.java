@@ -128,7 +128,7 @@ public class Display extends JFrame {
         learnTrail = new LearnTrail(wagon, this);
         getContentPane().add(learnTrail.getPanel(), "LearnTrail");
 
-        groupInfo = new GroupInfo(wagon,this);
+        groupInfo = new GroupInfo(wagon,this, trailScreen);
         getContentPane().add(groupInfo.getPanel(), "GroupInfo");
 
         wagonNames = new WagonNames(wagon, this);
@@ -284,6 +284,7 @@ public class Display extends JFrame {
     public void showGroupInfo(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "GroupInfo");
+        groupInfo.getPanel().requestFocusInWindow();
     }
 
     public void showWagonNames(Wagon wagon) {

@@ -45,7 +45,7 @@ public class ChooseMonth extends AbstractScreen {
         JLabel chooseMonthLbl = new JLabel("<html>It is 1848. Your jumping off place for Oregon is Independence, Missouri. You must decide which month to leave Independence.");
         GridBagConstraints gbc_chooseMonthLbl = new GridBagConstraints();
         gbc_chooseMonthLbl.anchor = GridBagConstraints.CENTER;
-        gbc_chooseMonthLbl.insets = new Insets(0,100,0,100);
+        gbc_chooseMonthLbl.insets = new Insets(0,100,25,100);
         gbc_chooseMonthLbl.gridx = 1;
         gbc_chooseMonthLbl.gridy = 0;
         gbc_chooseMonthLbl.fill = GridBagConstraints.HORIZONTAL;
@@ -92,7 +92,7 @@ public class ChooseMonth extends AbstractScreen {
         JLabel choiceLbl = new JLabel("What is Your Choice?");
         GridBagConstraints gbc_choiceLbl = new GridBagConstraints();
         gbc_choiceLbl.anchor = GridBagConstraints.CENTER;
-        gbc_choiceLbl.insets = new Insets(0,0,5,0);
+        gbc_choiceLbl.insets = new Insets(15,0,5,0);
         gbc_choiceLbl.gridx = 1;
         gbc_choiceLbl.gridy = 4;
         choiceLbl.setFont(smallFont);

@@ -2,6 +2,9 @@ package StartScreen;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.io.File;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -13,7 +16,6 @@ import javax.swing.*;
 import Gameplay.*;
 import Screens.*;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 
 public class LearnTrail extends AbstractScreen {
@@ -42,37 +44,50 @@ public class LearnTrail extends AbstractScreen {
      * Initialize the contents of the frame.
      */
     protected void initialize() {
-        viewPanel.setLayout(new BorderLayout(0, 0));
+        viewPanel.setFocusable(true);
+        GridBagLayout gbl_viewPanel = new GridBagLayout();
+        gbl_viewPanel.columnWeights = new double[]{0.0,1.0};
+        viewPanel.setLayout(gbl_viewPanel);
 
         JLabel titleLbl = new JLabel("The Oregon Trail");
+        GridBagConstraints gbc_titleLbl = new GridBagConstraints();
+        gbc_titleLbl.insets = new Insets(0,0,50,0);
+        gbc_titleLbl.gridx = 1;
+        gbc_titleLbl.gridy = 0;
+        viewPanel.add(titleLbl, gbc_titleLbl);
         titleLbl.setForeground(new Color(93, 199, 255));
         titleLbl.setHorizontalAlignment(SwingConstants.CENTER);
-        viewPanel.add(titleLbl, BorderLayout.NORTH);
         titleLbl.setFont(titleFont);
 
-        infoLbl.setHorizontalAlignment(SwingConstants.CENTER);
-        viewPanel.add(infoLbl, BorderLayout.CENTER);
+        GridBagConstraints gbc_infoLbl = new GridBagConstraints();
+        gbc_infoLbl.insets = new Insets(0,100,0,100);
+        gbc_infoLbl.gridx = 1;
+        gbc_infoLbl.gridy = 1;
+        gbc_infoLbl.fill = GridBagConstraints.HORIZONTAL;
+        gbc_infoLbl.insets = new Insets(0,100,0,100);
         infoLbl.setForeground(new Color(93, 199, 255));
+        infoLbl.setHorizontalAlignment(SwingConstants.CENTER);
         infoLbl.setFont(smallFont);
+        viewPanel.add(infoLbl, gbc_infoLbl);
 
         JLabel continueLbl = new JLabel("Press Space To Continue");
+        GridBagConstraints gbc_continueLbl = new GridBagConstraints();
+        gbc_continueLbl.insets = new Insets(50,0,5,0);
+        gbc_continueLbl.gridx = 1;
+        gbc_continueLbl.gridy = 4;
         continueLbl.setForeground(new Color(93, 199, 255));
         continueLbl.setHorizontalAlignment(SwingConstants.CENTER);
-        viewPanel.add(continueLbl, BorderLayout.SOUTH);
+        viewPanel.add(continueLbl, gbc_continueLbl);
         continueLbl.setFont(smallFont);
 
         viewPanel.setFocusable(true);
         viewPanel.requestFocusInWindow();
-
-        System.out.println("Init ran");
-        System.out.println(viewPanel.isFocusOwner());
 
         viewPanel.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 int vk = e.getKeyCode();
                 if (vk == KeyEvent.VK_SPACE) {
-                    System.out.println("key event made");
                     switchLabel();
                 }
             }
@@ -119,7 +134,6 @@ public class LearnTrail extends AbstractScreen {
                 display.showTheOregonTrail(wagon);
                 break;
         }
-        System.out.println(instructionScreen);
     }
 
     @Override

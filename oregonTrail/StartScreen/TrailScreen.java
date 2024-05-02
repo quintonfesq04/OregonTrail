@@ -108,6 +108,15 @@ public class TrailScreen extends AbstractScreen {
 		viewPanel.add(choiceLbl, gbc);
 		choiceLbl.setFont(smallFont);
 	}
+
+	public void resetScreen() {
+        viewPanel.removeAll();
+        //add your elements
+        viewPanel.revalidate();
+        viewPanel.repaint();
+        display.showTrailScreen(wagon);
+        initialize();
+    }
 	
 
     @Override
