@@ -21,11 +21,8 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
     private Wagon wagon;
     private Display display;
     private Locations locations = new Locations(0);
-    private Conversations conversations = new Conversations();
     private int conversationCase;
     int distance = locations.getDistance();
-    //String place = locations.getLocation(distance);
-    String locationReader;
 
     public ConversationScreen(Wagon wagon, Display display){
         this.wagon = wagon;
@@ -130,9 +127,7 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             display.showLandmarkScreen();
-        }
-
-     
+        } 
     }
 
     @Override
