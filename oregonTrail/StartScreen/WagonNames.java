@@ -58,19 +58,23 @@ public class WagonNames extends AbstractScreen {
         gbc_titleLbl.insets = new Insets(0, 0, 5, 0);
         gbc_titleLbl.gridx = 1;
         gbc_titleLbl.gridy = 0;
+        titleLbl.setFont(titleFont);
+        titleLbl.setForeground(new Color(93, 199, 255));
         viewPanel.add(titleLbl, gbc_titleLbl);
 
         name1Lbl = new JLabel("1. ");
         GridBagConstraints gbc_name1Lbl = new GridBagConstraints();
         gbc_name1Lbl.anchor = GridBagConstraints.CENTER;
-        gbc_name1Lbl.insets = new Insets(0, 0, 5, 0);
-        gbc_name1Lbl.gridx = 0;
+        gbc_name1Lbl.insets = new Insets(0, 0, 5, 175);
+        gbc_name1Lbl.gridx = 1;
         gbc_name1Lbl.gridy = 1;
+        name1Lbl.setFont(smallFont);
+        name1Lbl.setForeground(new Color(93, 199, 255));
         viewPanel.add(name1Lbl, gbc_name1Lbl);
 
         name1TextField = new JTextField();
         GridBagConstraints gbc_name1TextField = new GridBagConstraints();
-        gbc_name1TextField.insets = new Insets(0, 0, 5,5);
+        gbc_name1TextField.insets = new Insets(0, 0, 5,0);
         gbc_name1TextField.gridx = 1;
         gbc_name1TextField.gridy = 1;
         viewPanel.add(name1TextField, gbc_name1TextField);
@@ -86,10 +90,12 @@ public class WagonNames extends AbstractScreen {
                     // Create a JLabel with the entered name
                     JLabel nameLabel = new JLabel("" + name);
                     GridBagConstraints gbc_nameLabel = new GridBagConstraints();
-                    gbc_nameLabel.anchor = GridBagConstraints.WEST;
+                    gbc_nameLabel.anchor = GridBagConstraints.CENTER;
                     gbc_nameLabel.insets = new Insets(0, 0, 5, 0);
                     gbc_nameLabel.gridx = 1;
                     gbc_nameLabel.gridy = 1;
+                    nameLabel.setFont(smallFont);
+                    nameLabel.setForeground(new Color(93, 199, 255));
                     viewPanel.add(nameLabel, gbc_nameLabel); // Add the JLabel
                     // Revalidate and repaint the panel
                     viewPanel.revalidate();
@@ -107,9 +113,11 @@ public class WagonNames extends AbstractScreen {
         JLabel name2Lbl = new JLabel("2. ");
         GridBagConstraints gbc_name2Lbl = new GridBagConstraints();
         gbc_name2Lbl.anchor = GridBagConstraints.CENTER;
-        gbc_name2Lbl.insets = new Insets(0, 0, 5, 0);
-        gbc_name2Lbl.gridx = 0;
+        gbc_name2Lbl.insets = new Insets(0, 0, 5, 175);
+        gbc_name2Lbl.gridx = 1;
         gbc_name2Lbl.gridy = 2;
+        name2Lbl.setFont(smallFont);
+        name2Lbl.setForeground(new Color(93, 199, 255));
         viewPanel.add(name2Lbl, gbc_name2Lbl);
         
         name2TextField = new JTextField();
@@ -130,10 +138,12 @@ public class WagonNames extends AbstractScreen {
                     // Create a JLabel with the entered name
                     JLabel nameLabel = new JLabel("" + name);
                     GridBagConstraints gbc_nameLabel = new GridBagConstraints();
-                    gbc_nameLabel.anchor = GridBagConstraints.WEST;
+                    gbc_nameLabel.anchor = GridBagConstraints.CENTER;
                     gbc_nameLabel.insets = new Insets(0, 0, 5, 0);
                     gbc_nameLabel.gridx = 1;
                     gbc_nameLabel.gridy = 2;
+                    nameLabel.setFont(smallFont);
+                    nameLabel.setForeground(new Color(93, 199, 255));
                     viewPanel.add(nameLabel, gbc_nameLabel); // Add the JLabel
                     // Revalidate and repaint the panel
                     viewPanel.revalidate();
@@ -146,9 +156,11 @@ public class WagonNames extends AbstractScreen {
         JLabel name3Lbl = new JLabel("3. ");
         GridBagConstraints gbc_name3Lbl = new GridBagConstraints();
         gbc_name3Lbl.anchor = GridBagConstraints.CENTER;
-        gbc_name3Lbl.insets = new Insets(0, 0, 5, 0);
-        gbc_name3Lbl.gridx = 0;
+        gbc_name3Lbl.insets = new Insets(0, 0, 5, 175);
+        gbc_name3Lbl.gridx = 1;
         gbc_name3Lbl.gridy = 3;
+        name3Lbl.setFont(smallFont);
+        name3Lbl.setForeground(new Color(93, 199, 255));
         viewPanel.add(name3Lbl, gbc_name3Lbl);
         
         name3TextField = new JTextField();
@@ -169,10 +181,12 @@ public class WagonNames extends AbstractScreen {
                     // Create a JLabel with the entered name
                     JLabel nameLabel = new JLabel("" + name);
                     GridBagConstraints gbc_nameLabel = new GridBagConstraints();
-                    gbc_nameLabel.anchor = GridBagConstraints.WEST;
+                    gbc_nameLabel.anchor = GridBagConstraints.CENTER;
                     gbc_nameLabel.insets = new Insets(0, 0, 5, 0);
                     gbc_nameLabel.gridx = 1;
                     gbc_nameLabel.gridy = 3;
+                    nameLabel.setFont(smallFont);
+                    nameLabel.setForeground(new Color(93, 199, 255));
                     viewPanel.add(nameLabel, gbc_nameLabel); // Add the JLabel
                     // Revalidate and repaint the panel
                     viewPanel.revalidate();
@@ -185,9 +199,11 @@ public class WagonNames extends AbstractScreen {
         JLabel name4Lbl = new JLabel("4. ");
         GridBagConstraints gbc_name4Lbl = new GridBagConstraints();
         gbc_name4Lbl.anchor = GridBagConstraints.CENTER;
-        gbc_name4Lbl.insets = new Insets(0, 0, 5, 0);
-        gbc_name4Lbl.gridx = 0;
+        gbc_name4Lbl.insets = new Insets(0, 0, 5, 175);
+        gbc_name4Lbl.gridx = 1;
         gbc_name4Lbl.gridy = 4;
+        name4Lbl.setFont(smallFont);
+        name4Lbl.setForeground(new Color(93, 199, 255));
         viewPanel.add(name4Lbl, gbc_name4Lbl);
         
         name4TextField = new JTextField();
@@ -207,10 +223,12 @@ public class WagonNames extends AbstractScreen {
                     // Create a JLabel with the entered name
                     JLabel nameLabel = new JLabel("" + name);
                     GridBagConstraints gbc_nameLabel = new GridBagConstraints();
-                    gbc_nameLabel.anchor = GridBagConstraints.WEST;
+                    gbc_nameLabel.anchor = GridBagConstraints.CENTER;
                     gbc_nameLabel.insets = new Insets(0, 0, 5, 0);
                     gbc_nameLabel.gridx = 1;
                     gbc_nameLabel.gridy = 4;
+                    nameLabel.setFont(smallFont);
+                    nameLabel.setForeground(new Color(93, 199, 255));
                     viewPanel.add(nameLabel, gbc_nameLabel); // Add the JLabel
                     // Revalidate and repaint the panel
                     viewPanel.revalidate();
@@ -223,9 +241,11 @@ public class WagonNames extends AbstractScreen {
         JLabel name5Lbl = new JLabel("5. ");
         GridBagConstraints gbc_name5Lbl = new GridBagConstraints();
         gbc_name5Lbl.anchor = GridBagConstraints.CENTER;
-        gbc_name5Lbl.insets = new Insets(0, 0, 5, 0);
-        gbc_name5Lbl.gridx = 0;
+        gbc_name5Lbl.insets = new Insets(0, 0, 5, 175);
+        gbc_name5Lbl.gridx = 1;
         gbc_name5Lbl.gridy = 5;
+        name5Lbl.setFont(smallFont);
+        name5Lbl.setForeground(new Color(93, 199, 255));
         viewPanel.add(name5Lbl, gbc_name5Lbl);
         
         name5TextField = new JTextField();
@@ -245,15 +265,59 @@ public class WagonNames extends AbstractScreen {
                     // Create a JLabel with the entered name
                     JLabel nameLabel = new JLabel("" + name);
                     GridBagConstraints gbc_nameLabel = new GridBagConstraints();
-                    gbc_nameLabel.anchor = GridBagConstraints.WEST;
+                    gbc_nameLabel.anchor = GridBagConstraints.CENTER;
                     gbc_nameLabel.insets = new Insets(0, 0, 5, 0);
                     gbc_nameLabel.gridx = 1;
                     gbc_nameLabel.gridy = 5;
+                    nameLabel.setFont(smallFont);
+                    nameLabel.setForeground(new Color(93, 199, 255));
                     viewPanel.add(nameLabel, gbc_nameLabel); // Add the JLabel
                     // Revalidate and repaint the panel
                     viewPanel.revalidate();
                     viewPanel.repaint();
                 }
+
+                JLabel correctNamesLbl = new JLabel("Are These Names Correct?");
+                GridBagConstraints gbc_correctNamesLbl = new GridBagConstraints();
+                gbc_correctNamesLbl.anchor = GridBagConstraints.CENTER;
+                gbc_correctNamesLbl.insets = new Insets(10,0,5,0);
+                gbc_correctNamesLbl.gridx = 1;
+                gbc_correctNamesLbl.gridy = 7;
+                correctNamesLbl.setFont(titleFont);
+                correctNamesLbl.setForeground(new Color(93, 199, 255));
+                viewPanel.add(correctNamesLbl, gbc_correctNamesLbl);
+                viewPanel.revalidate();
+                viewPanel.repaint();
+
+                JButton correctNameBtn = new JButton("Yes");
+                GridBagConstraints gbc_correctNameBtn = new GridBagConstraints();
+                gbc_correctNameBtn.anchor = GridBagConstraints.CENTER;
+                gbc_correctNameBtn.insets = new Insets(10, 100, 5,0);
+                gbc_correctNameBtn.gridx = 1;
+                gbc_correctNameBtn.gridy = 8;
+                correctNameBtn.setFont(smallFont);
+                correctNameBtn.setForeground(new Color(93, 199, 255));
+                viewPanel.add(correctNameBtn, gbc_correctNameBtn);
+                viewPanel.revalidate();
+                viewPanel.repaint();
+
+                correctNameBtn.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        
+                    }
+                });
+
+                JButton incorrectNameBtn = new JButton("No");
+                GridBagConstraints gbc_incorrectNameBtn = new GridBagConstraints();
+                gbc_incorrectNameBtn.anchor = GridBagConstraints.CENTER;
+                gbc_incorrectNameBtn.insets = new Insets(10, 0, 5,100);
+                gbc_incorrectNameBtn.gridx = 1;
+                gbc_incorrectNameBtn.gridy = 8;
+                incorrectNameBtn.setFont(smallFont);
+                incorrectNameBtn.setForeground(new Color(93, 199, 255));
+                viewPanel.add(incorrectNameBtn, gbc_incorrectNameBtn);
+                viewPanel.revalidate();
+                viewPanel.repaint();
             }
         });
     }
