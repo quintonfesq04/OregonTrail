@@ -89,7 +89,7 @@ public class TrailScreen extends AbstractScreen {
 					case "1. Be a Doctor from Dayton":
 					case "2. Be a Homesteader from Hamden":
 					case "3. Be a Teacher from Toledo":
-						display.showWagonLeader(wagon);
+						display.showWagonNames(wagon);
 						break;
 					case "4. Find out the differences between these choices":
 						display.showGroupInfo(wagon);

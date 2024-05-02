@@ -40,7 +40,6 @@ public class Display extends JFrame {
     private TheOregonTrail theOregonTrail;
     private TrailScreen trailScreen;
     private LearnTrail learnTrail;
-    private WagonLeader wagonLeader;
     private GroupInfo groupInfo;
     private WagonNames wagonNames;
 
@@ -130,13 +129,10 @@ public class Display extends JFrame {
         learnTrail = new LearnTrail(wagon, this);
         getContentPane().add(learnTrail.getPanel(), "LearnTrail");
 
-        wagonLeader = new WagonLeader(wagon, this);
-        getContentPane().add(wagonLeader.getPanel(), "WagonLeader");
-
         groupInfo = new GroupInfo(wagon,this);
         getContentPane().add(groupInfo.getPanel(), "GroupInfo");
 
-        wagonNames = new WagonNames(wagon, this, wagonLeader);
+        wagonNames = new WagonNames(wagon, this);
         getContentPane().add(wagonNames.getPanel(), "WagonNames");
 
         // show what screen
@@ -274,11 +270,6 @@ public class Display extends JFrame {
     public void showLearnTrail(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "LearnTrail");
-    }
-
-    public void showWagonLeader(Wagon wagon) {
-        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-        cardLayout.show(getContentPane(), "WagonLeader");
     }
 
     public void showGroupInfo(Wagon wagon) {
