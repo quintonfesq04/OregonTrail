@@ -110,7 +110,7 @@ public class LeaveIndependence extends AbstractScreen {
                 instructionScreen++;
                 break;
             case 1:
-                //display.showTravelScreen(wagon);
+                display.showTravelScreen(wagon);
                 instructionScreen++;
                 break;
         }
