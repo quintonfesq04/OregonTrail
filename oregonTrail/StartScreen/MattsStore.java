@@ -16,8 +16,10 @@ import java.io.File;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
@@ -41,12 +43,14 @@ public class MattsStore extends AbstractScreen {
 	private JLabel wheelPriceLbl;
 	private JLabel tonguePriceLbl;
     private JLabel remainingLbl;
+    private JSpinner oxenSpinner;
 
 	private Display display;
     private Wagon wagon;
 
     private double money;
     private double total = 0;
+    private double spentMoney;
 
     public MattsStore(Wagon wagon, Display display) {
         this.wagon = wagon;
@@ -80,24 +84,19 @@ public class MattsStore extends AbstractScreen {
         buyBtn.setForeground(new Color(93, 199, 255));
 		buyBtn.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				if(wagon.getStore().checkIfEnoughMoney(wagon.getInventory()))
+				if(wagon.getStore().checkIfEnoughMoney(wagon.getInventory())) {
 					wagon.setInventory(wagon.getStore().buyMethod(wagon.getInventory()));
+                    display.showLeaveIndependence(wagon);
+                }
+                else if ((total + wagon.getStore().getCost()) > (wagon.getInventory().getMoney())) {
+                    JOptionPane.showMessageDialog(null, "Okay that comes to a total of $" + (total + wagon.getStore().getCost()) + ". But I see that you only have $" + wagon.getInventory().getMoney() + ". We'd better go over the list again.");
+                }
+                else if((Integer)oxenSpinner.getValue() == 0) {
+                    JOptionPane.showMessageDialog(null, "Don't forget, you'll need oxen to pull your wagon.");
+                }
 			}
 		});
 		viewPanel.add(buyBtn, gbc_buyBtn);
-		
-		JButton travelBtn = new JButton("Travel");
-        GridBagConstraints gbc_travelBtn = new GridBagConstraints();
-        gbc_travelBtn.insets = new Insets(0, 0, 0, 0);
-        gbc_travelBtn.gridx = 1;
-        gbc_travelBtn.gridy = 12;
-        travelBtn.setForeground(new Color(93, 199, 255));
-		travelBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				display.showTravelScreen(wagon);
-			}
-		});
-		viewPanel.add(travelBtn, gbc_travelBtn);
 		
         remainingLbl = new JLabel("Remaining Money: $" + money);
         GridBagConstraints gbc_remainingLbl = new GridBagConstraints();
@@ -212,7 +211,7 @@ public class MattsStore extends AbstractScreen {
 		clothingPriceLbl.setFont(smallFont);
 		viewPanel.add(clothingPriceLbl, gbc_clothingPriceLbl);
 		
-		bulletsPriceLbl = new JLabel("$.10");
+		bulletsPriceLbl = new JLabel("$2");
         GridBagConstraints gbc_bulletsPriceLbl = new GridBagConstraints();
         gbc_bulletsPriceLbl.insets = new Insets(0, 0, 0, 0);
         gbc_bulletsPriceLbl.gridx = 1;
@@ -221,7 +220,7 @@ public class MattsStore extends AbstractScreen {
 		bulletsPriceLbl.setFont(smallFont);
 		viewPanel.add(bulletsPriceLbl, gbc_bulletsPriceLbl);
 		
-		axlePriceLbl = new JLabel("$20");
+		axlePriceLbl = new JLabel("$10");
         GridBagConstraints gbc_axlePriceLbl = new GridBagConstraints();
         gbc_axlePriceLbl.insets = new Insets(0, 0, 0, 0);
         gbc_axlePriceLbl.gridx = 1;
@@ -230,7 +229,7 @@ public class MattsStore extends AbstractScreen {
 		axlePriceLbl.setFont(smallFont);
 		viewPanel.add(axlePriceLbl, gbc_axlePriceLbl);
 		
-		tonguePriceLbl = new JLabel("$20");
+		tonguePriceLbl = new JLabel("$10");
         GridBagConstraints gbc_tonguePriceLbl = new GridBagConstraints();
         gbc_tonguePriceLbl.insets = new Insets(0, 0, 0, 0);
         gbc_tonguePriceLbl.gridx = 1;
@@ -239,7 +238,7 @@ public class MattsStore extends AbstractScreen {
 		tonguePriceLbl.setFont(smallFont);
 		viewPanel.add(tonguePriceLbl, gbc_tonguePriceLbl);
 		
-		wheelPriceLbl = new JLabel("$20");
+		wheelPriceLbl = new JLabel("$10");
         GridBagConstraints gbc_wheelPriceLbl = new GridBagConstraints();
         gbc_wheelPriceLbl.insets = new Insets(0, 0, 0, 0);
         gbc_wheelPriceLbl.gridx = 1;
@@ -248,7 +247,8 @@ public class MattsStore extends AbstractScreen {
 		wheelPriceLbl.setFont(smallFont);
 		viewPanel.add(wheelPriceLbl, gbc_wheelPriceLbl);
 		
-		JSpinner foodSpinner = new JSpinner();
+        SpinnerNumberModel foodLimit = new SpinnerNumberModel(0, 0, 2000, 25);
+		JSpinner foodSpinner = new JSpinner(foodLimit);
         GridBagConstraints gbc_foodSpinner = new GridBagConstraints();
         gbc_foodSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_foodSpinner.gridx = 2;
@@ -263,7 +263,8 @@ public class MattsStore extends AbstractScreen {
 		});
 		viewPanel.add(foodSpinner, gbc_foodSpinner);
 		
-		JSpinner oxenSpinner = new JSpinner();
+        SpinnerNumberModel oxenLimit = new SpinnerNumberModel(0, 0, 9, 1);
+		oxenSpinner = new JSpinner(oxenLimit);
         GridBagConstraints gbc_oxenSpinner = new GridBagConstraints();
         gbc_oxenSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_oxenSpinner.gridx = 2;
@@ -278,7 +279,8 @@ public class MattsStore extends AbstractScreen {
 		});
 		viewPanel.add(oxenSpinner, gbc_oxenSpinner);
 		
-		JSpinner clothingSpinner = new JSpinner();
+        SpinnerNumberModel clothingLimit = new SpinnerNumberModel(0, 0, 99, 5);
+		JSpinner clothingSpinner = new JSpinner(clothingLimit);
         GridBagConstraints gbc_clothingSpinner = new GridBagConstraints();
         gbc_clothingSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_clothingSpinner.gridx = 2;
@@ -293,7 +295,8 @@ public class MattsStore extends AbstractScreen {
 		});
 		viewPanel.add(clothingSpinner, gbc_clothingSpinner);
 		
-		JSpinner bulletSpinner = new JSpinner();
+        SpinnerNumberModel bulletLimit = new SpinnerNumberModel(0, 0, 99, 5);
+		JSpinner bulletSpinner = new JSpinner(bulletLimit);
         GridBagConstraints gbc_bulletSpinner = new GridBagConstraints();
         gbc_bulletSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_bulletSpinner.gridx = 2;
@@ -308,7 +311,8 @@ public class MattsStore extends AbstractScreen {
 		});
 		viewPanel.add(bulletSpinner, gbc_bulletSpinner);
 		
-		JSpinner axleSpinner = new JSpinner();
+        SpinnerNumberModel axleLimit = new SpinnerNumberModel(0, 0, 3, 1);
+		JSpinner axleSpinner = new JSpinner(axleLimit);
         GridBagConstraints gbc_axleSpinner = new GridBagConstraints();
         gbc_axleSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_axleSpinner.gridx = 2;
@@ -323,7 +327,8 @@ public class MattsStore extends AbstractScreen {
 		}); 
 		viewPanel.add(axleSpinner, gbc_axleSpinner);
 		
-		JSpinner tongueSpinner = new JSpinner();
+        SpinnerNumberModel tongueLimit = new SpinnerNumberModel(0, 0, 3, 1);
+		JSpinner tongueSpinner = new JSpinner(tongueLimit);
         GridBagConstraints gbc_tongueSpinner = new GridBagConstraints();
         gbc_tongueSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_tongueSpinner.gridx = 2;
@@ -338,7 +343,8 @@ public class MattsStore extends AbstractScreen {
 		});
 		viewPanel.add(tongueSpinner, gbc_tongueSpinner);
 		
-		JSpinner wheelSpinner = new JSpinner();
+        SpinnerNumberModel wheelLimit = new SpinnerNumberModel(0, 0, 3, 1);
+		JSpinner wheelSpinner = new JSpinner(wheelLimit);
         GridBagConstraints gbc_wheelSpinner = new GridBagConstraints();
         gbc_wheelSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_wheelSpinner.gridx = 2;

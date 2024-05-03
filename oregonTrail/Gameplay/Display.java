@@ -45,6 +45,7 @@ public class Display extends JFrame {
     private MonthAdvice monthAdvice;
     private BeforeLeaving beforeLeaving;
     private MattsStore mattsStore;
+    private LeaveIndependence leaveIndependence;
 
     Wagon wagon = new Wagon();
 
@@ -145,6 +146,9 @@ public class Display extends JFrame {
 
         mattsStore = new MattsStore(wagon, this);
         getContentPane().add(mattsStore.getPanel(), "MattsStore");
+
+        leaveIndependence = new LeaveIndependence(wagon, this);
+        getContentPane().add(leaveIndependence.getPanel(), "LeaveIndependence");
 
         showWelcomeScreen(wagon);
     }
@@ -324,6 +328,12 @@ public class Display extends JFrame {
         cardLayout.show(getContentPane(), "MattsStore");
         mattsStore.getPanel().requestFocusInWindow();
         mattsStore.updateLabel();
+    }
+
+    public void showLeaveIndependence(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "LeaveIndependence");
+        leaveIndependence.getPanel().requestFocusInWindow();
     }
 
     /*
