@@ -29,6 +29,7 @@ public class BeforeLeaving extends AbstractScreen {
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 
     private double money;
+    private int instructionScreen = 0;
 
     private JLabel infoLbl;
 
@@ -76,11 +77,11 @@ public class BeforeLeaving extends AbstractScreen {
             public void keyPressed(KeyEvent e) {
                 int vk = e.getKeyCode();
                 if (vk == KeyEvent.VK_SPACE) {
-                    display.showStoreScreen();
-                    trailScreen.resetScreen();
+                    switchLabel();
                 }
             }
         });
+        
     }
 
     private void getMoney(){
@@ -103,6 +104,26 @@ public class BeforeLeaving extends AbstractScreen {
         getMoney();
         infoLbl.setText("<html><center>Before leaving Independence you should buy equipment and supplies. You have $" + (int) money + " in cash, but you don't have to spend it all now.<html>");
     }
+
+    private void switchLabel() {
+        switch (instructionScreen) {
+            case 0:
+                infoLbl.setText("<html><center>You can buy whatever you need at Matt's General Store.</html>");
+                instructionScreen++;
+                break;
+            case 1:
+                infoLbl.setText("<html><center>Hello, I'm Mat. So you're going to Oregon? I can fix you up with what you need<bk><bk>- a team of oxen to pull your wagon<bk>- clothing for both summer and winter<html>");
+                instructionScreen++;
+                break;
+            case 2:
+                infoLbl.setText("<html><center>Hello, I'm Mat. So you're going to Oregon? I can fix you up with what you need<bk><bk>- plenty of food for the trip<bk>- ammunition for your rifles<bk>- spare parts for your wagon<html>");
+                instructionScreen++;
+                break;
+            case 3:
+                display.showMattsStore(wagon);
+                break;
+            }
+        }
     
     @Override
 	public void resizeImages() {
