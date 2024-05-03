@@ -31,11 +31,12 @@ public class BeforeLeaving extends AbstractScreen {
 
     private double money;
 
+    private JLabel infoLbl;
+
     public BeforeLeaving(Wagon wagon, Display display, TrailScreen trailScreen, Inventory inventory) {
         this.wagon = wagon;
         this.display = display;
         this.trailScreen = trailScreen;
-        getMoney();
         this.inventory = inventory;
         initialize();
     }
@@ -47,7 +48,7 @@ public class BeforeLeaving extends AbstractScreen {
         gbl_viewPanel.columnWeights = new double[]{0.0,1.0};
         viewPanel.setLayout(gbl_viewPanel);
 
-        JLabel infoLbl = new JLabel("<htm><center>Before leaving Independence you should buy equipment and supplies. You have $" + (int) money + " in cash, but you don't have to spend it all now.<html>");
+        infoLbl = new JLabel("<html><center>Before leaving Independence you should buy equipment and supplies. You have $" + (int) money + " in cash, but you don't have to spend it all now.<html>");
         GridBagConstraints gbc_infoLbl = new GridBagConstraints();
         gbc_infoLbl.insets = new Insets(0,100,0,100);
         gbc_infoLbl.gridx = 1;
@@ -98,6 +99,11 @@ public class BeforeLeaving extends AbstractScreen {
             inventory.setMoney(300);
             money = inventory.getMoney();
         }
+    }
+
+    public void updateLabel(){
+
+        getMoney();
     }
     
     @Override
