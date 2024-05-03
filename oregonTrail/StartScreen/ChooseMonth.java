@@ -83,7 +83,7 @@ public class ChooseMonth extends AbstractScreen {
                 		display.showStoreScreen();
                 		break;
             		case "6. Ask For Advice":
-               			display.showLearnTrail(wagon);
+               			display.showMonthAdvice(wagon);
                 		break;
         		}
     		}
@@ -98,6 +98,15 @@ public class ChooseMonth extends AbstractScreen {
         choiceLbl.setFont(smallFont);
         choiceLbl.setForeground(new Color(93, 199, 255));
         viewPanel.add(choiceLbl, gbc_choiceLbl);
+    }
+
+    public void resetScreen() {
+        viewPanel.removeAll();
+        //add your elements
+        viewPanel.revalidate();
+        viewPanel.repaint();
+        display.showChooseMonth(wagon);
+        initialize();
     }
 
     @Override

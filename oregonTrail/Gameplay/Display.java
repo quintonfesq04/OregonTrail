@@ -42,6 +42,7 @@ public class Display extends JFrame {
     private GroupInfo groupInfo;
     private WagonNames wagonNames;
     private ChooseMonth chooseMonth;
+    private MonthAdvice monthAdvice;
 
     Wagon wagon = new Wagon();
 
@@ -110,8 +111,6 @@ public class Display extends JFrame {
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
-        
-
         /*
          * Start Screen Separator
          */
@@ -137,7 +136,10 @@ public class Display extends JFrame {
         chooseMonth = new ChooseMonth(wagon, this);
         getContentPane().add(chooseMonth.getPanel(), "ChooseMonth");
 
-        showForagingScreen(wagon);
+        monthAdvice = new MonthAdvice(wagon, this, chooseMonth);
+        getContentPane().add(monthAdvice.getPanel(), "MonthAdvice");
+
+        showWelcomeScreen(wagon);
     }
    
     /**
@@ -295,6 +297,12 @@ public class Display extends JFrame {
     public void showChooseMonth(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "ChooseMonth");
+    }
+
+    public void showMonthAdvice(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "MonthAdvice");
+        monthAdvice.getPanel().requestFocusInWindow();
     }
 
     /*
