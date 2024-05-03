@@ -49,6 +49,7 @@ public class Display extends JFrame {
 
     Wagon wagon = new Wagon();
 
+    private CardLayout cardLayout;
 
     /**
      * the main gateway into the program
@@ -150,7 +151,8 @@ public class Display extends JFrame {
         leaveIndependence = new LeaveIndependence(wagon, this);
         getContentPane().add(leaveIndependence.getPanel(), "LeaveIndependence");
 
-        showWelcomeScreen(wagon);
+        //showWelcomeScreen(wagon);
+        showTravelScreen(wagon);
     }
    
     /**

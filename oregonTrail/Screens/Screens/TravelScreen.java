@@ -41,7 +41,7 @@ public class TravelScreen extends AbstractScreen {
         cloud.setSize(cloud.getPreferredSize());
 
         viewPanel.add(cloud);
-        viewPanel.addKeyListener(new MapChecker(wagon.getLocations()));
+
         viewPanel.addKeyListener(new KeyAdapter(){
             @Override
             public void keyPressed(KeyEvent e){
@@ -50,7 +50,10 @@ public class TravelScreen extends AbstractScreen {
                     travel();
                 else if (vk == KeyEvent.VK_I)
                     display.showControlScreen();
-                
+                else if(vk == KeyEvent.VK_M){    
+                    Map map = new Map();
+                    map.display();
+                }
             }
         });
     }
@@ -99,16 +102,21 @@ public class TravelScreen extends AbstractScreen {
         cloud.setLocation(cloud.getX(), cloud.getY()); // Set cloud location
         
         distanceMoved = wagon.getPlayer().getTravelSpeed();
+
         wagon.getLocations().addDistance(distanceMoved); // Update distance traveled
-    
-        arriveAtLandmark(); // Check if the cloud has arrived at a landmark
+        
+        System.out.println(wagon.getLocations().getDistance());
+
+        arriveAtLandmark(); // Check if arrived at landmark
     }
 
     private boolean checkLandmark(){
         for(int i = 0; i < Locations.LOCATION_DISTANCE.length; i++){
             if(Locations.LOCATION_DISTANCE[i] + distanceMoved - 1 >= wagon.getLocations().getDistance() &&
-                                             Locations.LOCATION_DISTANCE[i] <= wagon.getLocations().getDistance())
+                Locations.LOCATION_DISTANCE[i] <= wagon.getLocations().getDistance()){
+                wagon.getLocations().setDistance(Locations.LOCATION_DISTANCE[i]);
                 return true;
+            }
         } 
         return false;
     }

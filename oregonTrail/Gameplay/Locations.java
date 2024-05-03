@@ -180,18 +180,6 @@ public class Locations {
         return nextLandmark;
     }
 
-    /**
-     * Uses a varible from the main code to manually assign the distance varible a
-     * value
-     * 
-     * @param int distance is the value of the range the player is from the final
-     *            destination
-     * @return null
-     */
-    public Locations(int distance, int location) {
-        this.distance = distance;
-    }
-
     public String getCurrentLocation(int distance) {
         for (int i = 0; i < LOCATION_DISTANCE.length - 1; i++) {
             if (distance >= LOCATION_DISTANCE[i] && distance < LOCATION_DISTANCE[i + 1]) {
