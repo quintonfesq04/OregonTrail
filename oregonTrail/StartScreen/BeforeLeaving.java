@@ -24,7 +24,6 @@ public class BeforeLeaving extends AbstractScreen {
     private Wagon wagon;
     private Display display;
     private TrailScreen trailScreen;
-    private Inventory inventory;
 
     private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
@@ -33,11 +32,10 @@ public class BeforeLeaving extends AbstractScreen {
 
     private JLabel infoLbl;
 
-    public BeforeLeaving(Wagon wagon, Display display, TrailScreen trailScreen, Inventory inventory) {
+    public BeforeLeaving(Wagon wagon, Display display, TrailScreen trailScreen) {
         this.wagon = wagon;
         this.display = display;
         this.trailScreen = trailScreen;
-        this.inventory = inventory;
         initialize();
     }
 
@@ -88,22 +86,22 @@ public class BeforeLeaving extends AbstractScreen {
     private void getMoney(){
         String selectedOption = trailScreen.setChoice();
         if(selectedOption == "1. Be a Doctor from Dayton") {
-            inventory.setMoney(1600);
-            money = inventory.getMoney();
+            wagon.getInventory().setMoney(1600);
+            money = wagon.getInventory().getMoney();
         }
         else if(selectedOption == "2. Be a Homesteader from Hamden"){
-            inventory.setMoney(800);
-            money = inventory.getMoney();
+            wagon.getInventory().setMoney(800);
+            money = wagon.getInventory().getMoney();
         }
         else if(selectedOption == "3. Be a Teacher from Toledo"){
-            inventory.setMoney(300);
-            money = inventory.getMoney();
+            wagon.getInventory().setMoney(400);
+            money = wagon.getInventory().getMoney();
         }
     }
 
     public void updateLabel(){
-
         getMoney();
+        infoLbl.setText("<html><center>Before leaving Independence you should buy equipment and supplies. You have $" + (int) money + " in cash, but you don't have to spend it all now.<html>");
     }
     
     @Override
