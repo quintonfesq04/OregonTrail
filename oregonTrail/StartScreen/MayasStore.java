@@ -30,7 +30,7 @@ import Gameplay.*;
 import Screens.*;
 import Hunting.*;
 
-public class MattsStore extends AbstractScreen {
+public class MayasStore extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
 
     private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
@@ -52,7 +52,7 @@ public class MattsStore extends AbstractScreen {
     private double total = 0;
     private double spentMoney;
 
-    public MattsStore(Wagon wagon, Display display) {
+    public MayasStore(Wagon wagon, Display display) {
         this.wagon = wagon;
         this.display = display;
         initialize();
@@ -67,7 +67,7 @@ public class MattsStore extends AbstractScreen {
 		
 		JLabel priceLbl = new JLabel("Total Cost: $" + total);
         GridBagConstraints gbc_priceLabel = new GridBagConstraints();
-        gbc_priceLabel.insets = new Insets(0,0,5,0);
+        gbc_priceLabel.insets = new Insets(10,0,5,0);
         gbc_priceLabel.gridx = 1;
         gbc_priceLabel.gridy = 9;
         priceLbl.setForeground(new Color(93, 199, 255));
@@ -78,7 +78,7 @@ public class MattsStore extends AbstractScreen {
 		
 		JButton buyBtn = new JButton("Buy");
         GridBagConstraints gbc_buyBtn = new GridBagConstraints();
-        gbc_buyBtn.insets = new Insets(0, 0, 0, 0);
+        gbc_buyBtn.insets = new Insets(10, 0, 0, 0);
         gbc_buyBtn.gridx = 1;
         gbc_buyBtn.gridy = 11;
         buyBtn.setForeground(new Color(93, 199, 255));
@@ -253,6 +253,7 @@ public class MattsStore extends AbstractScreen {
         gbc_foodSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_foodSpinner.gridx = 2;
         gbc_foodSpinner.gridy = 2;
+        foodSpinner.setPreferredSize(new Dimension(80, 20));
 		foodSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
@@ -269,6 +270,7 @@ public class MattsStore extends AbstractScreen {
         gbc_oxenSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_oxenSpinner.gridx = 2;
         gbc_oxenSpinner.gridy = 3;
+        oxenSpinner.setPreferredSize(new Dimension(80, 20));
 		oxenSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
@@ -285,6 +287,7 @@ public class MattsStore extends AbstractScreen {
         gbc_clothingSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_clothingSpinner.gridx = 2;
         gbc_clothingSpinner.gridy = 4;
+        clothingSpinner.setPreferredSize(new Dimension(80, 20));
 		clothingSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
@@ -301,6 +304,7 @@ public class MattsStore extends AbstractScreen {
         gbc_bulletSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_bulletSpinner.gridx = 2;
         gbc_bulletSpinner.gridy = 5;
+        bulletSpinner.setPreferredSize(new Dimension(80, 20));
 		bulletSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
@@ -317,6 +321,7 @@ public class MattsStore extends AbstractScreen {
         gbc_axleSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_axleSpinner.gridx = 2;
         gbc_axleSpinner.gridy = 6;
+        axleSpinner.setPreferredSize(new Dimension(80, 20));
 		axleSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
@@ -333,6 +338,7 @@ public class MattsStore extends AbstractScreen {
         gbc_tongueSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_tongueSpinner.gridx = 2;
         gbc_tongueSpinner.gridy = 7;
+        tongueSpinner.setPreferredSize(new Dimension(80, 20));
 		tongueSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){
@@ -349,6 +355,7 @@ public class MattsStore extends AbstractScreen {
         gbc_wheelSpinner.insets = new Insets(0, 0, 0, 0);
         gbc_wheelSpinner.gridx = 2;
         gbc_wheelSpinner.gridy = 8;
+        wheelSpinner.setPreferredSize(new Dimension(80, 20));
 		wheelSpinner.addChangeListener(new ChangeListener(){
 			@Override
 			public void stateChanged(ChangeEvent e){

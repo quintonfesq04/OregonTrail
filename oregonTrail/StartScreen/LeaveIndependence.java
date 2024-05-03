@@ -20,7 +20,6 @@ import java.awt.Color;
 
 public class LeaveIndependence extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
-    protected PicPanel independence = new PicPanel(new File("Images/Covered Wagon.jpg"));
 
     private JLabel infoLbl = new JLabel("<html><center>Well then, you're ready to start. Good Luck! You have a long and difficult journey ahead of you.</html>");
     private JLabel startLbl;
@@ -30,6 +29,7 @@ public class LeaveIndependence extends AbstractScreen {
 
     private Wagon wagon;
     private Display display;
+    private TravelScreen travelScreen;
 
     private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
@@ -47,12 +47,6 @@ public class LeaveIndependence extends AbstractScreen {
         gbl_viewPanel.columnWeights = new double[]{0.0,1.0};
         viewPanel.setLayout(gbl_viewPanel);
         viewPanel.setVisible(true);
-
-        independence.setFocusable(true);
-        GridBagLayout gbl_independence = new GridBagLayout();
-        gbl_independence.columnWeights = new double[]{0.0,1.0};
-        independence.setLayout(gbl_independence);
-        independence.setVisible(false);
 
         GridBagConstraints gbc_infoLbl = new GridBagConstraints();
         gbc_infoLbl.insets = new Insets(0,100,0,100);
@@ -103,14 +97,13 @@ public class LeaveIndependence extends AbstractScreen {
     private void switchLabel() {
         switch(instructionScreen) {
             case 0:
-                viewPanel.setVisible(false);
                 infoLbl.setVisible(false);
-                independence.setVisible(true);
                 startLbl.setVisible(true);
                 instructionScreen++;
                 break;
             case 1:
                 display.showTravelScreen(wagon);
+                travelScreen.getPanel().requestFocusInWindow();
                 instructionScreen++;
                 break;
         }

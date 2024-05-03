@@ -108,19 +108,19 @@ public class BeforeLeaving extends AbstractScreen {
     private void switchLabel() {
         switch (instructionScreen) {
             case 0:
-                infoLbl.setText("<html><center>You can buy whatever you need at Matt's General Store.</html>");
+                infoLbl.setText("<html><center>You can buy whatever you need at Maya's General Store.</html>");
                 instructionScreen++;
                 break;
             case 1:
-                infoLbl.setText("<html><center>Hello, I'm Mat. So you're going to Oregon? I can fix you up with what you need<bk><bk>- a team of oxen to pull your wagon<bk>- clothing for both summer and winter<html>");
+                infoLbl.setText("<html><center>Hello, I'm Maya. So you're going to Oregon? I can fix you up with what you need<br><br>- a team of oxen to pull your wagon<br>- clothing for both summer and winter<html>");
                 instructionScreen++;
                 break;
             case 2:
-                infoLbl.setText("<html><center>Hello, I'm Mat. So you're going to Oregon? I can fix you up with what you need<bk><bk>- plenty of food for the trip<bk>- ammunition for your rifles<bk>- spare parts for your wagon<html>");
+                infoLbl.setText("<html><center>Hello, I'm Maya. So you're going to Oregon? I can fix you up with what you need<br><br>- plenty of food for the trip<br>- ammunition for your rifles<br>- spare parts for your wagon<html>");
                 instructionScreen++;
                 break;
             case 3:
-                display.showMattsStore(wagon);
+                display.showMayasStore(wagon);
                 break;
             }
         }

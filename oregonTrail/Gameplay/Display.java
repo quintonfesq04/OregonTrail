@@ -44,7 +44,7 @@ public class Display extends JFrame {
     private ChooseMonth chooseMonth;
     private MonthAdvice monthAdvice;
     private BeforeLeaving beforeLeaving;
-    private MattsStore mattsStore;
+    private MayasStore mayasStore;
     private LeaveIndependence leaveIndependence;
 
     Wagon wagon = new Wagon();
@@ -145,8 +145,8 @@ public class Display extends JFrame {
         beforeLeaving = new BeforeLeaving(wagon, this, trailScreen);
         getContentPane().add(beforeLeaving.getPanel(), "BeforeLeaving");
 
-        mattsStore = new MattsStore(wagon, this);
-        getContentPane().add(mattsStore.getPanel(), "MattsStore");
+        mayasStore = new MayasStore(wagon, this);
+        getContentPane().add(mayasStore.getPanel(), "MayasStore");
 
         leaveIndependence = new LeaveIndependence(wagon, this);
         getContentPane().add(leaveIndependence.getPanel(), "LeaveIndependence");
@@ -324,11 +324,11 @@ public class Display extends JFrame {
         beforeLeaving.updateLabel();
     }
 
-    public void showMattsStore(Wagon wagon) {
+    public void showMayasStore(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-        cardLayout.show(getContentPane(), "MattsStore");
-        mattsStore.getPanel().requestFocusInWindow();
-        mattsStore.updateLabel();
+        cardLayout.show(getContentPane(), "MayasStore");
+        mayasStore.getPanel().requestFocusInWindow();
+        mayasStore.updateLabel();
     }
 
     public void showLeaveIndependence(Wagon wagon) {
