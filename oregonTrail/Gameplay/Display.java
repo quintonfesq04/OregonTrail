@@ -43,8 +43,10 @@ public class Display extends JFrame {
     private WagonNames wagonNames;
     private ChooseMonth chooseMonth;
     private MonthAdvice monthAdvice;
+    private BeforeLeaving beforeLeaving;
 
     Wagon wagon = new Wagon();
+    private Inventory inventory;
 
 
     /**
@@ -138,6 +140,9 @@ public class Display extends JFrame {
 
         monthAdvice = new MonthAdvice(wagon, this, chooseMonth);
         getContentPane().add(monthAdvice.getPanel(), "MonthAdvice");
+
+        beforeLeaving = new BeforeLeaving(wagon, this, trailScreen, inventory);
+        getContentPane().add(beforeLeaving.getPanel(), "BeforeLeaving");
 
         showWelcomeScreen(wagon);
     }
@@ -303,6 +308,12 @@ public class Display extends JFrame {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "MonthAdvice");
         monthAdvice.getPanel().requestFocusInWindow();
+    }
+
+    public void showBeforeLeaving(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "BeforeLeaving");
+        beforeLeaving.getPanel().requestFocusInWindow();
     }
 
     /*

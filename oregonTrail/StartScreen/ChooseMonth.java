@@ -80,7 +80,7 @@ public class ChooseMonth extends AbstractScreen {
                     case "3. May":
                     case "4. June":
                     case "5. July":
-                		display.showStoreScreen();
+                		display.showBeforeLeaving(wagon);
                 		break;
             		case "6. Ask For Advice":
                			display.showMonthAdvice(wagon);

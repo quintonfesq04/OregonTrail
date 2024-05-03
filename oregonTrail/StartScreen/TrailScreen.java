@@ -29,6 +29,10 @@ public class TrailScreen extends AbstractScreen {
 	private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
 	private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 	
+	private String selectedOption;
+
+	private String choice;
+
 	/**
 	 * Create the application.
 	 */
@@ -83,7 +87,7 @@ public class TrailScreen extends AbstractScreen {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JComboBox<String> combo = (JComboBox<String>) e.getSource();
-				String selectedOption = (String) combo.getSelectedItem();
+				selectedOption = (String) combo.getSelectedItem();
 				// Check which item is selected and perform action accordingly
 				switch (selectedOption) {
 					case "1. Be a Doctor from Dayton":
@@ -118,6 +122,10 @@ public class TrailScreen extends AbstractScreen {
         initialize();
     }
 	
+	public String setChoice(){
+		String choice;
+		return this.choice = selectedOption;
+	}
 
     @Override
 	public void resizeImages() {

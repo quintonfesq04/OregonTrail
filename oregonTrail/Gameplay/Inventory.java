@@ -10,11 +10,14 @@ package Gameplay;
 import Screens.*;
 import Gameplay.*;
 import Hunting.*;
+import StartScreen.*;
 
 public class Inventory {
+    private BeforeLeaving beforeLeaving;
+
     private int food = 0;
     private int oxen = 0;
-    private double money = 0;
+    private double money;
     private int wagonWheel = 0;
     private int wagonTongue = 0;
     private int wagonAxle = 0;
