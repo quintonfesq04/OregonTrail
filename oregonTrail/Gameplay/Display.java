@@ -250,6 +250,7 @@ public class Display extends JFrame {
     public void showLandmarkScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "LandmarkScreen");
+        conversationScreen.getPanel().requestFocusInWindow();
     }
 
     /**
