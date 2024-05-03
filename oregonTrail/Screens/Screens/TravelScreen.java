@@ -34,7 +34,6 @@ public class TravelScreen extends AbstractScreen {
     @Override
     protected void initialize(){
         viewPanel.setFocusable(true);
-        viewPanel.requestFocusInWindow();
         viewPanel.setLayout(null);
 
         cloud.setPreferredSize(new Dimension(300,150));
