@@ -74,7 +74,6 @@ public class Display extends JFrame {
      * initializes the Display
      */
     private void initialize() {
-        wagon.getInventory().setMoney(10000);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 1200, 675);
         getContentPane().setLayout(new CardLayout());
