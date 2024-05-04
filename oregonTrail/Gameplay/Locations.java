@@ -51,6 +51,17 @@ public class Locations {
         this.distance = distance;
     }
 
+
+    public void checkLandmark(int distanceTraveled) {
+        for (int i = 0; i < LOCATION_DISTANCE.length; i++) {
+            if (distanceTraveled >= LOCATION_DISTANCE[i] && distanceTraveled < LOCATION_DISTANCE[i + 1]) {
+                String landmark = LOCATIONS[i];
+                JOptionPane.showMessageDialog(null, "You have reached " + landmark + "!", "Landmark Reached",
+                        JOptionPane.INFORMATION_MESSAGE);
+                break;
+            }
+        }
+    }
     /**
      * moves the player along the trail
      * 
