@@ -71,7 +71,7 @@ public class TravelScreen extends AbstractScreen {
     public void updateScreen(Wagon wagon){
         this.wagon.setLocations(wagon.getLocations());
         this.wagon.setConditions(wagon.getConditions());
-        initialize();
+        //initialize();
     }
     
     private void arriveAtLandmark() {
