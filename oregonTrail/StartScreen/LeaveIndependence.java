@@ -34,9 +34,10 @@ public class LeaveIndependence extends AbstractScreen {
     private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 
-    public LeaveIndependence(Wagon wagon, Display display) {
+    public LeaveIndependence(Wagon wagon, Display display, TravelScreen travelScreen) {
         this.wagon = wagon;
         this.display = display;
+        this.travelScreen = travelScreen;
         initialize();
     }
 

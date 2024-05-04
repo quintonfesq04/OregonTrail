@@ -5,6 +5,8 @@ import java.awt.event.KeyAdapter;
 import java.io.File;
 import java.util.Arrays;
 
+import javax.swing.JOptionPane;
+
 import Gameplay.*;
 import Screens.*;
 import Hunting.*; 
@@ -21,6 +23,7 @@ public class TravelScreen extends AbstractScreen {
 
     private Display display;
     private Wagon wagon;
+    private Locations locations;
 
     private int distanceMoved;
 
@@ -55,6 +58,8 @@ public class TravelScreen extends AbstractScreen {
                 }
             }
         });
+
+        endGame();
     }
 
     @Override
@@ -66,6 +71,13 @@ public class TravelScreen extends AbstractScreen {
     public void resizeImages(){
         viewPanel.resizeImage();
         //cloud.resizeImage();
+    }
+
+    private void endGame() {
+        if(wagon.getLocations().getDistance() >= 2051) {
+            JOptionPane.showMessageDialog(null, "Congratulations You Made It To Oregon!");
+            display.showTheOregonTrail(wagon);
+        }
     }
 
     public void updateScreen(Wagon wagon){

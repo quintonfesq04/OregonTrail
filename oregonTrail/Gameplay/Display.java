@@ -148,7 +148,7 @@ public class Display extends JFrame {
         mayasStore = new MayasStore(wagon, this);
         getContentPane().add(mayasStore.getPanel(), "MayasStore");
 
-        leaveIndependence = new LeaveIndependence(wagon, this);
+        leaveIndependence = new LeaveIndependence(wagon, this, travelScreen);
         getContentPane().add(leaveIndependence.getPanel(), "LeaveIndependence");
 
         showWelcomeScreen(wagon);
