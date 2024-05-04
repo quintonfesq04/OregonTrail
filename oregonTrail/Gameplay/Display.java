@@ -234,6 +234,7 @@ public class Display extends JFrame {
     public void showConversationScreen(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "ConversationScreen");
+        conversationScreen.getPanel().requestFocusInWindow();
     }
 
     /**
