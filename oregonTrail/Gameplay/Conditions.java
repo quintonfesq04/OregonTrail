@@ -24,13 +24,15 @@ public class Conditions {
     private String previousWeather;
     private Player player;
 
+    private Wagon wagon;
     /**
      * Constructs a Conditions object with the given inventory.
      *
      * @param inventory the inventory to be associated with this Conditions object
      */
-    public Conditions(Inventory inventory) {
+    public Conditions(Wagon wagon) {
         this.inventory = inventory;
+        this.wagon = wagon;
     }
 
     /**
