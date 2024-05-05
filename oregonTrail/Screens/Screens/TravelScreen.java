@@ -17,9 +17,11 @@ import Hunting.*;
  * @version 1.0.0 4/18/24
  */
 public class TravelScreen extends AbstractScreen {
+    private File imageFile = new File("Images/Normal Travel.png");
+
     private Cloud cloud = new Cloud(50,25,new File("Images/Cloud4.png"));
 
-    protected PicPanel viewPanel = new PicPanel(new File("Images/Normal Travel.png"));
+    protected PicPanel viewPanel = new PicPanel(imageFile);
 
     private Display display;
     private Wagon wagon;
@@ -139,11 +141,24 @@ public class TravelScreen extends AbstractScreen {
         wagon.getConditions().setInventory(wagon.getInventory());
         wagon.setInventory(wagon.getConditions().handleInventory());
         conditionString = wagon.getConditions().getConditionMessage();
-        System.out.println(conditionString.substring(7,14));
+        
+        conditionString = "Random Weather Event: Sunny\n";
 
-
-        if(conditionString.substring(7,14) == "Weather"){
+        if(conditionString.contains("Random Weather Event")){
+            String weatherType = conditionString.split(": " )[1];
             
+            if(weatherType.contains("Sunny")){
+                imageFile = new File("Images/Drought Travel.png");
+                viewPanel.setImage(imageFile);
+            }
+            else if(weatherType.contains("Rainy")){
+                imageFile = new File("Images/Normal Travel.png");
+                viewPanel.setImage(imageFile);
+            }
+            else if(weatherType.contains("Snowy")){
+                imageFile = new File("Images/Snow Travel.png");
+                viewPanel.setImage(imageFile);
+            }
         }
 
     }
