@@ -25,6 +25,7 @@ public class TravelScreen extends AbstractScreen {
     private Wagon wagon;
     private Conditions conditions;
     private int distanceMoved;
+    private String conditionString;
 
 
     public TravelScreen(Wagon wagon, Display display) {
@@ -132,9 +133,10 @@ public class TravelScreen extends AbstractScreen {
         return false;
     }
 
-    private void setWeather() {
-        conditions = wagon.getConditions();
-        conditions.
+    private void handleConditions() {
+        wagon.getConditions().setInventory(wagon.getInventory());
+        wagon.setInventory(wagon.getConditions().handleInventory());
+        conditionString = wagon.getConditions().getConditionMessage();
     }
 }
 
