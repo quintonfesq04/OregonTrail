@@ -19,7 +19,7 @@ import Hunting.*;
 public class TravelScreen extends AbstractScreen {
     private Cloud cloud = new Cloud(50,25,new File("Images/Cloud4.png"));
 
-    protected PicPanel viewPanel = new PicPanel(new File("Images/basic travel0.jpg"));
+    protected PicPanel viewPanel = new PicPanel(new File("Images/Normal Travel.png"));
 
     private Display display;
     private Wagon wagon;

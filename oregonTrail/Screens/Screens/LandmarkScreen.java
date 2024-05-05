@@ -9,7 +9,10 @@ import Screens.*;
 import Hunting.*;
 
 import javax.swing.JButton;
+import javax.swing.JPanel;
+
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 
 /**
@@ -20,7 +23,7 @@ import java.awt.event.ActionEvent;
  */
 
 public class LandmarkScreen extends AbstractScreen{
-    private JPanel panel = new JPanel();
+    protected PicPanel viewPanel = new PicPanel(new File("Images/Landmark 1.png"));
     private Display display;
 	private Wagon wagon;
     
@@ -36,11 +39,15 @@ public class LandmarkScreen extends AbstractScreen{
 
     @Override
     protected void initialize() {
-    	panel.setBounds(100, 100, 573, 456);
-		panel.setLayout(new BorderLayout(0, 0));
+    	viewPanel.setBounds(100, 100, 573, 456);
+		viewPanel.setLayout(new BorderLayout(0, 0));
 		
+		JPanel topPanel = new JPanel();
+		topPanel.add(viewPanel);
+		topPanel.setLayout(new GridLayout(0,1,0,0));
+
 		JPanel bottomPanel = new JPanel();
-		panel.add(bottomPanel);
+		viewPanel.add(bottomPanel);
 		bottomPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JButton btnNewButton_2 = new JButton("Store");
@@ -76,7 +83,7 @@ public class LandmarkScreen extends AbstractScreen{
 
     @Override
     public JPanel getPanel() {
-        return panel;
+        return viewPanel;
     }
     
 }
