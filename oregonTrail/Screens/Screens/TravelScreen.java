@@ -24,13 +24,14 @@ public class TravelScreen extends AbstractScreen {
     private Display display;
     private Wagon wagon;
     private Locations locations;
-
+    private Conditions conditions;
     private int distanceMoved;
 
 
     public TravelScreen(Wagon wagon, Display display) {
         this.wagon = wagon;
         this.display = display;
+        this.conditions = wagon.getConditions();
         initialize();
     }
 
@@ -130,6 +131,11 @@ public class TravelScreen extends AbstractScreen {
             }
         } 
         return false;
+    }
+
+    private void setWeather() {
+        conditions = wagon.getConditions();
+        conditions.
     }
 }
 
