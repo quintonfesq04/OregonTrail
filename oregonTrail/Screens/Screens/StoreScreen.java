@@ -48,6 +48,7 @@ public class StoreScreen extends AbstractScreen{
 	private JLabel tonguePriceLbl;
     private JLabel remainingLbl;
     private JSpinner oxenSpinner;
+	public JButton returnBtn;
 
 	private Display display;
     private Wagon wagon;
@@ -108,6 +109,19 @@ public class StoreScreen extends AbstractScreen{
 			}
 		});
 		viewPanel.add(buyBtn, gbc_buyBtn);
+
+		returnBtn = new JButton("Buy");
+        GridBagConstraints gbc_returnBtn = new GridBagConstraints();
+        gbc_returnBtn.insets = new Insets(10, 0, 0, 0);
+        gbc_returnBtn.gridx = 1;
+        gbc_returnBtn.gridy = 12;
+        returnBtn.setForeground(new Color(93, 199, 255));
+		returnBtn.addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				display.showLandmarkScreen();
+			}
+		});
+		viewPanel.add(returnBtn, gbc_returnBtn);
 		
         remainingLbl = new JLabel("Remaining Money: $" + money);
         GridBagConstraints gbc_remainingLbl = new GridBagConstraints();

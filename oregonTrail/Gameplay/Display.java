@@ -185,11 +185,6 @@ public class Display extends JFrame {
     public void showStoreScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "StoreScreen");
-        if (wagon.getLocations().hasLeftStartingLandmark(wagon.getLocations().getDistance())) {
-            storeScreen.returnToLandmarkBtn.setEnabled(true);
-        } else {
-            storeScreen.returnToLandmarkBtn.setEnabled(false);
-        }
     }
 
     /**
