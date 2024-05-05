@@ -110,7 +110,7 @@ public class StoreScreen extends AbstractScreen{
 		});
 		viewPanel.add(buyBtn, gbc_buyBtn);
 
-		returnBtn = new JButton("Buy");
+		returnBtn = new JButton("Retrun To Landmark");
         GridBagConstraints gbc_returnBtn = new GridBagConstraints();
         gbc_returnBtn.insets = new Insets(10, 0, 0, 0);
         gbc_returnBtn.gridx = 1;
