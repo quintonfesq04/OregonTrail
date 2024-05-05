@@ -7,6 +7,8 @@ import javax.swing.event.ChangeListener;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+
 import Gameplay.*;
 
 /**
@@ -15,6 +17,8 @@ import Gameplay.*;
  * @version 1.4.2 5/1/24
  */
 public class ControlScreen extends AbstractScreen {
+    protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
+
     private JPanel panel;
     private Wagon wagon;
     private Display display;
@@ -30,8 +34,6 @@ public class ControlScreen extends AbstractScreen {
     
     private Font labelFont = new Font("Trajan Pro", Font.PLAIN, 24);
     private Font sliderFont = new Font("Trajan Pro", Font.PLAIN, 16);
-    private JPanel sliderPanel;
-    private JPanel consumptionPanel;
     private JRadioButton meagerBtn;
     private JRadioButton bareBonesBtn;
     private JRadioButton fillingBtn;
@@ -44,54 +46,112 @@ public class ControlScreen extends AbstractScreen {
         initialize();
     }
 
+    @Override
     protected void initialize() {
-        panel = new JPanel(new GridLayout());
+        viewPanel.setFocusable(true);
+        GridBagLayout gbl_viewPanel = new GridBagLayout();
+        gbl_viewPanel.columnWeights = new double[]{0.0, 0.0};
+        viewPanel.setLayout(gbl_viewPanel); 
 
-        JPanel inventoryPanel = new JPanel();
-        inventoryPanel.setBorder(BorderFactory.createTitledBorder("Inventory"));
-        inventoryPanel.setLayout(new BoxLayout(inventoryPanel, BoxLayout.PAGE_AXIS));
-        panel.add(inventoryPanel, BorderLayout.WEST);
+        JLabel inventory = new JLabel("Inventory");
+        GridBagConstraints gbc_inventory = new GridBagConstraints();
+        gbc_inventory.insets = new Insets(0, 0, 0, 0);
+        gbc_inventory.gridx = 0;
+        gbc_inventory.gridy = 0;
+        inventory.setForeground(new Color(93, 199, 255));
+        inventory.setHorizontalAlignment(SwingConstants.CENTER);
+        inventory.setFont(labelFont);
+        inventory.add(inventory, gbc_inventory);
 
         moneyLbl = new JLabel("Money: ");
+        GridBagConstraints gbc_moneyLbl = new GridBagConstraints();
+        gbc_moneyLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_moneyLbl.gridx = 0;
+        gbc_moneyLbl.gridy = 1;
+        moneyLbl.setForeground(new Color(93, 199, 255));
+        moneyLbl.setHorizontalAlignment(SwingConstants.CENTER);
         moneyLbl.setFont(labelFont);
-        inventoryPanel.add(moneyLbl);
+        viewPanel.add(moneyLbl, gbc_moneyLbl);
 
         foodLbl = new JLabel("Food: ");
+        GridBagConstraints gbc_foodLbl = new GridBagConstraints();
+        gbc_foodLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_foodLbl.gridx = 0;
+        gbc_foodLbl.gridy = 2;
+        foodLbl.setForeground(new Color(93, 199, 255));
+        foodLbl.setHorizontalAlignment(SwingConstants.CENTER);
         foodLbl.setFont(labelFont);
-        inventoryPanel.add(foodLbl);
+        viewPanel.add(foodLbl, gbc_foodLbl);
 
         oxenLbl = new JLabel("Oxen: ");
+        GridBagConstraints gbc_oxenLbl = new GridBagConstraints();
+        gbc_oxenLbl.insets = new Insets(0,0,0,0);
+        gbc_oxenLbl.gridx = 0;
+        gbc_oxenLbl.gridy = 3;
+        oxenLbl.setForeground(new Color(93, 199, 255));
+        oxenLbl.setHorizontalAlignment(SwingConstants.CENTER);
         oxenLbl.setFont(labelFont);
-        inventoryPanel.add(oxenLbl);
+        viewPanel.add(oxenLbl, gbc_oxenLbl);
 
         clothesLbl = new JLabel("Clothes: ");
+        GridBagConstraints gbc_clothesLbl = new GridBagConstraints();
+        gbc_clothesLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_clothesLbl.gridx = 0;
+        gbc_clothesLbl.gridy = 4;
         clothesLbl.setFont(labelFont);
-        inventoryPanel.add(clothesLbl);
+        viewPanel.add(clothesLbl, gbc_clothesLbl);
 
         ammoLbl = new JLabel("Ammunition: ");
+        GridBagConstraints gbc_ammoLbl = new GridBagConstraints();
+        gbc_ammoLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_ammoLbl.gridx = 0;
+        gbc_ammoLbl.gridy = 5;
         ammoLbl.setFont(labelFont);
-        inventoryPanel.add(ammoLbl);
+        viewPanel.add(ammoLbl, gbc_ammoLbl);
 
         wheelLbl = new JLabel("Wagon Wheel: ");
+        GridBagConstraints gbc_wheelLbl = new GridBagConstraints();
+        gbc_wheelLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_wheelLbl.gridx = 0;
+        gbc_wheelLbl.gridy = 6;
         wheelLbl.setFont(labelFont);
-        inventoryPanel.add(wheelLbl);
+        viewPanel.add(wheelLbl, gbc_wheelLbl);
 
         axleLbl = new JLabel("Wagon Axle: ");
+        GridBagConstraints gbc_axleLbl = new GridBagConstraints();
+        gbc_axleLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_axleLbl.gridx = 0;
+        gbc_axleLbl.gridy = 7;
         axleLbl.setFont(labelFont);
-        inventoryPanel.add(axleLbl);
+        viewPanel.add(axleLbl, gbc_axleLbl);
 
         tongueLbl = new JLabel("Wagon Tongue: ");
+        GridBagConstraints gbc_tongueLbl = new GridBagConstraints();
+        gbc_tongueLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_tongueLbl.gridx = 0;
+        gbc_tongueLbl.gridy = 8;
         tongueLbl.setFont(labelFont);
-        inventoryPanel.add(tongueLbl);
+        viewPanel.add(tongueLbl, gbc_tongueLbl);
 
-        JPanel optionPanel = new JPanel();
-        optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.Y_AXIS));
-        panel.add(optionPanel, BorderLayout.CENTER);
+        JLabel sliderLbl = new JLabel("Travel Speed");
+        GridBagConstraints gbc_sliderLbl = new GridBagConstraints();
+        gbc_sliderLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_sliderLbl.gridx = 2;
+        gbc_sliderLbl.gridy = 0;
+        inventory.setForeground(new Color(93, 199, 255));
+        inventory.setHorizontalAlignment(SwingConstants.CENTER);
+        inventory.setFont(labelFont);
+        inventory.add(sliderLbl, gbc_sliderLbl);
 
         slider = new JSlider(JSlider.HORIZONTAL, 12, 20, 20);
+        GridBagConstraints gbc_slider = new GridBagConstraints();
+        gbc_slider.insets = new Insets(0, 0, 0, 0);
+        gbc_slider.gridx = 2;
+        gbc_slider.gridy = 1;
         slider.setMajorTickSpacing(1);
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
+        viewPanel.add(slider, gbc_slider);
         slider.addChangeListener(new ChangeListener(){
 
             @Override
@@ -101,28 +161,54 @@ public class ControlScreen extends AbstractScreen {
             }
             
         });
-        sliderPanel = new JPanel(new BorderLayout());
-        sliderPanel.setBorder(BorderFactory.createTitledBorder("Travel Speed"));
-        sliderPanel.add(slider, BorderLayout.NORTH);
-        sliderPanel.setFont(sliderFont);
-        optionPanel.add(sliderPanel);
 
-        consumptionPanel = new JPanel(new GridLayout(3, 1));
-        consumptionPanel.setBorder(BorderFactory.createTitledBorder("Food Consumption"));
+        JLabel consumptionLbl = new JLabel("Food Consumption");
+        GridBagConstraints gbc_consumptionLbl = new GridBagConstraints();
+        gbc_consumptionLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_consumptionLbl.gridx = 2;
+        gbc_consumptionLbl.gridy = 2;
+        consumptionLbl.setForeground(new Color(93, 199, 255));
+        consumptionLbl.setHorizontalAlignment(SwingConstants.CENTER);
+        consumptionLbl.setFont(labelFont);
+        viewPanel.add(consumptionLbl, gbc_consumptionLbl);
+
         bareBonesBtn = new JRadioButton("Bare-Bones");
+        GridBagConstraints gbc_bareBones = new GridBagConstraints();
+        gbc_bareBones.insets = new Insets(0, 0, 0, 0);
+        gbc_bareBones.gridx = 2;
+        gbc_bareBones.gridy = 3;
         meagerBtn = new JRadioButton("Meager");
+        GridBagConstraints gbc_meager = new GridBagConstraints();
+        gbc_meager.insets = new Insets(0, 0, 0, 0);
+        gbc_meager.gridx = 2;
+        gbc_meager.gridy = 4;
         fillingBtn = new JRadioButton("Filling");
+        GridBagConstraints gbc_filling = new GridBagConstraints();
+        gbc_filling.insets = new Insets(0, 0, 0, 0);
+        gbc_filling.gridx = 2;
+        gbc_filling.gridy = 5;
         fillingBtn.setSelected(true);
         buttonGroup.add(bareBonesBtn);
         buttonGroup.add(meagerBtn);
         buttonGroup.add(fillingBtn);
-        consumptionPanel.add(bareBonesBtn);
-        consumptionPanel.add(meagerBtn);
-        consumptionPanel.add(fillingBtn);
+        viewPanel.add(bareBonesBtn, gbc_bareBones);
+        viewPanel.add(meagerBtn);
+        viewPanel.add(fillingBtn);
         meagerBtn.setFont(sliderFont);
         bareBonesBtn.setFont(sliderFont);
         fillingBtn.setFont(sliderFont);
-        optionPanel.add(consumptionPanel);
+        viewPanel.add(viewPanel);
+
+        JButton forageBtn = new JButton("Forage For Food");
+        GridBagConstraints gbc_forageBtn = new GridBagConstraints();
+        gbc_forageBtn.insets = new Insets(0, 0, 0, 0);
+        gbc_forageBtn.gridx = 2;
+        gbc_forageBtn.gridy = 8;
+        forageBtn.setForeground(new Color(93, 199, 255));
+        forageBtn.setHorizontalAlignment(SwingConstants.CENTER);
+        forageBtn.setFont(labelFont);
+        viewPanel.add(forageBtn, gbc_forageBtn);
+
 
         
         ActionListener radioListener = new ActionListener() {
