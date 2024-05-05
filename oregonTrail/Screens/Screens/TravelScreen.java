@@ -119,6 +119,8 @@ public class TravelScreen extends AbstractScreen {
         
         System.out.println(wagon.getLocations().getDistance());
 
+        handleConditions();
+
         arriveAtLandmark(); // Check if arrived at landmark
     }
 
@@ -137,6 +139,13 @@ public class TravelScreen extends AbstractScreen {
         wagon.getConditions().setInventory(wagon.getInventory());
         wagon.setInventory(wagon.getConditions().handleInventory());
         conditionString = wagon.getConditions().getConditionMessage();
+        System.out.println(conditionString.substring(7,14));
+
+
+        if(conditionString.substring(7,14) == "Weather"){
+            
+        }
+
     }
 }
 

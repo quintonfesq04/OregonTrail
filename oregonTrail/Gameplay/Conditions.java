@@ -154,7 +154,6 @@ public class Conditions {
                     } else {
                         eventInfo += " You were unable to fix it!\n";
                     }
-
                     break;
 
                 case 3:
