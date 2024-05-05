@@ -17,12 +17,10 @@ import Hunting.*;
  */
 public class Conditions {
     private static Random random = new Random();
-    private Inventory inventory;
     private String eventInfo;
     private String weather;
     private double accumulatedRainfall;
     private String previousWeather;
-    private Player player;
 
     private Wagon wagon;
     /**
@@ -31,27 +29,9 @@ public class Conditions {
      * @param inventory the inventory to be associated with this Conditions object
      */
     public Conditions(Wagon wagon) {
-        this.inventory = inventory;
         this.wagon = wagon;
     }
 
-    /**
-     * Retrieves the associated inventory.
-     *
-     * @return the associated inventory
-     */
-    public Inventory getInventory() {
-        return inventory;
-    }
-
-    /**
-     * Sets the associated inventory.
-     *
-     * @param inventory the inventory to be associated with this Conditions object
-     */
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
-    }
     private boolean isEventOccurred() {
         int eventChance = random.nextInt(100);
         return eventChance == 0;
