@@ -23,7 +23,6 @@ public class TravelScreen extends AbstractScreen {
 
     private Display display;
     private Wagon wagon;
-    private Locations locations;
     private Conditions conditions;
     private int distanceMoved;
 
