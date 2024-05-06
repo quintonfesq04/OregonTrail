@@ -91,7 +91,7 @@ public class TravelScreen extends AbstractScreen {
     
     private void arriveAtLandmark() {
         String nextLandmark = wagon.getLocations().getNextLandmark();
-        wagon.setInventory(wagon.getConditions().handleInventory());
+        wagon.getConditions().handleInventory();
         if (nextLandmark != null) {
             if (wagon.getLocations().hitRiver()) {
                 display.showRiverScreen(wagon);
@@ -138,8 +138,7 @@ public class TravelScreen extends AbstractScreen {
     }
 
     private void handleConditions() {
-        wagon.getConditions().setInventory(wagon.getInventory());
-        wagon.setInventory(wagon.getConditions().handleInventory());
+        wagon.getConditions().handleInventory();
         conditionString = wagon.getConditions().getConditionMessage();
         
         conditionString = "Random Weather Event: Sunny\n";
@@ -147,20 +146,20 @@ public class TravelScreen extends AbstractScreen {
         if(conditionString.contains("Random Weather Event")){
             String weatherType = conditionString.split(": " )[1];
             
-            if(weatherType.contains("Sunny")){
+            if(weatherType.contains("Sunny"))
                 imageFile = new File("Images/Drought Travel.png");
-                viewPanel.setImage(imageFile);
-                JOptionPane.showMessageDialog();
-            }
-            else if(weatherType.contains("Rainy")){
+        
+            else if(weatherType.contains("Rainy"))
                 imageFile = new File("Images/Normal Travel.png");
-                viewPanel.setImage(imageFile);
-            }
-            else if(weatherType.contains("Snowy")){
+
+            else if(weatherType.contains("Snowy"))
                 imageFile = new File("Images/Snow Travel.png");
-                viewPanel.setImage(imageFile);
-            }
+            
+            viewPanel.setImage(imageFile);
+            JOptionPane.showMessageDialog(null, wagon.getConditions().getConditionMessage());
         }
+
+        
 
     }
 }

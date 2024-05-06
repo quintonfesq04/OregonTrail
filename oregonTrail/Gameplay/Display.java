@@ -152,6 +152,7 @@ public class Display extends JFrame {
         getContentPane().add(leaveIndependence.getPanel(), "LeaveIndependence");
 
         //showWelcomeScreen(wagon);
+        showTravelScreen(wagon);
     }
    
     /**
