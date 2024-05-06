@@ -39,6 +39,7 @@ public class WagonNames extends AbstractScreen {
 
     private JLabel titleLbl;
     private boolean firstNameEntered = false;
+    private String[] partyNames = {"", "", "", "", ""};
 
     public WagonNames(Wagon wagon, Display display) {
         this.wagon = wagon;
@@ -87,6 +88,8 @@ public class WagonNames extends AbstractScreen {
             public void actionPerformed(ActionEvent e) {
                 String name = name1TextField.getText();
                 if (!name.isEmpty()) {
+                    partyNames[1] = name;
+                    wagon.getPlayer().setPartyNames(partyNames);
                     // Remove the JTextField
                     viewPanel.remove(name1TextField);
                     // Create a JLabel with the entered name
@@ -135,6 +138,8 @@ public class WagonNames extends AbstractScreen {
             public void actionPerformed(ActionEvent e) {
                 String name = name2TextField.getText();
                 if (!name.isEmpty()) {
+                    partyNames[2] = name;
+                    wagon.getPlayer().setPartyNames(partyNames);
                     // Remove the JTextField
                     viewPanel.remove(name2TextField);
                     // Create a JLabel with the entered name
@@ -178,6 +183,8 @@ public class WagonNames extends AbstractScreen {
             public void actionPerformed(ActionEvent e) {
                 String name = name3TextField.getText();
                 if (!name.isEmpty()) {
+                    partyNames[3] = name;
+                    wagon.getPlayer().setPartyNames(partyNames);
                     // Remove the JTextField
                     viewPanel.remove(name3TextField);
                     // Create a JLabel with the entered name
@@ -220,6 +227,8 @@ public class WagonNames extends AbstractScreen {
             public void actionPerformed(ActionEvent e) {
                 String name = name4TextField.getText();
                 if (!name.isEmpty()) {
+                    partyNames[4] = name;
+                    wagon.getPlayer().setPartyNames(partyNames);
                     // Remove the JTextField
                     viewPanel.remove(name4TextField);
                     // Create a JLabel with the entered name
@@ -262,6 +271,8 @@ public class WagonNames extends AbstractScreen {
             public void actionPerformed(ActionEvent e) {
                 String name = name5TextField.getText();
                 if (!name.isEmpty()) {
+                    partyNames[5] = name;
+                    wagon.getPlayer().setPartyNames(partyNames);
                     // Remove the JTextField
                     viewPanel.remove(name5TextField);
                     // Create a JLabel with the entered name

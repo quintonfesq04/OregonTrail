@@ -23,6 +23,14 @@ public class Conditions {
     private String previousWeather;
 
     private Wagon wagon;
+
+    private boolean weatherChange;
+    
+    public final static int DROUGHT = 0;
+    public final static int RAINING = 1;
+    public final static int SNOWING = 2;
+    private int weatherCondition;
+    
     /**
      * Constructs a Conditions object with the given inventory.
      *
@@ -30,6 +38,7 @@ public class Conditions {
      */
     public Conditions(Wagon wagon) {
         this.wagon = wagon;
+        weatherCondition = 0;
     }
 
     private boolean isEventOccurred() {
@@ -104,7 +113,7 @@ public class Conditions {
      *
      * @return the updated inventory after handling events
      */
-    public Inventory handleInventory() {
+    public void handleInventory() {
         eventInfo = "";
         if (isEventOccurred()) {
             int event = random.nextInt(50);
@@ -112,6 +121,7 @@ public class Conditions {
                 case 0:
                     // Weather event
                     String[] weathers = { "Sunny", "Rainy", "Snowy" };
+                    
                     String weather = weathers[random.nextInt(weathers.length)];
                     eventInfo = "Random Weather Event: " + weather + "\n";
                     break;
@@ -119,20 +129,18 @@ public class Conditions {
                 case 1:
                     // Thieves event
                     eventInfo = "Random Event: Thieves attacked your wagon!\n";
-                    String[] itemNames = { "food", "water" };
-                    String item = itemNames[random.nextInt(itemNames.length)];
-                    int stolenAmount = random.nextInt(inventory.getItemCount(item) + 1);
-                    inventory.removeItem(item, stolenAmount);
-                    eventInfo += " " + stolenAmount + " " + item + " stolen by thieves.\n";
+                    int stolenAmount = random.nextInt(wagon.getInventory().getFood()) + 1;
+                    wagon.getInventory().removeItem(Inventory.FOOD, stolenAmount);
+                    eventInfo += " " + stolenAmount + " food stolen by thieves.\n";
                     break;
 
                 case 2:
                     // Wagon breakdown event
                     eventInfo = "Random Event: Your wagon broke down.\n";
-                    String[] wagonParts = { "wagon wheel", "wagon tongue", "wagon axle" };
+                    String[] wagonParts = {Inventory.WAGON_WHEEL, Inventory.WAGON_TONGUE, Inventory.WAGON_AXLE};
                     String part = wagonParts[random.nextInt(wagonParts.length)];
-                    if (inventory.getItemCount(part) > 0) {
-                        inventory.removeItem(part, 1);
+                    if (wagon.getInventory().getItemCount(part) > 0) {
+                        wagon.getInventory().removeItem(part, 1);
                     } else {
                         eventInfo += " You were unable to fix it!\n";
                     }
@@ -143,19 +151,14 @@ public class Conditions {
                     String[] diseases = { "Exhaustion", "Typhoid", "Cholera", "Measles", "Dysentery", "Fever" };
                     String disease = diseases[random.nextInt(diseases.length)];
                     eventInfo = "Random Disease Event: " + disease + "\n";
-                    int affectedAmount = random.nextInt(11); // Random amount affected (0-10)
-                    inventory.removeItem("medicine", affectedAmount); // Remove medicine as treatment
-                    eventInfo += " " + affectedAmount + " units of medicine used for treatment.\n";
+                    String partyMember = wagon.getPlayer().getPartyNames()[random.nextInt(wagon.getPlayer().getPartyNames().length)];
+                    eventInfo += partyMember + "is sick with " + disease;
                     break;
 
                 case 4:
                     // Indians help find food
-                    if (inventory.getItemCount("food") == 0) {
-                        if (random.nextDouble() < 0.05) {
-                            inventory.setFood(inventory.getFood() + 30);
-                            eventInfo = "Indians helped you find food! +30 lbs of food.\n";
-                        }
-                    }
+                    wagon.getInventory().setFood(wagon.getInventory().getFood() + 30);
+                    eventInfo = "Indians helped you find food! +30 lbs of food.\n";
                     break;
 
                 case 5:
@@ -165,7 +168,7 @@ public class Conditions {
                     if (random.nextDouble() < probability) {
                         eventInfo = "Random Event: Severe thunderstorm!\n";
                         int lostFood = random.nextInt(11); // Random amount lost (0-10)
-                        inventory.removeItem("food", lostFood);
+                        wagon.getInventory().removeItem(Inventory.FOOD, lostFood);
                         eventInfo += "Lost " + lostFood + " lbs of food due to the severe thunderstorm.\n";
                     }
                     break;
@@ -175,9 +178,9 @@ public class Conditions {
                     if (random.nextDouble() < 0.15) {
                         eventInfo = "Random Event: Severe blizzard!\n";
                         // Implement logic for consequences of severe blizzard
-                        int lostWater = random.nextInt(11); // Random amount lost (0-10)
-                        inventory.removeItem("water", lostWater);
-                        eventInfo += "Lost " + lostWater + " gallons of water due to the severe blizzard.\n";
+                        int lostFood = random.nextInt(11); // Random amount lost (0-10)
+                        wagon.getInventory().removeItem(Inventory.FOOD, lostFood);
+                        eventInfo += "Lost " + lostFood + " lbs of food due to the severe blizzard.\n";
                     }
                     break;
 
@@ -198,9 +201,9 @@ public class Conditions {
                     if (!isAfterFortHall() && isVeryHot()) {
                         if (random.nextDouble() < 0.06) {
                             eventInfo = "Random Event: Hail storm!\n";
-                            int lostMedicine = random.nextInt(6); // Random amount lost (0-5)
-                            inventory.removeItem("medicine", lostMedicine);
-                            eventInfo += "Lost " + lostMedicine + " units of medicine due to the hail storm.\n";
+                            int lostFood = random.nextInt(6); // Random amount lost (0-5)
+                            wagon.getInventory().removeItem(Inventory.FOOD, lostFood);
+                            eventInfo += "Lost " + lostFood + " units of medicine due to the hail storm.\n";
                         }
                     }
                     break;
@@ -208,13 +211,13 @@ public class Conditions {
                 case 9:
                     // Injured or dead ox
                     double oxInjuryProbability = isMountain() ? 0.035 : 0.02;
-                    if (inventory.getOxenHealthy() && random.nextDouble() < oxInjuryProbability) {
+                    if (wagon.getInventory().getOxenHealthy() && random.nextDouble() < oxInjuryProbability) {
                         eventInfo = "Random Event: An ox has been injured!\n";
-                        inventory.setOxenHealthy(false);
-                    } else if (!inventory.getOxenHealthy() && random.nextDouble() < 0.02) {
+                        wagon.getInventory().setOxenHealthy(false);
+                    } else if (!wagon.getInventory().getOxenHealthy() && random.nextDouble() < 0.02) {
                         eventInfo = "Random Event: An ox has died!\n";
-                        inventory.setOxen(inventory.getOxen() - 1);
-                        inventory.setOxenHealthy(true);
+                        wagon.getInventory().setOxen(wagon.getInventory().getOxen() - 1);
+                        wagon.getInventory().setOxenHealthy(true);
                     }
                     break;
 
@@ -223,7 +226,7 @@ public class Conditions {
                     double injuryProbability = isMountain() ? 0.035 : 0.02;
                     if (random.nextDouble() < injuryProbability) {
                         eventInfo = "Random Event: A party member is injured!\n";
-                        player.getSick();
+                        wagon.getPlayer().getSick();
                     }
                     break;
 
@@ -266,7 +269,7 @@ public class Conditions {
                     // Finding wild fruit
                     if (isMayToSeptember() && random.nextDouble() < 0.04) {
                         eventInfo = "Random Event: Found wild fruit! +20 lbs of food.\n";
-                        inventory.setFood(inventory.getFood() + 20);
+                        wagon.getInventory().setFood(wagon.getInventory().getFood() + 20);
                     }
                     break;
 
@@ -333,7 +336,6 @@ public class Conditions {
                     break;
             }
         }
-        return inventory;
     }
 
     /**
