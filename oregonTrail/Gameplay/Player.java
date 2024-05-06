@@ -24,6 +24,8 @@ public class Player {
     public static final String BARE_BONES   = "Bare-Bones";
     public static final String MEAGER       = "Meager";
 
+    private String[] partyNames;
+
     public Player() {
         this.health = 0;
         this.food = 50;
@@ -215,6 +217,13 @@ public class Player {
         }
     }
 
+    public String[] getPartyNames(){
+        return partyNames;
+    }
+
+    public void setPartyNames(String[] partyNames){
+        this.partyNames = partyNames;
+    }
     // Method to simulate the chance of contracting a disease
 
     /*
