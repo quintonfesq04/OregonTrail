@@ -150,7 +150,7 @@ public class TravelScreen extends AbstractScreen {
             if(weatherType.contains("Sunny")){
                 imageFile = new File("Images/Drought Travel.png");
                 viewPanel.setImage(imageFile);
-                JOptionPane.showMessageDialog();
+        
             }
             else if(weatherType.contains("Rainy")){
                 imageFile = new File("Images/Normal Travel.png");
