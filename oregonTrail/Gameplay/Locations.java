@@ -3,16 +3,22 @@ package Gameplay;
 import javax.swing.JOptionPane;
 
 /**
- * Locations.java -- This class tracks the players position along the trail.
+ * Locations.java -- This class tracks the player's position along the trail.
+ * 
+ * This class manages the player's position along the trail, including landmarks reached,
+ * distances traveled, and river crossings.
  * 
  * @author Ethan Burch
  * @author Madison Scott
  * @version 1.5.0 4/19/2024
- *
  */
 public class Locations {
-    public int distance = 0;
+    private Display display;
+    private Wagon wagon;
 
+    public int distance = 0; // Distance traveled along the trail
+
+    // Constants for landmark names
     public static final String INDEPENDENCE = "Independence";
     public static final String COURTHOUSE = "Courthouse";
     public static final String CHIMNEY = "Chimney Rock";
@@ -27,46 +33,42 @@ public class Locations {
     public static final String DALLES = "The Dalles";
     public static final String O_CITY_NORTH = "Oregon City North";
     public static final String O_CITY_SOUTH = "Oregon City South";
+    
+    // Constants for distances to landmarks
     public static final int KANSAS_DISTANCE = 102;
     public static final int BIG_BLUE_DISTANCE = 185;
     public static final int GREEN_DISTANCE = 989;
     public static final int SNAKE_DISTANCE = 1372;
+       
+    // Flags to track whether the player has passed certain landmarks and rivers
     private boolean pastKansas = false;
     private boolean pastBigBlue = false;
     private boolean pastGreen = false;
     private boolean pastSnake = false;
-    private boolean leftStartingLandmark = false;
-    private String riverName;
+    private boolean leftStartingLandmark = false;  // Flags to track whether the player has passed certain landmarks and rivers
+
+    private String riverName; // Name of the river reached by the player
+    private String nextLandmark; // Name of the next landmark to be reached
+
+    // Array of landmark names
     public static final String LOCATIONS[] = {  "Independence", "Courthouse", "Chimney Rock", "Fort Laramie",
                                                 "Independence Rock", "Fort Bridger", "Soda Springs", "Fort Hall", 
-                                                "Fort Boise", "Fort Boise North", "Fort Boise South", "The Dalles",
+                                                 "Fort Boise North", "Fort Boise South", "The Dalles",
                                                 "Oregon City North", "Oregon City South" };
 
-    public static final int LOCATION_DISTANCE[] = { 0, 566, 587, 663, 846, 1085, 1225, 1289, 1569, 1569, 1915, 2051, 2051 };
-
-    private String nextLandmark;
+    // Array of distances to landmarks                       
+    public static final int LOCATION_DISTANCE[] = { 0, 566, 587, 663, 846, 1085, 1225, 1289, 1596, 1569, 1915, 2051, 2051, 2051 };
 
     // Constructor for Locations object
     public Locations(int distance) {
         this.distance = distance;
     }
-
-
-    public void checkLandmark(int distanceTraveled) {
-        for (int i = 0; i < LOCATION_DISTANCE.length; i++) {
-            if (distanceTraveled >= LOCATION_DISTANCE[i] && distanceTraveled < LOCATION_DISTANCE[i + 1]) {
-                String landmark = LOCATIONS[i];
-                JOptionPane.showMessageDialog(null, "You have reached " + landmark + "!", "Landmark Reached",
-                        JOptionPane.INFORMATION_MESSAGE);
-                break;
-            }
-        }
-    }
+    
     /**
-     * moves the player along the trail
+     * Moves the player along the trail by the specified distance.
      * 
-     * @param travel the distance to be added
-     * @return the new distance
+     * @param travel The distance to move the player.
+     * @return The new distance traveled along the trail.
      */
     public int setPlayerPostion(int travel) {
         distance = distance + travel;
@@ -74,14 +76,13 @@ public class Locations {
     }
 
     /**
-     * determines if the player has reached a river
+     * Checks if the player has reached a river and displays a message if so.
      * 
-     * @return true if the player has made it to a river, false otherwise
+     * @return True if the player has reached a river, otherwise false.
      */
     public boolean hitRiver() {
         // Check if the player has reached any of the rivers
-        if (distance >= KANSAS_DISTANCE && !pastKansas) { // if we are at or slightly past kansas river but have not
-                                                          // seen it before
+        if (distance >= KANSAS_DISTANCE && !pastKansas) { 
             riverName = "Kansas River";
             pastKansas = true;
             JOptionPane.showMessageDialog(null, "You have reached Kansas River!", "River Crossing",
@@ -110,10 +111,10 @@ public class Locations {
         return false;
     }
 
-    /**
-     * Returns the name of the river that the player has reached
+     /**
+     * Returns the name of the river that the player has reached.
      * 
-     * @return the name of the river
+     * @return The name of the river.
      */
     public String getRiverName() {
         return riverName;
@@ -121,31 +122,35 @@ public class Locations {
     
 
     /**
-     * Returns the name of the next landmark to be reached
+     * Returns the name of the next landmark to be reached based on the current location.
      * 
-     * @param currentLoc the location of the player
-     * @return the name of the next landmark
+     * @param currentLoc The current location of the player.
+     * @return The name of the next landmark.
      */
     public String nextLocation(int currentLoc) {
+        for (int i = 0; i < LOCATION_DISTANCE.length - 1; i++) {
+            if (currentLoc >= LOCATION_DISTANCE[i] && currentLoc < LOCATION_DISTANCE[i + 1]) {
+                if (currentLoc >= 2051) { // Modified condition here
+                    // Display end game screen or message
+                    display.showEndGame(wagon);
+                    return "End of the Trail";
+                } else {
+                    return LOCATIONS[i];
+                }
+            }
+        }
+        return "Unknown Location"; 
+    }
+    /**
+     * Returns the name of the current location based on the distance traveled.
+     * 
+     * @param distance The distance traveled by the player.
+     * @return The name of the current location.
+     */
+    public String getLocation(int currentLoc) {
         int test1 = 0, test2 = 0;
     
         for (int i = 0; i < 13; i++) {
-            test1 = LOCATION_DISTANCE[i];
-            test2 = LOCATION_DISTANCE[i + 1]; // Potential issue here
-            if ((test1 < currentLoc) && (currentLoc < test2)) {
-                return LOCATIONS[i + 1];
-            }
-            if ((test1 == currentLoc) && (currentLoc == test2)) {
-                return LOCATIONS[i + 1] + " and " + LOCATIONS[i];
-            }
-        }
-        return "At Final Location";
-    }
-    
-    public String getLocation(int currentLoc) {
-        int test1 = 0, test2 = 0;
-
-        for (int i = 0; i < 12; i++) {
             test1 = LOCATION_DISTANCE[i];
             test2 = LOCATION_DISTANCE[i + 1];
             if ((test1 < currentLoc) && (currentLoc < test2)) {
@@ -158,8 +163,12 @@ public class Locations {
         return "At Final Location";
     }
 
-    /*
-     * uses current loaction as an int to check distance from next location
+    /**
+     * Calculates the distance from the current location to the next location.
+     * 
+     * @param currentLoc The current location of the player.
+     * @param nextLoc The name of the next location.
+     * @return The distance to the next location.
      */
     public int distanceTo(int currentLoc, String nextLoc) {
         int nextLocInt = 0;
@@ -172,25 +181,31 @@ public class Locations {
         return nextLocInt - currentLoc;
     }
 
-    /**
-     * moves along the trail
+   /**
+     * Adds distance traveled along the trail.
      * 
-     * @param distance the number to move along by
+     * @param distance The distance to be added.
      */
     public void addDistance(int distance) {
         this.distance += distance;
     }
 
     /**
-     * obtain next landmark
+     * Obtains the name of the next landmark.
      * 
-     * @return String for next landmark
+     * @return The name of the next landmark.
      */
     public String getNextLandmark() {
         nextLandmark = nextLocation(distance);
         return nextLandmark;
     }
 
+    /**
+     * Returns the name of the current location based on distance traveled.
+     * 
+     * @param distance The distance traveled by the player.
+     * @return The name of the current location.
+     */
     public String getCurrentLocation(int distance) {
         for (int i = 0; i < LOCATION_DISTANCE.length - 1; i++) {
             if (distance >= LOCATION_DISTANCE[i] && distance < LOCATION_DISTANCE[i + 1]) {
@@ -217,17 +232,21 @@ public class Locations {
     }
 
     /**
-     * Uses a varible from the main code to manually assign the distance varible a
-     * value
-     * 
-     * @param int distance is the value of the range the player is from the final
-     *            destination
-     * @return void
-     */
+    * Sets the distance traveled along the trail to a specified value.
+    * 
+    * @param distance The new distance traveled along the trail.
+    */
     public void setDistance(int distance) {
         this.distance = distance;
     }
     
+
+    /**
+     * Checks if the player has left the starting landmark.
+     * 
+     * @param currentLocation The current location of the player.
+     * @return True if the player has left the starting landmark, otherwise false.
+     */
     public boolean hasLeftStartingLandmark(int currentLocation) {
     	if(currentLocation > 0) {
     		leftStartingLandmark = true;
