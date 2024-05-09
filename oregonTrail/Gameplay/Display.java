@@ -1,21 +1,38 @@
 package Gameplay;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
+import java.awt.CardLayout;
+import java.awt.Component;
+import java.awt.EventQueue;
 
-import Gameplay.*;
-import Hunting.*;
-import Screens.*;
-import StartScreen.*;
+import javax.swing.JFrame;
 
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import Screens.ConditionsScreen;
+import Screens.ControlScreen;
+import Screens.ConversationScreen;
+import Screens.DeathScreen;
+import Screens.EndGame;
+import Screens.ForagingScreen;
+import Screens.LandmarkScreen;
+import Screens.RiverScreen;
+import Screens.StoreScreen;
+import Screens.TradeScreen;
+import Screens.TravelScreen;
+import Screens.WagonGame;
+import StartScreen.BeforeLeaving;
+import StartScreen.ChooseMonth;
+import StartScreen.GroupInfo;
+import StartScreen.LearnTrail;
+import StartScreen.LeaveIndependence;
+import StartScreen.MayasStore;
+import StartScreen.MonthAdvice;
+import StartScreen.TheOregonTrail;
+import StartScreen.TrailScreen;
+import StartScreen.WagonNames;
+import StartScreen.WelcomeScreen;
 
 /**
  * Display.java -- The main display of the game
+ * 
  * @author Ethan Burch
  * @author Quinton Fesq
  * @author Madison Scott
@@ -27,14 +44,15 @@ public class Display extends JFrame {
     private StoreScreen storeScreen;
     private RiverScreen riverScreen;
     private TradeScreen tradeScreen;
-    private ControlScreen controlScreen;        
+    private ControlScreen controlScreen;
     private ConversationScreen conversationScreen;
     private ConditionsScreen conditionsScreen;
     private LandmarkScreen landmarkScreen;
     private WagonGame wagonGame;
     private DeathScreen deathScreen;
+    private EndGame endGame;
 
-    //StartScreen separator
+    // StartScreen separator
     private WelcomeScreen welcomeScreen;
     private TheOregonTrail theOregonTrail;
     private TrailScreen trailScreen;
@@ -49,10 +67,9 @@ public class Display extends JFrame {
 
     Wagon wagon = new Wagon();
 
-    private CardLayout cardLayout;
-
     /**
      * the main gateway into the program
+     * 
      * @param args
      */
     public static void main(String[] args) {
@@ -71,7 +88,7 @@ public class Display extends JFrame {
      */
     public Display() {
         initialize();
-    }     
+    }
 
     /**
      * initializes the Display
@@ -87,13 +104,13 @@ public class Display extends JFrame {
         storeScreen = new StoreScreen(wagon, this);
         getContentPane().add(storeScreen.getPanel(), "StoreScreen");
 
-        riverScreen = new RiverScreen(wagon,this);
+        riverScreen = new RiverScreen(wagon, this);
         getContentPane().add(riverScreen.getPanel(), "RiverScreen");
 
         tradeScreen = new TradeScreen(wagon, this);
         getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
 
-        controlScreen = new ControlScreen(wagon, this);
+        controlScreen = new ControlScreen(wagon, this, foragingScreen);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");
 
         conversationScreen = new ConversationScreen(wagon, this);
@@ -108,11 +125,14 @@ public class Display extends JFrame {
         wagonGame = new WagonGame(wagon, this);
         getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
-        foragingScreen = new ForagingScreen(wagon, this);        
+        foragingScreen = new ForagingScreen(wagon, this, controlScreen);
         getContentPane().add(foragingScreen.getPanel(), "ForagingScreen");
 
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
+
+        endGame = new EndGame(wagon);
+        getContentPane().add(endGame.getPanel(), "EndGame");
 
         /*
          * Start Screen Separator
@@ -130,7 +150,7 @@ public class Display extends JFrame {
         learnTrail = new LearnTrail(wagon, this);
         getContentPane().add(learnTrail.getPanel(), "LearnTrail");
 
-        groupInfo = new GroupInfo(wagon,this, trailScreen);
+        groupInfo = new GroupInfo(wagon, this, trailScreen);
         getContentPane().add(groupInfo.getPanel(), "GroupInfo");
 
         wagonNames = new WagonNames(wagon, this);
@@ -151,10 +171,9 @@ public class Display extends JFrame {
         leaveIndependence = new LeaveIndependence(wagon, this, travelScreen);
         getContentPane().add(leaveIndependence.getPanel(), "LeaveIndependence");
 
-        //showWelcomeScreen(wagon);
-        showTravelScreen(wagon);
+        showEndGame(wagon);
     }
-   
+
     /**
      * Switches to the Travel Screen
      */
@@ -173,7 +192,7 @@ public class Display extends JFrame {
         cardLayout.show(getContentPane(), "StartScreen");
     }
 
-    public void showForagingScreen(Wagon wagon){
+    public void showForagingScreen(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "ForagingScreen");
         foragingScreen.updatePanel(wagon);
@@ -203,6 +222,7 @@ public class Display extends JFrame {
     public void showTradeScreen() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "TradeScreen");
+        tradeScreen.updateDisplay();
     }
 
     /**
@@ -256,7 +276,7 @@ public class Display extends JFrame {
     public void showWagonGame() {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "WagonGame");
-        wagonGame.startGame();
+        wagonGame.resetGame();
     }
 
     /**
@@ -268,15 +288,21 @@ public class Display extends JFrame {
         deathScreen.getPanel().requestFocusInWindow();
     }
 
-    /*
-     * Start Screen Separator
+    /**
      * Switches to the Start Screen
+     * 
+     * @param wagon the wagon to pass information to and from
      */
     public void showWelcomeScreen(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "WelcomeScreen");
     }
 
+    /**
+     * Switches to Thr Oregon Trail Screen
+     * 
+     * @param wagon the wagon to pass information to and from
+     */
     public void showTheOregonTrail(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "TheOregonTrail");
@@ -335,14 +361,20 @@ public class Display extends JFrame {
         leaveIndependence.getPanel().requestFocusInWindow();
     }
 
+    public void showEndGame(Wagon wagon) {
+        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
+        cardLayout.show(getContentPane(), "EndGame");
+        endGame.getPanel().requestFocusInWindow();
+    }
+
     /*
      * Start Screen Separator - end
      */
 
     public boolean showingLandmarkScreen() {
         Component[] components = getContentPane().getComponents();
-        for(Component component : components) {
-            if(component.isVisible() && component.getName().equals("LandmarkScreen")) {
+        for (Component component : components) {
+            if (component.isVisible() && component.getName().equals("LandmarkScreen")) {
                 return true;
             }
         }
