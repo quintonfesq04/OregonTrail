@@ -6,7 +6,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-import Screens.ConditionsScreen;
 import Screens.ControlScreen;
 import Screens.ConversationScreen;
 import Screens.DeathScreen;
@@ -46,7 +45,6 @@ public class Display extends JFrame {
     private TradeScreen tradeScreen;
     private ControlScreen controlScreen;
     private ConversationScreen conversationScreen;
-    private ConditionsScreen conditionsScreen;
     private LandmarkScreen landmarkScreen;
     private WagonGame wagonGame;
     private DeathScreen deathScreen;
@@ -115,9 +113,6 @@ public class Display extends JFrame {
 
         conversationScreen = new ConversationScreen(wagon, this);
         getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
-
-        conditionsScreen = new ConditionsScreen();
-        getContentPane().add(conditionsScreen.getPanel(), "ConditionsScreen");
 
         landmarkScreen = new LandmarkScreen(wagon, this);
         getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");

@@ -9,7 +9,6 @@ package Gameplay;
 
 import Screens.*;
 import Gameplay.*;
-import Hunting.*;
 import StartScreen.*;
 
 public class Inventory {
