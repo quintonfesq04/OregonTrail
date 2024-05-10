@@ -8,6 +8,7 @@ import java.util.Random;
  * @author Madison Scott
  * @author Ethan Burch
  * @author Lane Kanagy
+ * @author Quinton Fesq
  * @version 1.5.0 4/21/24
  */
 public class Conditions {

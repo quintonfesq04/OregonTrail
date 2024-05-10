@@ -1,15 +1,6 @@
 package Gameplay;
 
-/**
- * @File Inventory.java -- Creates the inventory for the journey along the oregon trail
- * @author Quinton Fesq
- * @author Ethan Burch
- * @version 1.5.2 4/17/24
- */
-
-import Screens.*;
-import Gameplay.*;
-import StartScreen.*;
+import StartScreen.BeforeLeaving;
 
 public class Inventory {
     private BeforeLeaving beforeLeaving;

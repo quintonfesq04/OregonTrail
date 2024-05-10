@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
  * distances traveled, and river crossings.
  * 
  * @author Ethan Burch
+ * @author Quinton Fesq
  * @author Madison Scott
  * @version 1.5.0 4/19/2024
  */
