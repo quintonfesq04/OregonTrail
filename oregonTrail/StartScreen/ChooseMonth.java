@@ -90,29 +90,31 @@ public class ChooseMonth extends AbstractScreen {
                 String selectedOption = (String) combo.getSelectedItem();
                 // Check which item is selected and perform action accordingly
                 switch (selectedOption) {
-                    case "1. March":
+                    // check for any of the months
+                    case "1. March": 
                     case "2. April":
-                    case "3. May":
-                    case "4. June":
-                    case "5. July":
-                        display.showBeforeLeaving(wagon);
-                        break;
-                    case "6. Ask For Advice":
-                        display.showMonthAdvice(wagon);
-                        break;
+                    case "3. May": 
+                    case "4. June": 
+                    case "5. July": 
+                        display.showBeforeLeaving(wagon); // show before leaving screen
+                        break; // break from case
+                    case "6. Ask For Advice": // check for if ask for advice
+                        display.showMonthAdvice(wagon); // show month advice screen
+                        break; // break from case
                 }
             }
         });
 
-        JLabel choiceLbl = new JLabel("What is Your Choice?");
-        GridBagConstraints gbc_choiceLbl = new GridBagConstraints();
-        gbc_choiceLbl.anchor = GridBagConstraints.CENTER;
-        gbc_choiceLbl.insets = new Insets(15, 0, 5, 0);
-        gbc_choiceLbl.gridx = 1;
-        gbc_choiceLbl.gridy = 4;
-        choiceLbl.setFont(smallFont);
-        choiceLbl.setForeground(new Color(93, 199, 255));
-        viewPanel.add(choiceLbl, gbc_choiceLbl);
+        JLabel choiceLbl = new JLabel("What is Your Choice?"); // create new lbl
+        GridBagConstraints gbc_choiceLbl = new GridBagConstraints(); // give lbl grid bag constraints
+        gbc_choiceLbl.anchor = GridBagConstraints.CENTER; // center grid bag constraints
+        gbc_choiceLbl.insets = new Insets(15, 0, 5, 0); // determine the amount of push to the infoLbl --
+                                                                         // moving the lbl up, down, left or right by x amounnt of pixels
+        gbc_choiceLbl.gridx = 1; // determines the lbl's x coordinate
+        gbc_choiceLbl.gridy = 4; // determines the lbl's y coordinate
+        choiceLbl.setFont(smallFont); // add set text font
+        choiceLbl.setForeground(new Color(93, 199, 255)); // add color to lbl text
+        viewPanel.add(choiceLbl, gbc_choiceLbl); // add lbl and grid bag contraints to panel
     }
 
     /**
