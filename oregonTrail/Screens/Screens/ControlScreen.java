@@ -63,7 +63,7 @@ public class ControlScreen extends AbstractScreen {
      * @param wagon the wagon used by this class
      * @param display the display that is showing this class
      */
-    public ControlScreen(Wagon wagon, Display display) {
+    public ControlScreen(Wagon wagon, Display display, ForagingScreen foragingScreen) {
         this.wagon = wagon;
         this.display = display;
         initialize();
