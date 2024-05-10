@@ -1,5 +1,6 @@
 package StartScreen;
 
+// imports
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -13,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+// import packages
 import Gameplay.Display;
 import Gameplay.PicPanel;
 import Gameplay.Wagon;
