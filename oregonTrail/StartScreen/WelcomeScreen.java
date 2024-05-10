@@ -23,59 +23,54 @@ import Screens.AbstractScreen;
  * @version 1.0.0 05/02/24
  */
 public class WelcomeScreen extends AbstractScreen {
-	protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
+	protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg")); // add background image
 
-	private Display display;
-	private Wagon wagon;
+	private Display display; // call to display
+	private Wagon wagon; // call to wagon
 
-	private Font titleFont = new Font("Trajan Pro", Font.BOLD, 24);
-	private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
+	private Font titleFont = new Font("Trajan Pro", Font.BOLD, 24); // set font for title
+	private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16); // set font for text
 
 	/**
 	 * Create the application.
 	 * 
-	 * @param display
+	 * @param display call to display
+	 * @param wagon   call to wagon
 	 */
 	public WelcomeScreen(Wagon wagon, Display display) {
-		this.wagon = wagon;
-		this.display = display;
-		initialize();
+		this.wagon = wagon; // call to wagon
+		this.display = display; // call to display
+		initialize(); // call to initialize method
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	protected void initialize() {
 		viewPanel.setFocusable(true);
 		viewPanel.requestFocusInWindow();
 		viewPanel.setLayout(new BorderLayout(0, 0));
 
-		JLabel welcomeLbl = new JLabel("Welcome To The Oregon Trail");
-		welcomeLbl.setForeground(new Color(93, 199, 255));
+		JLabel welcomeLbl = new JLabel("Welcome To The Oregon Trail"); // new lbl
+		welcomeLbl.setForeground(new Color(93, 199, 255)); // add color
 		welcomeLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		viewPanel.add(welcomeLbl, BorderLayout.CENTER);
 		welcomeLbl.setFont(titleFont);
 
-		JLabel continueLbl = new JLabel("Press Space To Continue");
-		continueLbl.setForeground(new Color(93, 199, 255));
+		JLabel continueLbl = new JLabel("Press Space To Continue"); // new lbl
+		continueLbl.setForeground(new Color(93, 199, 255)); // add color
 		continueLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		continueLbl.setVerticalAlignment(SwingConstants.CENTER);
 		viewPanel.add(continueLbl, BorderLayout.SOUTH);
-		continueLbl.setFont(smallFont);
+		continueLbl.setFont(smallFont); // set font
 
 		viewPanel.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				int vk = e.getKeyCode();
 				if (vk == KeyEvent.VK_SPACE)
-					display.showTheOregonTrail(wagon);
+					display.showTheOregonTrail(wagon); // display the oregon trial screen
 			}
 		});
 	}
 
-	/**
-	 * resizes all images through AbstractScreen
-	 */
 	@Override
 	public void resizeImages() {
 		// TODO Auto-generated method stub
@@ -83,11 +78,6 @@ public class WelcomeScreen extends AbstractScreen {
 
 	}
 
-	/**
-	 * receive the JPanel created
-	 * 
-	 * @return the viewPanel
-	 */
 	@Override
 	public JPanel getPanel() {
 		// TODO Auto-generated method stub
