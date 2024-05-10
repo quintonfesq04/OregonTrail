@@ -28,6 +28,11 @@ public class EndGame extends AbstractScreen {
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
     private Color desiredColor = new Color(93, 199, 255);
 
+    /**
+     * Constructor for EndGame class
+     * 
+     * @param wagon wagon used by this class
+     */
     public EndGame(Wagon wagon) {
         this.wagon = wagon;
         initialize();

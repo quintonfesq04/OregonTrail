@@ -35,10 +35,13 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
     private int conversationCase;
 
     private Font labelFont = new Font("Trajan Pro", Font.PLAIN, 24);
-    private Font sliderFont = new Font("Trajan Pro", Font.PLAIN, 16);
-
     int distance = locations.getDistance();
 
+    /**
+     * Construtor for ConversationScreen class
+     * @param wagon the wagon used by this class
+     * @param display the display that is showing in this class
+     */
     public ConversationScreen(Wagon wagon, Display display) {
         this.wagon = wagon;
         this.display = display;
@@ -71,6 +74,10 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
         getConversation(conversationCase);
     }
 
+    /**
+     * determines which conversation is being shown
+     * @param currentCase the number representing the conversation to be shown
+     */
     private void getConversation(int currentCase) {
         switch (currentCase) {
             case 0:

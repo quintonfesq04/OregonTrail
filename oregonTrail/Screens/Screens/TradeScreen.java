@@ -40,7 +40,9 @@ public class TradeScreen {
     private String[] tradeStr;
 
     /**
-     * Create the application.
+     * Constructor for a TradeScreen object
+     * @param wagon wagon object used by the class
+     * @param display the display showing this class
      */
     public TradeScreen(Wagon wagon, Display display) {
         this.display = display;
@@ -111,10 +113,16 @@ public class TradeScreen {
         updateDisplay();
     }
 
+    /**
+     * updates the display
+     */
     public void updateDisplay() {
         makeTrade();
     }
 
+    /**
+     * creates a random trade
+     */
     private void makeTrade() {
         tradeStr = wagon.getTrade().createTrade();
         String sendString = "A traveler wants to trade " + tradeStr[1] + " " + tradeStr[0] + " for " + tradeStr[3] + " "

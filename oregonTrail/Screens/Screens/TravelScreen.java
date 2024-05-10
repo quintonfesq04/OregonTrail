@@ -30,15 +30,16 @@ public class TravelScreen extends AbstractScreen {
 
     private Display display;
     private Wagon wagon;
-    private ControlScreen controlScreen;
-    private Conditions conditions;
     private int distanceMoved;
-    private String conditionString;
 
+    /**
+     * Constructor for the TravelScreen class
+     * @param wagon the wagon used by the class
+     * @param display the display showing this panel
+     */
     public TravelScreen(Wagon wagon, Display display) {
         this.wagon = wagon;
         this.display = display;
-        this.conditions = wagon.getConditions();
         initialize();
     }
 
@@ -81,6 +82,9 @@ public class TravelScreen extends AbstractScreen {
         // cloud.resizeImage();
     }
 
+    /**
+     * checks to see if the game is over
+     */
     private void endGame() {
         if (wagon.getLocations().getDistance() >= 2051) {
             JOptionPane.showMessageDialog(null, "Congratulations You Made It To Oregon!");
@@ -88,12 +92,19 @@ public class TravelScreen extends AbstractScreen {
         }
     }
 
+    /**
+     * updates the screen to a new wagon object
+     * @param wagon the desired wagon object
+     */
     public void updateScreen(Wagon wagon) {
         this.wagon.setLocations(wagon.getLocations());
         this.wagon.setConditions(wagon.getConditions());
         // initialize();
     }
 
+    /**
+     * checks if the player has made it to a landmark and which type. Switches to the correct screen for each landmark.
+     */
     private void arriveAtLandmark() {
         String nextLandmark = wagon.getLocations().getNextLandmark();
 
@@ -114,6 +125,9 @@ public class TravelScreen extends AbstractScreen {
         handleConditions();
     }
 
+    /**
+     * Makes the wagon travel down the trail
+     */
     private void travel() {
         int cloudDistanceMoved = 50; // Distance the cloud moves
         if (cloud.getX() < viewPanel.getWidth()) {
@@ -133,6 +147,10 @@ public class TravelScreen extends AbstractScreen {
         arriveAtLandmark(); // Check if arrived at landmark
     }
 
+    /**
+     * checks if the player has made it to a landmark. If the player has made it to the end of the trail then it sends them to the endGame screen.
+     * @return true if the player has made it to a landmark, false otherwise. 
+     */
     private boolean checkLandmark() {
         for (int i = 0; i < Locations.LOCATION_DISTANCE.length; i++) {
             if (Locations.LOCATION_DISTANCE[i] + distanceMoved - 1 >= wagon.getLocations().getDistance() &&
@@ -148,9 +166,10 @@ public class TravelScreen extends AbstractScreen {
         return false;
     }
 
+    /**
+     * takes care of the different conditions that can occurr along the trail. Also switches the background for different weather types. 
+     */
     private void handleConditions() {
-        conditionString = wagon.getConditions().getConditionMessage();
-
         int weatherType = wagon.getConditions().generateWeather();
 
         if (weatherType == Conditions.DROUGHT)

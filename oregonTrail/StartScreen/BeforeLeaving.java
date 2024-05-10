@@ -53,9 +53,6 @@ public class BeforeLeaving extends AbstractScreen {
         initialize();
     }
 
-    /**
-     * initializes the BeforeLeaving Display
-     */
     @Override
     protected void initialize() {
         viewPanel.setFocusable(true);
@@ -129,6 +126,9 @@ public class BeforeLeaving extends AbstractScreen {
                 + (int) money + " in cash, but you don't have to spend it all now.<html>");
     }
 
+    /**
+     * switches the information labels text
+     */
     private void switchLabel() {
         switch (instructionScreen) {
             case 0:
@@ -151,9 +151,6 @@ public class BeforeLeaving extends AbstractScreen {
         }
     }
 
-    /**
-     * resizes all images through AbstractScreen
-     */
     @Override
     public void resizeImages() {
         // TODO Auto-generated method stub
@@ -161,11 +158,6 @@ public class BeforeLeaving extends AbstractScreen {
 
     }
 
-    /**
-     * receive the JPanel created
-     * 
-     * @return the viewPanel
-     */
     @Override
     public JPanel getPanel() {
         // TODO Auto-generated method stub

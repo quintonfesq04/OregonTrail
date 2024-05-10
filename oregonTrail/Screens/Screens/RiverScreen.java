@@ -94,6 +94,10 @@ public class RiverScreen extends AbstractScreen {
         return viewPanel;
     }
 
+    /**
+     * updates the wagon within the class.
+     * @param wagon
+     */
     public void update(Wagon wagon) {
         this.wagon = wagon;
     }

@@ -420,14 +420,23 @@ public class StoreScreen extends AbstractScreen {
         viewPanel.requestFocusInWindow();
     }
 
+    /**
+     * resets the store object within the wagon object
+     */
     public void resetStore() {
         wagon.getStore().resetQuantity();
     }
 
+    /**
+     * gets money from the wagon object
+     */
     private void getMoney() {
         money = wagon.getInventory().getMoney();
     }
 
+    /**
+     * updates the money label
+     */
     public void updateLabel() {
         getMoney();
         remainingLbl.setText("Remaining Money: $" + money);

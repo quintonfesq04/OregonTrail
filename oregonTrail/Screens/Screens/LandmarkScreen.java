@@ -27,9 +27,6 @@ import Gameplay.Wagon;
 public class LandmarkScreen extends AbstractScreen {
 	protected PicPanel viewPanel = new PicPanel(new File("Images/Landmark 1.png"));
 
-	private Font labelFont = new Font("Trajan Pro", Font.PLAIN, 24);
-	private Font sliderFont = new Font("Trajan Pro", Font.PLAIN, 16);
-
 	private Display display;
 	private Wagon wagon;
 

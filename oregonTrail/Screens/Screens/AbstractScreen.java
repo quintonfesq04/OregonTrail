@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 public abstract class AbstractScreen {
 
     /**
-     * create the JPanel
+     * initializes the JPanel created by the class
      */
     protected abstract void initialize();
     

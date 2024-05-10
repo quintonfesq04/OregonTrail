@@ -46,6 +46,11 @@ public class WagonGame extends AbstractScreen {
     private Display display;
     private Wagon wagon;
 
+    /**
+     * Constructor for the WagonGame class
+     * @param wagon the wagon object used by the class
+     * @param display the display showing the JPanel
+     */
     public WagonGame(Wagon wagon, Display display) {
         this.display = display;
         this.wagon = wagon;
@@ -55,6 +60,9 @@ public class WagonGame extends AbstractScreen {
         bubbleCount = 0;
     }
 
+    /**
+     * Initlizes the JPanel created by the class
+     */
     private void initializeUI() {
         // Create the main panel to hold all components
         viewPanel.setLayout(new BorderLayout());
@@ -89,6 +97,9 @@ public class WagonGame extends AbstractScreen {
         // No need to pack or set visible when using JPanel
     }
 
+    /**
+     * generates "bubbles" that show on screen for the player to click
+     */
     private void createBubbles() {
         bubbles = new ArrayList<>();
 
@@ -103,6 +114,9 @@ public class WagonGame extends AbstractScreen {
         }
     }
 
+    /**
+     * resets the game after its been played.
+     */
     public void resetGame() {
         score = 0;
         bubbleCount = 0;
@@ -117,6 +131,9 @@ public class WagonGame extends AbstractScreen {
         startGame();
     }
 
+    /** 
+     * starts the game in a default state
+     */
     public void startGame() {
         gameTimer = new Timer(1500, new ActionListener() {
             @Override
@@ -133,6 +150,9 @@ public class WagonGame extends AbstractScreen {
         gameTimer.start();
     }
 
+    /**
+     * ends the game and shows the players score
+     */
     public void endWagonGame() {
         if (gameTimer.isRunning()) {
             gameTimer.stop();
@@ -142,6 +162,9 @@ public class WagonGame extends AbstractScreen {
         }
     }
 
+    /**
+     * Checks to see if the bubbles have been clicked.
+     */
     private class BubbleClickListener extends MouseAdapter {
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -184,7 +207,6 @@ public class WagonGame extends AbstractScreen {
 
     @Override
     public JPanel getPanel() {
-        // No implementation needed for now
         return panel;
     }
 }

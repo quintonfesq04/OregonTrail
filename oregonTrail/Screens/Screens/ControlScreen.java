@@ -287,19 +287,11 @@ public class ControlScreen extends AbstractScreen {
         tongueLbl.setText("Wagon Tongues:" + wagon.getInventory().getWagonTongue());
     }
 
-    /**
-     * resizes the images contained within the JPanel
-     */
     @Override
     public void resizeImages() {
         // TODO: Implement resizing of images
     }
 
-    /**
-     * Returns the JPanel from this class
-     * 
-     * @return the JPanel created by this class
-     */
     @Override
     public JPanel getPanel() {
         return viewPanel;
