@@ -22,7 +22,10 @@ import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
 /**
- * TrailScreen.java --
+ * TrailScreen.java -- Allows the user to choose their role
+ * 
+ * @author Quinton Fesq
+ * @version 5/10/24 1.5.0
  */
 public class TrailScreen extends AbstractScreen {
 	protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
@@ -76,6 +79,7 @@ public class TrailScreen extends AbstractScreen {
 
 		// JComboBox
 		JComboBox<String> comboBox = new JComboBox<>();
+		// add different character types
 		comboBox.addItem("1. Be a Doctor from Dayton");
 		comboBox.addItem("2. Be a Homesteader from Hamden");
 		comboBox.addItem("3. Be a Teacher from Toledo");
@@ -142,7 +146,6 @@ public class TrailScreen extends AbstractScreen {
 	public void resizeImages() {
 		// TODO Auto-generated method stub
 		viewPanel.resizeImage();
-
 	}
 
 	@Override
