@@ -56,9 +56,7 @@ public class BeforeLeaving extends AbstractScreen {
         initialize(); // call to our initialize method
     }
 
-    /**
-     * initializes the BeforeLeaving Display
-     */
+    
     @Override
     protected void initialize() {
         viewPanel.setFocusable(true); // allow user to use our action listeners and performers
@@ -182,9 +180,7 @@ public class BeforeLeaving extends AbstractScreen {
         }
     }
 
-    /**
-     * resizes all images through PicPanel
-     */
+  
     @Override
     public void resizeImages() {
         viewPanel.resizeImage(); // use PicPanel's resizeImages method
