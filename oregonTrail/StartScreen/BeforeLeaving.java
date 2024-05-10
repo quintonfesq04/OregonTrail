@@ -44,11 +44,12 @@ public class BeforeLeaving extends AbstractScreen {
     /**
      * Constructor for the BeforeLeaving object
      * 
-     * @param wagon call to the wagon class
-     * @param display call to the display class
+     * @param wagon       call to the wagon class
+     * @param display     call to the display class
      * @param trailScreen call to the trail screen
      */
-    // add a new constructor with calls to the wagon, display, and trailScreen classes
+    // add a new constructor with calls to the wagon, display, and trailScreen
+    // classes
     public BeforeLeaving(Wagon wagon, Display display, TrailScreen trailScreen) {
         this.wagon = wagon; // calls to the wagon class
         this.display = display; // calls to the display class
@@ -56,7 +57,6 @@ public class BeforeLeaving extends AbstractScreen {
         initialize(); // call to our initialize method
     }
 
-    
     @Override
     protected void initialize() {
         viewPanel.setFocusable(true); // allow user to use our action listeners and performers
@@ -68,7 +68,8 @@ public class BeforeLeaving extends AbstractScreen {
                 "<html><center>Before leaving Independence you should buy equipment and supplies. You have $"
                         + (int) money + " in cash, but you don't have to spend it all now.<html>");
         GridBagConstraints gbc_infoLbl = new GridBagConstraints(); // give the infoLbl grid bag constraints
-        gbc_infoLbl.insets = new Insets(0, 100, 0, 100); // determine the amount of push to the infoLbl -- moving the lbl up, down, left or right by x amounnt of pixels
+        gbc_infoLbl.insets = new Insets(0, 100, 0, 100); // determine the amount of push to the infoLbl -- moving the
+                                                         // lbl up, down, left or right by x amounnt of pixels
         gbc_infoLbl.gridx = 1; // determines the lbl's x coordinate
         gbc_infoLbl.gridy = 1; // determines the lbl's y coordinate
         gbc_infoLbl.fill = GridBagConstraints.HORIZONTAL; // allow the lbl to fill out horizontally across the panel
@@ -79,7 +80,8 @@ public class BeforeLeaving extends AbstractScreen {
 
         JLabel continueLbl = new JLabel("Press Space To Continue"); // create a new label
         GridBagConstraints gbc_continueLbl = new GridBagConstraints(); // give the infoLbl grid bag constraints
-        gbc_continueLbl.insets = new Insets(50, 0, 5, 0); // determine the amount of push to the infoLbl -- moving the lbl up, down, left or right by x amounnt of pixels
+        gbc_continueLbl.insets = new Insets(50, 0, 5, 0); // determine the amount of push to the infoLbl -- moving the
+                                                          // lbl up, down, left or right by x amounnt of pixels
         gbc_continueLbl.gridx = 1; // determines the lbl's x coordinate
         gbc_continueLbl.gridy = 4; // determines the lbl's y coordinate
         continueLbl.setForeground(new Color(93, 199, 255)); // add color to the lbl text
@@ -109,7 +111,8 @@ public class BeforeLeaving extends AbstractScreen {
      * chosen role
      */
     private void getMoney() {
-        // takes in the choice from the trailScreen to set the amount of given money to the user
+        // takes in the choice from the trailScreen to set the amount of given money to
+        // the user
         String selectedOption = trailScreen.setChoice();
         // option 1: doctor from dayton
         if (selectedOption == "1. Be a Doctor from Dayton") {
@@ -117,14 +120,14 @@ public class BeforeLeaving extends AbstractScreen {
             wagon.getInventory().setMoney(1600);
             // add the money to the user's inventory
             money = wagon.getInventory().getMoney();
-        } 
+        }
         // option 2: homesteader from hamden
         else if (selectedOption == "2. Be a Homesteader from Hamden") {
             // give the user $800 for being a homesteader from hamden
             wagon.getInventory().setMoney(800);
             // add the momey to the user's inventory
             money = wagon.getInventory().getMoney();
-        } 
+        }
         // optiom 3: teacher from toledo
         else if (selectedOption == "3. Be a Teacher from Toledo") {
             // give the user $400 for being a teacher from toledo
@@ -145,7 +148,6 @@ public class BeforeLeaving extends AbstractScreen {
                 + (int) money + " in cash, but you don't have to spend it all now.<html>");
     }
 
-    
     /**
      * uses a key listener to switch to the next HTML text once the user wants to
      * continue
@@ -180,7 +182,6 @@ public class BeforeLeaving extends AbstractScreen {
         }
     }
 
-  
     @Override
     public void resizeImages() {
         viewPanel.resizeImage(); // use PicPanel's resizeImages method
