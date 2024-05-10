@@ -27,23 +27,22 @@ import Screens.AbstractScreen;
  */
 public class WagonNames extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
-    private static final int TEXT_FIELD_MAX = 20;
+
     private Display display;
     private Wagon wagon;
 
-    private JPanel panel;
+  
     private Font titleFont = new Font("Trajan Pro", Font.BOLD, 24);
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
-    private JTextField textField;
     private JTextField name1TextField;
     private JTextField name2TextField;
     private JTextField name3TextField;
     private JTextField name4TextField;
     private JTextField name5TextField;
-    private JLabel num1Lbl;
+
     private JLabel name1Lbl;
 
-    private JLabel titleLbl;
+
     private boolean firstNameEntered = false;
     private String[] partyNames = { "", "", "", "", "" };
 

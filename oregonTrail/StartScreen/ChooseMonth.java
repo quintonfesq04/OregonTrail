@@ -27,11 +27,9 @@ import Screens.AbstractScreen;
  */
 public class ChooseMonth extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
-    private static final int TEXT_FIELD_MAX = 20;
     private Wagon wagon;
     private Display display;
 
-    private JPanel panel;
     private Font titleFont = new Font("Trajan Pro", Font.BOLD, 24);
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 

@@ -96,73 +96,93 @@ public class Display extends JFrame {
         setBounds(100, 100, 1200, 675);
         getContentPane().setLayout(new CardLayout());
 
+        // construct travelScreen and add to frame
         travelScreen = new TravelScreen(wagon, this);
         getContentPane().add(travelScreen.getPanel(), "TravelScreen");
 
+        // construct storeScreen and add to frame
         storeScreen = new StoreScreen(wagon, this);
         getContentPane().add(storeScreen.getPanel(), "StoreScreen");
 
+        // construct riverScreen and add to frame
         riverScreen = new RiverScreen(wagon, this);
         getContentPane().add(riverScreen.getPanel(), "RiverScreen");
 
+        // construct tradeScreen and add to frame
         tradeScreen = new TradeScreen(wagon, this);
         getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
 
+        // construct controlScreen and add to frame
         controlScreen = new ControlScreen(wagon, this);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");
 
-        conversationScreen = new ConversationScreen(wagon, this);
+        // construct conversationScreen and add to frame
+        conversationScreen = new ConversationScreen(this);
         getContentPane().add(conversationScreen.getPanel(), "ConversationScreen");
 
+        // construct landmarkScreen and add to frame
         landmarkScreen = new LandmarkScreen(wagon, this);
         getContentPane().add(landmarkScreen.getPanel(), "LandmarkScreen");
 
+        // construct wagonGame and add to frame
         wagonGame = new WagonGame(wagon, this);
         getContentPane().add(wagonGame.getPanel(), "WagonGame");
 
+        // construct foragingScreen and add to frame
         foragingScreen = new ForagingScreen(wagon, this, controlScreen);
         getContentPane().add(foragingScreen.getPanel(), "ForagingScreen");
 
+        // construct deathScreen and add to frame
         deathScreen = new DeathScreen();
         getContentPane().add(deathScreen.getPanel(), "DeathScreen");
 
+        // construct endGame and add to frame
         endGame = new EndGame(wagon);
         getContentPane().add(endGame.getPanel(), "EndGame");
 
-        /*
-         * Start Screen Separator
-         */
+        //Start Screen Separator
 
+        // construct welcomeScreen and add to frame
         welcomeScreen = new WelcomeScreen(wagon, this);
         getContentPane().add(welcomeScreen.getPanel(), "WelcomeScreen");
 
+        // construct theOregonTrail and add to frame
         theOregonTrail = new TheOregonTrail(wagon, this);
         getContentPane().add(theOregonTrail.getPanel(), "TheOregonTrail");
 
+        // construct trailScreen and add to frame
         trailScreen = new TrailScreen(wagon, this);
         getContentPane().add(trailScreen.getPanel(), "TrailScreen");
 
+        // construct learnScreen and add to frame
         learnTrail = new LearnTrail(wagon, this);
         getContentPane().add(learnTrail.getPanel(), "LearnTrail");
 
+        // construct groupInfo and add to frame
         groupInfo = new GroupInfo(wagon, this, trailScreen);
         getContentPane().add(groupInfo.getPanel(), "GroupInfo");
 
+        // construct wagonNames and add to frame
         wagonNames = new WagonNames(wagon, this);
         getContentPane().add(wagonNames.getPanel(), "WagonNames");
 
+        // construct chooseMonth and add to frame
         chooseMonth = new ChooseMonth(wagon, this);
         getContentPane().add(chooseMonth.getPanel(), "ChooseMonth");
 
+        // construct monthAdvice and add to frame
         monthAdvice = new MonthAdvice(wagon, this, chooseMonth);
         getContentPane().add(monthAdvice.getPanel(), "MonthAdvice");
 
+        // construct beforeLeaving and add to frame
         beforeLeaving = new BeforeLeaving(wagon, this, trailScreen);
         getContentPane().add(beforeLeaving.getPanel(), "BeforeLeaving");
 
+        // construct mayasStore and add to frame
         mayasStore = new MayasStore(wagon, this);
         getContentPane().add(mayasStore.getPanel(), "MayasStore");
 
+        // construct leaveIndependence and add to frame
         leaveIndependence = new LeaveIndependence(wagon, this, travelScreen);
         getContentPane().add(leaveIndependence.getPanel(), "LeaveIndependence");
 
@@ -187,6 +207,11 @@ public class Display extends JFrame {
         cardLayout.show(getContentPane(), "StartScreen");
     }
 
+    /**
+     * Switches to the Foraging Screen
+     * 
+     * @param wagon the wagon object to add food into
+     */
     public void showForagingScreen(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "ForagingScreen");
@@ -295,39 +320,74 @@ public class Display extends JFrame {
         cardLayout.show(getContentPane(), "TheOregonTrail");
     }
 
+    /**
+     * Switches to the Trail Screen
+     * 
+     * @param wagon the desired wagon to be used
+     */
     public void showTrailScreen(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "TrailScreen");
     }
 
+    /**
+     * Switches to the Learn Trail Screen
+     * 
+     * @param wagon the desired wagon to be used
+     */
     public void showLearnTrail(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "LearnTrail");
         learnTrail.getPanel().requestFocusInWindow();
     }
 
+    /**
+     * Switches to the Group Info Screen
+     * 
+     * @param wagon the desired wagon to be used
+     */
     public void showGroupInfo(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "GroupInfo");
         groupInfo.getPanel().requestFocusInWindow();
     }
 
+    /**
+     * Switches to the Wagon Names Screen
+     * 
+     * @param wagon the desired wagon to be used
+     */
     public void showWagonNames(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "WagonNames");
     }
 
+    /**
+     * Switches to the Choose Month Screen
+     * 
+     * @param wagon the desired wagon to be used
+     */
     public void showChooseMonth(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "ChooseMonth");
     }
 
+    /**
+     * Switches to the Month Advice Screen
+     * 
+     * @param wagon the desired wagon to be used
+     */
     public void showMonthAdvice(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "MonthAdvice");
         monthAdvice.getPanel().requestFocusInWindow();
     }
 
+    /**
+     * Switches to the Before Leaving Screen
+     * 
+     * @param wagon the desired wagon to be used
+     */
     public void showBeforeLeaving(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "BeforeLeaving");
@@ -335,29 +395,42 @@ public class Display extends JFrame {
         beforeLeaving.updateLabel();
     }
 
+    /**
+     * Switches to the Mayas Store Screen
+     * 
+     * @param wagon the desired wagon to be used
+     */
     public void showMayasStore(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "MayasStore");
         mayasStore.getPanel().requestFocusInWindow();
         mayasStore.updateLabel();
     }
-
+     /**
+     * Switches to the Leave Independence Screen
+     * 
+     * @param wagon the desired wagon to be used
+     */
     public void showLeaveIndependence(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "LeaveIndependence");
         leaveIndependence.getPanel().requestFocusInWindow();
     }
-
+     /**
+     * Switches to the End Game Screen
+     * 
+     * @param wagon the desired wagon to be used
+     */
     public void showEndGame(Wagon wagon) {
         CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
         cardLayout.show(getContentPane(), "EndGame");
         endGame.getPanel().requestFocusInWindow();
     }
 
-    /*
-     * Start Screen Separator - end
+    /**
+     * Checks if currently showing the landmark screen
+     * @return true if showing the landmark screen, false otherwise
      */
-
     public boolean showingLandmarkScreen() {
         Component[] components = getContentPane().getComponents();
         for (Component component : components) {

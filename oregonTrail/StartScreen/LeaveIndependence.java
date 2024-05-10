@@ -38,7 +38,7 @@ public class LeaveIndependence extends AbstractScreen {
     private Display display;
     private TravelScreen travelScreen;
 
-    private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
+    
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 
     /**

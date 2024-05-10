@@ -53,7 +53,6 @@ public class StoreScreen extends AbstractScreen {
 
     private double money;
     private double total = 0;
-    private double spentMoney;
 
     /**
      * Constructor for StoreScreen object

@@ -30,7 +30,6 @@ public class TrailScreen extends AbstractScreen {
 	private Display display;
 	private Wagon wagon;
 
-	private JPanel panel;
 	private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
 	private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 
@@ -137,7 +136,6 @@ public class TrailScreen extends AbstractScreen {
 	}
 
 	public String setChoice() {
-		String choice;
 		return this.choice = selectedOption;
 	}
 

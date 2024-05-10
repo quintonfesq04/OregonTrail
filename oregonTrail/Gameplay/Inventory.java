@@ -1,9 +1,6 @@
 package Gameplay;
 
-import StartScreen.BeforeLeaving;
-
 public class Inventory {
-    private BeforeLeaving beforeLeaving;
 
     // Initial quantities of different items
     private int food = 0;

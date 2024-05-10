@@ -17,9 +17,6 @@ import java.util.Random;
 public class River extends Locations {
     // Attributes
     private String name; // Name of the river
-    private int height; // Height of the river (in meters)
-    private int flow; // Flow rate of the river (in cubic meters per second)
-    private int width; // Width of the river (in meters)
     private double crossingProbability; // Probability of successfully crossing the river
 
     /**
@@ -30,13 +27,9 @@ public class River extends Locations {
      * @param flow   The flow rate of the river (in cubic meters per second).
      * @param width  The width of the river (in meters).
      */
-    // Add a new constructor with default values for height, flow, and width
     public River(String name) {
         super(0); // Calls the constructor of the parent class Locations with a distance of 0
         this.name = name;
-        this.height = 10; // Default height
-        this.flow = 10; // Default flow
-        this.width = 50; // Default width
         this.crossingProbability = 0.9;
     }
 

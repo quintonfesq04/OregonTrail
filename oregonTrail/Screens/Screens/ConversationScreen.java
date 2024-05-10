@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 import Gameplay.Display;
 import Gameplay.Locations;
 import Gameplay.PicPanel;
-import Gameplay.Wagon;
+
 
 /**
  * ConversationScreen.java -- a screen that shows conversations between the
@@ -30,7 +30,6 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
     private JLabel conversationLabel = new JLabel("");
     private JLabel continueLabel = new JLabel("Press Space To Continue");
-    private Wagon wagon;
     private Display display;
     private Locations locations = new Locations(0);
     private int conversationCase;
@@ -40,11 +39,9 @@ public class ConversationScreen extends AbstractScreen implements KeyListener {
 
     /**
      * Construtor for ConversationScreen class
-     * @param wagon the wagon used by this class
      * @param display the display that is showing in this class
      */
-    public ConversationScreen(Wagon wagon, Display display) {
-        this.wagon = wagon;
+    public ConversationScreen(Display display) {
         this.display = display;
         this.locations = new Locations(0);
         initialize();

@@ -52,7 +52,7 @@ public class MayasStore extends AbstractScreen {
 
     private double money;
     private double total = 0;
-    private double spentMoney;
+
 
     /**
      * Constructor for the MayasStore object

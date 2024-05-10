@@ -35,7 +35,6 @@ public class TheOregonTrail extends AbstractScreen {
 	private JComboBox<String> comboBox;
 	private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
 	private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
-	private Color desiredColor = new Color(93, 199, 255);
 
 	/**
 	 * Create the application.

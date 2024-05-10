@@ -28,7 +28,6 @@ public class WelcomeScreen extends AbstractScreen {
 	private Display display;
 	private Wagon wagon;
 
-	private JPanel panel;
 	private Font titleFont = new Font("Trajan Pro", Font.BOLD, 24);
 	private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 

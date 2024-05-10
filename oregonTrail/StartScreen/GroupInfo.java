@@ -36,7 +36,6 @@ public class GroupInfo extends AbstractScreen {
     private Display display;
     private TrailScreen trailScreen;
 
-    private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 
     /**

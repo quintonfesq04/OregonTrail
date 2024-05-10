@@ -30,8 +30,7 @@ public class MonthAdvice extends AbstractScreen {
     private Wagon wagon;
     private Display display;
     private ChooseMonth chooseMonth;
-
-    private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
+    
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 
     /**

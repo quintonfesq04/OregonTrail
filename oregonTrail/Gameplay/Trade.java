@@ -96,7 +96,6 @@ public class Trade {
      * @return The randomly generated quantity.
      */
     private int generateRandomQuantity(int itemIndex) {
-        String[] itemList = Inventory.itemNames; // Array of item names
         // Adjust quantity ranges as needed for different item types
         if (itemIndex == 0 || itemIndex == 2 || itemIndex == 6) {
             // Food, Money, Bullets: 1-32
