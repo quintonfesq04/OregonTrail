@@ -79,7 +79,7 @@ public class LeaveIndependence extends AbstractScreen {
 
         JLabel continueLbl = new JLabel("Press Space To Continue"); // create new lbl
         GridBagConstraints gbc_continueLbl = new GridBagConstraints(); // add grid bag constraints to lbl
-        gbc_continueLbl.insets = new Insets(50, 0, 5, 0); // determine the amount of push to the infoLbl -- moving the
+        gbc_continueLbl.insets = new Insets(50, 0, 5, 0); // determine the amount of push to the lbl -- moving the
         // lbl up, down, left or right by x amounnt of pixels
         gbc_continueLbl.gridx = 1; // determines the lbl's x coordinate
         gbc_continueLbl.gridy = 4; // determines the lbl's y coordinate
@@ -90,7 +90,7 @@ public class LeaveIndependence extends AbstractScreen {
 
         startLbl = new JLabel("<html><center>Independence\nMarch 1, 1848<html>"); // create a new lbl with HTML text
         GridBagConstraints gbc_startLbl = new GridBagConstraints(); // add grid bag constraints to the lbl
-        gbc_startLbl.insets = new Insets(50, 0, 5, 0); // determine the amount of push to the infoLbl -- moving the
+        gbc_startLbl.insets = new Insets(50, 0, 5, 0); // determine the amount of push to the lbl -- moving the
         // lbl up, down, left or right by x amounnt of pixels
         gbc_startLbl.gridx = 1; // determines the lbl's x coordinate
         gbc_startLbl.gridy = 1; // determines the lbl's y coordinate

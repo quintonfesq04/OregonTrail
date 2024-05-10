@@ -60,7 +60,7 @@ public class ChooseMonth extends AbstractScreen {
                 "<html>It is 1848. Your jumping off place for Oregon is Independence, Missouri. You must decide which month to leave Independence.");
         GridBagConstraints gbc_chooseMonthLbl = new GridBagConstraints(); // give the lbl grid bag contraints
         gbc_chooseMonthLbl.anchor = GridBagConstraints.CENTER; // center the grid bag constraints
-        gbc_chooseMonthLbl.insets = new Insets(0, 100, 25, 100); // determine the amount of push to the infoLbl --
+        gbc_chooseMonthLbl.insets = new Insets(0, 100, 25, 100); // determine the amount of push to the lbl --
                                                                  // moving the lbl up, down, left or right by x amounnt
                                                                  // of pixels
         gbc_chooseMonthLbl.gridx = 1; // determines the lbl's x coordinate
@@ -74,7 +74,7 @@ public class ChooseMonth extends AbstractScreen {
         JComboBox<String> comboBox = new JComboBox<>(); // create a new combobox with our month options
         GridBagConstraints gbc_ComboBox = new GridBagConstraints(); // give the combobox grid bag constraints
         gbc_ComboBox.anchor = GridBagConstraints.CENTER; // center the grid bag constraints
-        gbc_ComboBox.insets = new Insets(0, 0, 5, 0); // determine the amount of push to the infoLbl --
+        gbc_ComboBox.insets = new Insets(0, 0, 5, 0); // determine the amount of push to the lbl --
                                                       // moving the lbl up, down, left or right by x amounnt of pixels
         gbc_ComboBox.gridx = 1; // determines the lbl's x coordinate
         gbc_ComboBox.gridy = 1; // determines the lbl's y coordinate
@@ -112,7 +112,7 @@ public class ChooseMonth extends AbstractScreen {
         JLabel choiceLbl = new JLabel("What is Your Choice?"); // create new lbl
         GridBagConstraints gbc_choiceLbl = new GridBagConstraints(); // give lbl grid bag constraints
         gbc_choiceLbl.anchor = GridBagConstraints.CENTER; // center grid bag constraints
-        gbc_choiceLbl.insets = new Insets(15, 0, 5, 0); // determine the amount of push to the infoLbl --
+        gbc_choiceLbl.insets = new Insets(15, 0, 5, 0); // determine the amount of push to the lbl --
                                                         // moving the lbl up, down, left or right by x amounnt of pixels
         gbc_choiceLbl.gridx = 1; // determines the lbl's x coordinate
         gbc_choiceLbl.gridy = 4; // determines the lbl's y coordinate

@@ -1,5 +1,6 @@
 package StartScreen;
 
+// imports
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -20,6 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+// import packages
 import Gameplay.Display;
 import Gameplay.Inventory;
 import Gameplay.PicPanel;
@@ -33,176 +35,191 @@ import Screens.AbstractScreen;
  * @version 1.0.0 05/02/2024
  */
 public class MayasStore extends AbstractScreen {
-    protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
+    // attributes
+    protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg")); // add background image
 
-    private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
-    private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
-    private JLabel foodPriceLbl;
-    private JLabel oxenPriceLbl;
-    private JLabel clothingPriceLbl;
-    private JLabel bulletsPriceLbl;
-    private JLabel axlePriceLbl;
-    private JLabel wheelPriceLbl;
-    private JLabel tonguePriceLbl;
-    private JLabel remainingLbl;
-    private JSpinner oxenSpinner;
+    private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24); // set title font
+    private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16); // set text font
+    private JLabel foodPriceLbl; // create lbl
+    private JLabel oxenPriceLbl; // create lbl
+    private JLabel clothingPriceLbl; // create lbl
+    private JLabel bulletsPriceLbl; // create lbl
+    private JLabel axlePriceLbl; // create lbl
+    private JLabel wheelPriceLbl; // create lbl
+    private JLabel tonguePriceLbl; // create lbl
+    private JLabel remainingLbl; // create lbl
+    private JSpinner oxenSpinner; // create lbl
 
-    private Display display;
-    private Wagon wagon;
+    private Display display; // call to display class
+    private Wagon wagon; // call to wagon class
 
-    private double money;
-    private double total = 0;
+    private double money; // create money variable
+    private double total = 0; // create total variable
 
 
     /**
      * Constructor for the MayasStore object
      * 
-     * @param wagon
-     * @param display
+     * @param wagon call to wagon class
+     * @param display call to display class
      */
     public MayasStore(Wagon wagon, Display display) {
-        this.wagon = wagon;
-        this.display = display;
-        initialize();
+        this.wagon = wagon; // call to wagon class
+        this.display = display; // call to display class
+        initialize(); // call to initialize method
     }
 
-    /**
-     * Initializes the MayasStore Display
-     */
     @Override
     protected void initialize() {
-        viewPanel.setFocusable(true);
-        GridBagLayout gbl_viewPanel = new GridBagLayout();
-        gbl_viewPanel.columnWeights = new double[] { 0.0, 0.0 };
-        viewPanel.setLayout(gbl_viewPanel);
+        viewPanel.setFocusable(true); // set focusable to true
+        GridBagLayout gbl_viewPanel = new GridBagLayout(); // create grid bag layout
+        gbl_viewPanel.columnWeights = new double[] { 0.0, 0.0 }; // create column weights
+        viewPanel.setLayout(gbl_viewPanel); // add to panel
 
-        JLabel priceLbl = new JLabel("Total Cost: $" + total);
-        GridBagConstraints gbc_priceLabel = new GridBagConstraints();
-        gbc_priceLabel.insets = new Insets(10, 0, 5, 0);
-        gbc_priceLabel.gridx = 1;
-        gbc_priceLabel.gridy = 9;
-        priceLbl.setForeground(new Color(93, 199, 255));
-        priceLbl.setHorizontalAlignment(SwingConstants.CENTER);
-        viewPanel.add(priceLbl, gbc_priceLabel);
-        priceLbl.setFont(smallFont);
+        JLabel priceLbl = new JLabel("Total Cost: $" + total); // create new lbl
+        GridBagConstraints gbc_priceLabel = new GridBagConstraints(); // add gbc to lbl
+        gbc_priceLabel.insets = new Insets(10, 0, 5, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_priceLabel.gridx = 1; // determine lbl's x coordinate
+        gbc_priceLabel.gridy = 9; // determine lbl's y coordinate
+        priceLbl.setForeground(new Color(93, 199, 255)); // add color to text 
+        priceLbl.setHorizontalAlignment(SwingConstants.CENTER); // center text
+        viewPanel.add(priceLbl, gbc_priceLabel); // add lbl and gbc to panel
+        priceLbl.setFont(smallFont); // add font to lbl 
 
-        JButton buyBtn = new JButton("Buy");
-        GridBagConstraints gbc_buyBtn = new GridBagConstraints();
-        gbc_buyBtn.insets = new Insets(10, 0, 0, 0);
-        gbc_buyBtn.gridx = 1;
-        gbc_buyBtn.gridy = 11;
-        buyBtn.setForeground(new Color(93, 199, 255));
+        JButton buyBtn = new JButton("Buy"); // create new btn
+        GridBagConstraints gbc_buyBtn = new GridBagConstraints(); // add gbc to btn
+        gbc_buyBtn.insets = new Insets(10, 0, 0, 0); // determine the amount of push to the btn -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_buyBtn.gridx = 1; // determine lbl's x coordinate
+        gbc_buyBtn.gridy = 11; // determine lbl's y coordinate
+        buyBtn.setForeground(new Color(93, 199, 255)); // add color to lbl
+        // create action listener
         buyBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                // if the user has enough money
                 if (wagon.getStore().checkIfEnoughMoney(wagon.getInventory())) {
-                    wagon.setInventory(wagon.getStore().buyMethod(wagon.getInventory()));
-                    display.showLeaveIndependence(wagon);
+                    wagon.setInventory(wagon.getStore().buyMethod(wagon.getInventory())); // set inventory
+                    display.showLeaveIndependence(wagon); // show leave independence screen
+                    // if the cost is more than what the user has
                 } else if ((total + wagon.getStore().getCost()) > (wagon.getInventory().getMoney())) {
-                    JOptionPane.showMessageDialog(null,
+                    JOptionPane.showMessageDialog(null, // display JOptionPane error message
                             "Okay that comes to a total of $" + (total + wagon.getStore().getCost())
                                     + ". But I see that you only have $" + wagon.getInventory().getMoney()
                                     + ". We'd better go over the list again.");
+                    // if the oxenSpinner is 0
                 } else if ((Integer) oxenSpinner.getValue() == 0) {
-                    JOptionPane.showMessageDialog(null, "Don't forget, you'll need oxen to pull your wagon.");
+                    JOptionPane.showMessageDialog(null, "Don't forget, you'll need oxen to pull your wagon."); 
+                    // display error message
                 }
             }
         });
-        viewPanel.add(buyBtn, gbc_buyBtn);
+        viewPanel.add(buyBtn, gbc_buyBtn); // add btn and gbc to panel
 
-        remainingLbl = new JLabel("Remaining Money: $" + money);
-        GridBagConstraints gbc_remainingLbl = new GridBagConstraints();
-        gbc_remainingLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_remainingLbl.gridx = 1;
-        gbc_remainingLbl.gridy = 10;
-        remainingLbl.setForeground(new Color(93, 199, 255));
-        remainingLbl.setHorizontalAlignment(SwingConstants.CENTER);
-        remainingLbl.setFont(smallFont);
-        viewPanel.add(remainingLbl, gbc_remainingLbl);
+        remainingLbl = new JLabel("Remaining Money: $" + money); // create new lbl
+        GridBagConstraints gbc_remainingLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_remainingLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_remainingLbl.gridx = 1; // determine lbl's x coordinate
+        gbc_remainingLbl.gridy = 10; // determine lbl's y coordinate
+        remainingLbl.setForeground(new Color(93, 199, 255)); // add color to text
+        remainingLbl.setHorizontalAlignment(SwingConstants.CENTER); // center text
+        remainingLbl.setFont(smallFont); // add font to text
+        viewPanel.add(remainingLbl, gbc_remainingLbl); // add lbl and gbc to panel
 
-        JLabel titleLbl = new JLabel("Welcome to the General Store!");
-        GridBagConstraints gbc_titleLbl = new GridBagConstraints();
-        gbc_titleLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_titleLbl.gridx = 1;
-        gbc_titleLbl.gridy = 0;
-        titleLbl.setForeground(new Color(93, 199, 255));
-        titleLbl.setHorizontalAlignment(SwingConstants.CENTER);
-        titleLbl.setFont(titleFont);
-        viewPanel.add(titleLbl, gbc_titleLbl);
+        JLabel titleLbl = new JLabel("Welcome to the General Store!"); // create new lbl
+        GridBagConstraints gbc_titleLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_titleLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_titleLbl.gridx = 1; // determine lbl's x coordinate
+        gbc_titleLbl.gridy = 0; // determine lbl's y coordinate
+        titleLbl.setForeground(new Color(93, 199, 255)); // add color to text
+        titleLbl.setHorizontalAlignment(SwingConstants.CENTER); // center text
+        titleLbl.setFont(titleFont); // add font
+        viewPanel.add(titleLbl, gbc_titleLbl); // add lbl and gbc to panel
 
-        JLabel foodLbl = new JLabel("Food:");
-        GridBagConstraints gbc_foodLbl = new GridBagConstraints();
-        gbc_foodLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_foodLbl.gridx = 0;
-        gbc_foodLbl.gridy = 2;
-        foodLbl.setForeground(new Color(93, 199, 255));
-        foodLbl.setHorizontalAlignment(SwingConstants.CENTER);
-        foodLbl.setFont(smallFont);
-        viewPanel.add(foodLbl, gbc_foodLbl);
+        JLabel foodLbl = new JLabel("Food:"); // create new lbl
+        GridBagConstraints gbc_foodLbl = new GridBagConstraints(); // add gbc to label
+        gbc_foodLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_foodLbl.gridx = 0; // determine lbl's coordinate
+        gbc_foodLbl.gridy = 2; // determine lbl's coordinate
+        foodLbl.setForeground(new Color(93, 199, 255)); // add color to text
+        foodLbl.setHorizontalAlignment(SwingConstants.CENTER); // center text
+        foodLbl.setFont(smallFont); // add font
+        viewPanel.add(foodLbl, gbc_foodLbl); // add lbl and gbc to panel
 
-        JLabel oxenLbl = new JLabel("Oxen:");
-        GridBagConstraints gbc_oxenLbl = new GridBagConstraints();
-        gbc_oxenLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_oxenLbl.gridx = 0;
-        gbc_oxenLbl.gridy = 3;
-        oxenLbl.setForeground(new Color(93, 199, 255));
-        oxenLbl.setHorizontalAlignment(SwingConstants.CENTER);
-        oxenLbl.setFont(smallFont);
-        viewPanel.add(oxenLbl, gbc_oxenLbl);
+        JLabel oxenLbl = new JLabel("Oxen:"); // create new lbl
+        GridBagConstraints gbc_oxenLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_oxenLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_oxenLbl.gridx = 0; // determine x coordinate
+        gbc_oxenLbl.gridy = 3; // determine y coordinate
+        oxenLbl.setForeground(new Color(93, 199, 255)); // add color to text
+        oxenLbl.setHorizontalAlignment(SwingConstants.CENTER); // center text
+        oxenLbl.setFont(smallFont); // add font to lbl
+        viewPanel.add(oxenLbl, gbc_oxenLbl); // add lbl and gbc to panel
 
-        JLabel clothingLbl = new JLabel("Clothing:");
-        GridBagConstraints gbc_clothingLbl = new GridBagConstraints();
-        gbc_clothingLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_clothingLbl.gridx = 0;
-        gbc_clothingLbl.gridy = 4;
-        clothingLbl.setForeground(new Color(93, 199, 255));
-        clothingLbl.setHorizontalAlignment(SwingConstants.CENTER);
-        clothingLbl.setFont(smallFont);
-        viewPanel.add(clothingLbl, gbc_clothingLbl);
+        JLabel clothingLbl = new JLabel("Clothing:"); // create new lbl
+        GridBagConstraints gbc_clothingLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_clothingLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_clothingLbl.gridx = 0; // determine x coordinate
+        gbc_clothingLbl.gridy = 4; // determine y coordinate
+        clothingLbl.setForeground(new Color(93, 199, 255)); // add color to text
+        clothingLbl.setHorizontalAlignment(SwingConstants.CENTER); // center text
+        clothingLbl.setFont(smallFont); // add font
+        viewPanel.add(clothingLbl, gbc_clothingLbl); // add lbl to gbc to panel
 
-        JLabel bulletsLbl = new JLabel("Bullets:");
-        GridBagConstraints gbc_bulletsLbl = new GridBagConstraints();
-        gbc_bulletsLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_bulletsLbl.gridx = 0;
-        gbc_bulletsLbl.gridy = 5;
-        bulletsLbl.setForeground(new Color(93, 199, 255));
-        bulletsLbl.setFont(smallFont);
-        viewPanel.add(bulletsLbl, gbc_bulletsLbl);
+        JLabel bulletsLbl = new JLabel("Bullets:"); // create new lbl
+        GridBagConstraints gbc_bulletsLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_bulletsLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_bulletsLbl.gridx = 0; // determine x coordinate
+        gbc_bulletsLbl.gridy = 5; // determine y coordinate
+        bulletsLbl.setForeground(new Color(93, 199, 255)); // add color to text
+        bulletsLbl.setFont(smallFont); // add font
+        viewPanel.add(bulletsLbl, gbc_bulletsLbl); // add lbl to gbc to panel
 
-        JLabel axleLbl = new JLabel("Wagon Axels:");
-        GridBagConstraints gbc_axleLbl = new GridBagConstraints();
-        gbc_axleLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_axleLbl.gridx = 0;
-        gbc_axleLbl.gridy = 6;
-        axleLbl.setForeground(new Color(93, 199, 255));
-        axleLbl.setFont(smallFont);
-        viewPanel.add(axleLbl, gbc_axleLbl);
+        JLabel axleLbl = new JLabel("Wagon Axels:"); // create new lbl
+        GridBagConstraints gbc_axleLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_axleLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_axleLbl.gridx = 0; // determine x coordinate
+        gbc_axleLbl.gridy = 6; // determine y coordinate
+        axleLbl.setForeground(new Color(93, 199, 255)); // add add color to text
+        axleLbl.setFont(smallFont); // add font
+        viewPanel.add(axleLbl, gbc_axleLbl); // add lbl to gbc to panel
 
-        JLabel tongueLbl = new JLabel("Wagon Tongues:");
-        GridBagConstraints gbc_tongueLbl = new GridBagConstraints();
-        gbc_tongueLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_tongueLbl.gridx = 0;
-        gbc_tongueLbl.gridy = 7;
-        tongueLbl.setForeground(new Color(93, 199, 255));
-        tongueLbl.setFont(smallFont);
-        viewPanel.add(tongueLbl, gbc_tongueLbl);
+        JLabel tongueLbl = new JLabel("Wagon Tongues:"); // create new lbl
+        GridBagConstraints gbc_tongueLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_tongueLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_tongueLbl.gridx = 0; // determine x coordinate
+        gbc_tongueLbl.gridy = 7; // determien y coordinate
+        tongueLbl.setForeground(new Color(93, 199, 255)); // add color to lbl
+        tongueLbl.setFont(smallFont); // add font
+        viewPanel.add(tongueLbl, gbc_tongueLbl); // add lbl and gbc to panel
 
-        JLabel wheelLbl = new JLabel("Wagon Wheels:");
-        GridBagConstraints gbc_wheelLbl = new GridBagConstraints();
-        gbc_wheelLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_wheelLbl.gridx = 0;
-        gbc_wheelLbl.gridy = 8;
-        wheelLbl.setForeground(new Color(93, 199, 255));
-        wheelLbl.setFont(smallFont);
-        viewPanel.add(wheelLbl, gbc_wheelLbl);
+        JLabel wheelLbl = new JLabel("Wagon Wheels:"); // create new lbl
+        GridBagConstraints gbc_wheelLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_wheelLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_wheelLbl.gridx = 0; // determine x coordinate
+        gbc_wheelLbl.gridy = 8; // determine y coordintae
+        wheelLbl.setForeground(new Color(93, 199, 255)); // add color
+        wheelLbl.setFont(smallFont); // add font
+        viewPanel.add(wheelLbl, gbc_wheelLbl); // add lbl and gbc to panel
 
-        foodPriceLbl = new JLabel("$.20");
-        GridBagConstraints gbc_foodPriceLbl = new GridBagConstraints();
-        gbc_foodPriceLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_foodPriceLbl.gridx = 1;
-        gbc_foodPriceLbl.gridy = 2;
-        foodPriceLbl.setForeground(new Color(93, 199, 255));
-        foodPriceLbl.setFont(smallFont);
-        viewPanel.add(foodPriceLbl, gbc_foodPriceLbl);
+        foodPriceLbl = new JLabel("$.20"); // create new lbl
+        GridBagConstraints gbc_foodPriceLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_foodPriceLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_foodPriceLbl.gridx = 1; // determine x coordinate
+        gbc_foodPriceLbl.gridy = 2; // determine y coordinate
+        foodPriceLbl.setForeground(new Color(93, 199, 255)); // add color
+        foodPriceLbl.setFont(smallFont); // add font
+        viewPanel.add(foodPriceLbl, gbc_foodPriceLbl); // add lbl and gbc to panel
 
         oxenPriceLbl = new JLabel("$40");
         GridBagConstraints gbc_oxenPriceLbl = new GridBagConstraints();

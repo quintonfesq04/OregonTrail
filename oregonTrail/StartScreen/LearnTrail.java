@@ -61,7 +61,7 @@ public class LearnTrail extends AbstractScreen {
 
         JLabel titleLbl = new JLabel("The Oregon Trail"); // create new title lbl
         GridBagConstraints gbc_titleLbl = new GridBagConstraints(); // add gbc to lbl
-        gbc_titleLbl.insets = new Insets(0, 0, 50, 0); // determine the amount of push to the infoLbl -- moving the
+        gbc_titleLbl.insets = new Insets(0, 0, 50, 0); // determine the amount of push to the lbl -- moving the
         // lbl up, down, left or right by x amounnt of pixels
         gbc_titleLbl.gridx = 1; // determine lbl's x coordinate
         gbc_titleLbl.gridy = 0; // determine lbl's y coordinate
@@ -83,7 +83,7 @@ public class LearnTrail extends AbstractScreen {
 
         JLabel continueLbl = new JLabel("Press Space To Continue"); // create new lbl
         GridBagConstraints gbc_continueLbl = new GridBagConstraints(); // add gbc to the lbl
-        gbc_continueLbl.insets = new Insets(50, 0, 5, 0); // determine the amount of push to the infoLbl -- moving the
+        gbc_continueLbl.insets = new Insets(50, 0, 5, 0); // determine the amount of push to the lbl -- moving the
         // lbl up, down, left or right by x amounnt of pixels
         gbc_continueLbl.gridx = 1; // determine lbl's x coordinate
         gbc_continueLbl.gridy = 4; // determine lbl's y coordinate

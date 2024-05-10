@@ -80,7 +80,7 @@ public class BeforeLeaving extends AbstractScreen {
 
         JLabel continueLbl = new JLabel("Press Space To Continue"); // create a new label
         GridBagConstraints gbc_continueLbl = new GridBagConstraints(); // give the infoLbl grid bag constraints
-        gbc_continueLbl.insets = new Insets(50, 0, 5, 0); // determine the amount of push to the infoLbl -- moving the
+        gbc_continueLbl.insets = new Insets(50, 0, 5, 0); // determine the amount of push to the lbl -- moving the
                                                           // lbl up, down, left or right by x amounnt of pixels
         gbc_continueLbl.gridx = 1; // determines the lbl's x coordinate
         gbc_continueLbl.gridy = 4; // determines the lbl's y coordinate
