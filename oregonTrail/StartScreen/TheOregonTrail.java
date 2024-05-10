@@ -20,7 +20,8 @@ import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
 /**
- * TheOregonTrail.java -- Provides the user with a combobox list of choices that determine what the user does
+ * TheOregonTrail.java -- Provides the user with a combobox list of choices that
+ * determine what the user does
  * the user has the option to start the game, learn the game, or end the game
  * 
  * @author Quinton Fesq

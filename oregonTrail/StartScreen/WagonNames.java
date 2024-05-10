@@ -48,7 +48,7 @@ public class WagonNames extends AbstractScreen {
     /**
      * Constructor for the WagonNames object
      * 
-     * @param wagon call to wagon class
+     * @param wagon   call to wagon class
      * @param display call to display class
      */
     public WagonNames(Wagon wagon, Display display) {
@@ -182,7 +182,7 @@ public class WagonNames extends AbstractScreen {
         name3Lbl.setForeground(new Color(93, 199, 255));
         viewPanel.add(name3Lbl, gbc_name3Lbl);
 
-        name3TextField = new JTextField();  // new text field
+        name3TextField = new JTextField(); // new text field
         GridBagConstraints gbc_name3TextField = new GridBagConstraints(); // add gbc
         gbc_name3TextField.insets = new Insets(0, 0, 5, 0);
         gbc_name3TextField.gridx = 1;
@@ -314,7 +314,7 @@ public class WagonNames extends AbstractScreen {
                 viewPanel.revalidate();
                 viewPanel.repaint();
 
-                JButton correctNameBtn = new JButton("Yes"); 
+                JButton correctNameBtn = new JButton("Yes");
                 GridBagConstraints gbc_correctNameBtn = new GridBagConstraints(); // add gbc
                 gbc_correctNameBtn.anchor = GridBagConstraints.CENTER;
                 gbc_correctNameBtn.insets = new Insets(10, 100, 5, 0);

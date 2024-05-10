@@ -29,7 +29,8 @@ import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
 /**
- * MayasStore.java -- Provides the user with the first general store of the game before they leave independence
+ * MayasStore.java -- Provides the user with the first general store of the game
+ * before they leave independence
  * 
  * @author Quinton Fesq
  * @version 1.0.0 05/02/2024
@@ -56,11 +57,10 @@ public class MayasStore extends AbstractScreen {
     private double money; // create money variable
     private double total = 0; // create total variable
 
-
     /**
      * Constructor for the MayasStore object
      * 
-     * @param wagon call to wagon class
+     * @param wagon   call to wagon class
      * @param display call to display class
      */
     public MayasStore(Wagon wagon, Display display) {
@@ -82,10 +82,10 @@ public class MayasStore extends AbstractScreen {
         // lbl up, down, left or right by x amounnt of pixels
         gbc_priceLabel.gridx = 1; // determine lbl's x coordinate
         gbc_priceLabel.gridy = 9; // determine lbl's y coordinate
-        priceLbl.setForeground(new Color(93, 199, 255)); // add color to text 
+        priceLbl.setForeground(new Color(93, 199, 255)); // add color to text
         priceLbl.setHorizontalAlignment(SwingConstants.CENTER); // center text
         viewPanel.add(priceLbl, gbc_priceLabel); // add lbl and gbc to panel
-        priceLbl.setFont(smallFont); // add font to lbl 
+        priceLbl.setFont(smallFont); // add font to lbl
 
         JButton buyBtn = new JButton("Buy"); // create new btn
         GridBagConstraints gbc_buyBtn = new GridBagConstraints(); // add gbc to btn
@@ -109,7 +109,7 @@ public class MayasStore extends AbstractScreen {
                                     + ". We'd better go over the list again.");
                     // if the oxenSpinner is 0
                 } else if ((Integer) oxenSpinner.getValue() == 0) {
-                    JOptionPane.showMessageDialog(null, "Don't forget, you'll need oxen to pull your wagon."); 
+                    JOptionPane.showMessageDialog(null, "Don't forget, you'll need oxen to pull your wagon.");
                     // display error message
                 }
             }
@@ -266,7 +266,7 @@ public class MayasStore extends AbstractScreen {
         gbc_tonguePriceLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
         // lbl up, down, left or right by x amounnt of pixels
         gbc_tonguePriceLbl.gridx = 1; // x coordinate
-        gbc_tonguePriceLbl.gridy = 7; // y coordinate 
+        gbc_tonguePriceLbl.gridy = 7; // y coordinate
         tonguePriceLbl.setForeground(new Color(93, 199, 255)); // color
         tonguePriceLbl.setFont(smallFont); // font
         viewPanel.add(tonguePriceLbl, gbc_tonguePriceLbl); // add to panel
@@ -321,7 +321,8 @@ public class MayasStore extends AbstractScreen {
         SpinnerNumberModel clothingLimit = new SpinnerNumberModel(0, 0, 99, 5); // set limit
         JSpinner clothingSpinner = new JSpinner(clothingLimit); // new spinner
         GridBagConstraints gbc_clothingSpinner = new GridBagConstraints(); // add gbc
-        gbc_clothingSpinner.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the spinner -- moving the
+        gbc_clothingSpinner.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the spinner -- moving
+                                                             // the
         // lbl up, down, left or right by x amounnt of pixels
         gbc_clothingSpinner.gridx = 2; // x coordinate
         gbc_clothingSpinner.gridy = 4; // y coordinate
@@ -406,7 +407,7 @@ public class MayasStore extends AbstractScreen {
                 remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost())); // update lbl
             }
         });
-        viewPanel.add(wheelSpinner, gbc_wheelSpinner); // add to panel 
+        viewPanel.add(wheelSpinner, gbc_wheelSpinner); // add to panel
 
         JLabel foodTitleLbl = new JLabel("Names"); // new lbl
         GridBagConstraints gbc_foodTitleLbl = new GridBagConstraints(); // add gbc
