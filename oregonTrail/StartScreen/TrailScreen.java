@@ -1,34 +1,36 @@
 package StartScreen;
 
-import java.awt.EventQueue;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.io.File;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.File;
 
-import javax.swing.*;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
-import Gameplay.*;
-import Screens.*;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
+import Gameplay.Display;
+import Gameplay.PicPanel;
+import Gameplay.Wagon;
+import Screens.AbstractScreen;
 
 public class TrailScreen extends AbstractScreen {
 	protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
-	
+
 	private Display display;
 	private Wagon wagon;
-	
+
 	private JPanel panel;
 	private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
 	private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
-	
+
 	private String selectedOption;
 
 	private String choice;
@@ -40,7 +42,7 @@ public class TrailScreen extends AbstractScreen {
 		this.wagon = wagon;
 		this.display = display;
 		initialize();
-    }
+	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -48,11 +50,11 @@ public class TrailScreen extends AbstractScreen {
 	protected void initialize() {
 		viewPanel.setFocusable(true);
 		viewPanel.setLayout(new GridBagLayout());
-	
+
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.insets = new Insets(10, 10, 10, 10); // Add some padding
-	
+
 		// JLabel "Many kinds of women made the trip to Oregon."
 		JLabel titleLbl = new JLabel("Many kinds of women made the trip to Oregon.");
 		titleLbl.setForeground(new Color(93, 199, 255));
@@ -62,7 +64,7 @@ public class TrailScreen extends AbstractScreen {
 		gbc.gridwidth = 2; // Set gridwidth to 2 to span across two columns
 		viewPanel.add(titleLbl, gbc);
 		titleLbl.setFont(titleFont);
-	
+
 		// JLabel "You May:"
 		JLabel youMayLbl = new JLabel("You May:");
 		youMayLbl.setForeground(new Color(93, 199, 255));
@@ -71,7 +73,7 @@ public class TrailScreen extends AbstractScreen {
 		gbc.gridwidth = 1; // Reset gridwidth
 		viewPanel.add(youMayLbl, gbc);
 		youMayLbl.setFont(smallFont);
-	
+
 		// JComboBox
 		JComboBox<String> comboBox = new JComboBox<>();
 		comboBox.addItem("1. Be a Doctor from Dayton");
@@ -82,7 +84,7 @@ public class TrailScreen extends AbstractScreen {
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.HORIZONTAL; // Allow the combo box to expand horizontally
 		viewPanel.add(comboBox, gbc);
-	
+
 		comboBox.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -101,7 +103,16 @@ public class TrailScreen extends AbstractScreen {
 				}
 			}
 		});
-	
+		viewPanel.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				int vk = e.getKeyCode();
+				if (vk == KeyEvent.VK_SPACE) {
+					comboBox.actionPerformed(null);
+				}
+			}
+		});
+
 		// JLabel "What is your choice?"
 		JLabel choiceLbl = new JLabel("What is your choice?");
 		choiceLbl.setForeground(new Color(93, 199, 255));
@@ -111,27 +122,27 @@ public class TrailScreen extends AbstractScreen {
 		gbc.gridwidth = 2; // Set gridwidth to 2 to span across two columns
 		viewPanel.add(choiceLbl, gbc);
 		choiceLbl.setFont(smallFont);
+
 	}
 
 	public void resetScreen() {
-        viewPanel.removeAll();
-        //add your elements
-        viewPanel.revalidate();
-        viewPanel.repaint();
-        display.showTrailScreen(wagon);
-        initialize();
-    }
-	
-	public String setChoice(){
+		viewPanel.removeAll();
+		viewPanel.revalidate();
+		viewPanel.repaint();
+		display.showTrailScreen(wagon);
+		initialize();
+	}
+
+	public String setChoice() {
 		String choice;
 		return this.choice = selectedOption;
 	}
 
-    @Override
+	@Override
 	public void resizeImages() {
 		// TODO Auto-generated method stub
-        viewPanel.resizeImage();
-		
+		viewPanel.resizeImage();
+
 	}
 
 	@Override

@@ -1,29 +1,30 @@
 package StartScreen;
 
-import java.awt.EventQueue;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.io.File;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.File;
 
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
-import Gameplay.*;
-import Screens.*;
-
-import java.awt.Color;
+import Gameplay.Display;
+import Gameplay.PicPanel;
+import Gameplay.Wagon;
+import Screens.AbstractScreen;
+import Screens.TravelScreen;
 
 public class LeaveIndependence extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
 
-    private JLabel infoLbl = new JLabel("<html><center>Well then, you're ready to start. Good Luck! You have a long and difficult journey ahead of you.</html>");
+    private JLabel infoLbl = new JLabel(
+            "<html><center>Well then, you're ready to start. Good Luck! You have a long and difficult journey ahead of you.</html>");
     private JLabel startLbl;
-    
 
     int instructionScreen = 0;
 
@@ -45,16 +46,16 @@ public class LeaveIndependence extends AbstractScreen {
     protected void initialize() {
         viewPanel.setFocusable(true);
         GridBagLayout gbl_viewPanel = new GridBagLayout();
-        gbl_viewPanel.columnWeights = new double[]{0.0,1.0};
+        gbl_viewPanel.columnWeights = new double[] { 0.0, 1.0 };
         viewPanel.setLayout(gbl_viewPanel);
         viewPanel.setVisible(true);
 
         GridBagConstraints gbc_infoLbl = new GridBagConstraints();
-        gbc_infoLbl.insets = new Insets(0,100,0,100);
+        gbc_infoLbl.insets = new Insets(0, 100, 0, 100);
         gbc_infoLbl.gridx = 1;
         gbc_infoLbl.gridy = 1;
         gbc_infoLbl.fill = GridBagConstraints.HORIZONTAL;
-        gbc_infoLbl.insets = new Insets(0,100,0,100);
+        gbc_infoLbl.insets = new Insets(0, 100, 0, 100);
         infoLbl.setForeground(new Color(93, 199, 255));
         infoLbl.setHorizontalAlignment(SwingConstants.CENTER);
         infoLbl.setFont(smallFont);
@@ -62,7 +63,7 @@ public class LeaveIndependence extends AbstractScreen {
 
         JLabel continueLbl = new JLabel("Press Space To Continue");
         GridBagConstraints gbc_continueLbl = new GridBagConstraints();
-        gbc_continueLbl.insets = new Insets(50,0,5,0);
+        gbc_continueLbl.insets = new Insets(50, 0, 5, 0);
         gbc_continueLbl.gridx = 1;
         gbc_continueLbl.gridy = 4;
         continueLbl.setForeground(new Color(93, 199, 255));
@@ -72,7 +73,7 @@ public class LeaveIndependence extends AbstractScreen {
 
         startLbl = new JLabel("<html><center>Independence\nMarch 1, 1848<html>");
         GridBagConstraints gbc_startLbl = new GridBagConstraints();
-        gbc_startLbl.insets = new Insets(50,0,5,0);
+        gbc_startLbl.insets = new Insets(50, 0, 5, 0);
         gbc_startLbl.gridx = 1;
         gbc_startLbl.gridy = 1;
         startLbl.setForeground(new Color(93, 199, 255));
@@ -96,7 +97,7 @@ public class LeaveIndependence extends AbstractScreen {
     }
 
     private void switchLabel() {
-        switch(instructionScreen) {
+        switch (instructionScreen) {
             case 0:
                 infoLbl.setVisible(false);
                 startLbl.setVisible(true);
@@ -109,18 +110,17 @@ public class LeaveIndependence extends AbstractScreen {
                 break;
         }
     }
-    
-    
-    @Override
-	public void resizeImages() {
-		// TODO Auto-generated method stub
-        viewPanel.resizeImage();
-		
-	}
 
-	@Override
-	public JPanel getPanel() {
-		// TODO Auto-generated method stub
-		return viewPanel;
-	}
+    @Override
+    public void resizeImages() {
+        // TODO Auto-generated method stub
+        viewPanel.resizeImage();
+
+    }
+
+    @Override
+    public JPanel getPanel() {
+        // TODO Auto-generated method stub
+        return viewPanel;
+    }
 }
