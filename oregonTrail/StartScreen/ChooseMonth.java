@@ -59,19 +59,21 @@ public class ChooseMonth extends AbstractScreen {
         GridBagConstraints gbc_chooseMonthLbl = new GridBagConstraints(); // give the lbl grid bag contraints
         gbc_chooseMonthLbl.anchor = GridBagConstraints.CENTER; // center the grid bag constraints
         gbc_chooseMonthLbl.insets = new Insets(0, 100, 25, 100); // determine the amount of push to the infoLbl --
-                                                                                // moving the lbl up, down, left or right by x amounnt of pixels
+                                                                 // moving the lbl up, down, left or right by x amounnt
+                                                                 // of pixels
         gbc_chooseMonthLbl.gridx = 1; // determines the lbl's x coordinate
         gbc_chooseMonthLbl.gridy = 0; // determines the lbl's y coordinate
-        gbc_chooseMonthLbl.fill = GridBagConstraints.HORIZONTAL; // allow the lbl to fill out horizontally across the panel
+        gbc_chooseMonthLbl.fill = GridBagConstraints.HORIZONTAL; // allow the lbl to fill out horizontally across the
+                                                                 // panel
         chooseMonthLbl.setFont(titleFont); // give the lbl our set title font
-        chooseMonthLbl.setForeground(new Color(93, 199, 255));  // add color to the lbl text
+        chooseMonthLbl.setForeground(new Color(93, 199, 255)); // add color to the lbl text
         viewPanel.add(chooseMonthLbl, gbc_chooseMonthLbl); // add the lbl with its constraints to the panel
 
         JComboBox<String> comboBox = new JComboBox<>(); // create a new combobox with our month options
         GridBagConstraints gbc_ComboBox = new GridBagConstraints(); // give the combobox grid bag constraints
         gbc_ComboBox.anchor = GridBagConstraints.CENTER; // center the grid bag constraints
         gbc_ComboBox.insets = new Insets(0, 0, 5, 0); // determine the amount of push to the infoLbl --
-                                                                         // moving the lbl up, down, left or right by x amounnt of pixels
+                                                      // moving the lbl up, down, left or right by x amounnt of pixels
         gbc_ComboBox.gridx = 1; // determines the lbl's x coordinate
         gbc_ComboBox.gridy = 1; // determines the lbl's y coordinate
         comboBox.addItem("1. March"); // add march
@@ -91,11 +93,11 @@ public class ChooseMonth extends AbstractScreen {
                 // Check which item is selected and perform action accordingly
                 switch (selectedOption) {
                     // check for any of the months
-                    case "1. March": 
+                    case "1. March":
                     case "2. April":
-                    case "3. May": 
-                    case "4. June": 
-                    case "5. July": 
+                    case "3. May":
+                    case "4. June":
+                    case "5. July":
                         display.showBeforeLeaving(wagon); // show before leaving screen
                         break; // break from case
                     case "6. Ask For Advice": // check for if ask for advice
@@ -109,7 +111,7 @@ public class ChooseMonth extends AbstractScreen {
         GridBagConstraints gbc_choiceLbl = new GridBagConstraints(); // give lbl grid bag constraints
         gbc_choiceLbl.anchor = GridBagConstraints.CENTER; // center grid bag constraints
         gbc_choiceLbl.insets = new Insets(15, 0, 5, 0); // determine the amount of push to the infoLbl --
-                                                                         // moving the lbl up, down, left or right by x amounnt of pixels
+                                                        // moving the lbl up, down, left or right by x amounnt of pixels
         gbc_choiceLbl.gridx = 1; // determines the lbl's x coordinate
         gbc_choiceLbl.gridy = 4; // determines the lbl's y coordinate
         choiceLbl.setFont(smallFont); // add set text font
