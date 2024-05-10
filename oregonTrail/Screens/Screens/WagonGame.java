@@ -1,10 +1,9 @@
 package Screens;
 
-import javax.swing.*;
-
-import Gameplay.*;
-
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -14,18 +13,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import Hunting.*;
-import Screens.*;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+import Gameplay.Display;
+import Gameplay.PicPanel;
+import Gameplay.Wagon;
 
 /**
- * WagonGame.java -- 
+ * WagonGame.java --
+ * 
  * @author Quinton Fesq
  * @author Ethan Burch
  * @author Madison Scott
  * @version 1.7.1 5/1/24
  */
 public class WagonGame extends AbstractScreen {
-    protected PicPanel viewPanel = new PicPanel(new File("Images/wagon game0.jpg"));
+    protected PicPanel viewPanel = new PicPanel(new File("Images/WagonGame.jpg"));
 
     private JPanel panel;
     private JPanel bubblesPanel;
@@ -35,7 +42,7 @@ public class WagonGame extends AbstractScreen {
     private int bubbleCount; // Keep track of clicked bubbles
     private List<Bubble> bubbles;
     private Timer gameTimer;
-    private int time = 15;
+    private int time;
     private Display display;
     private Wagon wagon;
 
@@ -46,7 +53,6 @@ public class WagonGame extends AbstractScreen {
         createBubbles();
         score = 0;
         bubbleCount = 0;
-        updateScoreLabel();
     }
 
     private void initializeUI() {
@@ -97,33 +103,43 @@ public class WagonGame extends AbstractScreen {
         }
     }
 
-    private void updateScoreLabel() {
+    public void resetGame() {
+        score = 0;
+        bubbleCount = 0;
         scoreLabel.setText("Score: " + score);
+
+        time = 15;
+        timerLabel.setText("Time: " + time);
+
+        bubblesPanel.removeAll();
+
+        createBubbles();
+        startGame();
     }
 
-    public void startGame() { 
-    gameTimer = new Timer(1000, new ActionListener() {
+    public void startGame() {
+        gameTimer = new Timer(1500, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (time > 0) {
                     time--;
                     timerLabel.setText("Time: " + time);
-                    if(time == 0) {
-                        endGame();
+                    if (time == 0) {
+                        endWagonGame();
                     }
-                } else {
-                    endGame();
                 }
             }
         });
         gameTimer.start();
     }
 
-
-    public void endGame() {
-        gameTimer.stop();
-        JOptionPane.showMessageDialog(panel, "Game Over! Your Score: " + score, "Game Over", JOptionPane.INFORMATION_MESSAGE);
-        display.showTravelScreen(wagon);
+    public void endWagonGame() {
+        if (gameTimer.isRunning()) {
+            gameTimer.stop();
+            JOptionPane.showMessageDialog(panel, "Game Over! Your Score: " + score, "Game Over",
+                    JOptionPane.INFORMATION_MESSAGE);
+            display.showTravelScreen(wagon);
+        }
     }
 
     private class BubbleClickListener extends MouseAdapter {
@@ -132,7 +148,7 @@ public class WagonGame extends AbstractScreen {
             Bubble clickedBubble = (Bubble) e.getSource();
             score++;
             bubbleCount++; // Increment bubble count
-            updateScoreLabel();
+
             bubblesPanel.remove(clickedBubble);
             bubbles.remove(clickedBubble);
             bubblesPanel.repaint();
@@ -140,7 +156,7 @@ public class WagonGame extends AbstractScreen {
 
             // Check if all bubbles are clicked
             if (bubbleCount == 10) {
-                endGame(); // End game if all bubbles are clicked
+                endWagonGame(); // End game if all bubbles are clicked
             }
         }
     }
@@ -155,7 +171,7 @@ public class WagonGame extends AbstractScreen {
             setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Add border (optional)
         }
     }
-    
+
     @Override
     protected void initialize() {
         // No implementation needed for now

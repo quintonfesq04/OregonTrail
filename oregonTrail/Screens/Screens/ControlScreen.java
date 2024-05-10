@@ -1,27 +1,46 @@
 package Screens;
 
-import javax.swing.*;
-import javax.swing.border.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.File;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSlider;
+import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.io.File;
-
-import Gameplay.*;
+import Gameplay.Display;
+import Gameplay.PicPanel;
+import Gameplay.Player;
+import Gameplay.Wagon;
 
 /**
- * ControlScreen.java -- pulls up a screen that allows to player to see their inventory and make edits to how they traverse the trail
+ * ControlScreen.java -- pulls up a screen that allows to player to see their
+ * inventory and make edits to how they traverse the trail
+ * 
  * @author Ethan Burch
  * @version 1.4.2 5/1/24
  */
 public class ControlScreen extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
 
-    private JPanel panel;
     private Wagon wagon;
     private Display display;
+    private ForagingScreen foragingScreen;
+    private Player player;
 
     private JLabel foodLbl;
     private JLabel moneyLbl;
@@ -31,18 +50,21 @@ public class ControlScreen extends AbstractScreen {
     private JLabel axleLbl;
     private JLabel tongueLbl;
     private JLabel ammoLbl;
-    
+    private JButton forageBtn;
+
     private Font labelFont = new Font("Trajan Pro", Font.PLAIN, 24);
     private Font sliderFont = new Font("Trajan Pro", Font.PLAIN, 16);
     private JRadioButton meagerBtn;
     private JRadioButton bareBonesBtn;
     private JRadioButton fillingBtn;
     private JSlider slider;
+    private boolean haveRan;
     private final ButtonGroup buttonGroup = new ButtonGroup();
 
-    public ControlScreen(Wagon wagon, Display display) {
+    public ControlScreen(Wagon wagon, Display display, ForagingScreen foragingScreen) {
         this.wagon = wagon;
         this.display = display;
+        this.foragingScreen = foragingScreen;
         initialize();
     }
 
@@ -50,8 +72,8 @@ public class ControlScreen extends AbstractScreen {
     protected void initialize() {
         viewPanel.setFocusable(true);
         GridBagLayout gbl_viewPanel = new GridBagLayout();
-        gbl_viewPanel.columnWeights = new double[]{0.0, 0.0};
-        viewPanel.setLayout(gbl_viewPanel); 
+        gbl_viewPanel.columnWeights = new double[] { 0.0, 0.0 };
+        viewPanel.setLayout(gbl_viewPanel);
 
         JLabel inventory = new JLabel("Inventory");
         GridBagConstraints gbc_inventory = new GridBagConstraints();
@@ -61,7 +83,7 @@ public class ControlScreen extends AbstractScreen {
         inventory.setForeground(new Color(93, 199, 255));
         inventory.setHorizontalAlignment(SwingConstants.CENTER);
         inventory.setFont(labelFont);
-        inventory.add(inventory, gbc_inventory);
+        viewPanel.add(inventory, gbc_inventory);
 
         moneyLbl = new JLabel("Money: ");
         GridBagConstraints gbc_moneyLbl = new GridBagConstraints();
@@ -85,7 +107,7 @@ public class ControlScreen extends AbstractScreen {
 
         oxenLbl = new JLabel("Oxen: ");
         GridBagConstraints gbc_oxenLbl = new GridBagConstraints();
-        gbc_oxenLbl.insets = new Insets(0,0,0,0);
+        gbc_oxenLbl.insets = new Insets(0, 0, 0, 0);
         gbc_oxenLbl.gridx = 0;
         gbc_oxenLbl.gridy = 3;
         oxenLbl.setForeground(new Color(93, 199, 255));
@@ -135,36 +157,36 @@ public class ControlScreen extends AbstractScreen {
 
         JLabel sliderLbl = new JLabel("Travel Speed");
         GridBagConstraints gbc_sliderLbl = new GridBagConstraints();
-        gbc_sliderLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_sliderLbl.insets = new Insets(0, 100, 0, 0);
         gbc_sliderLbl.gridx = 2;
         gbc_sliderLbl.gridy = 0;
         inventory.setForeground(new Color(93, 199, 255));
         inventory.setHorizontalAlignment(SwingConstants.CENTER);
         inventory.setFont(labelFont);
-        inventory.add(sliderLbl, gbc_sliderLbl);
+        viewPanel.add(sliderLbl, gbc_sliderLbl);
 
         slider = new JSlider(JSlider.HORIZONTAL, 12, 20, 20);
         GridBagConstraints gbc_slider = new GridBagConstraints();
-        gbc_slider.insets = new Insets(0, 0, 0, 0);
+        gbc_slider.insets = new Insets(0, 100, 0, 0);
         gbc_slider.gridx = 2;
         gbc_slider.gridy = 1;
         slider.setMajorTickSpacing(1);
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
         viewPanel.add(slider, gbc_slider);
-        slider.addChangeListener(new ChangeListener(){
+        slider.addChangeListener(new ChangeListener() {
 
             @Override
             public void stateChanged(ChangeEvent e) {
                 wagon.getPlayer().setTravelSpeed(slider.getValue());
-                panel.requestFocusInWindow();
+                viewPanel.requestFocusInWindow();
             }
-            
+
         });
 
         JLabel consumptionLbl = new JLabel("Food Consumption");
         GridBagConstraints gbc_consumptionLbl = new GridBagConstraints();
-        gbc_consumptionLbl.insets = new Insets(0, 0, 0, 0);
+        gbc_consumptionLbl.insets = new Insets(0, 100, 0, 0);
         gbc_consumptionLbl.gridx = 2;
         gbc_consumptionLbl.gridy = 2;
         consumptionLbl.setForeground(new Color(93, 199, 255));
@@ -174,17 +196,17 @@ public class ControlScreen extends AbstractScreen {
 
         bareBonesBtn = new JRadioButton("Bare-Bones");
         GridBagConstraints gbc_bareBones = new GridBagConstraints();
-        gbc_bareBones.insets = new Insets(0, 0, 0, 0);
+        gbc_bareBones.insets = new Insets(0, 100, 0, 0);
         gbc_bareBones.gridx = 2;
         gbc_bareBones.gridy = 3;
         meagerBtn = new JRadioButton("Meager");
         GridBagConstraints gbc_meager = new GridBagConstraints();
-        gbc_meager.insets = new Insets(0, 0, 0, 0);
+        gbc_meager.insets = new Insets(0, 100, 0, 0);
         gbc_meager.gridx = 2;
         gbc_meager.gridy = 4;
         fillingBtn = new JRadioButton("Filling");
         GridBagConstraints gbc_filling = new GridBagConstraints();
-        gbc_filling.insets = new Insets(0, 0, 0, 0);
+        gbc_filling.insets = new Insets(0, 100, 0, 0);
         gbc_filling.gridx = 2;
         gbc_filling.gridy = 5;
         fillingBtn.setSelected(true);
@@ -192,51 +214,50 @@ public class ControlScreen extends AbstractScreen {
         buttonGroup.add(meagerBtn);
         buttonGroup.add(fillingBtn);
         viewPanel.add(bareBonesBtn, gbc_bareBones);
-        viewPanel.add(meagerBtn);
-        viewPanel.add(fillingBtn);
+        viewPanel.add(meagerBtn, gbc_meager);
+        viewPanel.add(fillingBtn, gbc_filling);
         meagerBtn.setFont(sliderFont);
         bareBonesBtn.setFont(sliderFont);
         fillingBtn.setFont(sliderFont);
-        viewPanel.add(viewPanel);
 
-        JButton forageBtn = new JButton("Forage For Food");
+        forageBtn = new JButton("Forage For Food");
         GridBagConstraints gbc_forageBtn = new GridBagConstraints();
-        gbc_forageBtn.insets = new Insets(0, 0, 0, 0);
+        gbc_forageBtn.insets = new Insets(0, 100, 0, 0);
         gbc_forageBtn.gridx = 2;
         gbc_forageBtn.gridy = 8;
+        forageBtn.setPreferredSize(new Dimension(125, 25));
         forageBtn.setForeground(new Color(93, 199, 255));
         forageBtn.setHorizontalAlignment(SwingConstants.CENTER);
-        forageBtn.setFont(labelFont);
         viewPanel.add(forageBtn, gbc_forageBtn);
+        forageBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                display.showForagingScreen(wagon);
+            }
+        });
 
-
-        
         ActionListener radioListener = new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                panel.requestFocusInWindow();
-                if(e.getSource() instanceof JRadioButton){
-                    if(e.getSource() == bareBonesBtn){
+                viewPanel.requestFocusInWindow();
+                if (e.getSource() instanceof JRadioButton) {
+                    if (e.getSource() == bareBonesBtn) {
                         wagon.getPlayer().setConsumption(Player.BARE_BONES);
-                    }
-                    else if (e.getSource() == fillingBtn){
+                    } else if (e.getSource() == fillingBtn) {
                         wagon.getPlayer().setConsumption(Player.FILLING);
-                    }
-                    else if(e.getSource() == meagerBtn){
+                    } else if (e.getSource() == meagerBtn) {
                         wagon.getPlayer().setConsumption(Player.MEAGER);
                     }
                 }
             }
-            
+
         };
 
         fillingBtn.addActionListener(radioListener);
         meagerBtn.addActionListener(radioListener);
         bareBonesBtn.addActionListener(radioListener);
-        
 
-        panel.addKeyListener(new KeyAdapter() {
+        viewPanel.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_I) {
@@ -248,7 +269,7 @@ public class ControlScreen extends AbstractScreen {
         });
     }
 
-    public void updateDisplay(){
+    public void updateDisplay() {
         moneyLbl.setText("Money:" + wagon.getInventory().getMoney());
         oxenLbl.setText("Oxen:" + wagon.getInventory().getOxen());
         foodLbl.setText("Food:" + wagon.getInventory().getFood());
@@ -258,6 +279,7 @@ public class ControlScreen extends AbstractScreen {
         axleLbl.setText("Wagon Axles:" + wagon.getInventory().getWagonAxle());
         tongueLbl.setText("Wagon Tongues:" + wagon.getInventory().getWagonTongue());
     }
+
     @Override
     public void resizeImages() {
         // TODO: Implement resizing of images
@@ -265,6 +287,6 @@ public class ControlScreen extends AbstractScreen {
 
     @Override
     public JPanel getPanel() {
-        return panel;
+        return viewPanel;
     }
 }
