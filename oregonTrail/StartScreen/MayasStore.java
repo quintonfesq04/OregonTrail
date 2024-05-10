@@ -221,223 +221,240 @@ public class MayasStore extends AbstractScreen {
         foodPriceLbl.setFont(smallFont); // add font
         viewPanel.add(foodPriceLbl, gbc_foodPriceLbl); // add lbl and gbc to panel
 
-        oxenPriceLbl = new JLabel("$40");
-        GridBagConstraints gbc_oxenPriceLbl = new GridBagConstraints();
-        gbc_oxenPriceLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_oxenPriceLbl.gridx = 1;
-        gbc_oxenPriceLbl.gridy = 3;
-        oxenPriceLbl.setForeground(new Color(93, 199, 255));
-        oxenPriceLbl.setFont(smallFont);
-        viewPanel.add(oxenPriceLbl, gbc_oxenPriceLbl);
+        oxenPriceLbl = new JLabel("$40"); // create new lbl
+        GridBagConstraints gbc_oxenPriceLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_oxenPriceLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_oxenPriceLbl.gridx = 1; // determine x coordinate
+        gbc_oxenPriceLbl.gridy = 3; // determine y coordinate
+        oxenPriceLbl.setForeground(new Color(93, 199, 255)); // add color
+        oxenPriceLbl.setFont(smallFont); // add font
+        viewPanel.add(oxenPriceLbl, gbc_oxenPriceLbl); // add lbl and gbc to panel
 
-        clothingPriceLbl = new JLabel("$10");
-        GridBagConstraints gbc_clothingPriceLbl = new GridBagConstraints();
-        gbc_clothingPriceLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_clothingPriceLbl.gridx = 1;
-        gbc_clothingPriceLbl.gridy = 4;
-        clothingPriceLbl.setForeground(new Color(93, 199, 255));
-        clothingPriceLbl.setFont(smallFont);
-        viewPanel.add(clothingPriceLbl, gbc_clothingPriceLbl);
+        clothingPriceLbl = new JLabel("$10"); // create new lbl
+        GridBagConstraints gbc_clothingPriceLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_clothingPriceLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_clothingPriceLbl.gridx = 1; // determine x coordinate
+        gbc_clothingPriceLbl.gridy = 4; // determine y coordinate
+        clothingPriceLbl.setForeground(new Color(93, 199, 255)); // add color
+        clothingPriceLbl.setFont(smallFont); // add font
+        viewPanel.add(clothingPriceLbl, gbc_clothingPriceLbl); // add lbl and gbc to panel
 
-        bulletsPriceLbl = new JLabel("$2");
-        GridBagConstraints gbc_bulletsPriceLbl = new GridBagConstraints();
-        gbc_bulletsPriceLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_bulletsPriceLbl.gridx = 1;
-        gbc_bulletsPriceLbl.gridy = 5;
-        bulletsPriceLbl.setForeground(new Color(93, 199, 255));
-        bulletsPriceLbl.setFont(smallFont);
-        viewPanel.add(bulletsPriceLbl, gbc_bulletsPriceLbl);
+        bulletsPriceLbl = new JLabel("$2"); // create new lbl
+        GridBagConstraints gbc_bulletsPriceLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_bulletsPriceLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_bulletsPriceLbl.gridx = 1; // determine x coordinate
+        gbc_bulletsPriceLbl.gridy = 5; // determine y coordinate
+        bulletsPriceLbl.setForeground(new Color(93, 199, 255)); // add color
+        bulletsPriceLbl.setFont(smallFont); // add font
+        viewPanel.add(bulletsPriceLbl, gbc_bulletsPriceLbl); // add lbl and gbc to panel
 
-        axlePriceLbl = new JLabel("$10");
-        GridBagConstraints gbc_axlePriceLbl = new GridBagConstraints();
-        gbc_axlePriceLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_axlePriceLbl.gridx = 1;
-        gbc_axlePriceLbl.gridy = 6;
-        axlePriceLbl.setForeground(new Color(93, 199, 255));
-        axlePriceLbl.setFont(smallFont);
-        viewPanel.add(axlePriceLbl, gbc_axlePriceLbl);
+        axlePriceLbl = new JLabel("$10"); // create new lbl
+        GridBagConstraints gbc_axlePriceLbl = new GridBagConstraints(); // add gbc to lbl
+        gbc_axlePriceLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_axlePriceLbl.gridx = 1; // x coordinate
+        gbc_axlePriceLbl.gridy = 6; // y coordinate
+        axlePriceLbl.setForeground(new Color(93, 199, 255)); // color
+        axlePriceLbl.setFont(smallFont); // font
+        viewPanel.add(axlePriceLbl, gbc_axlePriceLbl); // add to panel
 
-        tonguePriceLbl = new JLabel("$10");
-        GridBagConstraints gbc_tonguePriceLbl = new GridBagConstraints();
-        gbc_tonguePriceLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_tonguePriceLbl.gridx = 1;
-        gbc_tonguePriceLbl.gridy = 7;
-        tonguePriceLbl.setForeground(new Color(93, 199, 255));
-        tonguePriceLbl.setFont(smallFont);
-        viewPanel.add(tonguePriceLbl, gbc_tonguePriceLbl);
+        tonguePriceLbl = new JLabel("$10"); // new lbl
+        GridBagConstraints gbc_tonguePriceLbl = new GridBagConstraints(); // add gbc
+        gbc_tonguePriceLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_tonguePriceLbl.gridx = 1; // x coordinate
+        gbc_tonguePriceLbl.gridy = 7; // y coordinate 
+        tonguePriceLbl.setForeground(new Color(93, 199, 255)); // color
+        tonguePriceLbl.setFont(smallFont); // font
+        viewPanel.add(tonguePriceLbl, gbc_tonguePriceLbl); // add to panel
 
-        wheelPriceLbl = new JLabel("$10");
-        GridBagConstraints gbc_wheelPriceLbl = new GridBagConstraints();
-        gbc_wheelPriceLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_wheelPriceLbl.gridx = 1;
-        gbc_wheelPriceLbl.gridy = 8;
-        wheelPriceLbl.setForeground(new Color(93, 199, 255));
-        wheelPriceLbl.setFont(smallFont);
-        viewPanel.add(wheelPriceLbl, gbc_wheelPriceLbl);
+        wheelPriceLbl = new JLabel("$10"); // new lbl
+        GridBagConstraints gbc_wheelPriceLbl = new GridBagConstraints(); // add gbc
+        gbc_wheelPriceLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_wheelPriceLbl.gridx = 1; // x coordinate
+        gbc_wheelPriceLbl.gridy = 8; // y coordinate
+        wheelPriceLbl.setForeground(new Color(93, 199, 255)); // color
+        wheelPriceLbl.setFont(smallFont); // font
+        viewPanel.add(wheelPriceLbl, gbc_wheelPriceLbl); // add to panel
 
-        SpinnerNumberModel foodLimit = new SpinnerNumberModel(0, 0, 2000, 25);
-        JSpinner foodSpinner = new JSpinner(foodLimit);
-        GridBagConstraints gbc_foodSpinner = new GridBagConstraints();
-        gbc_foodSpinner.insets = new Insets(0, 0, 0, 0);
-        gbc_foodSpinner.gridx = 2;
-        gbc_foodSpinner.gridy = 2;
-        foodSpinner.setPreferredSize(new Dimension(80, 20));
-        foodSpinner.addChangeListener(new ChangeListener() {
+        SpinnerNumberModel foodLimit = new SpinnerNumberModel(0, 0, 2000, 25); // set limit
+        JSpinner foodSpinner = new JSpinner(foodLimit); // new spinner
+        GridBagConstraints gbc_foodSpinner = new GridBagConstraints(); // add gbc
+        gbc_foodSpinner.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the spinner -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_foodSpinner.gridx = 2; // x coordinate
+        gbc_foodSpinner.gridy = 2; // y coordinate
+        foodSpinner.setPreferredSize(new Dimension(80, 20)); // dimensions
+        foodSpinner.addChangeListener(new ChangeListener() { // change listener
             @Override
             public void stateChanged(ChangeEvent e) {
-                wagon.getStore().updateCost(Inventory.FOOD, (Integer) foodSpinner.getValue());
-                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost()));
-                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost()));
+                wagon.getStore().updateCost(Inventory.FOOD, (Integer) foodSpinner.getValue()); // get value
+                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost())); // update lbl
+                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost())); // update lbl
             }
         });
-        viewPanel.add(foodSpinner, gbc_foodSpinner);
+        viewPanel.add(foodSpinner, gbc_foodSpinner); // add to panel
 
-        SpinnerNumberModel oxenLimit = new SpinnerNumberModel(0, 0, 9, 1);
-        oxenSpinner = new JSpinner(oxenLimit);
-        GridBagConstraints gbc_oxenSpinner = new GridBagConstraints();
-        gbc_oxenSpinner.insets = new Insets(0, 0, 0, 0);
-        gbc_oxenSpinner.gridx = 2;
-        gbc_oxenSpinner.gridy = 3;
-        oxenSpinner.setPreferredSize(new Dimension(80, 20));
+        SpinnerNumberModel oxenLimit = new SpinnerNumberModel(0, 0, 9, 1); // set limit
+        oxenSpinner = new JSpinner(oxenLimit); // new spinner
+        GridBagConstraints gbc_oxenSpinner = new GridBagConstraints(); // add gbc
+        gbc_oxenSpinner.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the spinner -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_oxenSpinner.gridx = 2; // x coordinate
+        gbc_oxenSpinner.gridy = 3; // y coordinate
+        oxenSpinner.setPreferredSize(new Dimension(80, 20)); // dimensions
         oxenSpinner.addChangeListener(new ChangeListener() {
+            // change listener
             @Override
             public void stateChanged(ChangeEvent e) {
-                wagon.getStore().updateCost(Inventory.OXEN, (Integer) oxenSpinner.getValue());
-                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost()));
-                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost()));
+                wagon.getStore().updateCost(Inventory.OXEN, (Integer) oxenSpinner.getValue()); // get value
+                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost())); // update lbl
+                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost())); // update lbl
             }
         });
-        viewPanel.add(oxenSpinner, gbc_oxenSpinner);
+        viewPanel.add(oxenSpinner, gbc_oxenSpinner); // add to panel
 
-        SpinnerNumberModel clothingLimit = new SpinnerNumberModel(0, 0, 99, 5);
-        JSpinner clothingSpinner = new JSpinner(clothingLimit);
-        GridBagConstraints gbc_clothingSpinner = new GridBagConstraints();
-        gbc_clothingSpinner.insets = new Insets(0, 0, 0, 0);
-        gbc_clothingSpinner.gridx = 2;
-        gbc_clothingSpinner.gridy = 4;
-        clothingSpinner.setPreferredSize(new Dimension(80, 20));
-        clothingSpinner.addChangeListener(new ChangeListener() {
+        SpinnerNumberModel clothingLimit = new SpinnerNumberModel(0, 0, 99, 5); // set limit
+        JSpinner clothingSpinner = new JSpinner(clothingLimit); // new spinner
+        GridBagConstraints gbc_clothingSpinner = new GridBagConstraints(); // add gbc
+        gbc_clothingSpinner.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the spinner -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_clothingSpinner.gridx = 2; // x coordinate
+        gbc_clothingSpinner.gridy = 4; // y coordinate
+        clothingSpinner.setPreferredSize(new Dimension(80, 20)); // dimensions
+        clothingSpinner.addChangeListener(new ChangeListener() { // change listener
             @Override
             public void stateChanged(ChangeEvent e) {
-                wagon.getStore().updateCost(Inventory.CLOTHING, (Integer) clothingSpinner.getValue());
-                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost()));
-                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost()));
+                wagon.getStore().updateCost(Inventory.CLOTHING, (Integer) clothingSpinner.getValue()); // get value
+                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost())); // update lbl
+                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost())); // update lbl
             }
         });
-        viewPanel.add(clothingSpinner, gbc_clothingSpinner);
+        viewPanel.add(clothingSpinner, gbc_clothingSpinner); // add to panel
 
-        SpinnerNumberModel bulletLimit = new SpinnerNumberModel(0, 0, 99, 5);
-        JSpinner bulletSpinner = new JSpinner(bulletLimit);
-        GridBagConstraints gbc_bulletSpinner = new GridBagConstraints();
-        gbc_bulletSpinner.insets = new Insets(0, 0, 0, 0);
-        gbc_bulletSpinner.gridx = 2;
-        gbc_bulletSpinner.gridy = 5;
-        bulletSpinner.setPreferredSize(new Dimension(80, 20));
-        bulletSpinner.addChangeListener(new ChangeListener() {
+        SpinnerNumberModel bulletLimit = new SpinnerNumberModel(0, 0, 99, 5); // set limit
+        JSpinner bulletSpinner = new JSpinner(bulletLimit); // new spinner
+        GridBagConstraints gbc_bulletSpinner = new GridBagConstraints(); // add gbc
+        gbc_bulletSpinner.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the spinner -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_bulletSpinner.gridx = 2; // x coordinate
+        gbc_bulletSpinner.gridy = 5; // y coordinate
+        bulletSpinner.setPreferredSize(new Dimension(80, 20)); // new dimension
+        bulletSpinner.addChangeListener(new ChangeListener() { // change listener
             @Override
             public void stateChanged(ChangeEvent e) {
-                wagon.getStore().updateCost(Inventory.BULLETS, (Integer) bulletSpinner.getValue());
-                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost()));
-                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost()));
+                wagon.getStore().updateCost(Inventory.BULLETS, (Integer) bulletSpinner.getValue()); // get value
+                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost())); // update lbl
+                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost())); // update lbl
             }
         });
-        viewPanel.add(bulletSpinner, gbc_bulletSpinner);
+        viewPanel.add(bulletSpinner, gbc_bulletSpinner); // add to panel
 
-        SpinnerNumberModel axleLimit = new SpinnerNumberModel(0, 0, 3, 1);
-        JSpinner axleSpinner = new JSpinner(axleLimit);
-        GridBagConstraints gbc_axleSpinner = new GridBagConstraints();
-        gbc_axleSpinner.insets = new Insets(0, 0, 0, 0);
-        gbc_axleSpinner.gridx = 2;
-        gbc_axleSpinner.gridy = 6;
-        axleSpinner.setPreferredSize(new Dimension(80, 20));
-        axleSpinner.addChangeListener(new ChangeListener() {
+        SpinnerNumberModel axleLimit = new SpinnerNumberModel(0, 0, 3, 1); // set limit
+        JSpinner axleSpinner = new JSpinner(axleLimit); // new spinner
+        GridBagConstraints gbc_axleSpinner = new GridBagConstraints(); // add gbc
+        gbc_axleSpinner.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the spinner -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_axleSpinner.gridx = 2; // x coordinate
+        gbc_axleSpinner.gridy = 6; // y coordinate
+        axleSpinner.setPreferredSize(new Dimension(80, 20)); // dimensions
+        axleSpinner.addChangeListener(new ChangeListener() { // change listener
             @Override
             public void stateChanged(ChangeEvent e) {
-                wagon.getStore().updateCost(Inventory.WAGON_AXLE, (Integer) axleSpinner.getValue());
-                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost()));
-                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost()));
+                wagon.getStore().updateCost(Inventory.WAGON_AXLE, (Integer) axleSpinner.getValue()); // get value
+                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost())); // update lbl
+                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost())); // update lbl
             }
         });
-        viewPanel.add(axleSpinner, gbc_axleSpinner);
+        viewPanel.add(axleSpinner, gbc_axleSpinner); // add to panel
 
-        SpinnerNumberModel tongueLimit = new SpinnerNumberModel(0, 0, 3, 1);
-        JSpinner tongueSpinner = new JSpinner(tongueLimit);
-        GridBagConstraints gbc_tongueSpinner = new GridBagConstraints();
-        gbc_tongueSpinner.insets = new Insets(0, 0, 0, 0);
-        gbc_tongueSpinner.gridx = 2;
-        gbc_tongueSpinner.gridy = 7;
-        tongueSpinner.setPreferredSize(new Dimension(80, 20));
-        tongueSpinner.addChangeListener(new ChangeListener() {
+        SpinnerNumberModel tongueLimit = new SpinnerNumberModel(0, 0, 3, 1); // set limit
+        JSpinner tongueSpinner = new JSpinner(tongueLimit); // new spinner
+        GridBagConstraints gbc_tongueSpinner = new GridBagConstraints(); // add gbc
+        gbc_tongueSpinner.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the spinner -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_tongueSpinner.gridx = 2; // x coordinates
+        gbc_tongueSpinner.gridy = 7; // y coordinates
+        tongueSpinner.setPreferredSize(new Dimension(80, 20)); // dimensions
+        tongueSpinner.addChangeListener(new ChangeListener() { // change listener
             @Override
             public void stateChanged(ChangeEvent e) {
-                wagon.getStore().updateCost(Inventory.WAGON_TONGUE, (Integer) tongueSpinner.getValue());
-                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost()));
-                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost()));
+                wagon.getStore().updateCost(Inventory.WAGON_TONGUE, (Integer) tongueSpinner.getValue()); // get value
+                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost())); // update lbl
+                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost())); // update lbl
             }
         });
-        viewPanel.add(tongueSpinner, gbc_tongueSpinner);
+        viewPanel.add(tongueSpinner, gbc_tongueSpinner); // add to panel
 
-        SpinnerNumberModel wheelLimit = new SpinnerNumberModel(0, 0, 3, 1);
-        JSpinner wheelSpinner = new JSpinner(wheelLimit);
-        GridBagConstraints gbc_wheelSpinner = new GridBagConstraints();
-        gbc_wheelSpinner.insets = new Insets(0, 0, 0, 0);
-        gbc_wheelSpinner.gridx = 2;
-        gbc_wheelSpinner.gridy = 8;
-        wheelSpinner.setPreferredSize(new Dimension(80, 20));
-        wheelSpinner.addChangeListener(new ChangeListener() {
+        SpinnerNumberModel wheelLimit = new SpinnerNumberModel(0, 0, 3, 1); // set limit
+        JSpinner wheelSpinner = new JSpinner(wheelLimit); // new spinner
+        GridBagConstraints gbc_wheelSpinner = new GridBagConstraints(); // add gbc
+        gbc_wheelSpinner.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the spinner -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_wheelSpinner.gridx = 2; // x coordinate
+        gbc_wheelSpinner.gridy = 8; // y coordinate
+        wheelSpinner.setPreferredSize(new Dimension(80, 20)); // dimension
+        wheelSpinner.addChangeListener(new ChangeListener() { // change listener
             @Override
             public void stateChanged(ChangeEvent e) {
-                wagon.getStore().updateCost(Inventory.WAGON_WHEEL, (Integer) wheelSpinner.getValue());
-                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost()));
-                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost()));
+                wagon.getStore().updateCost(Inventory.WAGON_WHEEL, (Integer) wheelSpinner.getValue()); // get value
+                priceLbl.setText("Total Cost: $" + (total + wagon.getStore().getCost())); // update lbl
+                remainingLbl.setText("Remaining Money: $" + (money - wagon.getStore().getCost())); // update lbl
             }
         });
-        viewPanel.add(wheelSpinner, gbc_wheelSpinner);
+        viewPanel.add(wheelSpinner, gbc_wheelSpinner); // add to panel 
 
-        JLabel foodTitleLbl = new JLabel("Names");
-        GridBagConstraints gbc_foodTitleLbl = new GridBagConstraints();
-        gbc_foodTitleLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_foodTitleLbl.gridx = 0;
-        gbc_foodTitleLbl.gridy = 1;
-        foodTitleLbl.setForeground(new Color(93, 199, 255));
-        foodTitleLbl.setFont(smallFont);
-        viewPanel.add(foodTitleLbl, gbc_foodTitleLbl);
+        JLabel foodTitleLbl = new JLabel("Names"); // new lbl
+        GridBagConstraints gbc_foodTitleLbl = new GridBagConstraints(); // add gbc
+        gbc_foodTitleLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_foodTitleLbl.gridx = 0; // x coordinate
+        gbc_foodTitleLbl.gridy = 1; // y coordinate
+        foodTitleLbl.setForeground(new Color(93, 199, 255)); // add color
+        foodTitleLbl.setFont(smallFont); // add font
+        viewPanel.add(foodTitleLbl, gbc_foodTitleLbl); // add to panle
 
-        JLabel priceTitleLbl = new JLabel("Prices");
-        GridBagConstraints gbc_priceTitleLbl = new GridBagConstraints();
-        gbc_priceTitleLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_priceTitleLbl.gridx = 1;
-        gbc_priceTitleLbl.gridy = 1;
-        priceTitleLbl.setForeground(new Color(93, 199, 255));
-        priceTitleLbl.setFont(smallFont);
-        viewPanel.add(priceTitleLbl, gbc_priceTitleLbl);
+        JLabel priceTitleLbl = new JLabel("Prices"); // new lbl
+        GridBagConstraints gbc_priceTitleLbl = new GridBagConstraints(); // add gbc
+        gbc_priceTitleLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_priceTitleLbl.gridx = 1; // x coordinate
+        gbc_priceTitleLbl.gridy = 1; // y coordinate
+        priceTitleLbl.setForeground(new Color(93, 199, 255)); // add color
+        priceTitleLbl.setFont(smallFont); // add font
+        viewPanel.add(priceTitleLbl, gbc_priceTitleLbl); // add to panel
 
-        JLabel amountTitleLbl = new JLabel("Purchase Amount");
-        GridBagConstraints gbc_amountTitleLbl = new GridBagConstraints();
-        gbc_amountTitleLbl.insets = new Insets(0, 0, 0, 0);
-        gbc_amountTitleLbl.gridx = 2;
-        gbc_amountTitleLbl.gridy = 1;
-        amountTitleLbl.setForeground(new Color(93, 199, 255));
-        amountTitleLbl.setFont(smallFont);
-        viewPanel.add(amountTitleLbl, gbc_amountTitleLbl);
+        JLabel amountTitleLbl = new JLabel("Purchase Amount"); // new lbl
+        GridBagConstraints gbc_amountTitleLbl = new GridBagConstraints(); // add gbc
+        gbc_amountTitleLbl.insets = new Insets(0, 0, 0, 0); // determine the amount of push to the lbl -- moving the
+        // lbl up, down, left or right by x amounnt of pixels
+        gbc_amountTitleLbl.gridx = 2; // x coordinate
+        gbc_amountTitleLbl.gridy = 1; // y coordinate
+        amountTitleLbl.setForeground(new Color(93, 199, 255)); // add color
+        amountTitleLbl.setFont(smallFont); // add font
+        viewPanel.add(amountTitleLbl, gbc_amountTitleLbl); // add to panel
 
-        viewPanel.setVisible(true);
-        viewPanel.setFocusable(true);
-        viewPanel.requestFocusInWindow();
+        viewPanel.setVisible(true); // set visible
+        viewPanel.setFocusable(true); // set focusable
+        viewPanel.requestFocusInWindow(); // request focus
     }
 
     /**
      * Resets the quantity of items to zero through the store class
      */
     public void resetStore() {
-        wagon.getStore().resetQuantity();
+        wagon.getStore().resetQuantity(); // reset quantity
     }
 
     /**
      * Receives the amount of money given to the user to start the game
      */
     private void getMoney() {
-        money = wagon.getInventory().getMoney();
+        money = wagon.getInventory().getMoney(); // get money
     }
 
     /**
@@ -445,26 +462,16 @@ public class MayasStore extends AbstractScreen {
      */
     public void updateLabel() {
         getMoney();
-        remainingLbl.setText("Remaining Money: $" + money);
+        remainingLbl.setText("Remaining Money: $" + money); // update money lbl
     }
 
-    /**
-     * resizes all images through AbstractScreen
-     */
     @Override
     public void resizeImages() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'resizeImages'");
     }
 
-    /**
-     * receive the JPanel created
-     * 
-     * @return the viewPanel
-     */
     @Override
     public JPanel getPanel() {
-        // TODO Auto-generated method stub
         return viewPanel;
     }
 }
