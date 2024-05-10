@@ -2,16 +2,17 @@ package Gameplay;
 
 import java.text.DecimalFormat;
 
-
 /**
  * Store.java
- * @author Madison Scott 
+ * 
+ * @author Madison Scott
  * @author Ethan Burch
  * @version 1.0.0 4/22/24
- * Store class handles the functionality related to purchasing items from the store.
+ *          Store class handles the functionality related to purchasing items
+ *          from the store.
  */
 
- public class Store {
+public class Store {
     // Prices of various items
     private double foodPricePerPound;
     private double oxenPrice;
@@ -20,10 +21,10 @@ import java.text.DecimalFormat;
     private double wagonWheelPrice;
     private double wagonAxlePrice;
     private double wagonTonguePrice;
-   
+
     // Total cost of the purchase
     private double totalCost;
-    
+
     // Individual costs of items
     private double foodCost;
     private double oxenCost;
@@ -45,12 +46,12 @@ import java.text.DecimalFormat;
     /**
      * Constructor initializes default prices for items.
      */
-    public Store(){
+    public Store() {
         foodPricePerPound = 0.20;
         oxenPrice = 40.0;
         clothingPrice = 10.0;
         bulletsPrice = 2.0;
-        wagonWheelPrice = 10.0;       
+        wagonWheelPrice = 10.0;
         wagonAxlePrice = 10.0;
         wagonTonguePrice = 10.0;
     }
@@ -58,7 +59,7 @@ import java.text.DecimalFormat;
     /**
      * Resets the quantity of items to zero.
      */
-    public void resetQuantity(){
+    public void resetQuantity() {
         foodQuantity = 0;
         oxenQuantity = 0;
         clothingQuantity = 0;
@@ -71,11 +72,11 @@ import java.text.DecimalFormat;
     /**
      * Updates the cost of the item based on its quantity.
      * 
-     * @param item The item to update cost for.
+     * @param item     The item to update cost for.
      * @param quantity The quantity of the item.
      */
-    public void updateCost(String item,int quantity){
-        switch(item){
+    public void updateCost(String item, int quantity) {
+        switch (item) {
             case Inventory.FOOD:
                 foodQuantity = quantity;
                 foodCost = foodPricePerPound * quantity;
@@ -102,12 +103,12 @@ import java.text.DecimalFormat;
                 break;
             case Inventory.WAGON_TONGUE:
                 wagonTongueQuantity = quantity;
-                wagonTongueCost  = wagonTonguePrice * quantity;
+                wagonTongueCost = wagonTonguePrice * quantity;
                 break;
             default:
                 totalCost = -1; // Indicate error
                 break;
-        }  
+        }
     }
 
     /**
@@ -115,7 +116,7 @@ import java.text.DecimalFormat;
      * 
      * @return The total cost of the purchase.
      */
-    public double getCost(){
+    public double getCost() {
         totalCost = foodCost + oxenCost + clothingCost + bulletCost + wagonAxleCost + wagonTongueCost + wagonWheelCost;
         DecimalFormat df = new DecimalFormat("####.##");
         totalCost = Double.valueOf(df.format(totalCost));
@@ -128,10 +129,10 @@ import java.text.DecimalFormat;
      * @param inventory The current inventory.
      * @return The updated inventory after the purchase.
      */
-    public Inventory buyMethod(Inventory inventory){
+    public Inventory buyMethod(Inventory inventory) {
         totalCost = foodCost + oxenCost + clothingCost + bulletCost + wagonAxleCost + wagonTongueCost + wagonWheelCost;
 
-        inventory.setMoney((int)(inventory.getMoney() - totalCost));
+        inventory.setMoney((int) (inventory.getMoney() - totalCost));
         inventory.setFood(inventory.getFood() + foodQuantity);
         inventory.setOxen(inventory.getOxen() + oxenQuantity);
         inventory.setClothing(inventory.getClothing() + clothingQuantity);
@@ -142,14 +143,14 @@ import java.text.DecimalFormat;
 
         return inventory;
     }
-  
+
     /**
      * Checks if the player has enough money to make the purchase.
      * 
      * @param inventory The current inventory.
      * @return True if the player has enough money, false otherwise.
      */
-    public boolean checkIfEnoughMoney(Inventory inventory){
-       return (totalCost <= inventory.getMoney());
+    public boolean checkIfEnoughMoney(Inventory inventory) {
+        return (totalCost <= inventory.getMoney());
     }
 }

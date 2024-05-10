@@ -1,9 +1,6 @@
 package Gameplay;
-import javax.swing.JOptionPane;
 
-import Gameplay.*;
-import Screens.*;
-import Hunting.*;
+import javax.swing.JOptionPane;
 
 /**
  * @File: Player.java
@@ -19,10 +16,10 @@ public class Player {
     private int sicknessCount;
     private int consumptionRate;
     private int travelSpeed;
-    private double freezeStarveFactor;
-    public static final String FILLING      = "Filling";
-    public static final String BARE_BONES   = "Bare-Bones";
-    public static final String MEAGER       = "Meager";
+    private int daysTraveled;
+    public static final String FILLING = "Filling";
+    public static final String BARE_BONES = "Bare-Bones";
+    public static final String MEAGER = "Meager";
 
     private String[] partyNames;
 
@@ -31,35 +28,51 @@ public class Player {
         this.food = 50;
         this.sicknessCount = 0;
         this.consumptionRate = 15;
-        this.freezeStarveFactor = 0;
         this.travelSpeed = 20;
+        this.daysTraveled = 0;
     }
 
-    public Player(int health, int food, int sicknessCount, int consumptionRate, int travelSpeed) {
+    public Player(int health, int food, int sicknessCount, int consumptionRate, int travelSpeed, int daysTraveled) {
         this.health = health;
         this.food = food;
         this.sicknessCount = sicknessCount;
         this.consumptionRate = consumptionRate;
         this.travelSpeed = travelSpeed;
-        this.freezeStarveFactor = 0;
+        this.daysTraveled = daysTraveled;
     }
 
-    public void setTravelSpeed(int travelSpeed){
+    public void setDaysTraveled(int daysTraveled) {
+        this.daysTraveled = daysTraveled;
+    }
+
+    public void incrementDaysTraveled() {
+        this.daysTraveled += 1;
+    }
+
+    public void incrementDaysTraveled(int daysTraveled) {
+        this.daysTraveled += daysTraveled;
+    }
+
+    public int getDaysTraveled() {
+        return daysTraveled;
+    }
+
+    public void setTravelSpeed(int travelSpeed) {
         this.travelSpeed = travelSpeed;
     }
 
-    public int getTravelSpeed(){
+    public int getTravelSpeed() {
         return travelSpeed;
     }
 
     public void setConsumption(String str) {
-        if(str.equals("Filling")) 
+        if (str.equals("Filling"))
             this.consumptionRate = 25;
-        else if (str.equals("Bare-Bones")) 
+        else if (str.equals("Bare-Bones"))
             this.consumptionRate = 20;
-        else if (str.equals("Meager")) 
+        else if (str.equals("Meager"))
             this.consumptionRate = 15;
-        else 
+        else
             this.consumptionRate = 0;
     }
 
@@ -172,15 +185,6 @@ public class Player {
         }
     }
 
-    // Method to update the freeze/starve factor
-    private void updateFreezeStarveFactor(boolean isFreezing, boolean isStarving) {
-        if (isFreezing || isStarving) {
-            freezeStarveFactor += 0.8;
-        } else {
-            freezeStarveFactor /= 2;
-        }
-    }
-
     // Method to apply the pace effect on health
     public void applyPaceEffect(String pace) {
         switch (pace) {
@@ -217,35 +221,21 @@ public class Player {
         }
     }
 
-    public String[] getPartyNames(){
+    public String[] getPartyNames() {
         return partyNames;
     }
 
-    public void setPartyNames(String[] partyNames){
+    public void setPartyNames(String[] partyNames) {
         this.partyNames = partyNames;
     }
-    // Method to simulate the chance of contracting a disease
-
-    /*
-    public void simulateDisease() {
-        int chance = (int) (Math.random() * 41); // Random number between 0 and 40
-        if (chance > 0 && chance <= 40) { // There's a 0% to 40% chance of contracting a disease
-            // Simulate disease strike
-            // Choose a party member randomly and set sickness count to 10 days
-            // Assuming partyMembers array holds all party members
-            int partyMemberIndex = (int) (Math.random() * partyMembers.length); 
-            partyMembers[partyMemberIndex].setSicknessCount(10);
-        }
-    }
-    */
 
     public static void main(String[] args) {
         Player player = new Player();
 
-        JOptionPane.showMessageDialog(null,"Player's initial health: " + player.getHealth());
-        JOptionPane.showMessageDialog(null,"Player's initial food: " + player.getFood());
+        JOptionPane.showMessageDialog(null, "Player's initial health: " + player.getHealth());
+        JOptionPane.showMessageDialog(null, "Player's initial food: " + player.getFood());
 
         player.deteriorateHealth(10); // Simulating health deterioration
-        JOptionPane.showMessageDialog(null,"Player's current health: " + player.getHealth());
+        JOptionPane.showMessageDialog(null, "Player's current health: " + player.getHealth());
     }
 }
