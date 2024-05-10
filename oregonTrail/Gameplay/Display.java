@@ -249,14 +249,6 @@ public class Display extends JFrame {
     }
 
     /**
-     * Switches to the Conditions Screen
-     */
-    public void showConditionsScreen() {
-        CardLayout cardLayout = (CardLayout) getContentPane().getLayout();
-        cardLayout.show(getContentPane(), "ConditionsScreen");
-    }
-
-    /**
      * Switches to the Landmark Screen
      */
     public void showLandmarkScreen() {
