@@ -147,9 +147,7 @@ public class BeforeLeaving extends AbstractScreen {
                 + (int) money + " in cash, but you don't have to spend it all now.<html>");
     }
 
-    /**
-     * switches the information labels text
-     */
+    
     /**
      * uses a key listener to switch to the next HTML text once the user wants to
      * continue
