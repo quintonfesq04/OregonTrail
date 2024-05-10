@@ -19,6 +19,7 @@ import Gameplay.Wagon;
  * TravelScreen.java -- the screen seen when traveling
  * 
  * @author Ethan Burch
+ * @author Quinton Fesq
  * @version 1.0.0 4/18/24
  */
 public class TravelScreen extends AbstractScreen {

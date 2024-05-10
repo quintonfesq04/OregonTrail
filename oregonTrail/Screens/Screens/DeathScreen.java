@@ -12,6 +12,7 @@ import Gameplay.PicPanel;
 /**
  * DeathScreen.java -- the screen that is shown when the player dies
  * 
+ * @author Quinton Fesq
  * @author Ethan Burch
  * @version 1.2.0 4/23/24
  */

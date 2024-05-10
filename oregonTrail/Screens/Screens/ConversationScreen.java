@@ -22,6 +22,7 @@ import Gameplay.Wagon;
  * player and people along the trail
  * 
  * @author Ethan Burch
+ * @author Quinton Fesq
  * @version 1.0.0 4/18/24
  */
 

@@ -32,6 +32,7 @@ import Gameplay.Wagon;
  * inventory and make edits to how they traverse the trail
  * 
  * @author Ethan Burch
+ * @author Quinton Fesq
  * @version 1.4.2 5/1/24
  */
 public class ControlScreen extends AbstractScreen {

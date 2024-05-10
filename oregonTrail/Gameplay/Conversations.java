@@ -4,6 +4,7 @@ package Gameplay;
  * Conversations.java
  * 
  * @author Lane Kanagy
+ * @author Quinton Fesq
  * @author Ethan Burch
  * @version 1.4.0 5/1/24
  */

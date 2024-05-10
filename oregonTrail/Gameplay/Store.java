@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
  * Store.java
  * 
  * @author Madison Scott
+ * @author Quinton Fesq
  * @author Ethan Burch
  * @version 1.0.0 4/22/24
  *          Store class handles the functionality related to purchasing items

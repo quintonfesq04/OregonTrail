@@ -28,6 +28,7 @@ import Gameplay.Wagon;
 /**
  * StoreScreen.java -- a screen for when the player enters a store
  * 
+ * @author Quinton Fesq
  * @author Ethan Burch
  * @version 1.4.0 4/23/24
  */

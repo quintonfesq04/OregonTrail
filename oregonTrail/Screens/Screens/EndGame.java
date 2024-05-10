@@ -18,6 +18,12 @@ import Gameplay.Display;
 import Gameplay.PicPanel;
 import Gameplay.Wagon;
 
+/**
+ * EndGame.java -- You Reached Oregon!!
+ * 
+ * @author Quinton Fesq
+ * @version 1.0.0 05/07/2024
+ */
 public class EndGame extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Oregon.jpg"));
 

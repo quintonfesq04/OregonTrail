@@ -19,6 +19,12 @@ import Gameplay.Inventory;
 import Gameplay.PicPanel;
 import Gameplay.Wagon;
 
+/**
+ * ForagingScreen.java -- allows the user to get food by foraging along their journey
+ * 
+ * @author Quinton Fesq
+ * @version 1.0.0 05/06/2024
+ */
 public class ForagingScreen extends AbstractScreen {
     PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
     JLabel text = new JLabel("");
