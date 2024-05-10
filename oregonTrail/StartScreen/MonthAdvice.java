@@ -18,6 +18,12 @@ import Gameplay.PicPanel;
 import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
+/**
+ * MonthAdvice.java -- Provides the user with an HTML text that informs the user which money they should select
+ * 
+ * @author Quinton Fesq
+ * @version 1.0.0 05/02/2024
+ */
 public class MonthAdvice extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
 
@@ -28,6 +34,13 @@ public class MonthAdvice extends AbstractScreen {
     private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 
+    /**
+     * Constructor for the MonthAdvice object
+     * 
+     * @param wagon
+     * @param display
+     * @param chooseMonth
+     */
     public MonthAdvice(Wagon wagon, Display display, ChooseMonth chooseMonth) {
         this.wagon = wagon;
         this.display = display;
@@ -35,6 +48,9 @@ public class MonthAdvice extends AbstractScreen {
         initialize();
     }
 
+    /**
+     * Initializes the MonthAdvice constructor
+     */
     @Override
     protected void initialize() {
         viewPanel.setFocusable(true);
@@ -80,6 +96,9 @@ public class MonthAdvice extends AbstractScreen {
         });
     }
 
+    /**
+     * resizes all images through AbstractScreen
+     */
     @Override
     public void resizeImages() {
         // TODO Auto-generated method stub
@@ -87,6 +106,11 @@ public class MonthAdvice extends AbstractScreen {
 
     }
 
+    /**
+     * receive the JPanel created
+     * 
+     * @return the viewPanel
+     */
     @Override
     public JPanel getPanel() {
         // TODO Auto-generated method stub

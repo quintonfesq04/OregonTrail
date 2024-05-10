@@ -19,6 +19,12 @@ import Gameplay.PicPanel;
 import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
+/**
+ * WagonNames.java -- Provides the user with a prompt to enter the names of the players who will be traveling the trail
+ * 
+ * @author Quinton Fesq
+ * @version 1.0.0 05/02/2024
+ */
 public class WagonNames extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
     private static final int TEXT_FIELD_MAX = 20;
@@ -41,6 +47,12 @@ public class WagonNames extends AbstractScreen {
     private boolean firstNameEntered = false;
     private String[] partyNames = { "", "", "", "", "" };
 
+    /**
+     * Constructor for the WagonNames object
+     * 
+     * @param wagon
+     * @param display
+     */
     public WagonNames(Wagon wagon, Display display) {
         this.wagon = wagon;
         this.display = display;
@@ -48,6 +60,7 @@ public class WagonNames extends AbstractScreen {
     }
 
     /**
+     * Initializes the WagonNames Display
      * @wbp.parser.entryPoint
      */
     protected void initialize() {
@@ -341,6 +354,9 @@ public class WagonNames extends AbstractScreen {
         });
     }
 
+    /**
+     * Resets the screen to allow the user to change the names if the no button is pressed
+     */
     private void resetScreen() {
         viewPanel.removeAll();
         // add your elements
@@ -350,6 +366,9 @@ public class WagonNames extends AbstractScreen {
         initialize();
     }
 
+    /**
+     * resizes all images through AbstractScreen
+     */
     @Override
     public void resizeImages() {
         // TODO Auto-generated method stub
@@ -357,9 +376,14 @@ public class WagonNames extends AbstractScreen {
 
     }
 
+    /**
+     * receive the JPanel created
+     * 
+     * @return the viewPanel
+     */
     @Override
     public JPanel getPanel() {
         // TODO Auto-generated method stub
         return viewPanel;
     }
-}
+}   

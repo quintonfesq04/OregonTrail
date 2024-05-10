@@ -26,6 +26,12 @@ import Gameplay.PicPanel;
 import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
+/**
+ * MayasStore.java -- Provides the user with the first general store of the game before they leave independence
+ * 
+ * @author Quinton Fesq
+ * @version 1.0.0 05/02/2024
+ */
 public class MayasStore extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
 
@@ -48,12 +54,21 @@ public class MayasStore extends AbstractScreen {
     private double total = 0;
     private double spentMoney;
 
+    /**
+     * Constructor for the MayasStore object
+     * 
+     * @param wagon
+     * @param display
+     */
     public MayasStore(Wagon wagon, Display display) {
         this.wagon = wagon;
         this.display = display;
         initialize();
     }
 
+    /**
+     * Initializes the MayasStore Display
+     */
     @Override
     protected void initialize() {
         viewPanel.setFocusable(true);
@@ -394,25 +409,42 @@ public class MayasStore extends AbstractScreen {
         viewPanel.requestFocusInWindow();
     }
 
+    /**
+     * Resets the quantity of items to zero through the store class
+     */
     public void resetStore() {
         wagon.getStore().resetQuantity();
     }
 
+    /**
+     * Receives the amount of money given to the user to start the game
+     */
     private void getMoney() {
         money = wagon.getInventory().getMoney();
     }
 
+    /**
+     * Sets the label with the amount of money given to the user
+     */
     public void updateLabel() {
         getMoney();
         remainingLbl.setText("Remaining Money: $" + money);
     }
 
+    /**
+     * resizes all images through AbstractScreen
+     */
     @Override
     public void resizeImages() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'resizeImages'");
     }
 
+    /**
+     * receive the JPanel created
+     * 
+     * @return the viewPanel
+     */
     @Override
     public JPanel getPanel() {
         // TODO Auto-generated method stub

@@ -19,6 +19,12 @@ import Gameplay.Wagon;
 import Screens.AbstractScreen;
 import Screens.TravelScreen;
 
+/**
+ * LeaveIndependence.java -- A series of HTML text that alerts the user that the game is about the begin
+ * 
+ * @author Quinton Fesq
+ * @version 1.0.0 05/02/2024
+ */
 public class LeaveIndependence extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
 
@@ -35,6 +41,13 @@ public class LeaveIndependence extends AbstractScreen {
     private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 
+    /**
+     * Constructor for the LeaveIndependence objecct
+     * 
+     * @param wagon
+     * @param display
+     * @param travelScreen
+     */
     public LeaveIndependence(Wagon wagon, Display display, TravelScreen travelScreen) {
         this.wagon = wagon;
         this.display = display;
@@ -42,6 +55,9 @@ public class LeaveIndependence extends AbstractScreen {
         initialize();
     }
 
+    /**
+     * Initialize the LeaveIndependence Display
+     */
     @Override
     protected void initialize() {
         viewPanel.setFocusable(true);
@@ -96,6 +112,9 @@ public class LeaveIndependence extends AbstractScreen {
         });
     }
 
+    /**
+     * switches to the next group of text before starting the game
+     */
     private void switchLabel() {
         switch (instructionScreen) {
             case 0:
@@ -111,6 +130,9 @@ public class LeaveIndependence extends AbstractScreen {
         }
     }
 
+    /**
+     * resizes all images through AbstractScreen
+     */
     @Override
     public void resizeImages() {
         // TODO Auto-generated method stub
@@ -118,6 +140,11 @@ public class LeaveIndependence extends AbstractScreen {
 
     }
 
+    /**
+     * receive the JPanel created
+     * 
+     * @return the viewPanel
+     */
     @Override
     public JPanel getPanel() {
         // TODO Auto-generated method stub

@@ -19,6 +19,13 @@ import Gameplay.PicPanel;
 import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
+/**
+ * TheOregonTrail.java -- Provides the user with a combobox list of choices that determine what the user does
+ * the user has the option to start the game, learn the game, or end the game
+ * 
+ * @author Quinton Fesq
+ * @version 1.0.0 05/02/2024
+ */
 public class TheOregonTrail extends AbstractScreen {
 	protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
 
@@ -110,6 +117,9 @@ public class TheOregonTrail extends AbstractScreen {
 
 	}
 
+	/**
+	 * resizes all images through AbstractScreen
+	 */
 	@Override
 	public void resizeImages() {
 		// TODO Auto-generated method stub
@@ -117,6 +127,11 @@ public class TheOregonTrail extends AbstractScreen {
 
 	}
 
+	/**
+	 * receive the JPanel created
+	 * 
+	 * @return the viewPanel
+	 */
 	@Override
 	public JPanel getPanel() {
 		// TODO Auto-generated method stub

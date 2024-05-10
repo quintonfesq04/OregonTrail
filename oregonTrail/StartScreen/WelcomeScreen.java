@@ -16,6 +16,12 @@ import Gameplay.PicPanel;
 import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
+/**
+ * WelcomeScreen.java -- the first screen when the application is opened
+ * 
+ * @author Quinton Fesq
+ * @version 1.0.0 05/02/24
+ */
 public class WelcomeScreen extends AbstractScreen {
 	protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
 
@@ -68,6 +74,9 @@ public class WelcomeScreen extends AbstractScreen {
 		});
 	}
 
+	/**
+	 * resizes all images through AbstractScreen
+	 */
 	@Override
 	public void resizeImages() {
 		// TODO Auto-generated method stub
@@ -75,6 +84,11 @@ public class WelcomeScreen extends AbstractScreen {
 
 	}
 
+	/**
+	 * receive the JPanel created
+	 * 
+	 * @return the viewPanel
+	 */
 	@Override
 	public JPanel getPanel() {
 		// TODO Auto-generated method stub

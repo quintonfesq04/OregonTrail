@@ -18,6 +18,13 @@ import Gameplay.PicPanel;
 import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
+/**
+ * LearnTrail.java -- Provides the user with a series of HTML text that explain
+ * the journey they are about to take in our game
+ * 
+ * @author Quinton Fesq
+ * @version 1.0.0 05/02/2024
+ */
 public class LearnTrail extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
     private JLabel infoLbl = new JLabel(
@@ -95,6 +102,10 @@ public class LearnTrail extends AbstractScreen {
 
     }
 
+    /**
+     * uses a key listener to switch to the next HTML text once the user wants to
+     * continue
+     */
     private void switchLabel() {
         switch (instructionScreen) {
             case 0:
@@ -144,12 +155,20 @@ public class LearnTrail extends AbstractScreen {
         }
     }
 
+    /**
+     * resizes all images through AbstractScreen
+     */
     @Override
     public void resizeImages() {
         viewPanel.resizeImage();
 
     }
 
+    /**
+     * receive the JPanel created
+     * 
+     * @return the viewPanel
+     */
     @Override
     public JPanel getPanel() {
         return viewPanel;

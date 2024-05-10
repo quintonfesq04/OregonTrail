@@ -18,6 +18,12 @@ import Gameplay.PicPanel;
 import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
+/**
+ * GroupInfo.java -- Provides the user with HTML text that tell the user what each role provides them
+ * 
+ * @author Quinton Fesq
+ * @version 1.0.0 05/02/2024
+ */
 public class GroupInfo extends AbstractScreen {
     protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
 
@@ -33,6 +39,13 @@ public class GroupInfo extends AbstractScreen {
     private Font titleFont = new Font("Trajan Pro", Font.PLAIN, 24);
     private Font smallFont = new Font("Trajan Pro", Font.PLAIN, 16);
 
+    /**
+     * Constructor for the GroupInfo object
+     * 
+     * @param wagon
+     * @param display
+     * @param trailScreen
+     */
     public GroupInfo(Wagon wagon, Display display, TrailScreen trailScreen) {
         this.wagon = wagon;
         this.display = display;
@@ -40,6 +53,9 @@ public class GroupInfo extends AbstractScreen {
         initialize();
     }
 
+    /**
+     * Initializes the GroupInfo Display
+     */
     @Override
     protected void initialize() {
         viewPanel.setFocusable(true);
@@ -83,6 +99,9 @@ public class GroupInfo extends AbstractScreen {
         });
     }
 
+    /**
+     * Resizes all images through AbstractScreen
+     */
     @Override
     public void resizeImages() {
         // TODO Auto-generated method stub
@@ -90,6 +109,11 @@ public class GroupInfo extends AbstractScreen {
 
     }
 
+    /**
+     * receive the JPanel created
+     * 
+     * @return the viewPanel
+     */
     @Override
     public JPanel getPanel() {
         // TODO Auto-generated method stub

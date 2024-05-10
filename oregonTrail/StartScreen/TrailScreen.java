@@ -21,6 +21,9 @@ import Gameplay.PicPanel;
 import Gameplay.Wagon;
 import Screens.AbstractScreen;
 
+/**
+ * TrailScreen.java -- 
+ */
 public class TrailScreen extends AbstractScreen {
 	protected PicPanel viewPanel = new PicPanel(new File("Images/Background.jpg"));
 
