@@ -108,7 +108,7 @@ public class Display extends JFrame {
         tradeScreen = new TradeScreen(wagon, this);
         getContentPane().add(tradeScreen.getPanel(), "TradeScreen");
 
-        controlScreen = new ControlScreen(wagon, this, foragingScreen);
+        controlScreen = new ControlScreen(wagon, this);
         getContentPane().add(controlScreen.getPanel(), "ControlScreen");
 
         conversationScreen = new ConversationScreen(wagon, this);
