@@ -39,8 +39,6 @@ public class ControlScreen extends AbstractScreen {
 
     private Wagon wagon;
     private Display display;
-    private ForagingScreen foragingScreen;
-    private Player player;
 
     private JLabel foodLbl;
     private JLabel moneyLbl;
@@ -58,16 +56,22 @@ public class ControlScreen extends AbstractScreen {
     private JRadioButton bareBonesBtn;
     private JRadioButton fillingBtn;
     private JSlider slider;
-    private boolean haveRan;
     private final ButtonGroup buttonGroup = new ButtonGroup();
 
-    public ControlScreen(Wagon wagon, Display display, ForagingScreen foragingScreen) {
+    /**
+     * Constructor of a ControlScreen Object
+     * @param wagon the wagon used by this class
+     * @param display the display that is showing this class
+     */
+    public ControlScreen(Wagon wagon, Display display) {
         this.wagon = wagon;
         this.display = display;
-        this.foragingScreen = foragingScreen;
         initialize();
     }
 
+    /**
+     * Initializes the JPanel returned by this class
+     */
     @Override
     protected void initialize() {
         viewPanel.setFocusable(true);
@@ -269,6 +273,9 @@ public class ControlScreen extends AbstractScreen {
         });
     }
 
+    /**
+     * Updates the display with new information
+     */
     public void updateDisplay() {
         moneyLbl.setText("Money:" + wagon.getInventory().getMoney());
         oxenLbl.setText("Oxen:" + wagon.getInventory().getOxen());
@@ -280,11 +287,19 @@ public class ControlScreen extends AbstractScreen {
         tongueLbl.setText("Wagon Tongues:" + wagon.getInventory().getWagonTongue());
     }
 
+    /**
+     * resizes the images contained within the JPanel
+     */
     @Override
     public void resizeImages() {
         // TODO: Implement resizing of images
     }
 
+    /**
+     * Returns the JPanel from this class
+     * 
+     * @return the JPanel created by this class
+     */
     @Override
     public JPanel getPanel() {
         return viewPanel;
