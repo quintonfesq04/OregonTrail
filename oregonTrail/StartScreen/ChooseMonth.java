@@ -85,6 +85,7 @@ public class ChooseMonth extends AbstractScreen {
         comboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                @SuppressWarnings("unchecked")
                 JComboBox<String> combo = (JComboBox<String>) e.getSource();
                 String selectedOption = (String) combo.getSelectedItem();
                 // Check which item is selected and perform action accordingly

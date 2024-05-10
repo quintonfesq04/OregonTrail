@@ -35,8 +35,6 @@ public class TrailScreen extends AbstractScreen {
 
 	private String selectedOption;
 
-	private String choice;
-
 	/**
 	 * Create the application.
 	 */
@@ -90,6 +88,7 @@ public class TrailScreen extends AbstractScreen {
 		comboBox.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				@SuppressWarnings("unchecked")
 				JComboBox<String> combo = (JComboBox<String>) e.getSource();
 				selectedOption = (String) combo.getSelectedItem();
 				// Check which item is selected and perform action accordingly
@@ -136,7 +135,7 @@ public class TrailScreen extends AbstractScreen {
 	}
 
 	public String setChoice() {
-		return this.choice = selectedOption;
+		return selectedOption;
 	}
 
 	@Override
