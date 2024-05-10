@@ -1,19 +1,16 @@
 package Gameplay;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
+
 
 /**
  * PicPanel.java - Creates a JPanel whose background can be set to an image
- * 
  * @author Ethan Burch
  * @author Quinton Fesq
  * @version 1.2.0 4/14/24
@@ -23,7 +20,6 @@ public class PicPanel extends JPanel {
 
     /**
      * Constructor for PicPanel object
-     * 
      * @param imageFile the image for the background
      */
     public PicPanel(File imageFile) {
@@ -38,7 +34,7 @@ public class PicPanel extends JPanel {
      * Blank constructor for the Cloud class to extend from
      * If using this constructor setImage must be called
      */
-    public PicPanel() {
+    public PicPanel(){
 
     }
 
@@ -66,27 +62,26 @@ public class PicPanel extends JPanel {
 
     /**
      * sizes the image to provided dimensions
-     * 
-     * @param newW the new Width for the image
-     * @param newH the new Height fot the image
+     * @param newW  the new Width for the image
+     * @param newH  the new Height fot the image
      */
-    public void resizeImage(int newW, int newH) {
-        if (backgroundImage != null) {
-            if (newW > 0 && newH > 0)
-                backgroundImage = resize(backgroundImage, newH, newH);
+    public void resizeImage(int newW, int newH){
+        if(backgroundImage != null){
+            if(newW > 0 && newH > 0)
+                backgroundImage = resize(backgroundImage,newH, newH);
             else
-                JOptionPane.showMessageDialog(null, "Image cannot have dimensions that are less than or equal to 0");
-        } else
+                JOptionPane.showMessageDialog(null,"Image cannot have dimensions that are less than or equal to 0");
+        }
+        else
             JOptionPane.showMessageDialog(null, "Image Resize Error: backgroundImage = null");
     }
 
     /**
      * resizes the background image
-     * 
-     * @param backgroundImage The image to be resized
-     * @param newW            The new width for the resized image
-     * @param newH            The new height for the resized image
-     * @return The resized image
+     * @param backgroundImage   The image to be resized
+     * @param newW              The new width for the resized image
+     * @param newH              The new height for the resized image
+     * @return                  The resized image
      */
     protected BufferedImage resize(Image backgroundImage, int newW, int newH) {
         Image tmp = backgroundImage.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
@@ -97,7 +92,7 @@ public class PicPanel extends JPanel {
         return resizedImg;
     }
 
-    public void setImage(File file) {
+    public void setImage(File file){
         try {
             backgroundImage = ImageIO.read(file);
             repaint();
